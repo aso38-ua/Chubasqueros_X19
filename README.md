@@ -1,12 +1,12 @@
 # Chubasqueros para peces
 Miembros:<br>
-48793033M <b>(Coordinador)</b><br>
-23902032H<br>
-20930178V<br>
-53977393G<br>
-46083607W<br>
-53247376F<br>
-77853871K<br>
+Alberto Sáez Orts-48793033M <b>(Coordinador)</b><br>
+Javier Sánchez Felipe-23902032H<br>
+Fátima María Pelegrín Pelegrín-20930178V<br>
+María Jover Espí-53977393G<br>
+María Yaru Puche Sanchiz-46083607W<br>
+Cristopher Soto Martínez-53247376F<br>
+Joan Catasús Quesada-77853871K<br>
 ## Descripcion
 El proyecto consistirá en una tienda de animales enfocada a la venta de accesorios para estos, especialmente para los peces y demás habitantes de mares, ríos océanos y sobretodo, peceras; únicamente los usuarios registrados podrán comprar en la web, a pesar de no poder comprar
 el usuario no registrado podrá acceder a la página sin problema y poder seguir navegando, pero sin contar con una serie de ventajas con las que contarán los registrados. Además de contar con una jerarquía dentro de este
@@ -15,8 +15,8 @@ proyecto para controlar quien tiene un acceso especial; la jerarquía consta de 
 Ver los accesorios.<br>
 Opción de registro y así poder acceder a la parte privada.<br>
 Ver los comentarios de los productos.<br>
-Ver las ofertas que hay de un determinado producto<br>
-Si un usuario está registrado y quiere acceder a su cuenta, habrá disponible un login para entrar a la misma
+Ver las ofertas que hay de un determinado producto.<br>
+Si un usuario está registrado y quiere acceder a su cuenta, habrá disponible un login para entrar a la misma.
 
 ## Listado EN Público
 ENProducto, se guardará la información necesaria para mostrar los accesorios.<br>
