@@ -1,6 +1,6 @@
 # Chubasqueros para peces
 Miembros:<br>
-48793033M <b>(Coordinador)<br>
+48793033M <b>(Coordinador)<b><br>
 23902032H<br>
 20930178V<br>
 53977393G<br>
