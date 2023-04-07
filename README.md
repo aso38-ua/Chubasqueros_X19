@@ -45,4 +45,7 @@ ENForo, se podrán añadir mensajes al foro.<br>
 
 ## Posibles mejoras
 Doble verificación en el login.<br>
-Cambio de idioma.
+Cambio de idioma.<br>
+Mostrar una imagen/vídeo de carga en la web.<br>
+Buscador en la web.<br>
+
