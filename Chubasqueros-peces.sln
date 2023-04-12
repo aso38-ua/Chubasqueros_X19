@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chubasqueros-peces", "Chubasqueros-peces\Chubasqueros-peces.csproj", "{0FEF3395-20A8-4820-B310-BACB61A65A9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library", "library\library.csproj", "{3E5517A9-966C-4C08-B293-EB81F3F5516C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FEF3395-20A8-4820-B310-BACB61A65A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEF3395-20A8-4820-B310-BACB61A65A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEF3395-20A8-4820-B310-BACB61A65A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEF3395-20A8-4820-B310-BACB61A65A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E5517A9-966C-4C08-B293-EB81F3F5516C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E5517A9-966C-4C08-B293-EB81F3F5516C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E5517A9-966C-4C08-B293-EB81F3F5516C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E5517A9-966C-4C08-B293-EB81F3F5516C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {292D3482-C25E-4DE0-AE0E-FA7F2EF7B42D}
+	EndGlobalSection
+EndGlobal
