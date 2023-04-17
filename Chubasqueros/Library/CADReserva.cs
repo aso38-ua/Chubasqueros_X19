@@ -63,7 +63,7 @@ namespace Library
                     en.cantidadp = int.Parse(consultabusqueda["cantidad"].ToString());
                     en.fechap = consultabusqueda["fecha"].ToString();
                     en.productop = consultabusqueda["producto"].ToString();
-                    en.usuariop = consultabusqueda["ususario"].ToString();
+                    en.usuariop = consultabusqueda["usuario"].ToString();
                 }
 
                 consultabusqueda.Close();
@@ -136,5 +136,4 @@ namespace Library
             return borrado;
         }
     }
-}
 }

@@ -47,15 +47,15 @@ namespace Library
 
         public bool createReserva()
         {
-            CADReserva usuario = new CADReserva();
-            bool creado = usuario.createReserva(this);
+            CADReserva reserva = new CADReserva();
+            bool creado = reserva.createReserva(this);
             return creado;
         }
 
         public bool readReserva()
         {
-            CADReserva usuario = new CADReserva();
-            bool leido = usuario.readReserva(this);
+            CADReserva reserva = new CADReserva();
+            bool leido = reserva.readReserva(this);
             return leido;
         }
 
