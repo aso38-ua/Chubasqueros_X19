@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="CADPuntuacion.cs" />
+    <Compile Include="CADComentario.cs" />
+    <Compile Include="ENPuntuacion.cs" />
+    <Compile Include="ENComentario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
