@@ -58,7 +58,7 @@ namespace Library
             bool leido = false;
             try
             {
-                String consultaString = "SELECT * FROM [dbo].[Reservas] WHERE usuario = '" + en.usuariop + "';";
+                String consultaString = "SELECT * FROM [dbo].[Favoritos] WHERE usuario = '" + en.usuariop + "';";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
