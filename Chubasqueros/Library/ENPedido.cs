@@ -11,6 +11,23 @@ namespace Library
         private int cantidad;
         private float total; //precio total
         private int numprod; //numero de productos totales que hay
+        public int c
+        {
+            get { return cantidad; }
+            set { cantidad = value; }
+        }
+
+        public float t
+        {
+            get { return total; }
+            set { total = value; }
+        }
+
+        public int n
+        {
+            get { return numprod; }
+            set { numprod = value; }
+        }
         public ENPedido()
         {
             cantidad = 0;
@@ -27,7 +44,9 @@ namespace Library
 
         public bool leerPedido()
         {
-            return true;
+            CADPedido pedido = new CADPedido();
+            bool leer = pedido.leerPedido(this);
+            return leer;
         }
         public bool crearPedido()
         {
@@ -40,14 +59,41 @@ namespace Library
             return crear;
         }
 
-       
-
         public bool actualizarPedido()
         {
-            return true;
+            ENPedido ped = new ENPedido();
+            CADPedido pedido = new CADPedido();
+            bool actualizar = false;
+
+            ped.cantidad = this.cantidad;
+            ped.total = this.total;
+            ped.numprod = this.numprod;
+
+            if (pedido.leerPedido(this))
+            {
+                this.cantidad = ped.cantidad;
+                this.total = ped.total;
+                this.numprod = ped.numprod;
+                actualizar = pedido.actualizarPedido(this);
+            }
+            return actualizar;
         }
 
         public bool eliminarPedido()
+        {
+            CADPedido pedido = new CADPedido();
+            bool eliminar = false;
+            if (!pedido.leerPedido(this))
+            {
+                eliminar = pedido.eliminarPedido(this);
+            }
+            return eliminar;
+        }
+
+        
+
+        //Añadir producto al carrito
+        public bool añadirProducto()
         {
             return true;
         }
@@ -55,12 +101,6 @@ namespace Library
         public int cuentaCantidad()
         {
             return 0;
-        }
-
-        //Añadir producto al carrito
-        public bool AñadirProducto()
-        {
-            return true;
         }
 
         //Eliminar producto del carrito

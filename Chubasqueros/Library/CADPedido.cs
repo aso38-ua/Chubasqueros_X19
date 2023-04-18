@@ -28,12 +28,12 @@ namespace Library
             return true;
         }
 
-        public bool eliminarPedido(ENCarrito c)
+        public bool eliminarPedido(ENPedido p)
         {
             return true;
         }
 
-        public bool actualizarPedido(ENCarrito c)
+        public bool actualizarPedido(ENPedido p)
         {
             return true;
         }
