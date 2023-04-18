@@ -30,28 +30,84 @@ namespace library
             set { id_user = value; }
         }
 
+        public ENPuntuacion()
+        {
+            aux_estrella = 0;
+            aux_item = "";
+            aux_id_user = "";
+        }
+
+        public ENPuntuacion(int estrella, string item, string id_user)
+        {
+            aux_estrella = estrella;
+            aux_item = item;
+            aux_id_user = id_user;
+        }
+
+        public ENPuntuacion(ENPuntuacion en)
+        {
+            aux_estrella = en.aux_estrella;
+            aux_item = en.aux_item;
+            aux_id_user = en.aux_id_user;
+        }
         public bool createPuntuacion()
         {
             bool puntuar = false;
+            ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+           /* ENProducto aux_EN_Prod = new ENProducto(item);
+            CADProducto aux_CAD_Prod = new CADProducto();
+            ENUsuario aux_EN_User = new ENUsuario(id_user);
+            ENUsuario aux_CAD_User = new CADUsuario();
+            if (aux_CAD_Prod.read(aux_EN_Prod) && aux_CAD_User.read(aux_EN_User))
+            {
+                puntuar = aux_CAD_Pun.createPuntuacion(this);
+            }*/
             return puntuar;
         }
 
         public bool eliminatePuntuacion()
         {
             bool eliminate = false;
+            ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            if (aux_CAD_Pun.findItem(aux_EN_Pun))
+            {
+                eliminate = aux_CAD_Pun.eliminatePuntuacion(this);
+            }
             return eliminate;
         }
 
         public bool changePuntuacion()
         {
             bool change = false;
+            ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            if (aux_CAD_Pun.findItem(aux_EN_Pun))
+            {
+                change = aux_CAD_Pun.changePuntuacion(this);
+            }
             return change;
         }
 
         public bool mediaPuntuacion()
         {
             bool media = false;
+            ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            if (aux_CAD_Pun.findItem(aux_EN_Pun))
+            {
+                media = aux_CAD_Pun.changePuntuacion(this);
+            }
             return media;
+        }
+
+        public bool findItem()
+        {
+            bool find = false;
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            find = aux_CAD_Pun.findItem(this);
+            return find;
         }
     }
 }

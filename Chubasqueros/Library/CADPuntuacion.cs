@@ -42,5 +42,11 @@ namespace library
             bool media = false;
             return media;
         }
+
+        public bool findItem(ENPuntuacion en)
+        {
+            bool find = false;
+            return find;
+        }
     }
 }
