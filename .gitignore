@@ -1,2 +1,4 @@
-Library/obj/Debug/
-.vs/
+Chubasqueros/Library/obj/Debug/
+/.vs
+/Chubasqueros/.vs/Chubasqueros/v16
+/Chubasqueros/Library/obj/Release
