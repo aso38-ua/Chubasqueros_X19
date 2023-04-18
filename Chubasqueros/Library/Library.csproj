@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CADPedido.cs" />
+    <Compile Include="ENPedido.cs" />
     <Compile Include="CADCarrito.cs" />
     <Compile Include="ENCarrito.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

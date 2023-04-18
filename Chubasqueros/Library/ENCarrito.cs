@@ -9,7 +9,7 @@ namespace Library
     public class ENCarrito
     {
         private int cantidad;
-        private int total; //precio total
+        private float total; //precio total
         private int numprod; //numero de productos totales que hay
 
 
@@ -19,7 +19,7 @@ namespace Library
             set { cantidad = value; }
         }
 
-        public int t
+        public float t
         {
             get { return total; }
             set { total = value; }
@@ -47,49 +47,98 @@ namespace Library
             t = tot;
             n = np;
         }
+        public bool verCarrito()
+        {
+            CADCarrito carrito = new CADCarrito();
+            bool ver = carrito.verCarrito(this);
+            return ver;
+        }
+        public bool crearCarrito()
+        {
+            CADCarrito carrito = new CADCarrito();
+            bool crear = false;
+            if (!carrito.verCarrito(this))
+            {
+                crear = carrito.crearCarrito(this);
+            }
+            return crear;
+        }
+
+        public bool eliminarCarrito()
+        {
+            CADCarrito carrito = new CADCarrito();
+            bool eliminar = false;
+            if (!carrito.verCarrito(this))
+            {
+                eliminar = carrito.eliminarCarrito(this);
+            }
+            return eliminar;
+        }
+        
+        public bool actualizarCarrito()
+        {
+            ENCarrito carro = new ENCarrito();
+            CADCarrito carrito = new CADCarrito();
+            bool actualizar = false;
+
+            carro.cantidad = this.cantidad;
+            carro.total = this.total;
+            carro.numprod = this.numprod;
+
+            if (carrito.verCarrito(this))
+            {
+                this.cantidad = carro.cantidad;
+                this.total = carro.total;
+                this.numprod = carro.numprod;
+                actualizar = carrito.actualizarCarrito(this);
+            }
+            return actualizar;
+        }
+
+       
 
         //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
         public int cuentaCantidad()
         {
-
+            return 0;
         }
 
         //Añadir producto al carrito
-        public AñadirProducto()
+        public bool AñadirProducto()
         {
-
+            return true;
         }   
 
         //Eliminar producto del carrito
-        public EliminarProducto()
+        public bool EliminarProducto()
         {
-
+            return true;
         }
 
         //Sacar el producto de la cesta y guardarlo en un subcarrito aparte
-        public GuardarProducto()
+        public bool GuardarProducto()
         {
-
-        }
+            return true;
+         }
 
 
         //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
         public int ProductosTotales()
         {
-
+            return 0;
         }
 
         //Calcula el precio total que hay en el carrito
-        public int PrecioTotal()
+        public float PrecioTotal()
         {
-
+            return 0;
         }
 
 
         //Boton de comprar exclusivo para carrito
-        public Comprar()
+        public bool Comprar()
         {
-
+            return true;
         }
    
 

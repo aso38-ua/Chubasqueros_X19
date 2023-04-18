@@ -12,28 +12,28 @@ using System.Configuration;
 
 namespace Library
 {
-    class CADCarrito
+    class CADPedido
     {
         private String conection; //Conexion con la BB.DD
-        public CADCarrito()
+        public CADPedido()
         {
-            
+
         }
-        public bool verCarrito(ENCarrito c)
+        public bool leerPedido(ENPedido p)
         {
             return true;
         }
-        public bool crearCarrito(ENCarrito c)
+        public bool crearPedido(ENPedido p)
         {
             return true;
         }
 
-        public bool eliminarCarrito(ENCarrito c)
+        public bool eliminarPedido(ENCarrito c)
         {
             return true;
         }
 
-        public bool actualizarCarrito(ENCarrito c)
+        public bool actualizarPedido(ENCarrito c)
         {
             return true;
         }
@@ -55,13 +55,6 @@ namespace Library
         {
             return true;
         }
-
-        //Sacar el producto de la cesta y guardarlo en un subcarrito aparte
-        public bool GuardarProducto()
-        {
-            return true;
-        }
-
 
         //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
         public int ProductosTotales()

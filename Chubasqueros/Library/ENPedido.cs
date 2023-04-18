@@ -3,42 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlTypes;
-using System.Data.SqlClient;
-using System.Data.Common;
-using System.Data;
-using System.Configuration;
-
 
 namespace Library
 {
-    class CADCarrito
+    public class ENPedido
     {
-        private String conection; //Conexion con la BB.DD
-        public CADCarrito()
+        private int cantidad;
+        private float total; //precio total
+        private int numprod; //numero de productos totales que hay
+        public ENPedido()
         {
-            
+            cantidad = 0;
+            total = 0;
+            numprod = 0;
         }
-        public bool verCarrito(ENCarrito c)
+
+        public ENPedido(int CANT, float TOT, int NUMPROD)
+        {
+            CANT = cantidad;
+            TOT = total;
+            NUMPROD = numprod;
+        }
+
+        public bool leerPedido()
         {
             return true;
         }
-        public bool crearCarrito(ENCarrito c)
+        public bool crearPedido()
+        {
+            CADPedido pedido = new CADPedido();
+            bool crear = false;
+            if (!pedido.leerPedido(this))
+            {
+                crear = pedido.crearPedido(this);
+            }
+            return crear;
+        }
+
+       
+
+        public bool actualizarPedido()
         {
             return true;
         }
 
-        public bool eliminarCarrito(ENCarrito c)
+        public bool eliminarPedido()
         {
             return true;
         }
 
-        public bool actualizarCarrito(ENCarrito c)
-        {
-            return true;
-        }
-
-        //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
         public int cuentaCantidad()
         {
             return 0;
@@ -56,13 +69,6 @@ namespace Library
             return true;
         }
 
-        //Sacar el producto de la cesta y guardarlo en un subcarrito aparte
-        public bool GuardarProducto()
-        {
-            return true;
-        }
-
-
         //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
         public int ProductosTotales()
         {
@@ -74,7 +80,6 @@ namespace Library
         {
             return 0;
         }
-
 
         //Boton de comprar exclusivo para carrito
         public bool Comprar()
