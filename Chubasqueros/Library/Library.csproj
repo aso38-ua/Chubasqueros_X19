@@ -32,7 +32,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+
     <Reference Include="System.Configuration" />
+
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="CADPuntuacion.cs" />
     <Compile Include="CADComentario.cs" />
     <Compile Include="ENPuntuacion.cs" />
@@ -50,6 +53,10 @@
     <Compile Include="CADRegistro.cs" />
     <Compile Include="ENPerfil.cs" />
     <Compile Include="ENRegistro.cs" />
+    <Compile Include="CADFavoritos.cs" />
+    <Compile Include="CADReserva.cs" />
+    <Compile Include="ENReserva.cs" />
+    <Compile Include="ENFavoritos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
