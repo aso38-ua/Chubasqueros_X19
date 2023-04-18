@@ -100,7 +100,13 @@ namespace Library
         //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
         public int cuentaCantidad()
         {
-            return 0;
+            CADCarrito carrito = new CADCarrito();
+            int cant = 0;
+            for(int i = 0; i < carrito.cuentaCantidad(); i++)
+            {
+                cant++;
+            }
+            return cant;
         }
 
         //Añadir producto al carrito
@@ -125,13 +131,21 @@ namespace Library
         //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
         public int ProductosTotales()
         {
-            return 0;
+            CADCarrito carrito = new CADCarrito();
+            int numprod = 0;
+            for (int i = 0; i < carrito.ProductosTotales(); i++)
+            {
+                numprod++;
+            }
+            return numprod;
         }
 
         //Calcula el precio total que hay en el carrito
         public float PrecioTotal()
         {
-            return 0;
+            CADCarrito carrito = new CADCarrito();
+            float precio = 0;
+            return precio;
         }
 
 
