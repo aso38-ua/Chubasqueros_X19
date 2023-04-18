@@ -32,7 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+<<<<<<< HEAD
     <Reference Include="System.Configuration" />
+=======
+>>>>>>> origin/53247376F
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="CADPuntuacion.cs" />
     <Compile Include="CADComentario.cs" />
     <Compile Include="ENPuntuacion.cs" />
@@ -50,6 +54,12 @@
     <Compile Include="CADRegistro.cs" />
     <Compile Include="ENPerfil.cs" />
     <Compile Include="ENRegistro.cs" />
+=======
+    <Compile Include="CADFavoritos.cs" />
+    <Compile Include="CADReserva.cs" />
+    <Compile Include="ENReserva.cs" />
+    <Compile Include="ENFavoritos.cs" />
+>>>>>>> origin/53247376F
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
