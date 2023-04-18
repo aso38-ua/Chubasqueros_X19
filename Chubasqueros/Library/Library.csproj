@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CADPuntuacion.cs" />
+    <Compile Include="CADComentario.cs" />
+    <Compile Include="ENPuntuacion.cs" />
+    <Compile Include="ENComentario.cs" />
     <Compile Include="CADPerfil.cs" />
     <Compile Include="CADRegistro.cs" />
     <Compile Include="ENPerfil.cs" />
