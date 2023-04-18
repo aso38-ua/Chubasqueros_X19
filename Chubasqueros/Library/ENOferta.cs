@@ -16,6 +16,7 @@ namespace library {
             get {
                 return fechaInicio;
             }
+
             set {
                 fechaInicio = value;
             }
@@ -25,6 +26,7 @@ namespace library {
             get {
                 return fechaFin;
             }
+
             set {
                 fechaFin = value;
             }
@@ -34,6 +36,7 @@ namespace library {
             get {
                 return porcentajeDescuento;
             }
+
             set {
                 porcentajeDescuento = value;
             }
