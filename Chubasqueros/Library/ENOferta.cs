@@ -7,11 +7,22 @@ using System.Threading.Tasks;
 namespace library {
     public class ENOferta {
         // Variables 
+        private int codigoOferta;
         private string fechaInicio;
         private string fechaFin;
         private float porcentajeDescuento;
-
+        
         // Getters y setters
+        public int CodigoOferta {
+            get {
+                return codigoOferta;
+            }
+
+            set {
+                codigoOferta = value;
+            }
+        }
+
         public string FechaInicio {
             get {
                 return fechaInicio;
@@ -43,13 +54,15 @@ namespace library {
         }
 
         // Constructores 
-        public ENOferta(string fechaInicio, string fechaFin, float porcentajeDescuento) {
+        public ENOferta(int codigoOferta, string fechaInicio, string fechaFin, float porcentajeDescuento) {
+            this.codigoOferta = codigoOferta;
             this.fechaInicio = fechaInicio;
             this.fechaFin = fechaFin;
             this.porcentajeDescuento = porcentajeDescuento;
         }
 
         public ENOferta(ENOferta oferta) {
+            this.codigoOferta = oferta.codigoOferta;
             this.fechaInicio = oferta.fechaInicio;
             this.fechaFin = oferta.fechaFin;
             this.porcentajeDescuento = oferta.porcentajeDescuento;
@@ -59,7 +72,7 @@ namespace library {
         public bool createOferta() {
             CADOferta oferta = new CADOferta();
 
-            if(!oferta.readOferta(this)) 
+            if(!oferta.readOferta(this))
                 return oferta.createOferta(this);
 
             return false;
@@ -79,6 +92,7 @@ namespace library {
             CADOferta oferta = new CADOferta();
 
             if(oferta.readOferta(this)) {
+                this.codigoOferta = ofertaaux.codigoOferta;
                 this.porcentajeDescuento = ofertaaux.porcentajeDescuento;
                 this.fechaInicio = ofertaaux.fechaInicio;
                 this.fechaFin = ofertaaux.fechaFin;
