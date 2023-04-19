@@ -56,12 +56,6 @@ namespace Library
             return true;
         }
 
-        //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
-        public int ProductosTotales()
-        {
-            return 0;
-        }
-
         //Calcula el precio total que hay en el carrito
         public float PrecioTotal()
         {

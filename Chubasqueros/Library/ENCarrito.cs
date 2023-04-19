@@ -8,9 +8,8 @@ namespace Library
 {
     public class ENCarrito
     {
-        private int cantidad;
+        private int cantidad; //cantidad de productos pedidos
         private float total; //precio total
-        private int numprod; //numero de productos totales que hay
 
 
         public int c
@@ -25,11 +24,6 @@ namespace Library
             set { total = value; }
         }
 
-        public int n
-        {
-            get { return numprod; }
-            set { numprod = value; }
-        }
 
         /*Constructor: pondra la cantidad a 0, el total a 0, todos los productos (numprod) = 0,
          la clase se enlazara con usuario y producto*/
@@ -37,7 +31,6 @@ namespace Library
         {
             c = 0;
             t = 0;
-            numprod = 0;
 
         }
 
@@ -45,7 +38,6 @@ namespace Library
         {
             c = cant;
             t = tot;
-            n = np;
         }
         public bool verCarrito()
         {
@@ -83,13 +75,11 @@ namespace Library
 
             carro.cantidad = this.cantidad;
             carro.total = this.total;
-            carro.numprod = this.numprod;
 
             if (carrito.verCarrito(this))
             {
                 this.cantidad = carro.cantidad;
                 this.total = carro.total;
-                this.numprod = carro.numprod;
                 actualizar = carrito.actualizarCarrito(this);
             }
             return actualizar;
@@ -127,19 +117,6 @@ namespace Library
             return true;
          }
 
-
-        //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
-        public int ProductosTotales()
-        {
-            CADCarrito carrito = new CADCarrito();
-            int numprod = 0;
-            for (int i = 0; i < carrito.ProductosTotales(); i++)
-            {
-                numprod++;
-            }
-            return numprod;
-        }
-
         //Calcula el precio total que hay en el carrito
         public float PrecioTotal()
         {
@@ -155,8 +132,5 @@ namespace Library
             return true;
         }
    
-
-
-
     }
 }

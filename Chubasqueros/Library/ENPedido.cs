@@ -8,9 +8,9 @@ namespace Library
 {
     public class ENPedido
     {
-        private int cantidad;
+        private int cantidad; //cantidad de productos pedidos
         private float total; //precio total
-        private int numprod; //numero de productos totales que hay
+
         public int c
         {
             get { return cantidad; }
@@ -23,23 +23,17 @@ namespace Library
             set { total = value; }
         }
 
-        public int n
-        {
-            get { return numprod; }
-            set { numprod = value; }
-        }
+     
         public ENPedido()
         {
             cantidad = 0;
             total = 0;
-            numprod = 0;
         }
 
         public ENPedido(int CANT, float TOT, int NUMPROD)
         {
             CANT = cantidad;
             TOT = total;
-            NUMPROD = numprod;
         }
 
         public bool leerPedido()
@@ -67,13 +61,11 @@ namespace Library
 
             ped.cantidad = this.cantidad;
             ped.total = this.total;
-            ped.numprod = this.numprod;
 
             if (pedido.leerPedido(this))
             {
                 this.cantidad = ped.cantidad;
                 this.total = ped.total;
-                this.numprod = ped.numprod;
                 actualizar = pedido.actualizarPedido(this);
             }
             return actualizar;
@@ -107,12 +99,6 @@ namespace Library
         public bool EliminarProducto()
         {
             return true;
-        }
-
-        //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
-        public int ProductosTotales()
-        {
-            return 0;
         }
 
         //Calcula el precio total que hay en el carrito
