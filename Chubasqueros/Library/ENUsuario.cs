@@ -16,7 +16,6 @@ namespace Library
         private int Id;
         private string Nombre;
         private string Apellidos;
-        private string NIF;
         private string Email;
         private string Contraseña;
 
@@ -51,11 +50,6 @@ namespace Library
             set { Contraseña = value; }
         }
 
-        public string stringNif
-        {
-            get { return NIF; }
-            set { NIF = value; }
-        }
 
         //Constructor por defecto
         public ENUsuario() {
@@ -63,17 +57,15 @@ namespace Library
             Nombre = string.Empty;
             Apellidos = string.Empty;
             Email = string.Empty;
-            NIF = string.Empty;
             Contraseña = string.Empty;
         }
 
         //Constructor copia
-        public ENUsuario(int id, string email, string nombre,string apellidos,string nif, string contraseña) {
+        public ENUsuario(int id, string email, string nombre,string apellidos, string contraseña) {
             Id = id;
             Nombre = nombre;
             Apellidos = apellidos;
             Email = email;
-            NIF = nif;
             Contraseña = contraseña;
         }
 
@@ -103,7 +95,6 @@ namespace Library
                 this.Id = aux.Id;
                 this.Nombre = aux.Nombre;
                 this.Apellidos = aux.Apellidos;
-                this.NIF = aux.NIF;
                 this.Email = aux.Email;
                 this.Contraseña=aux.Contraseña
                 updated = user.updateUsuario(this);
