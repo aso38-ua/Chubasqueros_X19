@@ -9,7 +9,6 @@ namespace library
     public class ENComentario
     {
         private string id_user;
-        private string id_comment;
         private string item;
         private int likes;
         private int dislikes;
@@ -21,11 +20,6 @@ namespace library
             set { id_user = value; }
         }
 
-        public string aux_id_comment
-        {
-            get { return id_comment; }
-            set { id_comment = value; }
-        }
         public string aux_item
         {
             get { return item; }
@@ -52,7 +46,6 @@ namespace library
         public ENComentario()
         {
             aux_id_user = "";
-            aux_id_comment = "";
             aux_item = "";
             aux_likes = 0;
             aux_dislikes = 0;
@@ -60,10 +53,9 @@ namespace library
             aux_estrellas = en.aux_estrella;
         }
 
-        public ENComentario(string id_user, string id_comment, string item, int likes, int dislikes, int estrellas)
+        public ENComentario(string id_user, string item, int likes, int dislikes, int estrellas)
         {
             aux_id_user = id_user;
-            aux_id_comment = id_comment;
             aux_item = item;
             aux_likes = likes;
             aux_dislikes = dislikes;
@@ -74,7 +66,6 @@ namespace library
         public ENComentario(ENComentario en_com)
         {
             aux_id_user = en_com.id_user;
-            aux_id_comment = en_com.id_comment;
             aux_item = en_com.item;
             aux_likes = en_com.likes;
             aux_dislikes = en_com.dislikes;
@@ -88,7 +79,7 @@ namespace library
             ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
             
-            if (estrellas != 0)
+            if (estrellas > 0 && estrellas < 5)
             {
                 create = aux_CAD_Com.createComment(this);
             }
