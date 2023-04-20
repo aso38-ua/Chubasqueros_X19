@@ -14,10 +14,10 @@ namespace Library
 {
     class CADCarrito
     {
-        private String conection; //Conexion con la BB.DD 
+        private String constring; //Conexion con la BB.DD 
         public CADCarrito()
         {
-            
+            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
         }
         public bool verCarrito(ENCarrito c)
         {

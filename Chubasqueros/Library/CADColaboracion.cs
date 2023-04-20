@@ -14,7 +14,7 @@ namespace Library
     {
         private String constring;
 
-        public CADUsuario()
+        public CADColaboracion()
         {
             constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
         }

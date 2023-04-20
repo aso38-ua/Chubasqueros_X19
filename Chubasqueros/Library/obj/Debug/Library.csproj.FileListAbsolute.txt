@@ -4,3 +4,9 @@ C:\Users\Marie\source\repos\ChubasquerosParaPeces\Chubasqueros_X19\Chubasqueros\
 C:\Users\Marie\source\repos\ChubasquerosParaPeces\Chubasqueros_X19\Chubasqueros\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 C:\Users\Marie\source\repos\ChubasquerosParaPeces\Chubasqueros_X19\Chubasqueros\Library\obj\Debug\Library.dll
 C:\Users\Marie\source\repos\ChubasquerosParaPeces\Chubasqueros_X19\Chubasqueros\Library\obj\Debug\Library.pdb
+C:\Users\paula\Source\Repos\Chubasqueros_X19\Chubasqueros\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\paula\Source\Repos\Chubasqueros_X19\Chubasqueros\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\paula\Source\Repos\Chubasqueros_X19\Chubasqueros\Library\obj\Debug\Library.dll
+C:\Users\paula\Source\Repos\Chubasqueros_X19\Chubasqueros\Library\obj\Debug\Library.pdb
+C:\Users\paula\Source\Repos\Chubasqueros_X19\Chubasqueros\Library\bin\Debug\Library.dll
+C:\Users\paula\Source\Repos\Chubasqueros_X19\Chubasqueros\Library\bin\Debug\Library.pdb

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class CADUsuario
+    public class CADUsuario
     {
         private String constring;
         public CADUsuario()
