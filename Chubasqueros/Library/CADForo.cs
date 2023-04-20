@@ -45,7 +45,7 @@ namespace library {
             return true;
         }
 
-        public bool createComentario(ENForo foro) {
+        public bool createPregResp(ENForo foro) {
 
             return true;
         }

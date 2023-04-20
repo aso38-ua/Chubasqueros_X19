@@ -138,65 +138,127 @@ namespace library {
         public bool createComentario() {
             CADForo foro = new CADForo();
 
+            if(!foro.readComentario(this))
+                return foro.createComentario(this);
+
+            return false;
         }
 
         public bool readComentario() {
-            CADForo foro = new CADForo
+            CADForo foro = new CADForo();
 
+            if(foro.readComentario(this))
+                return true;
 
+            return false;
         }
 
         public bool updateComentario() {
-            CADForo foro = new CADForo();
+            ENForo foroaux = new ENForo(this);
+            CADForo oferta = new CADForo();
 
+            if(oferta.readComentario(this)) {
+                this.idUsuario = foroaux.idUsuario;
+                this.fechaPublicacion = foroaux.fechaPublicacion;
+                this.comentario = foroaux.comentario;
+
+                return oferta.updateComentario(this);
+            }
+
+            return false;
         }
 
         public bool deleteComentario() {
             CADForo foro = new CADForo();
 
+            if(foro.readComentario(this))
+                return foro.deleteComentario(this);
+
+            return false;
         }
 
         // Otras operaciones para comentarios
         public bool readNextComentario() {
             CADForo foro = new CADForo();
 
+            if(foro.readComentario(this))
+                return foro.readNextComentario(this);
+
+            return false;
         }
 
         public bool readFirstComentario() {
             CADForo foro = new CADForo();
 
+            if(foro.readFirstComentario(this))
+                return true;
+
+            return false;
         }
 
         // Operaciones CRUD para preguntas y respuestas
         public bool createPregResp() {
             CADForo foro = new CADForo();
 
+            if(!foro.readPregResp(this))
+                return foro.createPregResp(this);
+
+            return false;
         }
 
         public bool readPregResp() {
-            CADForo foro = new CADForo
+            CADForo foro = new CADForo();
 
+            if(foro.readPregResp(this))
+                return true;
 
+            return false;
         }
 
         public bool updatePregResp() {
+            ENForo foroaux = new ENForo();
             CADForo foro = new CADForo();
 
+
+            if(foro.readPregResp(this)) {
+                this.pregunta = foroaux.pregunta;
+                this.respuesta = foroaux.respuesta;
+                this.fechaPregunta = foroaux.fechaPregunta;
+                this.fechaRespuesta = foroaux.fechaRespuesta;
+
+                return foro.updatePregResp(this);
+            }
+
+            return false;
         }
 
         public bool deletePregResp() {
             CADForo foro = new CADForo();
 
+            if(foro.readPregResp(this))
+                return foro.deletePregResp(this);
+
+            return false;
         }
 
         // Otras operaciones
         public bool readNextPregResp() {
             CADForo foro = new CADForo();
 
+            if(foro.readPregResp(this))
+                return foro.readNextPregResp(this);
+
+            return false;
+
         }
 
         public bool readFirstPregResp() {
             CADForo foro = new CADForo();
+
+            if(foro.readFirstPregResp(this))
+                return true;
+
+            return false;
 
         }
     }
