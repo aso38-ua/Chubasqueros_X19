@@ -11,6 +11,12 @@ namespace Library
         private int codCategoria;
         private string nombre;
 
+
+        public ENCategoria()
+        {
+            this.codCategoria = 0;
+            this.nombre = string.Empty;
+        }
         public ENCategoria(int codCategoria, string nombre)
         {
             this.codCategoria = codCategoria;
@@ -39,7 +45,7 @@ namespace Library
 
         public bool createCategoria()
         {
-            CADProducto categoria = new CADCategoria();
+            CADCategoria categoria = new CADCategoria();
             bool creado = false;
             if (!categoria.readCategoria(this))
                 creado = categoria.createCategoria(this);
@@ -48,16 +54,16 @@ namespace Library
 
         public bool deleteCategoria()
         {
-            CADUsuario categoria = new CADCategoria();
+            CADCategoria categoria = new CADCategoria();
             bool read = false;
             if (categoria.readCategoria(this))
-                read = producto.deleteCategoria(this);
+                read = categoria.deleteCategoria(this);
             return read;
         }
 
         public bool readCategoria()
         {
-            CADUsuario categoria = new CADCategoria();
+            CADCategoria categoria = new CADCategoria();
             bool read = categoria.readCategoria(this);
             return read;
         }
