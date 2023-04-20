@@ -32,9 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-
     <Reference Include="System.Configuration" />
-
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,9 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
+    <Compile Include="CADForo.cs" />
+    <Compile Include="CADOferta.cs" />
     <Compile Include="CADPuntuacion.cs" />
     <Compile Include="CADComentario.cs" />
+    <Compile Include="ENForo.cs" />
+    <Compile Include="ENOferta.cs" />
     <Compile Include="ENPuntuacion.cs" />
     <Compile Include="ENComentario.cs" />
     <Compile Include="CADPerfil.cs" />

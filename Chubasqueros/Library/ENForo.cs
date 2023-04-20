@@ -142,9 +142,10 @@ namespace library {
 
         public bool readComentario() {
             CADForo foro = new CADForo
-        
+
+
         }
-    
+
         public bool updateComentario() {
             CADForo foro = new CADForo();
 

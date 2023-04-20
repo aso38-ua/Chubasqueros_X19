@@ -66,12 +66,12 @@ namespace library {
         }
 
         public bool readNextPregResp(ENForo foro) {
-            
+
             return true;
         }
 
         public bool readFirstPregResp(ENForo foro) {
-            
+
             return true;
         }
     }
