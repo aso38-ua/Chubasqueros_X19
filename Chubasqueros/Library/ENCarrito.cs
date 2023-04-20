@@ -34,7 +34,7 @@ namespace Library
 
         }
 
-        public ENCarrito(int cant, int tot, int np)
+        public ENCarrito(int cant, int tot)
         {
             c = cant;
             t = tot;
