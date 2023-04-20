@@ -31,7 +31,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio) VALUES (" + en.getCodigo() + ", " + en.getNombre() + ", " + en.getDescripcion() + ", " +  en.getStock() + ", " + en.getPrecio() + ")";
+                string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio) VALUES (" + en.getCodigo() + ", " + en.getNombre() + ", " + en.getDescripcion() + ", " + en.getStock() + ", " + en.getPrecio() + ")";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
                 creado = true;
@@ -68,11 +68,11 @@ namespace Library
                 SqlDataReader busqueda = consulta.ExecuteReader();
                 busqueda.Read();
 
-                if (busqueda["codigo"].ToString() == en.getCodigo())
+                if (int.Parse(busqueda["codigo"].ToString()) == en.getCodigo())
                 {
                     en.setNombre(busqueda["nombre"].ToString());
-                    en.setCodigo(busqueda["codigo"].ToString());
-                    en.setStock(int.Parse(busqueda["stock"].ToString()))
+                    en.setCodigo(int.Parse(busqueda["codigo"].ToString()));
+                    en.setStock(int.Parse(busqueda["stock"].ToString()));
                     en.setDescripcion(busqueda["descripcion"].ToString());
                     en.setPrecio(float.Parse(busqueda["precio"].ToString()));
                 }
