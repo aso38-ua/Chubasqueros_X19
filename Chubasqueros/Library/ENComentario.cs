@@ -9,10 +9,10 @@ namespace library
     public class ENComentario
     {
         private string id_user;
-        private string id_comment;
         private string item;
         private int likes;
         private int dislikes;
+        private int estrellas;
 
         public string aux_id_user
         {
@@ -20,11 +20,6 @@ namespace library
             set { id_user = value; }
         }
 
-        public string aux_id_comment
-        {
-            get { return id_comment; }
-            set { id_comment = value; }
-        }
         public string aux_item
         {
             get { return item; }
@@ -42,69 +37,124 @@ namespace library
             set { dislikes = value; }
         }
 
+        public int aux_estrellas
+        {
+            get { return estrellas; }
+            set { estrellas = value; }
+        }
+
         public ENComentario()
         {
             aux_id_user = "";
-            aux_id_comment = "";
             aux_item = "";
             aux_likes = 0;
             aux_dislikes = 0;
+            ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
+            aux_estrellas = en.aux_estrella;
         }
 
-        public ENComentario(string id_user, string id_comment, string item, int likes, int dislikes)
+        public ENComentario(string id_user, string item, int likes, int dislikes, int estrellas)
         {
             aux_id_user = id_user;
-            aux_id_comment = id_comment;
             aux_item = item;
             aux_likes = likes;
             aux_dislikes = dislikes;
+            ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
+            aux_estrellas = en.aux_estrella;
         }
 
         public ENComentario(ENComentario en_com)
         {
             aux_id_user = en_com.id_user;
-            aux_id_comment = en_com.id_comment;
             aux_item = en_com.item;
             aux_likes = en_com.likes;
             aux_dislikes = en_com.dislikes;
+            ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
+            aux_estrellas = en.aux_estrella;
         }
 
         public bool createComment()
         {
             bool create = false;
-           
+            ENComentario aux_EN_Com = new ENComentario(this);
+            CADComentario aux_CAD_Com = new CADComentario();
+            
+            if (estrellas > 0 && estrellas < 5)
+            {
+                create = aux_CAD_Com.createComment(this);
+            }
             return create;
         }
 
         public bool eliminateComment()
         {
             bool eliminate = false;
+            ENComentario aux_EN_Com = new ENComentario(this);
+            CADComentario aux_CAD_Com = new CADComentario();
+            ENPuntuacion aux_EN_Pun = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+
+            if (aux_CAD_Pun.findItem(aux_EN_Pun))
+            {
+                eliminate = aux_CAD_Com.eliminateComment(this);
+            }
             return eliminate;
         }
 
         public bool changeComment()
         {
             bool change = false;
+            ENComentario aux_EN_Com = new ENComentario(this);
+            CADComentario aux_CAD_Com = new CADComentario();
+            ENPuntuacion aux_EN_Pun = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+
+            if (aux_CAD_Pun.findItem(aux_EN_Pun))
+            {
+                change = aux_CAD_Com.changeComment(this);
+            }
             return change;
         }
         public bool showComments()
         {
             bool show = false;
-            
+            /*
+            ENComentario aux_EN_Com = new ENComentario(this);
+            CADComentario aux_CAD_Com = new CADComentario();
+            ENProducto aux_EN_Prod = new ENProducto(item);
+            CADProducto aux_CAD_Prod = new CADProducto();
+            if (aux_CAD_Prod.read(aux_EN_Prod))
+            {
+                show = aux_CAD_Com.showComments(this);
+            }*/
             return show;
         }
 
         public bool likesItem()
         {
             bool like = false;
-            
+           /* ENComentario aux_EN_Com = new ENComentario(this);
+            CADComentario aux_CAD_Com = new CADComentario();
+            ENProducto aux_EN_Prod = new ENProducto(item);
+            CADProducto aux_CAD_Prod = new CADProducto();
+            if (aux_CAD_Prod.read(aux_EN_Prod))
+            {
+                like = aux_CAD_Com.likesItem(this);
+            }*/
             return like;
         }
 
         public bool dislikesItem()
         {
             bool dislike = false;
-            
+           /* ENComentario aux_EN_Com = new ENComentario(this);
+            CADComentario aux_CAD_Com = new CADComentario();
+            ENProducto aux_EN_Prod = new ENProducto(item);
+            CADProducto aux_CAD_Prod = new CADProducto();
+            if (aux_CAD_Prod.read(aux_EN_Prod))
+            {
+                dislike = aux_CAD_Com.dislikesItem(this);
+            }*/
             return dislike;
         }
     }
