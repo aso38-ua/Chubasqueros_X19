@@ -14,7 +14,17 @@ namespace Library
         private int stock;
         private float precio;
 
+        public ENCategoria categoria { get; set; }
+        
 
+        public ENProducto()
+        {
+            this.codigo = 0;
+            this.nombre = string.Empty;
+            this.descripcion = string.Empty;
+            this.stock = 0;
+            this.precio = 0;
+        }
         public ENProducto(int codigo, string nombre, string descripcion, int stock, float precio)
         {
             this.codigo = codigo;
@@ -46,7 +56,7 @@ namespace Library
 
         public string getDescripcion()
         {
-            return this.descripcion:
+            return this.descripcion;
         }
 
         public void setDescripcion(string desc)
@@ -89,19 +99,19 @@ namespace Library
             CADProducto producto = new CADProducto();
 
             bool updated = false;
-            aux.codigo = this.codigo
+            aux.codigo = this.codigo;
             aux.nombre = this.nombre;
             aux.descripcion = this.descripcion;
             aux.stock = this.stock;
-            aux.precio; = this.precio;
+            aux.precio = this.precio;
 
             if (producto.readProducto(this))
             {
-                this.codigo = aux.codigo
+                this.codigo = aux.codigo;
                 this.nombre = aux.nombre;
                 this.descripcion = aux.descripcion;
                 this.stock = aux.stock;
-                this.precio; = aux.precio;
+                this.precio = aux.precio;
                 updated = producto.updateProducto(this);
             }
 
@@ -110,7 +120,7 @@ namespace Library
 
         public bool deleteProducto()
         {
-            CADUsuario producto = new CADProducto();
+            CADProducto producto = new CADProducto();
             bool read = false;
             if (producto.readProducto(this))
                 read = producto.deleteProducto(this);
@@ -123,5 +133,5 @@ namespace Library
             bool read = producto.readProducto(this);
             return read;
         }
-    } 
+    }
 }
