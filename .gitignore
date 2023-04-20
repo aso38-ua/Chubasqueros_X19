@@ -1,5 +1,8 @@
-/Chubasqueros/Library/obj/Debug/
-/.vs
-/Chubasqueros/.vs/Chubasqueros/v16
+################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/slnx.sqlite
+/Chubasqueros/Library/obj/Debug
 /Chubasqueros/Library/obj/Release
-*.suo
+/.vs
