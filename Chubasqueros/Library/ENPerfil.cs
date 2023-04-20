@@ -19,6 +19,15 @@ namespace Library
 
         }
 
+        public ENPerfil(int Idperfil, int Idusuario, string nombre,string direccion,string num)
+        {
+            this.IdPerfil = Idperfil;
+            this.IdUsuario = Idusuario;
+            this.NombreCompleto = nombre;
+            this.Direccion = direccion;
+            this.NumeroTelefono = num;
+        }
+
         public ENPerfil ObtenerPerfilPorIdUsuario(int idUsuario)
         {
             CADPerfil cadPerfil = new CADPerfil();
@@ -28,8 +37,8 @@ namespace Library
         // Método para actualizar el perfil de un usuario
         public void ActualizarPerfil()
         {
-            //CADPerfil cadPerfil = new CADPerfil();
-            //cadPerfil.ActualizarPerfil(this);
+            CADPerfil cadPerfil = new CADPerfil();
+            cadPerfil.ActualizarPerfil(this);
         }
     }
 }
