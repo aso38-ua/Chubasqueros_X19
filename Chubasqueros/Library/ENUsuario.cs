@@ -3,112 +3,77 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data.Common;
-using System.Data;
-using System.Configuration;
 
 namespace Library
 {
     class ENUsuario
     {
-        //Atributos privados
-        private int Id;
-        private string Nombre;
-        private string Apellidos;
-        private string Email;
-        private string Contraseña;
+        private int id;
+        private string nombre;
+        private string apellido;
+        private string email;
+        private string contraseña;
 
-        //Getters y setters
-        public string intId
+        public ENUsuario(int id, string nombre, string apellido, string email, string contraseña)
         {
-            get { return Id; }
-            set { Id = value; }
+            this.id = id;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.email = email;
+            this.contraseña = contraseña;
         }
 
-        public string stringNombre
+        // Create
+        public static void CrearUsuario(string nombre, string apellido, string email, string contraseña)
         {
-            get { return Nombre; }
-            set { Nombre = value; }
+            CADUsuario.CrearUsuario(nombre, apellido, email, contraseña);
         }
 
-        public string stringApellidos
+        // Read
+        public static ENUsuario ObtenerUsuarioPorId(int id)
         {
-            get { return Apellidos; }
-            set { Apellidos = value; }
+            return CADUsuario.ObtenerUsuarioPorId(id);
         }
 
-        public string stringEmail
+        public static ENUsuario ObtenerUsuarioPorEmail(string email)
         {
-            get { return Email; }
-            set { Email = value; }
+            return CADUsuario.ObtenerUsuarioPorEmail(email);
         }
 
-        public string stringContraseña
+        public static List<ENUsuario> ObtenerTodosLosUsuarios()
         {
-            get { return Contraseña; }
-            set { Contraseña = value; }
+            return CADUsuario.ObtenerTodosLosUsuarios();
         }
 
-
-        //Constructor por defecto
-        public ENUsuario() {
-            Id = 0;
-            Nombre = string.Empty;
-            Apellidos = string.Empty;
-            Email = string.Empty;
-            Contraseña = string.Empty;
+        // Update
+        public void ActualizarNombre(string nuevoNombre)
+        {
+            this.nombre = nuevoNombre;
+            CADUsuario.ActualizarUsuario(this);
         }
 
-        //Constructor copia
-        public ENUsuario(int id, string email, string nombre,string apellidos, string contraseña) {
-            Id = id;
-            Nombre = nombre;
-            Apellidos = apellidos;
-            Email = email;
-            Contraseña = contraseña;
+        public void ActualizarApellido(string nuevoApellido)
+        {
+            this.apellido = nuevoApellido;
+            CADUsuario.ActualizarUsuario(this);
         }
 
-        //Crear un usuario
-        public bool createUsuario() {
-            CADUsuario user = new CADUsuario();
-            bool create = false;
-            if (!user.readUsuario(this))
-                creaate = user.createUsuario(this);
-            return created; 
+        public void ActualizarEmail(string nuevoEmail)
+        {
+            this.email = nuevoEmail;
+            CADUsuario.ActualizarUsuario(this);
         }
 
-        //Leer un usuario de la  base de datos
-        public bool readUsuario() {
-            CADUsuario user = new CADUsuario();
-            bool read = user.readUsuario(this);
-            return read; 
+        public void ActualizarContraseña(string nuevaContraseña)
+        {
+            this.contraseña = nuevaContraseña;
+            CADUsuario.ActualizarUsuario(this);
         }
 
-        //Modificar un usuario
-        public bool updateUsuario() {
-            ENUsuario aux = new ENUsuario(this);
-            CADUsuario user = new CADUsuario();
-            bool update = false;
-            if (user.readReserva(aux))
-            {
-                this.Id = aux.Id;
-                this.Nombre = aux.Nombre;
-                this.Apellidos = aux.Apellidos;
-                this.Email = aux.Email;
-                this.Contraseña=aux.Contraseña
-                updated = user.updateUsuario(this);
-            }
-            return update;
-        }
-        
-        //Elimina un usuario
-        public bool deleteUsuario() {
-            CADUsuario user = new CADUsuario();
-            bool eliminado = false;
-            if (user.readUsuario(this))
-                eliminado = user.deleteUsuario(this);
-            else{return eliminado;} 
+        // Delete
+        public void Eliminar()
+        {
+            CADUsuario.EliminarUsuario(this.id);
         }
     }
 }
