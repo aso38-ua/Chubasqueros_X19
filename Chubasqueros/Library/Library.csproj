@@ -56,6 +56,20 @@
     <Compile Include="ENReserva.cs" />
     <Compile Include="ENFavoritos.cs" />
     <Compile Include="ENUsuario.cs" />
+    <Compile Include="ENColaboracion.cs" />
+    <Compile Include="CADColaboracion.cs" />
+    <Compile Include="ENProducto.cs" />
+    <Compile Include="CADProducto.cs" />
+    <Compile Include="ENCategoria.cs" />
+    <Compile Include="CADCategoria.cs" />
+    <Compile Include="ENCarrito.cs" />
+    <Compile Include="CADCarrito.cs" />
+    <Compile Include="ENPedido.cs" />
+    <Compile Include="CADPedido.cs" />
+    <Compile Include="ENForo.cs" />
+    <Compile Include="CADForo.cs" />
+    <Compile Include="ENOferta.cs" />
+    <Compile Include="CADOferta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
