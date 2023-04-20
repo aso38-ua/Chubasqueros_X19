@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Library
@@ -10,76 +11,87 @@ namespace Library
     {
         public ENRegistro()
         {
-
+            ENUsuario nuevoUsuario = new ENUsuario();
         }
 
-        public void Registrar(string nombre, string apellido, string email, string contraseña)
+        public void Registrar(int id,string nombre, string apellido, string email, string contraseña)
         {
-            //ENUsuario nuevoUsuario = new ENUsuario(nombre, apellido, email, contraseña);
+            ENUsuario nuevoUsuario = new ENUsuario(id, nombre, apellido, email, contraseña);
 
-            /*if (!ValidarRegistro(nuevoUsuario))
+            if (!ValidarRegistro(nuevoUsuario))
             {
-                // Realizar acciones en caso de registro inválido
+                Console.WriteLine("El registro no es válido. Por favor, revisa los datos introducidos.");
+                return;
             }
-            else
-            {
-                // Realizar acciones en caso de registro válido
-            }*/
+
+            // Si el registro es válido, guardar el usuario en la base de datos o en la estructura de datos utilizada
+            CADUsuario.CrearUsuario(nuevoUsuario);
+
+            Console.WriteLine("El usuario ha sido registrado exitosamente.");
         }
 
         public void Actualizar(int id, string nombre, string apellido, string email, string contraseña)
         {
-            //ENUsuario usuario = ObtenerUsuarioPorId(id);
-           /* if (usuario != null)
+            ENUsuario usuario = ObtenerUsuarioPorId(id);
+            if (usuario != null)
             {
                 // Actualizar los datos del usuario
-                usuario.Nombre = nombre;
-                usuario.Apellido = apellido;
-                usuario.Email = email;
-                usuario.Contraseña = contraseña;
-                // Guardar los cambios en la base de datos o en la estructura de datos utilizada
+                usuario.id=id;
+                usuario.nombre = nombre;
+                usuario.apellido = apellido;
+                usuario.email = email;
+                usuario.contraseña = contraseña;
+
+                CADUsuario.ActualizarUsuario(usuario);
             }
             else
             {
-                
-            }*/
+                Console.WriteLine("El usuario ya existe");
+            }
         }
 
         public void Eliminar(int id)
         {
-            /*ENUsuario usuario = ObtenerUsuarioPorId(id);
+            ENUsuario usuario = ObtenerUsuarioPorId(id);
             if (usuario != null)
             {
-                // Eliminar el usuario de la base de datos o de la estructura de datos utilizada
+                CADUsuario.EliminarUsuario(id);
             }
             else
             {
-                // Realizar acciones en caso de que no se encuentre el usuario
-            }*/
+                Console.WriteLine("El usuario no existe");
+            }
         }
 
-        /*public ENUsuario ObtenerUsuarioPorId(int id)
+        public static ENUsuario ObtenerUsuarioPorId(int id)
         {
-            // Obtener el usuario por su ID de la base de datos o de la estructura de datos utilizada
-            return null;
-        }*/
+            return CADUsuario.ObtenerUsuarioPorId(id);
+        }
 
-        /*public List<ENUsuario> ObtenerTodosLosUsuarios()
+        public List<ENUsuario> ObtenerTodosLosUsuarios()
         {
-            // Obtener todos los usuarios de la base de datos o de la estructura de datos utilizada
-            return new List<ENUsuario>();
-        }*/
+            // Obtener todos los usuarios de la base de datos
+            return CADUsuario.ObtenerTodosLosUsuarios();
+        }
 
-        /*private bool ValidarRegistro(ENUsuario usuario)
+        private bool ValidarRegistro(ENUsuario usuario)
         {
-            // Realizar validaciones del registro del usuario, como comprobar si ya existe en la base de datos
+            ENUsuario usuarioExistente = CADUsuario.ObtenerUsuarioPorEmail(usuario.email);
+            if (usuarioExistente != null)
+            {
+                Console.WriteLine("El email introducido ya está en uso. Por favor, introduce otro email.");
+                return false;
+            }
+
+            // Si se llega hasta aquí, significa que el usuario no existe en la base de datos
             return true;
-        }*/
+        }
 
-        /*private bool ValidarFormatoEmail(string email)
+        private bool ValidarFormatoEmail(string email)
         {
-            // Validar el formato del email utilizando expresiones regulares u otros métodos
-            return true;
-        }*/
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            Regex regex = new Regex(pattern);
+            return regex.IsMatch(email);
+        }
     }
 }

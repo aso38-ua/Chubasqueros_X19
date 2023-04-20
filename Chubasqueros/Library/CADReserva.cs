@@ -57,7 +57,7 @@ namespace Library
                 SqlDataReader consultabusqueda = consulta.ExecuteReader();
                 consultabusqueda.Read();
 
-                if (consultabusqueda["usuario"] == en.usuariop)
+                if (consultabusqueda["usuario"].ToString() == en.usuariop)
                 {
                     leido = true;
                     en.cantidadp = int.Parse(consultabusqueda["cantidad"].ToString());
