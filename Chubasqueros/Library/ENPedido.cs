@@ -10,6 +10,8 @@ namespace Library
     {
         private int cantidad; //cantidad de productos pedidos
         private float total; //precio total
+        private int idPedido;
+        private int fechaaprox; //fecha aproximada de llegada
 
         public int c
         {
