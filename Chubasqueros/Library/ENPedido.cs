@@ -8,7 +8,7 @@ namespace Library
 {
     public class ENPedido
     {
-        private int cantidad; //cantidad de productos pedidos
+        private int cantidad; //cantidad de productos pedidos 
         private float total; //precio total
         private int idPedido;
         private DateTime fechaaprox; //fecha aproximada de llegada

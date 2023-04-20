@@ -14,7 +14,7 @@ namespace Library
 {
     class CADCarrito
     {
-        private String conection; //Conexion con la BB.DD
+        private String conection; //Conexion con la BB.DD 
         public CADCarrito()
         {
             

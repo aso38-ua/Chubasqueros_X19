@@ -9,7 +9,7 @@ namespace Library
     public class ENCarrito
     {
         private int cantidad; //cantidad de productos pedidos
-        private float total; //precio total
+        private float total; //precio total 
 
 
         public int c
