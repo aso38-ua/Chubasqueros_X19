@@ -11,7 +11,7 @@ namespace library {
         private string fechaInicio;
         private string fechaFin;
         private float porcentajeDescuento;
-        
+
         // Getters y setters
         public int CodigoOferta {
             get {

@@ -100,11 +100,11 @@ namespace Library
                 SqlDataReader busqueda = consulta.ExecuteReader();
                 busqueda.Read();
 
-                if (busqueda["codCategoria"].ToString() == en.getCodCategoria())
+                if (int.Parse(busqueda["codCategoria"].ToString()) == en.getCodCategoria())
                 {
                     en.setNombre(busqueda["nombre"].ToString());
-                    en.setCodCategoria(busqueda["codCategoria"].ToString());
-                    
+                    en.setCodCategoria(int.Parse(busqueda["codCategoria"].ToString()));
+
                 }
                 else creado = false;
 

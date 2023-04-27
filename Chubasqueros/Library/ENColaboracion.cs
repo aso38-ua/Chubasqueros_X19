@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class ENColaboracion
+    public class ENColaboracion
     {
         //Atributos privados
         private int Id;
@@ -15,7 +15,7 @@ namespace Library
         private float Precio;
 
         //Getters y setters
-        public string intId
+        public int intId
         {
             get { return Id; }
             set { Id = value; }
@@ -57,23 +57,23 @@ namespace Library
 
         //Crear colaboracion
         public bool createColaboracion() {
-            CADUsuario colab = new CADColaboracion();
+            CADColaboracion colab = new CADColaboracion();
             bool create = false;
-            if (!user.readColaboracion(this))
-                creaate = user.createColaboracion(this);
-            return created;
+            if (!colab.readColaboracion(this))
+                create = colab.createColaboracion(this);
+            return create;
         }
 
         //Lee una colaboracion de la base de datos
         public bool readColaboracion() {
             CADColaboracion colab = new CADColaboracion();
-            bool read = user.readColaboracion(this);
+            bool read = colab.readColaboracion(this);
             return read;
         }
 
         //Modifica la colaboracion
         public bool updateColaboracion() {
-            ENColaboracion aux = new ENColaboracion(this);
+            ENColaboracion aux = new ENColaboracion();
             CADColaboracion user = new CADColaboracion();
             bool update = false;
             if (user.readColaboracion(aux))
@@ -82,15 +82,18 @@ namespace Library
                 this.Nombre = aux.Nombre;
                 this.Descripcion = aux.Descripcion;
                 this.Precio = aux.Precio;
-                updated = user.updateColaboracion(this);
+                update = user.updateColaboracion(this);
             }
             return update;
         }
         public bool deleteColaboracion() {
-            CADUColaboracion colab = new CADColaboracion();
+            CADColaboracion colab = new CADColaboracion();
             bool eliminado = false;
             if (colab.readColaboracion(this))
-                eliminado = user.deleteColaboracion(this);
+            {
+                eliminado = colab.deleteColaboracion(this);
+                return eliminado;
+            }
             else { return eliminado; }
         }
     }
