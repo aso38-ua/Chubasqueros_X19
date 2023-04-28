@@ -10,7 +10,7 @@
 
 namespace Interfaz
 {
-    public partial class Registro
+    public partial class Default
     {
     }
 }
