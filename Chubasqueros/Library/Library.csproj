@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A7A60FBC-F806-4495-A4BF-977A32C07EE0}</ProjectGuid>
+    <ProjectGuid>{A2A9564A-4088-4E5F-8034-14FFBF8EEC05}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Library</RootNamespace>
@@ -42,22 +42,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CADPuntuacion.cs" />
-    <Compile Include="CADComentario.cs" />
-    <Compile Include="CADProducto.cs" />
-    <Compile Include="CADCategoria.cs" />
-    <Compile Include="ENCategoria.cs" />
-    <Compile Include="ENProducto.cs" />
-    <Compile Include="ENPuntuacion.cs" />
-    <Compile Include="ENComentario.cs" />
-    <Compile Include="CADPerfil.cs" />
-    <Compile Include="CADRegistro.cs" />
-    <Compile Include="ENPerfil.cs" />
-    <Compile Include="ENRegistro.cs" />
-    <Compile Include="CADFavoritos.cs" />
-    <Compile Include="CADReserva.cs" />
-    <Compile Include="ENReserva.cs" />
-    <Compile Include="ENFavoritos.cs" />
+    <Compile Include="CAD\CADCarrito.cs" />
+    <Compile Include="CAD\CADCategoria.cs" />
+    <Compile Include="CAD\CADColaboracion.cs" />
+    <Compile Include="CAD\CADComentario.cs" />
+    <Compile Include="CAD\CADFavoritos.cs" />
+    <Compile Include="CAD\CADForo.cs" />
+    <Compile Include="CAD\CADOferta.cs" />
+    <Compile Include="CAD\CADPedido.cs" />
+    <Compile Include="CAD\CADPerfil.cs" />
+    <Compile Include="CAD\CADProducto.cs" />
+    <Compile Include="CAD\CADPuntuacion.cs" />
+    <Compile Include="CAD\CADRegistro.cs" />
+    <Compile Include="CAD\CADReserva.cs" />
+    <Compile Include="CAD\CADUsuario.cs" />
+    <Compile Include="EN\ENCarrito.cs" />
+    <Compile Include="EN\ENCategoria.cs" />
+    <Compile Include="EN\ENColaboracion.cs" />
+    <Compile Include="EN\ENComentario.cs" />
+    <Compile Include="EN\ENFavoritos.cs" />
+    <Compile Include="EN\ENForo.cs" />
+    <Compile Include="EN\ENOferta.cs" />
+    <Compile Include="EN\ENPedido.cs" />
+    <Compile Include="EN\ENPerfil.cs" />
+    <Compile Include="EN\ENProducto.cs" />
+    <Compile Include="EN\ENPuntuacion.cs" />
+    <Compile Include="EN\ENRegistro.cs" />
+    <Compile Include="EN\ENReserva.cs" />
+    <Compile Include="EN\ENUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
