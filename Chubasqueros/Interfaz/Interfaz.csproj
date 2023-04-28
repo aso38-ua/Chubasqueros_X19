@@ -67,10 +67,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Comentario.aspx" />
+    <Content Include="css\Comentario.css" />
+    <Content Include="css\Oferta.css" />
+    <Content Include="img\oferta\10descuento.jfif" />
+    <Content Include="img\oferta\15descuento.jfif" />
+    <Content Include="img\oferta\20descuento.jfif" />
+    <Content Include="img\oferta\5descuento.jfif" />
+    <Content Include="img\oferta\bienvenida.jfif" />
+    <Content Include="img\oferta\epocalluvia.jfif" />
+    <Content Include="img\oferta\especial.jfif" />
+    <Content Include="img\oferta\tarjetaregalo.jfif" />
+    <Content Include="Oferta.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comentario.aspx.cs">
+      <DependentUpon>Comentario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comentario.aspx.designer.cs">
+      <DependentUpon>Comentario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Oferta.aspx.cs">
+      <DependentUpon>Oferta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oferta.aspx.designer.cs">
+      <DependentUpon>Oferta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
