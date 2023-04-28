@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -118,43 +119,43 @@ namespace library
         public bool showComments()
         {
             bool show = false;
-            /*
+            
             ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
-            ENProducto aux_EN_Prod = new ENProducto(item);
+            ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
-            if (aux_CAD_Prod.read(aux_EN_Prod))
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 show = aux_CAD_Com.showComments(this);
-            }*/
+            }
             return show;
         }
 
         public bool likesItem()
         {
             bool like = false;
-           /* ENComentario aux_EN_Com = new ENComentario(this);
+            ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
-            ENProducto aux_EN_Prod = new ENProducto(item);
+            ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
-            if (aux_CAD_Prod.read(aux_EN_Prod))
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 like = aux_CAD_Com.likesItem(this);
-            }*/
+            }
             return like;
         }
 
         public bool dislikesItem()
         {
             bool dislike = false;
-           /* ENComentario aux_EN_Com = new ENComentario(this);
+            ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
-            ENProducto aux_EN_Prod = new ENProducto(item);
+            ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
-            if (aux_CAD_Prod.read(aux_EN_Prod))
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 dislike = aux_CAD_Com.dislikesItem(this);
-            }*/
+            }
             return dislike;
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,14 +56,14 @@ namespace library
             bool puntuar = false;
             ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
-           /* ENProducto aux_EN_Prod = new ENProducto(item);
+            ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
-            ENUsuario aux_EN_User = new ENUsuario(id_user);
-            ENUsuario aux_CAD_User = new CADUsuario();
-            if (aux_CAD_Prod.read(aux_EN_Prod) && aux_CAD_User.read(aux_EN_User))
+            ENUsuario aux_EN_User = new ENUsuario();
+            CADUsuario aux_CAD_User = new CADUsuario();
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.readUsuario(aux_EN_User))
             {
                 puntuar = aux_CAD_Pun.createPuntuacion(this);
-            }*/
+            }
             return puntuar;
         }
 
