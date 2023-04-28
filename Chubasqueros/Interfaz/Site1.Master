@@ -13,8 +13,27 @@
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
             </asp:ContentPlaceHolder>
         </div>
+
+        <nav>
+        <ul>
+            <li><a href="#">Página 1</a></li>
+            <li><a href="#">Página 2</a></li>
+            <li><a href="#">Página 3</a></li>
+            <li><a href="#">Página 4</a></li>
+        </ul>
+    </nav>
+
+        <asp:ContentPlaceHolder ID="body" runat="server">
+
+            
+        </asp:ContentPlaceHolder>
+
     </form>
+
+    
+
 </body>
 </html>
