@@ -10,8 +10,8 @@ namespace library
     public class ENPuntuacion
     {
         private int estrellas;
-        private string item;
-        private string id_user;
+        private int item;
+        private int id_user;
 
         public int aux_estrella
         {
@@ -19,13 +19,13 @@ namespace library
             set { estrellas = value; }
         }
 
-        public string aux_item
+        public int aux_item
         {
             get { return item; }
             set { item = value; }
         }
 
-        public string aux_id_user
+        public int aux_id_user
         {
             get { return id_user; }
             set { id_user = value; }
@@ -34,11 +34,11 @@ namespace library
         public ENPuntuacion()
         {
             aux_estrella = 0;
-            aux_item = "";
-            aux_id_user = "";
+            aux_item = 0;
+            aux_id_user = 0;
         }
 
-        public ENPuntuacion(int estrella, string item, string id_user)
+        public ENPuntuacion(int estrella, int item, int id_user)
         {
             aux_estrella = estrella;
             aux_item = item;

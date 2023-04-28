@@ -9,19 +9,19 @@ namespace library
 {
     public class ENComentario
     {
-        private string id_user;
-        private string item;
+        private int id_user;
+        private int item;
         private int likes;
         private int dislikes;
         private int estrellas;
 
-        public string aux_id_user
+        public int aux_id_user
         {
             get { return id_user; }
             set { id_user = value; }
         }
 
-        public string aux_item
+        public int aux_item
         {
             get { return item; }
             set { item = value; }
@@ -46,15 +46,15 @@ namespace library
 
         public ENComentario()
         {
-            aux_id_user = "";
-            aux_item = "";
+            aux_id_user = 0;
+            aux_item = 0;
             aux_likes = 0;
             aux_dislikes = 0;
             ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
             aux_estrellas = en.aux_estrella;
         }
 
-        public ENComentario(string id_user, string item, int likes, int dislikes, int estrellas)
+        public ENComentario(int id_user, int item, int likes, int dislikes, int estrellas)
         {
             aux_id_user = id_user;
             aux_item = item;
