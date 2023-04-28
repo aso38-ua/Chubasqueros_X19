@@ -58,8 +58,10 @@ namespace library
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
+            aux_EN_Prod.setCodigo(item);
             ENUsuario aux_EN_User = new ENUsuario();
             CADUsuario aux_CAD_User = new CADUsuario();
+            aux_EN_User.id = id_user;
             if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.readUsuario(aux_EN_User))
             {
                 puntuar = aux_CAD_Pun.createPuntuacion(this);

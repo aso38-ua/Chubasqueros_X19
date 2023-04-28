@@ -124,6 +124,7 @@ namespace library
             CADComentario aux_CAD_Com = new CADComentario();
             ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
+            aux_EN_Prod.setCodigo(item);
             if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 show = aux_CAD_Com.showComments(this);
@@ -138,6 +139,7 @@ namespace library
             CADComentario aux_CAD_Com = new CADComentario();
             ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
+            aux_EN_Prod.setCodigo(item);
             if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 like = aux_CAD_Com.likesItem(this);
@@ -152,6 +154,7 @@ namespace library
             CADComentario aux_CAD_Com = new CADComentario();
             ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
+            aux_EN_Prod.setCodigo(item);
             if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 dislike = aux_CAD_Com.dislikesItem(this);
