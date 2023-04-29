@@ -5,7 +5,10 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
     <title></title>
+        <link rel="stylesheet" type="text/css" href="~/CSS/StyleSheet1.css" />
+        
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -17,14 +20,11 @@
             </asp:ContentPlaceHolder>
         </div>
 
-        <nav>
-        <ul>
-            <li><a href="#">Página 1</a></li>
-            <li><a href="#">Página 2</a></li>
-            <li><a href="#">Página 3</a></li>
-            <li><a href="#">Página 4</a></li>
-        </ul>
-    </nav>
+        <div class="menu">
+            <a class="coolButton" href="Default.aspx">Inicio</a>
+            <a class="coolButton" href="#">Contacto</a>
+            <a class="coolButton" href="Registro.aspx">Registro</a>
+        </div>
 
         <asp:ContentPlaceHolder ID="body" runat="server">
 
