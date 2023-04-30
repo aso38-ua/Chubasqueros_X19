@@ -6,11 +6,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
     
     <div>
+        <h1> Categoría </h1>
         <p>
-            codCategoria: &nbsp;<asp:TextBox ID="text_codCategoria" runat="server" Height="40px" style="margin-top: 10px; margin-left: 50px;" Width="400px"></asp:TextBox>
+            codCategoria: &nbsp;<asp:TextBox ID="text_codCategoria" runat="server" Height="15px" style="color:deeppink; margin-top: 10px; margin-left: 15px;" Width="200px"></asp:TextBox>
         </p>
         <p>
-            nombre: &nbsp;<asp:TextBox ID="text_nombre" runat="server" Height="40px" style="margin-top: 10px; margin-left: 50px;" Width="400px"></asp:TextBox>
+            nombre: &nbsp;<asp:TextBox ID="text_nombre" runat="server" Height="15px" style="color:deeppink; margin-top: 10px; margin-left: 15px;" Width="200px"></asp:TextBox>
         </p>
     </div>
   
