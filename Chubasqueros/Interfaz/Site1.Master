@@ -6,14 +6,30 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     
+    
     <title></title>
+    <!-- Agrega la hoja de estilo CSS de Slick -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+
+    <!-- Agrega la librería de jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+    <!-- Agrega la librería de Slick -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+        <script src="JS/JavaScript.js"></script>
         <link rel="stylesheet" type="text/css" href="~/CSS/StyleSheet1.css" />
+        <link rel="stylesheet" type="text/css" href="~/CSS/Registro.css" />
+    <link rel="stylesheet" type="text/css" href="~/CSS/Default.css" />
+
+        
         
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+        
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 
@@ -21,14 +37,18 @@
         </div>
 
         <div class="menu">
+                <img src="/IMGS/pez_infantil.png" class="logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
             <a class="coolButton" href="Default.aspx">Inicio</a>
             <a class="coolButton" href="#">Contacto</a>
             <a class="coolButton" href="Registro.aspx">Registro</a>
         </div>
 
+
+
         <asp:ContentPlaceHolder ID="body" runat="server">
 
-            
+            <footer></footer>
         </asp:ContentPlaceHolder>
 
     </form>

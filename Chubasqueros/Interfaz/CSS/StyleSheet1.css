@@ -2,7 +2,7 @@
 }
 
 * {
-    background-color: #424242;
+    background-color: #292929;
 }
 
 .menu {
@@ -12,9 +12,9 @@
 
 .coolButton {
     top: 30px;
-    color: #ffffff;
+    color: #ffa31a;
     background-color: black;
-    border: 2px solid #fe3c72;
+    border: 2px solid #ffa31a;
     position: relative;
     padding: 20px 20px;
     margin: 10px;
@@ -30,7 +30,7 @@
 }
 
     .coolButton:hover {
-        box-shadow: inset 0 0 0 50px #fd5564;
+        box-shadow: inset 0 0 0 50px #ffa31a;
         color: black !important;
     }
 
@@ -42,4 +42,22 @@
         margin-right: auto;
         text-align: center;
     }
+}
+
+.logo{
+    position:absolute;
+    width:100px;
+}
+
+.slider img {
+    width: 600px;
+    height: 420px;
+    margin-right: 7px; /* espacio entre las imágenes */
+}
+
+
+.slider-item img {
+    width: 200px; /* ancho fijo de las imágenes */
+    display: block;
+    margin: 0 auto; /* alinear al centro */
 }
