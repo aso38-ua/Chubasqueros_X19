@@ -15,15 +15,6 @@ namespace Interfaz
     {
 
         /// <summary>
-        /// Control BtnPuntuar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnPuntuar;
-
-        /// <summary>
         /// Control Estrella1.
         /// </summary>
         /// <remarks>
@@ -69,13 +60,13 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.Button Estrella5;
 
         /// <summary>
-        /// Control BtnComentar.
+        /// Control BtnPuntuar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnComentar;
+        protected global::System.Web.UI.WebControls.Button BtnPuntuar;
 
         /// <summary>
         /// Control TBComentario.
@@ -85,6 +76,15 @@ namespace Interfaz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TBComentario;
+
+        /// <summary>
+        /// Control BtnComentar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnComentar;
 
         /// <summary>
         /// Control Like.
@@ -105,15 +105,6 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.Button Dislike;
 
         /// <summary>
-        /// Control BtnRespuesta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnRespuesta;
-
-        /// <summary>
         /// Control TextBox1.
         /// </summary>
         /// <remarks>
@@ -121,5 +112,14 @@ namespace Interfaz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
+
+        /// <summary>
+        /// Control BtnRespuesta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRespuesta;
     }
 }
