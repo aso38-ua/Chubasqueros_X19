@@ -14,6 +14,7 @@ namespace library
         private int likes;
         private int dislikes;
         private int estrellas;
+        private string comentario;
 
         public int aux_id_user
         {
@@ -43,7 +44,11 @@ namespace library
             get { return estrellas; }
             set { estrellas = value; }
         }
-
+        public string aux_comentario
+        {
+            get { return comentario; }
+            set { comentario = value; }
+        }
         public ENComentario()
         {
             aux_id_user = 0;
@@ -52,9 +57,10 @@ namespace library
             aux_dislikes = 0;
             ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
             aux_estrellas = en.aux_estrella;
+            comentario = "";
         }
 
-        public ENComentario(int id_user, int item, int likes, int dislikes, int estrellas)
+        public ENComentario(int id_user, int item, int likes, int dislikes, int estrellas, string comentario)
         {
             aux_id_user = id_user;
             aux_item = item;
@@ -62,6 +68,7 @@ namespace library
             aux_dislikes = dislikes;
             ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
             aux_estrellas = en.aux_estrella;
+            aux_comentario = comentario;
         }
 
         public ENComentario(ENComentario en_com)
@@ -72,6 +79,7 @@ namespace library
             aux_dislikes = en_com.dislikes;
             ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
             aux_estrellas = en.aux_estrella;
+            aux_comentario = en_com.comentario;
         }
 
         public bool createComment()
