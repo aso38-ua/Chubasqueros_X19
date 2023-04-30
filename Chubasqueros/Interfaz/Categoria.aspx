@@ -11,7 +11,7 @@
             codCategoria: &nbsp;<asp:TextBox ID="text_codCategoria" runat="server" Height="15px" style="color:deeppink; margin-top: 10px; margin-left: 15px;" Width="200px"></asp:TextBox>
         </p>
         <p>
-            nombre: &nbsp;<asp:TextBox ID="text_nombre" runat="server" Height="15px" style="color:deeppink; margin-top: 10px; margin-left: 15px;" Width="200px"></asp:TextBox>
+            nombre: &nbsp;<asp:TextBox ID="Text_nombre" runat="server" Height="15px" style="color:deeppink; margin-top: 10px; margin-left: 15px;" Width="200px"></asp:TextBox>
         </p>
     </div>
   

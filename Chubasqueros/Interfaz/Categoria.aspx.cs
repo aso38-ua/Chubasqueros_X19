@@ -40,7 +40,7 @@ namespace Interfaz
                 ENCategoria categoria = new ENCategoria(text_codCategoria.Text, text_nombre.Text);
 
                 if (categoria.createCategoria())
-                    outputMsg.Text = "Categoria " + categoria.getCodCategoria() + " insertada en la B.D.";
+                    outputMsg.Text = "Categoría " + categoria.getCodCategoria() + " insertada en la B.D.";
                 else outputMsg.Text = "No es posible insertar la categoría.";
             }
 
