@@ -27,7 +27,7 @@ namespace Interfaz
                 {
                     text_nombre.Text = categoria.getNombre();
                     text_codCategoria.Text = categoria.getCodCategoria();
-                    outputMsg.Text = "Categoría " + categoria.getNombre() + ", "categoria.getCodCategoria();
+                    outputMsg.Text = "Categoría " + categoria.getNombre() + ", " + categoria.getCodCategoria();
                 }
                 else outputMsg.Text = "Categoría no encontrada en la B.D.";
             }

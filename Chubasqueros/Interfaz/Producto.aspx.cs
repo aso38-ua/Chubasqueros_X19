@@ -30,7 +30,7 @@ namespace Interfaz
                     text_descripcion.Text = producto.getDescripcion();
                     text_stock.Text = producto.getStock();
                     text_precio.Text = producto.getPrecio();
-                    outputMsg.Text = "Producto " + producto.getNombre() + ", "producto.getCodproducto();
+                    outputMsg.Text = "Producto " + producto.getNombre() + ", " + producto.getCodigo();
                 }
                 else outputMsg.Text = "Producto no encontrado en la B.D.";
             }
@@ -74,8 +74,8 @@ namespace Interfaz
                 ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text);
 
                 if (producto.deleteProducto())
-                    outputMsg.Text = "Producto " + producto.getCodproducto() + " borrado";
-                else outputMsg.Text = "No es posible borrar el producto " + producto.getCodproducto();
+                    outputMsg.Text = "Producto " + producto.getCodigo() + " borrado";
+                else outputMsg.Text = "No es posible borrar el producto " + producto.getCodigo();
 
             }
 
