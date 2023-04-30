@@ -10,6 +10,13 @@
     <br /><br /><br /><br />
     <div class="container">
         <div class="form-group">
+
+        <style>
+            input[type="text"] {
+                color: #ffa31a;
+            }
+        </style>
+
         <asp:Label ID="username" runat="server" Text="Nombre de usuario" CssClass="neon-label" ></asp:Label>
         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
         <br /><br />
@@ -29,7 +36,7 @@
         <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
         <br /><br />
     
-        <asp:Button ID="btnRegister" runat="server" Text="Registrarse" OnClick="btnRegister_Click" CssClass="neon-btn" /><br />
+        <asp:Button ID="btnRegister" runat="server" Text="Registrarse" OnClick="btnRegister_Click" CssClass="neon-btn" /><br /><br />
         <asp:Button ID="Button1" runat="server" Text="¿Ya estás registrado?" PostBackUrl="~/Login.aspx" CssClass="neon-btn" />
         </div>
     </div>
