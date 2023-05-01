@@ -4,19 +4,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+    <h2>Producto</h2>
+    Nombre: 
+    <br />
+    Imagen:
     <h2> Comentarios</h2>
 
-    <asp:Button ID="Estrella1" runat="server" Text="☆" onClick="Estrella1Click" BackColor="Yellow" BorderColor="#FFCC00"/>
+    <asp:Button ID="Estrella1" runat="server" Text="☆" onClick="Estrella1Click" BackColor="#ff0000" BorderColor="#FFCC00"/>
     <br />
-    <asp:Button ID="Estrella2" runat="server" Text="☆☆" onClick="Estrella2Click" BackColor="Yellow" BorderColor="#FFCC00"/>
+    <asp:Button ID="Estrella2" runat="server" Text="☆☆" onClick="Estrella2Click" BackColor="#ff6600" BorderColor="#FFCC00"/>
     <br />
-    <asp:Button ID="Estrella3" runat="server" Text="☆☆☆" onClick="Estrella3Click" BackColor="Yellow" BorderColor="#FFCC00"/>
+    <asp:Button ID="Estrella3" runat="server" Text="☆☆☆" onClick="Estrella3Click" BackColor="#ff9933" BorderColor="#FFCC00"/>
     <br />
-    <asp:Button ID="Estrella4" runat="server" Text="☆☆☆☆" onClick="Estrella4Click" BackColor="Yellow" BorderColor="#FFCC00"/>
+    <asp:Button ID="Estrella4" runat="server" Text="☆☆☆☆" onClick="Estrella4Click" BackColor="#ffcc00" BorderColor="#FFCC00"/>
     <br />
     <asp:Button ID="Estrella5" runat="server" Text="☆☆☆☆☆" onClick="Estrella5Click" BackColor="Yellow" BorderColor="#FFCC00" BorderStyle="NotSet"/>
     <br />
-    <asp:Button ID="BtnPuntuar" runat="server" Text="Puntuar" onClick="PuntuarClick" BackColor= "#FF6600" BorderStyle="Groove" BorderColor="#CC0000"/>
+    <asp:Button ID="BtnPuntuar" runat="server" Text="☆Puntuar☆" onClick="PuntuarClick" BackColor= "#0099ff" BorderStyle="Groove" BorderColor="#9966ff"/>
     <br />
     Comentario:&nbsp;&nbsp;&nbsp;
     <br />
