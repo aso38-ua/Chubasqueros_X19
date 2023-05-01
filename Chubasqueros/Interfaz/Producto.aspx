@@ -27,14 +27,14 @@
     <asp:Label ID="outputMsg" runat="server"></asp:Label><br />
     
 
-    <asp:Button text="Leer producto" onClick="onLeer" ID="buttom_Leer" runat="server"  />
-    <asp:Button text="Crear producto" onClick="onCrear" ID="buttom_Crear" runat="server" />
-    <asp:Button text="Actualizar producto" onClick="onActualizar" ID="buttom_Actualizar" runat="server" />
-    <asp:Button text="Borrar producto" onClick="onBorrar" ID="buttom_Borrar" runat="server" />
+    <asp:Button text="Ver/Leer producto" onClick="onLeer" ID="buttom_Leer" runat="server" Width="138px" />
     <asp:Button text="Comprar producto" onClick="onComprar" ID="buttom_Comprar" runat="server" />
     <asp:Button text="Añadir al carrito" onClick="onCarrito" ID="buttom_Carrito" runat="server" />
     <asp:Button text="Añadir a favoritos" onClick="onFavoritos" ID="buttom_Favoritos" runat="server" />
     <asp:Button text="Puntuar producto" onClick="onPuntuar" ID="buttom_Puntuar" runat="server" />
-    <asp:Button text="Reservar producto" onClick="onReservar" ID="buttom_Reservar" runat="server" Width="154px" />
+    <asp:Button text="Reservar producto" onClick="onReservar" ID="buttom_Reservar" runat="server" />
+    <asp:Button text="Crear producto" onClick="onCrear" ID="buttom_Crear" runat="server" />
+    <asp:Button text="Actualizar producto" onClick="onActualizar" ID="buttom_Actualizar" runat="server" Width="148px" />
+    <asp:Button text="Borrar producto" onClick="onBorrar" ID="buttom_Borrar" runat="server" Width="130px" />
 
 </asp:Content>
