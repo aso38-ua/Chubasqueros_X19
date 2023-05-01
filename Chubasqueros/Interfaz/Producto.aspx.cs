@@ -81,5 +81,36 @@ namespace Interfaz
 
             else outputMsg.Text = "Alguno de los campos no estan especificados.";
         }
+
+        protected void onComprar(object sender, EventArgs e)
+        {
+            //if stock > 0 then stock - 1 y saldoCliente - precio, else no hay stock para el producto
+
+        }
+
+        protected void onCarrito(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        protected void onFavoritos(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        protected void onPuntuar(object sender, EventArgs e)
+        {
+
+
+        }
+
+        protected void onReservar(object sender, EventArgs e)
+        {
+
+
+        }
+
     }
 }
