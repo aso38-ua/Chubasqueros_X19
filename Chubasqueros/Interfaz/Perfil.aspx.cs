@@ -31,9 +31,9 @@ namespace Interfaz
                     }
                     reader.Close();
                 }
-            }
-        }*/
+            }*/
         }
+    
 
         /*protected void btnSave_Click(object sender, EventArgs e)
         {
