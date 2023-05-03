@@ -58,6 +58,15 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.TextBox text_precio;
 
         /// <summary>
+        /// Control text_codigoCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox text_codigoCategoria;
+
+        /// <summary>
         /// Control outputMsg.
         /// </summary>
         /// <remarks>
@@ -146,6 +155,16 @@ namespace Interfaz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttom_Reservar;
+
+        /// <summary>
+        /// Control buttom_Categoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttom_Categoria;
+
     }
 }
 }

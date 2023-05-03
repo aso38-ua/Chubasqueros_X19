@@ -15,7 +15,7 @@ namespace Library
         private float precio;
         private int codigoCategoria;
 
-  
+
         public ENProducto()
         {
             this.codigoCategoria = 0;
@@ -25,7 +25,7 @@ namespace Library
             this.stock = 0;
             this.precio = 0;
         }
-        
+
         public ENProducto(int codigo, string nombre, string descripcion, int stock, float precio, int codigoCat)
         {
             this.codigoCategoria = codigoCat;
@@ -85,7 +85,7 @@ namespace Library
         {
             this.precio = precio;
         }
-        
+
         public int getCodigoCategoria()
         {
             return this.codigoCategoria;
@@ -147,12 +147,12 @@ namespace Library
             bool read = producto.readProducto(this);
             return read;
         }
-        
+
         public ENProducto[] mostrarProductosPorCategoria(ENCategoria en)
         {
             CADProducto producto = new CADProducto();
-            ENProducto []productos;
-            productos = producto.mostrarProductoPorCategoria(en);
+            ENProducto[] productos;
+            productos = producto.mostrarProductosPorCategoria(en);
             return productos;
         }
     }

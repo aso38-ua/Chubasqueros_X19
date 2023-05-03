@@ -162,10 +162,10 @@ namespace Library
 
             return eliminado;
         }
-        
+
         public ENProducto[] mostrarProductosPorCategoria(ENCategoria en)
         {
-            bool creado = true;
+            ENProducto[] productos = null;
             SqlConnection connection = null;
             try
             {
@@ -176,36 +176,37 @@ namespace Library
                 SqlCommand consulta = new SqlCommand(query, connection);
                 SqlDataReader busqueda = consulta.ExecuteReader();
                 int contador = 0;
-                
-                while(busqueda.Read())
+
+                while (busqueda.Read())
                     contador++;
                 busqueda.Close();
-                ENProducto []productos = new ENProducto[contador];
-                
-                SqlCommand consulta = new SqlCommand(query, connection);
-                SqlDataReader busqueda = consulta.ExecuteReader();
+                productos = new ENProducto[contador];
+
+                SqlCommand consult = new SqlCommand(query, connection);
+                SqlDataReader busqued = consult.ExecuteReader();
                 int i = 0;
-                while(busqueda.Read()){
-                     productos[i] = new ENProducto();
-                     productos[i].setNombre(busqueda["nombre"].ToString());
-                     productos[i].setCodigo(int.Parse(busqueda["codigo"].ToString()));
-                     productos[i].setStock(int.Parse(busqueda["stock"].ToString()));
-                     productos[i].setDescripcion(busqueda["descripcion"].ToString());
-                     productos[i].setPrecio(float.Parse(busqueda["precio"].ToString()));
-                     productos[i].setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
-                     i++;
+                while (busqued.Read())
+                {
+                    productos[i] = new ENProducto();
+                    productos[i].setNombre(busqueda["nombre"].ToString());
+                    productos[i].setCodigo(int.Parse(busqueda["codigo"].ToString()));
+                    productos[i].setStock(int.Parse(busqueda["stock"].ToString()));
+                    productos[i].setDescripcion(busqueda["descripcion"].ToString());
+                    productos[i].setPrecio(float.Parse(busqueda["precio"].ToString()));
+                    productos[i].setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
+                    i++;
                 }
 
-                busqueda.Close();
+                busqued.Close();
             }
             catch (SqlException e)
             {
-                creado = false;
+                
                 Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
             catch (Exception e)
             {
-                creado = false;
+                
                 Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
             finally
