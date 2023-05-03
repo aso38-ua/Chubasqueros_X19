@@ -43,6 +43,8 @@
             <a class="coolButton" href="Default.aspx">Productos</a>
             <a class="coolButton" href="#">Contacto</a>
             <a class="coolButton" href="Registro.aspx">Registro</a>
+            <a class="coolButton" href="Oferta.aspx">Ofertas</a>
+
             <label class="switch">
 	<input id="switch" class="switch__input" type="checkbox" role="switch" >
 	<svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">

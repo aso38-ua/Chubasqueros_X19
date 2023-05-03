@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ComentarioForo.aspx" />
+    <Content Include="CSS\ComentarioForo.css" />
     <Content Include="CSS\Default.css" />
     <Content Include="CSS\Oferta.css" />
     <Content Include="CSS\Registro.css" />
@@ -93,6 +95,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComentarioForo.aspx.cs">
+      <DependentUpon>ComentarioForo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComentarioForo.aspx.designer.cs">
+      <DependentUpon>ComentarioForo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
