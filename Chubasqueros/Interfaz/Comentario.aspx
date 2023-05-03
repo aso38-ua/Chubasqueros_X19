@@ -8,7 +8,7 @@
     Nombre: 
     <br />
     Imagen:
-    <h2> Comentarios</h2>
+    <h2> Puntuación</h2>
 
     <asp:Button ID="Estrella1" runat="server" Text="☆" onClick="Estrella1Click" BackColor="#ff0000" BorderColor="#FFCC00"/>
     <br />
@@ -22,6 +22,9 @@
     <br />
     <asp:Button ID="BtnPuntuar" runat="server" Text="☆Puntuar☆" onClick="PuntuarClick" BackColor= "#0099ff" BorderStyle="Groove" BorderColor="#9966ff"/>
     <br />
+    <h3>Puntuación media:</h3>
+    <br />
+    <h2>Comentarios</h2>
     Comentario:&nbsp;&nbsp;&nbsp;
     <br />
         <asp:TextBox ID="TBComentario" runat="server" Height="150px" Width="550px"></asp:TextBox>
@@ -36,10 +39,5 @@
         <asp:TextBox ID="TextBox1" runat="server" Height="150px" Width="550px"></asp:TextBox>
     <br />
     <asp:Button ID="BtnRespuesta" runat="server" Text="Responder" onClick="RespuestaClick"/>
-    <div>
-        .innermainbg{
-            backgroud-image: url('https://www.aquariumcostadealmeria.com/wp-content/uploads/2018/02/fondo-rocoso-2.jpg');
-        }
-    </div>
     <body-style = "backgroud-color:rgb(208, 171, 255)"></body-style>
 </asp:Content>
