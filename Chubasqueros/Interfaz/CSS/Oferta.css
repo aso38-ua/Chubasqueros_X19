@@ -3,35 +3,6 @@
     margin: 0;
 }
 
-/* ################## ENCABEZADO ################## */
-header {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-    header h1 {
-        margin-top: 5px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-nav {
-    display: flex;
-    align-items: center;
-}
-
-/* Las diferentes vistas del header */
-ul a {
-    list-style: none;
-    text-decoration: none;
-    margin-left: 60px;
-}
-
-
 /* ################## DESCUENTOS Y OFERTAS ################## */
 
 /* Título vista */
@@ -86,47 +57,4 @@ img {
 p {
     margin-top: 10px;
     text-align: center;
-}
-
-/* ################## FOOTER ################## */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 30px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Color de los iconos del footer */
-a {
-    color: #fff;
-}
-
-/* Iconos de las redes sociales */
-.fa {
-    padding: 10px;
-    font-size: 40px;
-    width: 60px;
-    text-align: center;
-    text-decoration: none;
-}
-
-/* Para cuando pasas el ratón por encima de facebook */
-.fa-facebook:hover {
-    color: #3B5998;
-    transform: scale(2);
-}
-
-/* Para cuando pasas el ratón por encima de twitter */
-.fa-twitter:hover {
-    color: #55ACEE;
-    transform: scale(2);
-}
-
-/* Para cuando pasas el ratón por encima de instagram */
-.fa-instagram:hover {
-    color: #E1306C;
-    transform: scale(2);
 }
