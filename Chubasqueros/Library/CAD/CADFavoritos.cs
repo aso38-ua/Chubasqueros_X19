@@ -77,6 +77,7 @@ namespace Library
                     {
                         en.insertarProducto(int.Parse(consultabusqueda["producto"].ToString()));
                     }
+                    contador++;
                 }
                 leido = true;
                 consultabusqueda.Close();
