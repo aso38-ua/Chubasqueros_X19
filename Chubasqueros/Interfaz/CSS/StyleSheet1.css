@@ -118,7 +118,7 @@ body {
     margin: auto;
     position: absolute;
     font-size: 40px;
-    padding-left:800px;
+    margin-left:800px;
 }
 
 .switch__icon,

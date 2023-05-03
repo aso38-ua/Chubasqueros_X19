@@ -37,13 +37,12 @@
         <asp:Label ID="Label2" runat="server" Text="Contraseña" CssClass="neon-label"></asp:Label>
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPassword" ErrorMessage="Por favor, introduzca una contraseña." ValidationGroup="vgRegister"></asp:RequiredFieldValidator>
-        <br /><br />
                     
                     
         <asp:Label ID="Label3" runat="server" Text="Confirme contraseña" CssClass="neon-label"></asp:Label>
         <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
 
-            <asp:CompareValidator ID="cvPassword" runat="server" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" ErrorMessage="Las contraseñas deben ser iguales." ValidationGroup="vgRegister"></asp:CompareValidator>
+            <asp:CompareValidator ID="cvPassword" runat="server" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" ErrorMessage="Las contraseñas no coinciden." ValidationGroup="vgRegister"></asp:CompareValidator>
         <br /><br />
     
         <asp:Button ID="btnRegister" runat="server" Text="Registrarse" OnClick="btnRegister_Click" CssClass="neon-btn" /><br /><br />
