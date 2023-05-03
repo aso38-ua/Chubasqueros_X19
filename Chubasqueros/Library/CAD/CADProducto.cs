@@ -31,7 +31,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio) VALUES (" + en.getCodigo() + ", " + en.getNombre() + ", " + en.getDescripcion() + ", " + en.getStock() + ", " + en.getPrecio() + ")";
+                string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (" + en.getCodigo() + ", " + en.getNombre() + ", " + en.getDescripcion() + ", " + en.getStock() + ", " + en.getPrecio() + ", " + en.getCodigoCategoria() + ")";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
                 creado = true;
@@ -75,6 +75,7 @@ namespace Library
                     en.setStock(int.Parse(busqueda["stock"].ToString()));
                     en.setDescripcion(busqueda["descripcion"].ToString());
                     en.setPrecio(float.Parse(busqueda["precio"].ToString()));
+                    en.setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
                 }
                 else creado = false;
 
@@ -108,7 +109,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "UPDATE [dbo].[Producto] SET codigo = " + en.getCodigo() + " ,nombre= " + en.getNombre() + " ,descripcion= " + en.getDescripcion() + " ,stock= " + en.getStock() + " ,precio= " + en.getPrecio() + "WHERE codigo = " + en.getCodigo();
+                string query = "UPDATE [dbo].[Producto] SET codigo = " + en.getCodigo() + " ,nombre= " + en.getNombre() + " ,descripcion= " + en.getDescripcion() + " ,stock= " + en.getStock() + " ,precio= " + en.getPrecio() + " ,codigoCategoria= " + en.getCodigoCategoria() + "WHERE codigo = " + en.getCodigo();
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
             }
@@ -160,6 +161,59 @@ namespace Library
             }
 
             return eliminado;
+        }
+        
+        public ENProducto[] mostrarProductosPorCategoria(ENCategoria en)
+        {
+            bool creado = true;
+            SqlConnection connection = null;
+            try
+            {
+                connection = new SqlConnection(constring);
+                connection.Open();
+
+                string query = "Select * From [dbo].[Producto] Where codigoCategoria = " + en.getCodCategoria();
+                SqlCommand consulta = new SqlCommand(query, connection);
+                SqlDataReader busqueda = consulta.ExecuteReader();
+                int contador = 0;
+                
+                while(busqueda.Read())
+                    contador++;
+                busqueda.Close();
+                ENProducto []productos = new ENProducto[contador];
+                
+                SqlCommand consulta = new SqlCommand(query, connection);
+                SqlDataReader busqueda = consulta.ExecuteReader();
+                int i = 0;
+                while(busqueda.Read()){
+                     productos[i] = new ENProducto();
+                     productos[i].setNombre(busqueda["nombre"].ToString());
+                     productos[i].setCodigo(int.Parse(busqueda["codigo"].ToString()));
+                     productos[i].setStock(int.Parse(busqueda["stock"].ToString()));
+                     productos[i].setDescripcion(busqueda["descripcion"].ToString());
+                     productos[i].setPrecio(float.Parse(busqueda["precio"].ToString()));
+                     productos[i].setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
+                     i++;
+                }
+
+                busqueda.Close();
+            }
+            catch (SqlException e)
+            {
+                creado = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                creado = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return productos;
         }
 
     }
