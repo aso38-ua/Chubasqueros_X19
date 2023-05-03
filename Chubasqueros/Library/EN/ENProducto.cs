@@ -147,5 +147,13 @@ namespace Library
             bool read = producto.readProducto(this);
             return read;
         }
+        
+        public ENProducto[] mostrarProductosPorCategoria(ENCategoria en)
+        {
+            CADProducto producto = new CADProducto();
+            ENProducto []productos;
+            productos = producto.mostrarProductoPorCategoria(en);
+            return productos;
+        }
     }
 }
