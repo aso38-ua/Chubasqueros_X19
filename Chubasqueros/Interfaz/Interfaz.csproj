@@ -67,10 +67,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Colaboracion.aspx" />
+    <Content Include="IMGS\adidas.jpeg" />
+    <Content Include="IMGS\Brent Black.jpeg" />
+    <Content Include="IMGS\mayka.jpeg" />
+    <Content Include="IMGS\Pull and Bear.jpeg" />
+    <Content Include="IMGS\zara.jpeg" />
     <Content Include="Registro.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colaboracion.aspx.cs">
+      <DependentUpon>Colaboracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Colaboracion.aspx.designer.cs">
+      <DependentUpon>Colaboracion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
