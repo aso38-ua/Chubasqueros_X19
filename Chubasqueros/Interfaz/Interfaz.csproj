@@ -67,19 +67,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IMGS\banyo.jfif" />
+    <Content Include="IMGS\costurero.jfif" />
+    <Content Include="IMGS\entrenamiento.jfif" />
+    <Content Include="IMGS\fotografia.jfif" />
+    <Content Include="IMGS\guarderia.jfif" />
+    <Content Include="IMGS\paseo.jfif" />
+    <Content Include="Servicio.aspx" />
+    <Content Include="CSS\Servicio.css" />
     <Content Include="CSS\Default.css" />
+    <Content Include="CSS\Oferta.css" />
     <Content Include="CSS\Perfil.css" />
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleSheet1.css" />
     <Content Include="Default.aspx" />
+    <Content Include="IMGS\10descuento.jfif" />
+    <Content Include="IMGS\15descuento.jfif" />
+    <Content Include="IMGS\20descuento.jfif" />
+    <Content Include="IMGS\5descuento.jfif" />
     <Content Include="IMGS\atun.jpg" />
+    <Content Include="IMGS\bienvenida.jfif" />
     <Content Include="IMGS\carpa_bufanda.jpeg" />
+    <Content Include="IMGS\epocalluvia.jfif" />
+    <Content Include="IMGS\especial.jfif" />
     <Content Include="IMGS\pez_elegante.jpeg" />
     <Content Include="IMGS\pez_infantil.png" />
     <Content Include="IMGS\piranha.jpg" />
+    <Content Include="IMGS\tarjetaregalo.jfif" />
     <Content Include="IMGS\tiburon_2.jpeg" />
     <Content Include="JS\JavaScript.js" />
     <Content Include="Login.aspx" />
+    <Content Include="Oferta.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Favoritos.aspx" />
@@ -88,6 +106,13 @@
     <Content Include="Comentario.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Servicio.aspx.cs">
+      <DependentUpon>Servicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Servicio.aspx.designer.cs">
+      <DependentUpon>Servicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -102,6 +127,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Oferta.aspx.cs">
+      <DependentUpon>Oferta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oferta.aspx.designer.cs">
+      <DependentUpon>Oferta.aspx</DependentUpon>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
