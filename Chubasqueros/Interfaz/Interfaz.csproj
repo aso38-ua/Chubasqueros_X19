@@ -67,8 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ComentarioForo.aspx" />
-    <Content Include="CSS\ComentarioForo.css" />
+    <Content Include="IMGS\banyo.jfif" />
+    <Content Include="IMGS\costurero.jfif" />
+    <Content Include="IMGS\entrenamiento.jfif" />
+    <Content Include="IMGS\fotografia.jfif" />
+    <Content Include="IMGS\guarderia.jfif" />
+    <Content Include="IMGS\paseo.jfif" />
+    <Content Include="Servicio.aspx" />
+    <Content Include="CSS\Servicio.css" />
     <Content Include="CSS\Default.css" />
     <Content Include="CSS\Oferta.css" />
     <Content Include="CSS\Registro.css" />
@@ -95,12 +101,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComentarioForo.aspx.cs">
-      <DependentUpon>ComentarioForo.aspx</DependentUpon>
+    <Compile Include="Servicio.aspx.cs">
+      <DependentUpon>Servicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ComentarioForo.aspx.designer.cs">
-      <DependentUpon>ComentarioForo.aspx</DependentUpon>
+    <Compile Include="Servicio.aspx.designer.cs">
+      <DependentUpon>Servicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

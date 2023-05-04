@@ -44,6 +44,7 @@
             <a class="coolButton" href="#">Contacto</a>
             <a class="coolButton" href="Registro.aspx">Registro</a>
             <a class="coolButton" href="Oferta.aspx">Ofertas</a>
+            <a class="coolButton" href="Servicio.aspx">Servicios</a>
 
             <label class="switch">
 	<input id="switch" class="switch__input" type="checkbox" role="switch" >

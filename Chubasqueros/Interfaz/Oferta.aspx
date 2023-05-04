@@ -5,7 +5,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
     <link href="css/Oferta.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <h1 class="h1-oferta">Descuentos y ofertas</h1>
     <div class="container-oferta">
