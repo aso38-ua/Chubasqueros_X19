@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+    <br /><br /><br /><br />
     <div id="HFavoritos">
         <h1>Lista de Favoritos</h1>
     </div>

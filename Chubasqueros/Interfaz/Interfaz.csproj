@@ -133,6 +133,8 @@
     </Compile>
     <Compile Include="Oferta.aspx.designer.cs">
       <DependentUpon>Oferta.aspx</DependentUpon>
+	    <SubType>ASPXCodeBehind</SubType>
+	</Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

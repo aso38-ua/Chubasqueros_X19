@@ -118,7 +118,7 @@ body {
     margin: auto;
     position: absolute;
     font-size: 40px;
-    margin-left:800px;
+    padding-left: 400px;
 }
 
 .switch__icon,
@@ -169,12 +169,12 @@ body {
         box-shadow: 0 0 0 0.125em hsl(var(--hue),90%,50%), 0.125em 0.125em 0.25em hsla(var(--hue),90%,10%,0.2);
     }
 
-    .switch__input:before,
+    /*.switch__input:before,
     .switch__input:after {
         content: "";
         display: block;
         position: absolute;
-    }
+    }*/
 
     .switch__input:before {
         background-color: hsl(50,90%,50%);
@@ -210,11 +210,7 @@ body {
             transform: translateX(1.5em);
         }
 
-        .switch__input:checked ~ .switch__icon--light,
-        .switch__input:checked ~ .switch__icon--light polyline {
-            transition-delay: 0s;
-            transition-timing-function: var(--trans-timing-in);
-        }
+        
 
         .switch__input:checked ~ .switch__icon--light {
             opacity: 0;
