@@ -5,29 +5,84 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+
+    
+
     <title></title>
+    <!-- Agrega la hoja de estilo CSS de Slick -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+
+    <!-- Agrega la librería de jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+    <!-- Agrega la librería de Slick -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script type="text/javascript" src="JS/JavaScript.js"></script>
+
+    
+        <link rel="stylesheet" type="text/css" href="~/CSS/StyleSheet1.css" />
+        <link rel="stylesheet" type="text/css" href="~/CSS/Registro.css" />
+    <link rel="stylesheet" type="text/css" href="~/CSS/Default.css" />
+        <link rel="stylesheet" type="text/css" href="~/CSS/Perfil.css" />
+        
+        
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+        
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 
             </asp:ContentPlaceHolder>
         </div>
 
-        <nav>
-        <ul>
-            <li><a href="#">Página 1</a></li>
-            <li><a href="#">Página 2</a></li>
-            <li><a href="#">Página 3</a></li>
-            <li><a href="#">Página 4</a></li>
-        </ul>
-    </nav>
+        <div class="menu">
+                <img src="/IMGS/pez_infantil.png" class="logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <a class="coolButton" href="Default.aspx">Inicio</a>
+            <a class="coolButton" href="Default.aspx">Productos</a>
+            <a class="coolButton" href="#">Contacto</a>
+            <a class="coolButton" href="Registro.aspx">Registro</a>
+            <label class="switch" >
+	            <input id="slider" type="checkbox" checked class="switch__input">
+	            <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">
+		            <g fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round">
+			            <circle cx="6" cy="6" r="2" />
+			            <g stroke-dasharray="1.5 1.5">
+				            <polyline points="6 10,6 11.5" transform="rotate(0,6,6)" />
+				            <polyline points="6 10,6 11.5" transform="rotate(45,6,6)" />
+				            <polyline points="6 10,6 11.5" transform="rotate(90,6,6)" />
+				            <polyline points="6 10,6 11.5" transform="rotate(135,6,6)" />
+				            <polyline points="6 10,6 11.5" transform="rotate(180,6,6)" />
+				            <polyline points="6 10,6 11.5" transform="rotate(225,6,6)" />
+				            <polyline points="6 10,6 11.5" transform="rotate(270,6,6)" />
+				            <polyline points="6 10,6 11.5" transform="rotate(315,6,6)" />
+			            </g>
+		            </g>
+	            </svg>
+	            <svg class="switch__icon switch__icon--dark" viewBox="0 0 12 12" width="12px" height="12px" aria-hidden="true">
+		            <g fill="none" stroke="#fff" stroke-width="1" stroke-linejoin="round" transform="rotate(-45,6,6)">
+			            <path d="m9,10c-2.209,0-4-1.791-4-4s1.791-4,4-4c.304,0,.598.041.883.105-.995-.992-2.367-1.605-3.883-1.605C2.962.5.5,2.962.5,6s2.462,5.5,5.5,5.5c1.516,0,2.888-.613,3.883-1.605-.285.064-.578.105-.883.105Z"/>
+		            </g>	
+	            </svg>
+	            <span class="switch__sr">Dark Mode</span>
+            </label>
+        </div>
+
+
+        
+
+
+        
 
         <asp:ContentPlaceHolder ID="body" runat="server">
-
+            <footer>
+              <p>Contacto: correo@ejemplo.com</p>
+              <p>Derechos de autor ©2023 - Chubasqueros para peces</p>
+        </footer>
             
         </asp:ContentPlaceHolder>
 
