@@ -67,6 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Colaboracion.aspx" />
+    <Content Include="IMGS\adidas.jpeg" />
+    <Content Include="IMGS\Brent Black.jpeg" />
+    <Content Include="IMGS\mayka.jpeg" />
+    <Content Include="IMGS\Pull and Bear.jpeg" />
+    <Content Include="IMGS\zara.jpeg" />
     <Content Include="IMGS\banyo.jfif" />
     <Content Include="IMGS\costurero.jfif" />
     <Content Include="IMGS\entrenamiento.jfif" />
@@ -106,12 +112,21 @@
     <Content Include="Comentario.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colaboracion.aspx.cs">
+      <DependentUpon>Colaboracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Colaboracion.aspx.designer.cs">
+      <DependentUpon>Colaboracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Servicio.aspx.cs">
       <DependentUpon>Servicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Servicio.aspx.designer.cs">
       <DependentUpon>Servicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
