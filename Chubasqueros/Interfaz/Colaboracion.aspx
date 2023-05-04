@@ -3,6 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
 <br /><br /><br /><br />
 <center><h2><u>Ropa</u></h2></center>
 <br />
@@ -15,7 +18,7 @@
     <img src="IMGS/mayka.jpeg" style="height: 274px; width: 332px" />
     <p>Chubasquero para peces & Adidas</p><p>Chubasquero para peces & Zara</p><p>Chubasquero para peces & Mayka</p>
     
-    <hr />
+
     <center><h2><u>Accesorios</u></h2></center>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <img src="IMGS/Brent%20Black.jpeg" style="height: 262px; width: 323px; margin-left: 3px" />

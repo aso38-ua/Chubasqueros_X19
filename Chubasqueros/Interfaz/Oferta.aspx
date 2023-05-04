@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <link href="css/Oferta.css" rel="stylesheet" />
+
     <br /><br />
     <h1 class="h1-oferta">Descuentos y ofertas</h1>
     <div class="container-oferta">
@@ -28,7 +28,7 @@
         </div>
         <!-- SEGUNDA FILA -->
         <div class="row-oferta">
-        <div class="col-oferta">
+        <div class="col-oferta" >
             <img src="IMGS/15descuento.jfif" class="img-oferta">
             <h2 class="h2-oferta">Descuento del 15%</h2>
             <p class="p-oferta">Llévate un 15% de descuento por comprar cinco o más chubasqueros de diferentes colores o modelos</p>

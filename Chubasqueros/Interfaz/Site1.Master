@@ -25,6 +25,7 @@
         <link rel="stylesheet" type="text/css" href="~/CSS/Registro.css" />
         <link rel="stylesheet" type="text/css" href="~/CSS/Default.css" />
         <link rel="stylesheet" type="text/css" href="~/CSS/Perfil.css" />
+        <link rel="stylesheet" type="text/css" href="~/CSS/Oferta.css" />
         
         
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -48,6 +49,7 @@
             <a class="coolButton" href="Registro.aspx">Registro</a>
             <a class="coolButton" href="Oferta.aspx">Ofertas</a>
             <a class="coolButton" href="Servicio.aspx">Servicios</a>
+            <a class="coolButton" href="Colaboracion.aspx">Colaboracion</a>
 
             <label class="switch">
 	<input id="switch" class="switch__input" type="checkbox" role="switch" >
