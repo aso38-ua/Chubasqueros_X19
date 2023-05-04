@@ -10,8 +10,8 @@ namespace Library
     {
         private int cantidad;
         private string fecha;
-        private string producto;
-        private string usuario;
+        private int producto;
+        private int usuario;
 
         public int cantidadp
         {
@@ -25,19 +25,19 @@ namespace Library
             set { fecha = value; }
         }
 
-        public string productop
+        public int productop
         {
             get { return producto; }
             set { producto = value; }
         }
 
-        public string usuariop
+        public int usuariop
         {
             get { return usuario; }
             set { usuario = value; }
         }
 
-        public ENReserva(int cantidad, string fecha, string producto, string usuario)
+        public ENReserva(int cantidad, string fecha, int producto, int usuario)
         {
             this.cantidad = cantidad;
             this.fecha = fecha;

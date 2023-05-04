@@ -69,14 +69,15 @@ namespace Library
                 {
                     if (contador == 0)
                     {
-                        en.productop = new string[1];
-                        en.productop[0] = consultabusqueda["producto"].ToString();
-                        en.usuariop = consultabusqueda["usuario"].ToString();
+                        en.productop = new int[1];
+                        en.productop[0] = int.Parse(consultabusqueda["producto"].ToString());
+                        en.usuariop = int.Parse(consultabusqueda["usuario"].ToString());
                     }
                     else
                     {
-                        en.insertarProducto(consultabusqueda["producto"].ToString());
+                        en.insertarProducto(int.Parse(consultabusqueda["producto"].ToString()));
                     }
+                    contador++;
                 }
                 leido = true;
                 consultabusqueda.Close();

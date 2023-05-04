@@ -128,6 +128,37 @@ namespace Library
             return creado;
         }
 
+        public bool updateCategoria(ENCategoria en)
+        {
+            bool creado = true;
+            SqlConnection connection = null;
+            try
+            {
+                connection = new SqlConnection(constring);
+                connection.Open();
+
+                string query = "UPDATE [dbo].[Categoria] SET codCategoria = " + en.getCodCategoria() + " ,nombre= " + en.getNombre() + "WHERE codCategoria = " + en.getCodCategoria();
+                SqlCommand consulta = new SqlCommand(query, connection);
+                consulta.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                creado = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                creado = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return creado;
+        }
+
     }
 
 }
