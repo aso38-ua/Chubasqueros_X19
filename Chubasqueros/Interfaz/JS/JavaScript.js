@@ -8,17 +8,17 @@
     });
 });
 
-// Seleccionar el interruptor y agregar un evento de cambio
-const switchBtn = document.querySelector('.switch__input');
-switchBtn.addEventListener('change', function () {
-    // Guardar el estado del interruptor en localStorage
-    localStorage.setItem('switch', this.checked);
+const preferedColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const slider = document.getElementById('slider');
+
+const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+}
+
+slider.addEventListener('click', () => {
+    let switchToTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+    setTheme(switchToTheme);
 });
 
-// Obtener el estado del interruptor guardado en localStorage
-const modoNoche = localStorage.getItem('switch');
-
-// Si el modo noche está habilitado, establecer el interruptor en el estado correcto
-if (modoNoche === 'true') {
-    switchBtn.checked = true;
-}
+setTheme(localStorage.getItem('theme') || preferedColorScheme);

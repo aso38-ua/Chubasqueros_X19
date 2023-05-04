@@ -57,13 +57,13 @@ namespace Library
                 SqlDataReader consultabusqueda = consulta.ExecuteReader();
                 consultabusqueda.Read();
 
-                if (consultabusqueda["usuario"].ToString() == en.usuariop)
+                if (int.Parse(consultabusqueda["usuario"].ToString()) == en.usuariop)
                 {
                     leido = true;
                     en.cantidadp = int.Parse(consultabusqueda["cantidad"].ToString());
                     en.fechap = consultabusqueda["fecha"].ToString();
-                    en.productop = consultabusqueda["producto"].ToString();
-                    en.usuariop = consultabusqueda["usuario"].ToString();
+                    en.productop = int.Parse(consultabusqueda["producto"].ToString());
+                    en.usuariop = int.Parse(consultabusqueda["usuario"].ToString());
                 }
 
                 consultabusqueda.Close();
