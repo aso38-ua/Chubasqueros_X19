@@ -67,6 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Colaboracion.aspx" />
+    <Content Include="IMGS\adidas.jpeg" />
+    <Content Include="IMGS\Brent Black.jpeg" />
+    <Content Include="IMGS\mayka.jpeg" />
+    <Content Include="IMGS\Pull and Bear.jpeg" />
+    <Content Include="IMGS\zara.jpeg" />
     <Content Include="CSS\Default.css" />
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleSheet1.css" />
@@ -83,6 +89,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colaboracion.aspx.cs">
+      <DependentUpon>Colaboracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Colaboracion.aspx.designer.cs">
+      <DependentUpon>Colaboracion.aspx</DependentUpon>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
