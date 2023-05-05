@@ -70,8 +70,11 @@
     <Content Include="Categoria.aspx" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
+    <Content Include="Contacto.aspx" />
     <Content Include="IMGS\adidas.jpeg" />
     <Content Include="IMGS\Brent Black.jpeg" />
+    <Content Include="IMGS\Google_Contacts_logo.png" />
+    <Content Include="IMGS\Mapa.png" />
     <Content Include="IMGS\mayka.jpeg" />
     <Content Include="IMGS\Pull and Bear.jpeg" />
     <Content Include="IMGS\zara.jpeg" />
@@ -139,6 +142,13 @@
       <DependentUpon>Colaboracion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Servicio.aspx.cs">
       <DependentUpon>Servicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,8 +192,8 @@
     </Compile>
     <Compile Include="Oferta.aspx.designer.cs">
       <DependentUpon>Oferta.aspx</DependentUpon>
-	    <SubType>ASPXCodeBehind</SubType>
-	</Compile>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -196,10 +206,10 @@
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-	  <Compile Include="Registro.aspx.designer.cs">
-		  <DependentUpon>Registro.aspx</DependentUpon>
-		  <SubType>ASPXCodeBehind</SubType>
-	  </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Favoritos.aspx.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
