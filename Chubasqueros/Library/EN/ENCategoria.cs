@@ -67,5 +67,24 @@ namespace Library
             bool read = categoria.readCategoria(this);
             return read;
         }
+
+        public bool updateCategoria()
+        {
+            ENCategoria aux = new ENCategoria();
+            CADCategoria categoria = new CADCategoria();
+
+            bool updated = false;
+            aux.codCategoria = this.codCategoria;
+            aux.nombre = this.nombre;
+          
+            if (categoria.readCategoria(this))
+            {
+                this.codCategoria = aux.codCategoria;
+                this.nombre = aux.nombre;
+                updated = categoria.updateCategoria(this);
+            }
+
+            return updated;
+        }
     }
 }
