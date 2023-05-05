@@ -67,12 +67,69 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Colaboracion.aspx" />
+    <Content Include="IMGS\adidas.jpeg" />
+    <Content Include="IMGS\Brent Black.jpeg" />
+    <Content Include="IMGS\mayka.jpeg" />
+    <Content Include="IMGS\Pull and Bear.jpeg" />
+    <Content Include="IMGS\zara.jpeg" />
+    <Content Include="IMGS\banyo.jfif" />
+    <Content Include="IMGS\costurero.jfif" />
+    <Content Include="IMGS\entrenamiento.jfif" />
+    <Content Include="IMGS\fotografia.jfif" />
+    <Content Include="IMGS\guarderia.jfif" />
+    <Content Include="IMGS\paseo.jfif" />
+    <Content Include="Servicio.aspx" />
+    <Content Include="CSS\Servicio.css" />
+    <Content Include="CSS\Default.css" />
+    <Content Include="CSS\Oferta.css" />
+    <Content Include="CSS\Perfil.css" />
+    <Content Include="CSS\Registro.css" />
+    <Content Include="CSS\StyleSheet1.css" />
     <Content Include="Default.aspx" />
     <Content Include="InterfazCarrito.aspx" />
     <Content Include="InterfazPedido.aspx" />
+    <Content Include="IMGS\10descuento.jfif" />
+    <Content Include="IMGS\15descuento.jfif" />
+    <Content Include="IMGS\20descuento.jfif" />
+    <Content Include="IMGS\5descuento.jfif" />
+    <Content Include="IMGS\atun.jpg" />
+    <Content Include="IMGS\bienvenida.jfif" />
+    <Content Include="IMGS\carpa_bufanda.jpeg" />
+    <Content Include="IMGS\epocalluvia.jfif" />
+    <Content Include="IMGS\especial.jfif" />
+    <Content Include="IMGS\pez_elegante.jpeg" />
+    <Content Include="IMGS\pez_infantil.png" />
+    <Content Include="IMGS\piranha.jpg" />
+    <Content Include="IMGS\tarjetaregalo.jfif" />
+    <Content Include="IMGS\tiburon_2.jpeg" />
+    <Content Include="JS\JavaScript.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Oferta.aspx" />
+    <Content Include="Perfil.aspx" />
+    <Content Include="Registro.aspx" />
+    <Content Include="Favoritos.aspx" />
+    <Content Include="Reservas.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Comentario.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colaboracion.aspx.cs">
+      <DependentUpon>Colaboracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Colaboracion.aspx.designer.cs">
+      <DependentUpon>Colaboracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Servicio.aspx.cs">
+      <DependentUpon>Servicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Servicio.aspx.designer.cs">
+      <DependentUpon>Servicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -93,14 +150,67 @@
     </Compile>
     <Compile Include="InterfazPedido.aspx.designer.cs">
       <DependentUpon>InterfazPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Oferta.aspx.cs">
+      <DependentUpon>Oferta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oferta.aspx.designer.cs">
+      <DependentUpon>Oferta.aspx</DependentUpon>
+	    <SubType>ASPXCodeBehind</SubType>
+	</Compile>
+    <Compile Include="Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+	  <Compile Include="Registro.aspx.designer.cs">
+		  <DependentUpon>Registro.aspx</DependentUpon>
+		  <SubType>ASPXCodeBehind</SubType>
+	  </Compile>
+    <Compile Include="Favoritos.aspx.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Favoritos.aspx.designer.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservas.aspx.cs">
+      <DependentUpon>Reservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservas.aspx.designer.cs">
+      <DependentUpon>Reservas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Comentario.aspx.cs">
+      <DependentUpon>Comentario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comentario.aspx.designer.cs">
+      <DependentUpon>Comentario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,61 @@
+﻿
+
+/* ################## DESCUENTOS Y OFERTAS ################## */
+
+/* Título vista */
+.h1-oferta {
+    margin-top: 60px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Título de las ofertas y descuentos */
+.h2-oferta {
+    color: black;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Matriz de columnas y filas */
+.container-oferta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Ajustar el tamaño entre filas */
+    max-width: 1000px; /* Tamaño de la foto */
+    margin: 0 auto;
+}
+
+/* Filas */
+.row-oferta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Columnas */
+.col-oferta {
+    flex-basis: calc(33.33% - 20px);
+}
+
+/* Imágenes */
+.img-oferta {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c2c2c2;
+}
+
+/* Descripción de las ofertas */
+.p-oferta {
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+}

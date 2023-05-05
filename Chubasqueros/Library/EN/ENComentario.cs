@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +9,20 @@ namespace library
 {
     public class ENComentario
     {
-        private string id_user;
-        private string item;
+        private int id_user;
+        private int item;
         private int likes;
         private int dislikes;
         private int estrellas;
+        private string comentario;
 
-        public string aux_id_user
+        public int aux_id_user
         {
             get { return id_user; }
             set { id_user = value; }
         }
 
-        public string aux_item
+        public int aux_item
         {
             get { return item; }
             set { item = value; }
@@ -42,18 +44,23 @@ namespace library
             get { return estrellas; }
             set { estrellas = value; }
         }
-
+        public string aux_comentario
+        {
+            get { return comentario; }
+            set { comentario = value; }
+        }
         public ENComentario()
         {
-            aux_id_user = "";
-            aux_item = "";
+            aux_id_user = 0;
+            aux_item = 0;
             aux_likes = 0;
             aux_dislikes = 0;
             ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
             aux_estrellas = en.aux_estrella;
+            comentario = "";
         }
 
-        public ENComentario(string id_user, string item, int likes, int dislikes, int estrellas)
+        public ENComentario(int id_user, int item, int likes, int dislikes, int estrellas, string comentario)
         {
             aux_id_user = id_user;
             aux_item = item;
@@ -61,6 +68,7 @@ namespace library
             aux_dislikes = dislikes;
             ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
             aux_estrellas = en.aux_estrella;
+            aux_comentario = comentario;
         }
 
         public ENComentario(ENComentario en_com)
@@ -71,6 +79,7 @@ namespace library
             aux_dislikes = en_com.dislikes;
             ENPuntuacion en = new ENPuntuacion(aux_estrellas, aux_item, aux_id_user);
             aux_estrellas = en.aux_estrella;
+            aux_comentario = en_com.comentario;
         }
 
         public bool createComment()
@@ -118,43 +127,46 @@ namespace library
         public bool showComments()
         {
             bool show = false;
-            /*
+            
             ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
-            ENProducto aux_EN_Prod = new ENProducto(item);
+            ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
-            if (aux_CAD_Prod.read(aux_EN_Prod))
+            aux_EN_Prod.setCodigo(item);
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 show = aux_CAD_Com.showComments(this);
-            }*/
+            }
             return show;
         }
 
         public bool likesItem()
         {
             bool like = false;
-           /* ENComentario aux_EN_Com = new ENComentario(this);
+            ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
-            ENProducto aux_EN_Prod = new ENProducto(item);
+            ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
-            if (aux_CAD_Prod.read(aux_EN_Prod))
+            aux_EN_Prod.setCodigo(item);
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 like = aux_CAD_Com.likesItem(this);
-            }*/
+            }
             return like;
         }
 
         public bool dislikesItem()
         {
             bool dislike = false;
-           /* ENComentario aux_EN_Com = new ENComentario(this);
+            ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
-            ENProducto aux_EN_Prod = new ENProducto(item);
+            ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
-            if (aux_CAD_Prod.read(aux_EN_Prod))
+            aux_EN_Prod.setCodigo(item);
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod))
             {
                 dislike = aux_CAD_Com.dislikesItem(this);
-            }*/
+            }
             return dislike;
         }
     }
