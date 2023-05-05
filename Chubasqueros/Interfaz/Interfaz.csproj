@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Categoria.aspx" />
+    <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="IMGS\adidas.jpeg" />
@@ -90,6 +92,8 @@
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleSheet1.css" />
     <Content Include="Default.aspx" />
+    <Content Include="InterfazCarrito.aspx" />
+    <Content Include="InterfazPedido.aspx" />
     <Content Include="IMGS\10descuento.jfif" />
     <Content Include="IMGS\15descuento.jfif" />
     <Content Include="IMGS\20descuento.jfif" />
@@ -115,6 +119,21 @@
     <Content Include="Comentario.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categoria.aspx.cs">
+      <DependentUpon>Categoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categoria.aspx.designer.cs">
+      <DependentUpon>Categoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Producto.aspx.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Producto.aspx.designer.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Colaboracion.aspx.cs">
       <DependentUpon>Colaboracion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -144,6 +163,21 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InterfazCarrito.aspx.cs">
+      <DependentUpon>InterfazCarrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterfazCarrito.aspx.designer.cs">
+      <DependentUpon>InterfazCarrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InterfazPedido.aspx.cs">
+      <DependentUpon>InterfazPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterfazPedido.aspx.designer.cs">
+      <DependentUpon>InterfazPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
