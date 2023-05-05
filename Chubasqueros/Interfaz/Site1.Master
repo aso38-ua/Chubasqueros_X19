@@ -5,11 +5,12 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Chubasqueros para peces</title>
     
 
     
 
-    <title></title>
+    
     <!-- Agrega la hoja de estilo CSS de Slick -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 
@@ -43,8 +44,6 @@
             </asp:ContentPlaceHolder>
         </div>
 
-        
-
     <header>
             
         <nav>
@@ -54,7 +53,7 @@
             
                 <li><a class="coolButton" href="Default.aspx">Inicio</a></li>
                 <li><a class="coolButton" href="Producto.aspx">Productos</a></li>
-                <li><a class="coolButton" href="#">Contacto</a></li>
+                <li><a class="coolButton" href="Contacto.aspx">Contacto</a></li>
                 <li><a class="coolButton" href="Registro.aspx">Registro</a></li>
                 <li><a class="coolButton" href="Oferta.aspx">Ofertas</a></li>
                 <li><a class="coolButton" href="Servicio.aspx">Servicios</a></li>
