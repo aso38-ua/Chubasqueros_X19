@@ -5,11 +5,12 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Chubasqueros para peces</title>
     
 
     
 
-    <title></title>
+    
     <!-- Agrega la hoja de estilo CSS de Slick -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 
@@ -44,10 +45,11 @@
             
             <a class="coolButton" href="Default.aspx">Inicio</a>
             <a class="coolButton" href="Default.aspx">Productos</a>
-            <a class="coolButton" href="#">Contacto</a>
+            <a class="coolButton" href="Contacto.aspx">Contacto</a>
             <a class="coolButton" href="Registro.aspx">Registro</a>
             <a class="coolButton" href="Oferta.aspx">Ofertas</a>
             <a class="coolButton" href="Servicio.aspx">Servicios</a>
+            <!--<a class="coolButton" href="Colaboracion.aspx">Colaboracion</a>-->
 
             <label class="switch">
 	<input id="switch" class="switch__input" type="checkbox" role="switch" >
