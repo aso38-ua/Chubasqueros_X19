@@ -16,7 +16,7 @@ namespace Interfaz
 
         protected void onLeer(object sender, EventArgs e)
         {
-            if (text_codigo.Text == "")
+            /**if (text_codigo.Text == "")
                 outputMsg.Text = "Clave primaria de producto no introducida.";
             else
             {
@@ -34,12 +34,12 @@ namespace Interfaz
                     outputMsg.Text = "Producto " + producto.getNombre() + ", " + producto.getCodigo();
                 }
                 else outputMsg.Text = "Producto no encontrado en la B.D.";
-            }
+            }*/
         }
 
         protected void onCrear(object sender, EventArgs e)
         {
-            if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
+            /**if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
             {
                 ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text, text_codigoCategoria.Text);
 
@@ -48,12 +48,12 @@ namespace Interfaz
                 else outputMsg.Text = "No es posible insertar el producto.";
             }
 
-            else outputMsg.Text = "Alguno de los campos no estan especificados.";
+            else outputMsg.Text = "Alguno de los campos no estan especificados.";*/
         }
 
         protected void onActualizar(object sender, EventArgs e)
         {
-            if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
+            /**if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
             {
                 ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text, text_codigoCategoria.Text);
 
@@ -64,13 +64,13 @@ namespace Interfaz
                 else outputMsg.Text = "Este producto no existe en la B.D.";
             }
 
-            else outputMsg.Text = "Alguno de los campos no estan especificados.";
+            else outputMsg.Text = "Alguno de los campos no estan especificados.";*/
 
         }
 
         protected void onBorrar(object sender, EventArgs e)
         {
-            if (text_nombre.Text != "" && text_codigo.Text != "")
+            /**if (text_nombre.Text != "" && text_codigo.Text != "")
             {
                 ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text, text_codigoCategoria.Text);
 
@@ -80,7 +80,7 @@ namespace Interfaz
 
             }
 
-            else outputMsg.Text = "Alguno de los campos no estan especificados.";
+            else outputMsg.Text = "Alguno de los campos no estan especificados.";*/
         }
 
         protected void onComprar(object sender, EventArgs e)
@@ -115,7 +115,7 @@ namespace Interfaz
 
         protected void onCategoria(object sender, EventArgs e)
         {
-            if (text_codigo.Text == "" || text_codigoCategoria.Text == "")
+            /**if (text_codigo.Text == "" || text_codigoCategoria.Text == "")
                 outputMsg.Text = "Clave primaria de producto no introducida.";
             else
             {
@@ -143,7 +143,7 @@ namespace Interfaz
 
                 }
 
-            }
+            }*/
         }
 
     }
