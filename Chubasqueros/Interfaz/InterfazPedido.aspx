@@ -4,7 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <h1 style="color: blue"><u>Pedido</u></h1>
+    <br /><br /><br /><br />
+    <h2>Pedido</h2>
     <asp:Panel id ="CajaProducto" BackColor="LightYellow" runat="server">
      <asp:Image ID="miImagen" runat="server" Height="27px" Width="27px" />
      Nombre del producto
