@@ -7,11 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Interfaz
-{
+namespace Interfaz {
 
 
-    public partial class Default
-    {
+    public partial class Oferta {
     }
 }

@@ -8,37 +8,37 @@ namespace Library
 {
     class ENFavoritos
     {
-        private string[] productos;
-        private string usuario;
+        private int[] productos;
+        private int usuario;
 
-        public string[] productop
+        public int[] productop
         {
             get { return productos; }
             set { productos = value; }
         }
 
-        public string usuariop
+        public int usuariop
         {
             get { return usuario; }
             set { usuario = value; }
         }
 
-        public ENFavoritos(string usuario)
+        public ENFavoritos(int usuario)
         {
-            this.productos = new string[0];
+            this.productos = new int[0];
             this.usuario = usuario;
         }
 
-        public ENFavoritos(string producto, string usuario)
+        public ENFavoritos(int producto, int usuario)
         {
-            this.productos = new string[1];
+            this.productos = new int[1];
             this.productos[0] = producto;
             this.usuario = usuario;
         }
 
-        public ENFavoritos(string[] productos, string usuario)
+        public ENFavoritos(int[] productos, int usuario)
         {
-            this.productos = new string[productos.Length];
+            this.productos = new int[productos.Length];
             for(int i = 0; i < productos.Length; i++)
             {
                 this.productos[i] = productos[i];
@@ -68,7 +68,7 @@ namespace Library
             return borrado;
         }
 
-        public bool deleteProductinBD(string producto) //Borra el producto tanto en la base de datos como en el objeto.
+        public bool deleteProductinBD(int producto) //Borra el producto tanto en la base de datos como en el objeto.
         {
             CADFavoritos favorito = new CADFavoritos();
             ENFavoritos aux = new ENFavoritos(producto, this.usuario);
@@ -81,7 +81,7 @@ namespace Library
             return borrado;
         }
 
-        public bool insertProductinBD(string producto) //Inserta el producto tanto en la base de datos como en el objeto.
+        public bool insertProductinBD(int producto) //Inserta el producto tanto en la base de datos como en el objeto.
         {
             CADFavoritos favorito = new CADFavoritos();
             ENFavoritos aux = new ENFavoritos(producto, this.usuario);
@@ -91,9 +91,9 @@ namespace Library
             return insert;
         }
 
-        public void insertarProducto(string producto) //Inserta el producto sólo en el objeto.
+        public void insertarProducto(int producto) //Inserta el producto sólo en el objeto.
         {
-            string[] aux = new string[this.productos.Length + 1];
+            int[] aux = new int[this.productos.Length + 1];
             for (int i = 0; i < this.productos.Length; i++)
             {
                 aux[i] = this.productos[i];
@@ -102,10 +102,10 @@ namespace Library
             this.productos = aux;
         }
 
-        public bool borrarProducto(string producto) //Borra el producto sólo en el objeto.
+        public bool borrarProducto(int producto) //Borra el producto sólo en el objeto.
         {
             bool borrado = false;
-            string[] aux = new string[this.productos.Length - 1];
+            int[] aux = new int[this.productos.Length - 1];
             if (this.productos.Contains(producto))
             {
                 for (int i = 0; i < this.productos.Length; i++) if (this.productos[i] != producto) aux[i] = this.productos[i];
