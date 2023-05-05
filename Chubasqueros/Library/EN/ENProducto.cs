@@ -13,20 +13,22 @@ namespace Library
         private string descripcion;
         private int stock;
         private float precio;
+        private int codigoCategoria;
 
-        public ENCategoria categoria { get; set; }
-        
 
         public ENProducto()
         {
+            this.codigoCategoria = 0;
             this.codigo = 0;
             this.nombre = string.Empty;
             this.descripcion = string.Empty;
             this.stock = 0;
             this.precio = 0;
         }
-        public ENProducto(int codigo, string nombre, string descripcion, int stock, float precio)
+
+        public ENProducto(int codigo, string nombre, string descripcion, int stock, float precio, int codigoCat)
         {
+            this.codigoCategoria = codigoCat;
             this.codigo = codigo;
             this.nombre = nombre;
             this.descripcion = descripcion;
@@ -84,6 +86,16 @@ namespace Library
             this.precio = precio;
         }
 
+        public int getCodigoCategoria()
+        {
+            return this.codigoCategoria;
+        }
+
+        public void setCodigoCategoria(int cod)
+        {
+            this.codigoCategoria = cod;
+        }
+
         public bool createProducto()
         {
             CADProducto producto = new CADProducto();
@@ -104,6 +116,7 @@ namespace Library
             aux.descripcion = this.descripcion;
             aux.stock = this.stock;
             aux.precio = this.precio;
+            aux.codigoCategoria = this.codigoCategoria;
 
             if (producto.readProducto(this))
             {
@@ -112,6 +125,7 @@ namespace Library
                 this.descripcion = aux.descripcion;
                 this.stock = aux.stock;
                 this.precio = aux.precio;
+                this.codigoCategoria = aux.codigoCategoria;
                 updated = producto.updateProducto(this);
             }
 
@@ -132,6 +146,14 @@ namespace Library
             CADProducto producto = new CADProducto();
             bool read = producto.readProducto(this);
             return read;
+        }
+
+        public ENProducto[] mostrarProductosPorCategoria(ENCategoria en)
+        {
+            CADProducto producto = new CADProducto();
+            ENProducto[] productos;
+            productos = producto.mostrarProductosPorCategoria(en);
+            return productos;
         }
     }
 }

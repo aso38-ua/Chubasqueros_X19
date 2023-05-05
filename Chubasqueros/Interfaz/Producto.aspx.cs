@@ -30,6 +30,7 @@ namespace Interfaz
                     text_descripcion.Text = producto.getDescripcion();
                     text_stock.Text = producto.getStock();
                     text_precio.Text = producto.getPrecio();
+                    text_codigoCategoria = producto.getCodigoCategoria();
                     outputMsg.Text = "Producto " + producto.getNombre() + ", " + producto.getCodigo();
                 }
                 else outputMsg.Text = "Producto no encontrado en la B.D.";
@@ -38,9 +39,9 @@ namespace Interfaz
 
         protected void onCrear(object sender, EventArgs e)
         {
-            if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "")
+            if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
             {
-                ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text);
+                ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text, text_codigoCategoria.Text);
 
                 if (producto.createProducto())
                     outputMsg.Text = "Producto " + producto.getCodigo() + " insertado en la B.D.";
@@ -52,9 +53,9 @@ namespace Interfaz
 
         protected void onActualizar(object sender, EventArgs e)
         {
-            if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "")
+            if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
             {
-                ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text);
+                ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text, text_codigoCategoria.Text);
 
                 if (producto.updateProducto())
                 {
@@ -71,7 +72,7 @@ namespace Interfaz
         {
             if (text_nombre.Text != "" && text_codigo.Text != "")
             {
-                ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text);
+                ENProducto producto = new ENProducto(text_codigo.Text, text_nombre.Text, text_descripcion.Text, text_stock.Text, text_precio.Text, text_codigoCategoria.Text);
 
                 if (producto.deleteProducto())
                     outputMsg.Text = "Producto " + producto.getCodigo() + " borrado";
@@ -90,13 +91,13 @@ namespace Interfaz
 
         protected void onCarrito(object sender, EventArgs e)
         {
-            
+
 
         }
 
         protected void onFavoritos(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -110,6 +111,39 @@ namespace Interfaz
         {
 
 
+        }
+
+        protected void onCategoria(object sender, EventArgs e)
+        {
+            if (text_codigo.Text == "" || text_codigoCategoria.Text == "")
+                outputMsg.Text = "Clave primaria de producto no introducida.";
+            else
+            {
+                ENProducto producto = new ENProducto();
+                producto.setCodigo(text_codigo.Text);
+                producto.setCodigoCategoria(text_codigoCategoria.Text);
+                ENCategoria en = new ENCategoria();
+                ENProducto[] productos = producto.mostrarProductosPorCategoria(en);
+
+                outputMsg.Text = "Mostrando productos de la categoría " + producto.getCodigoCategoria();
+                for (int i = 0; i < productos.Length; i++)
+                {
+                    if (productos[i].readProducto())
+                    {
+
+                        text_nombre.Text = productos[i].getNombre();
+                        text_codigo.Text = productos[i].getCodigo();
+                        text_descripcion.Text = productos[i].getDescripcion();
+                        text_stock.Text = productos[i].getStock();
+                        text_precio.Text = productos[i].getPrecio();
+                        text_codigoCategoria.Text = productos[i].getCodigoCategoria();
+                        outputMsg.Text = "Producto " + producto.getNombre() + ", " + producto.getCodigo();
+                    }
+                    else outputMsg.Text = "Producto no encontrado en la B.D.";
+
+                }
+
+            }
         }
 
     }
