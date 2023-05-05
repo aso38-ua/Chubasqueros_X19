@@ -10,13 +10,31 @@
     --text: #fff;
 }
 
-.menu {
-    display: block;
-    width: 100%;
+header{
+    width:100%;
+}
+
+    header nav {
+        height: 250px;
+    }
+
+header nav ul {
+    overflow:hidden;
+    list-style:none;
+    height:250px;
+}
+
+header nav ul li{
+    float:left;
+
+}
+
+header nav ul li a{
+    display:block;
 }
 
 .coolButton {
-    top: 30px;
+    top: 20px;
     color: #ffa31a;
     background-color: black;
     border: 2px solid #ffa31a;
@@ -117,7 +135,7 @@ body {
 .switch {
     margin-top: 10px;
     position: absolute;
-    font-size: 40px;
+    font-size: 250%;
     margin-left: 100px;
 }
 

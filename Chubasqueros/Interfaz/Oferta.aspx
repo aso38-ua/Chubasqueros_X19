@@ -5,8 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
 
-    <br /><br />
-    <h1 class="h1-oferta">Descuentos y ofertas</h1>
+
+    <h2 class="h1-oferta">Descuentos y ofertas</h2>
     <div class="container-oferta">
         <!-- PRIMERA FILA -->
         <div class="row-oferta">

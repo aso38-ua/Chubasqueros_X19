@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-<br /><br /><br /><br />
+
 <center><h2><u>Ropa</u></h2></center>
 <br />
 <div class="contenedor">
