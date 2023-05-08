@@ -10,13 +10,31 @@
     --text: #fff;
 }
 
-.menu {
-    display: block;
-    width: 100%;
+header{
+    width:100%;
+}
+
+    header nav {
+        height: 250px;
+    }
+
+header nav ul {
+    overflow:hidden;
+    list-style:none;
+    height:250px;
+}
+
+header nav ul li{
+    float:left;
+
+}
+
+header nav ul li a{
+    display:block;
 }
 
 .coolButton {
-    top: 30px;
+    top: 20px;
     color: #ffa31a;
     background-color: black;
     border: 2px solid #ffa31a;
@@ -115,10 +133,10 @@ body {
     }
 
 .switch {
-    margin: auto;
+    margin-top: 10px;
     position: absolute;
-    font-size: 40px;
-    margin-left:800px;
+    font-size: 250%;
+    margin-left: 100px;
 }
 
 .switch__icon,
@@ -169,12 +187,12 @@ body {
         box-shadow: 0 0 0 0.125em hsl(var(--hue),90%,50%), 0.125em 0.125em 0.25em hsla(var(--hue),90%,10%,0.2);
     }
 
-    .switch__input:before,
+    /*.switch__input:before,
     .switch__input:after {
         content: "";
         display: block;
         position: absolute;
-    }
+    }*/
 
     .switch__input:before {
         background-color: hsl(50,90%,50%);
@@ -210,11 +228,7 @@ body {
             transform: translateX(1.5em);
         }
 
-        .switch__input:checked ~ .switch__icon--light,
-        .switch__input:checked ~ .switch__icon--light polyline {
-            transition-delay: 0s;
-            transition-timing-function: var(--trans-timing-in);
-        }
+        
 
         .switch__input:checked ~ .switch__icon--light {
             opacity: 0;
