@@ -40,9 +40,11 @@ namespace Interfaz
                 // Verificar el resultado y realizar las acciones necesarias
                 if (resultado)
                 {
+                    Session["username"] = nombre;
+                    Session["email"] = email;
                     // El usuario se creó correctamente
                     // Realizar alguna acción, como redireccionar a otra página o mostrar un mensaje de éxito
-                    Response.Redirect("Reservas.aspx");
+                    Response.Redirect("Perfil.aspx");
                 }
                 else
                 {

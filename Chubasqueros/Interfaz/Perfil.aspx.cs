@@ -12,46 +12,29 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
+            if (!IsPostBack)
             {
-                string connectionString = "Data Source=(local);Initial Catalog=MyDatabase;Integrated Security=True";
-                string query = "SELECT * FROM UserProfile WHERE UserId = @UserId";
-                int userId = Convert.ToInt32(Session["UserId"]);
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@UserId", userId);
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        txtName.Text = reader["Name"].ToString();
-                        txtEmail.Text = reader["Email"].ToString();
-                        txtPhone.Text = reader["Phone"].ToString();
-                    }
-                    reader.Close();
-                }
-            }*/
-        }
-    
+                // Obtener el nombre de usuario y el correo electrónico de la sesión
+                string username = (string)Session["username"];
+                string email = (string)Session["email"];
 
-        /*protected void btnSave_Click(object sender, EventArgs e)
-        {
-            // Leer los valores de los controles de la página y actualizar los datos del perfil del usuario en la base de datos.
-            string connectionString = "Data Source=(local);Initial Catalog=MyDatabase;Integrated Security=True";
-            string query = "UPDATE UserProfile SET Name = @Name, Email = @Email, Phone = @Phone WHERE UserId = @UserId";
-            int userId = Convert.ToInt32(Session["UserId"]);
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Name", txtName.Text);
-                command.Parameters.AddWithValue("@Email", txtEmail.Text);
-                command.Parameters.AddWithValue("@Phone", txtPhone.Text);
-                command.Parameters.AddWithValue("@UserId", userId);
-                connection.Open();
-                command.ExecuteNonQuery();
+                // Utilizar los valores según sea necesario
+                lblUsername.Text = username;
+                lblEmail.Text = email;
             }
-            lblMessage.Text = "Perfil actualizado correctamente.";
-        }*/
+        }
+
+
+
+        private string ObtenerNombreDeUsuario()
+        {
+            // Aquí debes implementar la lógica para obtener el nombre de usuario del usuario autenticado
+            // Puedes obtener esta información de la sesión, cookies u otros mecanismos de autenticación que estés utilizando en tu aplicación
+
+            // Por ejemplo, si estás utilizando el sistema de autenticación de ASP.NET, puedes obtener el nombre de usuario así:
+            string username = User.Identity.Name;
+
+            return username;
+        }
     }
 }

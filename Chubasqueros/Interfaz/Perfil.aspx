@@ -13,7 +13,8 @@
             <div class="profile-card">
                 <div class="profile-header">
                     <img src="profile-picture.jpg" />
-                    <h2 class="username">John Doe</h2>
+                    <label>Nombre:</label>
+                        <asp:Label ID="lblUsername" runat="server" Text="John Doe"></asp:Label>
                 </div>
                 <div class="profile-info">
                     <div class="info-row">
