@@ -23,11 +23,10 @@ namespace Library
             this.contraseña="";
         }
 
-        public ENUsuario(int id, string nombre, string apellido, string email, string contraseña)
+        public ENUsuario(int id, string nombre, string email, string contraseña)
         {
             this.id = id;
             this.nombre = nombre;
-            this.apellido = apellido;
             this.email = email;
             this.contraseña = contraseña;
         }
@@ -79,10 +78,17 @@ namespace Library
         }
 
         // Create
-        public static void CrearUsuario(int id, string nombre, string apellido, string email, string contraseña)
+        public bool CrearUsuario(int id, string nombre, string email, string contraseña)
         {
-            ENUsuario nuevoUsuario = new ENUsuario(id, nombre, apellido, email, contraseña);
-            CADUsuario.CrearUsuario(nuevoUsuario);
+            CADUsuario user = new CADUsuario();
+            bool created = false;
+
+            if (!user.readUsuario(this))
+            {
+                created = user.createUsuario(this);
+            }
+
+            return created;
         }
 
         // Read

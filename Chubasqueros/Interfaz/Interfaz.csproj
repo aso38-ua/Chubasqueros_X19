@@ -67,6 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Categoria.aspx" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
@@ -115,6 +119,7 @@
     <Content Include="Registro.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="Reservas.aspx" />
+    <Content Include="Verified.aspx" />
     <Content Include="Web.config" />
     <Content Include="Comentario.aspx" />
   </ItemGroup>
@@ -238,6 +243,13 @@
     </Compile>
     <Compile Include="Comentario.aspx.designer.cs">
       <DependentUpon>Comentario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Verified.aspx.cs">
+      <DependentUpon>Verified.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Verified.aspx.designer.cs">
+      <DependentUpon>Verified.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
