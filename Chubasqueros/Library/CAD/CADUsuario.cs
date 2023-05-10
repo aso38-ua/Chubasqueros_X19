@@ -18,10 +18,8 @@ namespace Library
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
-        public bool createUsuario(ENUsuario en) { return true; }
-        public bool readUsuario(ENUsuario en) { return true; }
-        public bool updateUsuario(ENUsuario en) { return true; }
-        public bool deleteUsuario(ENUsuario en) { return true; }
+        
+        
         // Create
         public bool CrearUsuario(ENUsuario en)
         {
@@ -112,6 +110,73 @@ namespace Library
             return resultado;
         }
 
+        public bool updateUsuario(ENUsuario en) 
+        {
+            bool result = false;
+
+            using (SqlConnection connection = new SqlConnection(constring))
+            {
+                string query = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, Email = @Email WHERE IdUsuario = @IdUsuario";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nombre", en.nombre);
+                command.Parameters.AddWithValue("@Apellido", en.apellido);
+                command.Parameters.AddWithValue("@Email", en.email);
+                command.Parameters.AddWithValue("@IdUsuario", en.id);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        // La actualización fue exitosa
+                        result = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejar la excepción en caso de algún error
+                    Console.WriteLine("Error al actualizar el usuario: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        public bool deleteUsuario(ENUsuario en) 
+        {
+            bool result = false;
+
+            using (SqlConnection connection = new SqlConnection(constring))
+            {
+                string query = "DELETE FROM Usuario WHERE IdUsuario = @IdUsuario or Email=@Email";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@IdUsuario", en.id);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        // La eliminación fue exitosa
+                        result = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejar la excepción en caso de algún error
+                    Console.WriteLine("Error al eliminar el usuario: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
 
         private bool existeNombreUsuario(string nombreUsuario)
         {
@@ -173,7 +238,8 @@ namespace Library
             return existeUsuario;
         }
 
-        // Read
+
+
         public static ENUsuario ObtenerUsuarioPorId(int id)
         {
             throw new NotImplementedException();
