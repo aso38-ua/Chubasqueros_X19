@@ -26,7 +26,8 @@ namespace Interfaz
             if (ValidarCredenciales(username, password))
             {
                 string email = ObtenerEmailPorUsuario(username);
-                string user = ObtenerUsuarioPorEmail(username);
+
+                string user = ObtenerUsuarioPorEmail(email);
 
                 // Almacena el nombre de usuario y el correo electrónico en variables de sesión
                 Session["username"] = user;
@@ -70,6 +71,11 @@ namespace Interfaz
         {
             string email = string.Empty;
 
+            if (EsCorreoElectronico(username))
+            {
+                return username; // El 'username' ya es un correo electrónico, devolverlo directamente
+            }
+
             string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -110,6 +116,19 @@ namespace Interfaz
             }
 
             return username;
+        }
+
+        private bool EsCorreoElectronico(string input)
+        {
+            try
+            {
+                var email = new System.Net.Mail.MailAddress(input);
+                return email.Address == input;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }

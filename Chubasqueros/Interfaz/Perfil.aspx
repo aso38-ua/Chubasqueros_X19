@@ -7,12 +7,13 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <br /><br /><br /><br /><br /><br /><br />
+
+
     <div class="perfil">
-            <h1>Perfil</h1>
+            <h2>Perfil</h2>
             <div class="profile-card">
                 <div class="profile-header">
-                    <img src="profile-picture.jpg" />
+                    <asp:Image ID="imgProfile" runat="server" Width="300px" Height="200px"/><br />
                     <label>Nombre:</label>
                         <asp:Label ID="lblUsername" runat="server" Text="John Doe"></asp:Label>
                 </div>
@@ -31,6 +32,12 @@
                     </div>
                 </div>
             </div>
+
+                    <div class="upload-form">
+                    
+                    <asp:Button ID="btnUpload" runat="server" Text="Editar Perfil" OnClick="btnUpload_Click" />
+                </div>
+
         </div>
 
 </asp:Content>
