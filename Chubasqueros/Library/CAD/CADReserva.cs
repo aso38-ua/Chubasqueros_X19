@@ -14,7 +14,7 @@ namespace Library
 
         public CADReserva()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         public bool createReserva(ENReserva en)

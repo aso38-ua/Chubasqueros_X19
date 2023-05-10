@@ -12,9 +12,12 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
+            if (!IsPostBack)
             {
-                ENFavoritos favoritos = new ENFavoritos(id);
+                ENUsuario usuario = new ENUsuario();
+                usuario.nombre = Session['username'];
+                usuario.readusuario();
+                ENFavoritos favoritos = new ENFavoritos(usuario.id);
                 favoritos.readFavoritos();
                 if (favoritos.productop != null)
                 {
@@ -29,7 +32,9 @@ namespace Interfaz
                     listView_Favoritos.DataSource = favoritos;
                     listView_Favoritos.DataBind();
                 }
-            }*/
+            }
         }
     }
+
+    //Falta poner un botón para eliminar el producto de la lista.
 }

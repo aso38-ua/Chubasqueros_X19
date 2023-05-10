@@ -14,7 +14,7 @@ namespace Library
 
         public CADFavoritos()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         public bool createFavorites(ENFavoritos en)
