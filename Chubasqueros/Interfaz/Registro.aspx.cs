@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Interfaz
 {
     public partial class Registro : System.Web.UI.Page

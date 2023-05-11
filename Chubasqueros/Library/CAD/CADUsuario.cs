@@ -151,7 +151,7 @@ namespace Library
 
             using (SqlConnection connection = new SqlConnection(constring))
             {
-                string query = "DELETE FROM Usuario WHERE IdUsuario = @IdUsuario or Email=@Email";
+                string query = "DELETE FROM Usuario WHERE IdUsuario = @IdUsuario";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@IdUsuario", en.id);
