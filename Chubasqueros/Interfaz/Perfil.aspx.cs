@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,46 +14,70 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
+            if (!IsPostBack)
             {
-                string connectionString = "Data Source=(local);Initial Catalog=MyDatabase;Integrated Security=True";
-                string query = "SELECT * FROM UserProfile WHERE UserId = @UserId";
-                int userId = Convert.ToInt32(Session["UserId"]);
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                if (Session["username"] == null)
                 {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@UserId", userId);
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        txtName.Text = reader["Name"].ToString();
-                        txtEmail.Text = reader["Email"].ToString();
-                        txtPhone.Text = reader["Phone"].ToString();
-                    }
-                    reader.Close();
+                    // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
+                    Response.Redirect("Login.aspx");
                 }
-            }*/
-        }
-    
+                else
+                {
+                    // Obtener el nombre de usuario y el correo electrónico de la sesión
+                    string username = (string)Session["username"];
+                    string email = (string)Session["email"];
 
-        /*protected void btnSave_Click(object sender, EventArgs e)
+                    // Utilizar los valores según sea necesario
+                    lblUsername.Text = username;
+                    lblEmail.Text = email;
+
+                    // Obtén la ruta de la imagen de perfil del usuario desde la base de datos o desde la ubicación especificada
+                    string imagePath = ObtenerRutaImagenPerfil(username);
+
+                    // Asigna la ruta de la imagen al control <asp:Image>
+                    imgProfile.ImageUrl = ResolveUrl(imagePath);
+                }
+                
+            }
+        }
+
+        private string ObtenerRutaImagenPerfil(string username)
         {
-            // Leer los valores de los controles de la página y actualizar los datos del perfil del usuario en la base de datos.
-            string connectionString = "Data Source=(local);Initial Catalog=MyDatabase;Integrated Security=True";
-            string query = "UPDATE UserProfile SET Name = @Name, Email = @Email, Phone = @Phone WHERE UserId = @UserId";
-            int userId = Convert.ToInt32(Session["UserId"]);
+            // Aquí debes implementar la lógica para obtener la ruta de la imagen de perfil del usuario desde la base de datos
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Name", txtName.Text);
-                command.Parameters.AddWithValue("@Email", txtEmail.Text);
-                command.Parameters.AddWithValue("@Phone", txtPhone.Text);
-                command.Parameters.AddWithValue("@UserId", userId);
-                connection.Open();
-                command.ExecuteNonQuery();
+                string query = "SELECT ImagenPerfil FROM usuario WHERE nombre = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    string imagePath = command.ExecuteScalar() as string;
+
+                    // Verifica si la ruta de la imagen de perfil está vacía o nula
+                    if (!string.IsNullOrEmpty(imagePath))
+                    {
+                        // La ruta de la imagen de perfil existe, puedes retornarla
+                        return imagePath;
+                    }
+                    else
+                    {
+                        // La ruta de la imagen de perfil está vacía o nula, puedes retornar una ruta predeterminada o mostrar una imagen por defecto
+                        return "~/ProfileImages/Profile.jpg";
+                    }
+                }
             }
-            lblMessage.Text = "Perfil actualizado correctamente.";
-        }*/
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EditarPerfil.aspx");
+        }
+
+
+
+
     }
 }

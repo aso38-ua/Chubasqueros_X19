@@ -62,7 +62,7 @@ namespace library
             ENUsuario aux_EN_User = new ENUsuario();
             CADUsuario aux_CAD_User = new CADUsuario();
             aux_EN_User.id = id_user;
-            if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.readUsuario(aux_EN_User))
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.ReadUsuario(aux_EN_User))
             {
                 puntuar = aux_CAD_Pun.createPuntuacion(this);
             }
