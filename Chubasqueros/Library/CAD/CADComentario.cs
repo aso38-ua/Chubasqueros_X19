@@ -57,6 +57,7 @@ namespace library
             string comando = "delete from [dbo].[Usuarios] where item = '" + en.aux_item + "'";
             try
             {
+                eliminate = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
@@ -87,6 +88,7 @@ namespace library
             string comando = "update [dbo].[Comentario] set comentario = '" + en.aux_comentario + "' where id_user = " + en.aux_id_user + ", item = " + en.aux_item;
             try
             {
+                change = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
@@ -159,6 +161,7 @@ namespace library
             SqlConnection conexion = null;
             string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item;
             try {
+                like = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
@@ -189,6 +192,7 @@ namespace library
             string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item;
             try
             {
+                dislike = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
