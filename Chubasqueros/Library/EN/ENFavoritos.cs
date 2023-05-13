@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class ENFavoritos
+    public class ENFavoritos
     {
         private int[] productos;
         private int usuario;
@@ -57,6 +57,13 @@ namespace Library
         {
             CADFavoritos favorito = new CADFavoritos();
             bool leido = favorito.readFavorites(this);
+            return leido;
+        }
+
+        public bool readFavoritosWithP()
+        {
+            CADFavoritos favorito = new CADFavoritos();
+            bool leido = favorito.readFavoritesWithP(this);
             return leido;
         }
 

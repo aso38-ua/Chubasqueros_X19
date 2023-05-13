@@ -37,6 +37,14 @@ namespace Library
             set { usuario = value; }
         }
 
+        public ENReserva(int producto, int usuario)
+        {
+            this.cantidad = 0;
+            this.fecha = "00/00/0000";
+            this.producto = producto;
+            this.usuario = usuario;
+        }
+
         public ENReserva(int cantidad, string fecha, int producto, int usuario)
         {
             this.cantidad = cantidad;

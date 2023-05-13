@@ -43,7 +43,9 @@
                              <td>
                                  <b><u><span class="name">
                                      <%# Eval("ContactName") %></span></u>
+                                     <input style="background-color:white; border-color:black; color:red" align=right id="button" type="button" value="Cancelar Reserva" onclick="cancelarReserva(name)">
                                  </b>
+                                 
                              </td>
                          </tr>
                          <tr>

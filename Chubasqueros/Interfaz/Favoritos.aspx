@@ -41,8 +41,9 @@
                      <table cellpadding="2" cellspacing="0" border="1" style="width: 800px; height: 100px; border: dashed 2px #04AFEF; background-color: #B0E2F5">
                          <tr>
                              <td>
-                                 <b><u><span class="name">
-                                     <%# Eval("ContactName") %></span></u>
+                                 <b><u><span class="name"><%# Eval("ContactName") %></span></u>
+                                     <input style="background-color:white; border-color:black; color:red" align=right id="button" type="button" value="Eliminar de Favoritos" onclick="eliminardeFavoritos(name)">
+
                                  </b>
                              </td>
                          </tr>

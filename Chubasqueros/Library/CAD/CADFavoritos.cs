@@ -96,6 +96,38 @@ namespace Library
             return leido;
         }
 
+        public bool readFavoritesWithP(ENFavoritos en)
+        {
+            bool leido = false;
+            try
+            {
+                String consultaString = "SELECT * FROM [dbo].[Favoritos] WHERE usuario = '" + en.usuariop + " AND producto = '" + en.productop[0] + ";";
+                SqlConnection conexion = new SqlConnection(constring);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(consultaString, conexion);
+                SqlDataReader consultabusqueda = consulta.ExecuteReader();
+                consultabusqueda.Read();
+                if (int.Parse(consultabusqueda["usuario"].ToString()) == en.usuariop)
+                {
+                    leido = true;
+                }
+                consultabusqueda.Close();
+                conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                leido = false;
+                Console.WriteLine("Favorites operation has failed. Error: {0} ", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                leido = false;
+                Console.WriteLine("Favorites operation has failed. Error: {0} ", ex.Message);
+            }
+            return leido;
+        }
+
         public bool deleteFavorites(ENFavoritos en)
         {
             bool borrado = false;

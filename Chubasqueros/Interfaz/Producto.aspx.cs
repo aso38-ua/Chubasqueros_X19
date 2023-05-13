@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Library;
 
 namespace Interfaz
 {
@@ -97,8 +98,15 @@ namespace Interfaz
 
         protected void onFavoritos(object sender, EventArgs e)
         {
-
-
+            DateTime thisDay = DateTime.Today;
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            ENFavoritos favoritos = new ENFavoritos(int.Parse(text_codigo.Text),usuario.id);
+            if (!favoritos.readFavoritosWithP())
+            {
+                favoritos.insertProductinBD(int.Parse(text_codigo.Text));
+            }
         }
 
         protected void onPuntuar(object sender, EventArgs e)

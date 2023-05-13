@@ -87,20 +87,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Content Include="App_Data\Database1.mdf" />
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="Database.sql" />
-=======
-    <Content Include="App_Data\Database.mdf" />
-    <Content Include="App_Data\Database_log.ldf">
-      <DependentUpon>Database.mdf</DependentUpon>
-    </Content>
     <Content Include="Categoria.aspx" />
     <Content Include="CerrarSesion.aspx" />
     <Content Include="EditarPerfil.aspx" />
+    <Content Include="Formulario web1.aspx" />
     <Content Include="IMGS\change.jpg" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
@@ -126,7 +121,6 @@
     <Content Include="CSS\Perfil.css" />
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleSheet1.css" />
->>>>>>> 48793033M
     <Content Include="Default.aspx" />
     <Content Include="InterfazCarrito.aspx" />
     <Content Include="InterfazPedido.aspx" />
@@ -176,6 +170,13 @@
     </Compile>
     <Compile Include="EditarPerfil.aspx.designer.cs">
       <DependentUpon>EditarPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario web1.aspx.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario web1.aspx.designer.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Producto.aspx.cs">
       <DependentUpon>Producto.aspx</DependentUpon>
