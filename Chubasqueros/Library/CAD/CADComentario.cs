@@ -156,12 +156,59 @@ namespace library
         public bool likesItem(ENComentario en)
         {
             bool like = false;
+            SqlConnection conexion = null;
+            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item;
+            try {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.ExecuteNonQuery();
+
+            }
+            catch (SqlException sqlex)
+            {
+                like = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                like = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
             return like;
         }
 
         public bool dislikesItem(ENComentario en)
         {
             bool dislike = false;
+            SqlConnection conexion = null;
+            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item;
+            try
+            {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.ExecuteNonQuery();
+
+            }
+            catch (SqlException sqlex)
+            {
+                dislike = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                dislike = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
             return dislike;
         }
     }
