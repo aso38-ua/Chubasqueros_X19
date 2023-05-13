@@ -53,13 +53,13 @@ namespace library
             aux_contador = 0;
         }
 
-        public ENPuntuacion(int estrella, int item, int id_user, int media, int contador)
+        public ENPuntuacion(int estrella, int item, int id_user)
         {
             aux_estrella = estrella;
             aux_item = item;
             aux_id_user = id_user;
-            aux_media = media;
-            aux_contador = contador;
+            aux_media = 0;
+            aux_contador = 0;
         }
 
         public ENPuntuacion(ENPuntuacion en)
