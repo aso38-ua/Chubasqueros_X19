@@ -36,3 +36,21 @@ CREATE TABLE pedido (
     PRIMARY KEY (id),
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
+
+CREATE TABLE Favoritos (
+    usuario INT NOT NULL,
+    producto INT NOT NULL,
+    PRIMARY KEY (producto,usuario),
+    FOREIGN KEY (usuario) REFERENCES usuario(id),
+    FOREIGN KEY (producto) REFERENCES producto(id)
+);
+
+CREATE TABLE Reserva (
+    usuario INT NOT NULL,
+    producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    fecha VARCHAR2(50) NULL,
+    PRIMARY KEY (producto,usuario),
+    FOREIGN KEY (usuario) REFERENCES usuario(id),
+    FOREIGN KEY (producto) REFERENCES producto(id)
+);
