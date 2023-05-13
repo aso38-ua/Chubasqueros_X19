@@ -27,7 +27,7 @@
         </p>
 
         <p>
-             Fecha de llegada aproximada: [dia]/[mes]/[año] [hora]:[minutos]
+             Fecha de llegada aproximada: [dia]/[mes]/[año]
         </p>
     </asp:Panel>
    
