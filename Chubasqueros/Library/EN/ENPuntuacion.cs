@@ -12,6 +12,8 @@ namespace library
         private int estrellas;
         private int item;
         private int id_user;
+        private int media;
+        private int contador;
 
         public int aux_estrella
         {
@@ -31,18 +33,33 @@ namespace library
             set { id_user = value; }
         }
 
+        public int aux_media
+        {
+            get { return media; }
+            set { media = value; }
+        }
+        public int aux_contador
+        {
+            get { return contador; }
+            set { contador = value; }
+        }
+
         public ENPuntuacion()
         {
             aux_estrella = 0;
             aux_item = 0;
             aux_id_user = 0;
+            aux_media = 0;
+            aux_contador = 0;
         }
 
-        public ENPuntuacion(int estrella, int item, int id_user)
+        public ENPuntuacion(int estrella, int item, int id_user, int media, int contador)
         {
             aux_estrella = estrella;
             aux_item = item;
             aux_id_user = id_user;
+            aux_media = media;
+            aux_contador = contador;
         }
 
         public ENPuntuacion(ENPuntuacion en)
@@ -50,6 +67,8 @@ namespace library
             aux_estrella = en.aux_estrella;
             aux_item = en.aux_item;
             aux_id_user = en.aux_id_user;
+            aux_media = en.media;
+            aux_contador = en.contador;
         }
         public bool createPuntuacion()
         {
@@ -95,14 +114,14 @@ namespace library
 
         public bool mediaPuntuacion()
         {
-            bool media = false;
+            bool mediaP = false;
             ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             if (aux_CAD_Pun.findItem(aux_EN_Pun))
             {
-                media = aux_CAD_Pun.changePuntuacion(this);
+                mediaP = aux_CAD_Pun.changePuntuacion(this);
             }
-            return media;
+            return mediaP;
         }
 
         public bool findItem()

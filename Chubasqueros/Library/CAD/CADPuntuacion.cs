@@ -57,6 +57,7 @@ namespace library
             string comando = "delete from [dbo].[Puntuacion] where id_user = " + en.aux_id_user + ", estrellas = " + en.aux_estrella + ", item = " + en.aux_item;
             try
             {
+                eliminate = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
@@ -87,6 +88,7 @@ namespace library
             string comando = "update [dbo].[Puntuacion] set estrellas = " + en.aux_estrella + " where id_user = " + en.aux_id_user + ", item = " + en.aux_item;
             try
             {
+                change = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
@@ -112,8 +114,33 @@ namespace library
 
         public bool mediaPuntuacion(ENPuntuacion en)
         {
-            bool media = false;
-            return media;
+            bool mediaP = false;
+            SqlConnection conexion = null;
+            string comando = "update [dbo].[Puntuacion] set media = " + en.aux_estrella / en.aux_contador + "where item = " + en.aux_item;
+            try
+            {
+                mediaP = true;
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.ExecuteNonQuery();
+
+            }
+            catch (SqlException sqlex)
+            {
+                mediaP = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                mediaP = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return mediaP;
         }
 
         public bool findItem(ENPuntuacion en)
