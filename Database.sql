@@ -54,3 +54,26 @@ CREATE TABLE Reserva (
     FOREIGN KEY (usuario) REFERENCES usuario(id),
     FOREIGN KEY (producto) REFERENCES producto(id)
 );
+
+CREATE TABLE Comentario (
+    id_user INT NOT NULL,
+    item INT NOT NULL,
+    estrellas INT NOT NULL,
+    likes INT NULL,
+    dislikes INT NULL,
+    comentario VARCHAR(200) NOT NULL,
+    PRIMARY KEY (id_user, item, estrellas),
+    FOREIGN KEY (id_user) REFERENCES usuario(id),
+    FOREIGN KEY (item) REFERENCES producto(id),
+    FOREIGN KEY (estrellas) REFERENCES Puntuacion(estrellas)
+);
+
+CREATE TABLE Puntuacion (
+    id_user INT NOT NULL,
+    item INT NOT NULL,
+    estrellas INT NOT NULL,
+    media INT NOT NULL,
+    contador INT NOT NULL,
+    FOREIGN KEY (id_user) REFERENCES usuario(id),
+    FOREIGN KEY (item) REFERENCES producto(id)
+);
