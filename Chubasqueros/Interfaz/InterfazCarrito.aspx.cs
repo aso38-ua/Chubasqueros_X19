@@ -13,5 +13,15 @@ namespace Interfaz
 		{
 
 		}
+
+		protected void btn_compra(object sender, EventArgs e)
+		{
+			Response.Redirect("InterfazPedido.aspx");
+		}
+
+		protected void btn_eliminar(object sender, EventArgs e)
+		{
+			Response.Redirect("Default.aspx");
+		}
 	}
 }

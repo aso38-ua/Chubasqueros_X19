@@ -35,8 +35,8 @@
      <p>
          Precio total: [preciototal]
      </p>
-     <asp:Button ID ="botoncompra" BackColor="LightBlue" Text ="Pagar" runat ="server" />
+     <asp:Button ID ="botoncompra" BackColor="LightBlue" Text ="Pagar" runat ="server" onClick="btn_pagar"/>
     <p>
-      <asp:Button ID ="botoncancelar" BackColor="LightCoral" Text="Cancelar Pedido" runat="server" />
+      <asp:Button ID ="botoncancelar" BackColor="LightCoral" Text="Cancelar Pedido" runat="server" onClick="btn_cancelar"/>
     </p>
 </asp:Content>

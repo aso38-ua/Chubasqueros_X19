@@ -19,7 +19,7 @@
      <p>
          Precio total: [preciototal]
      </p>
-     <asp:Button ID ="botoncompra"  BackColor="LightBlue"  Text="Comprar" runat ="server" />
+     <asp:Button ID ="botoncompra"  BackColor="LightBlue"  Text="Comprar" runat ="server" onCLick="btn_compra"/>
      <p>
-     <asp:Button ID ="botoneliminar" BackColor="LightCoral" Text ="Eliminar del carrito" runat ="server" style="margin-bottom: 0px" /></p>
+     <asp:Button ID ="botoneliminar" BackColor="LightCoral" Text ="Eliminar del carrito" runat ="server" style="margin-bottom: 0px" onClick="btn_eliminar"/></p>
 </asp:Content>

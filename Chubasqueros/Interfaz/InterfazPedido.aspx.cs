@@ -13,5 +13,15 @@ namespace Interfaz
         {
 
         }
+
+        protected void btn_pagar(object sender, EventArgs e)
+        {
+            Response.Redirect("");
+        }
+
+        protected void btn_cancelar(object sender, EventArgs e)
+        {
+            Response.Redirect("InterfazCarrito.aspx");
+        }
     }
 }

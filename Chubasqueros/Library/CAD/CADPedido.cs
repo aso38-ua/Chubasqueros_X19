@@ -19,23 +19,132 @@ namespace Library
         {
             constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
         }
+
+        //Para ver los pedidos realizados y consultar de nuevo la fecha de llegada del pedido
         public bool leerPedido(ENPedido p)
         {
-            return true;
+            bool create = true;
+            try
+            {
+                SqlConnection conectsql = null;
+                conectsql = new SqlConnection(constring);
+                conectsql.Open();
+
+                string cout = "";
+                SqlCommand consult = new SqlCommand(cout, conectsql);
+                SqlDataReader search = consult.ExecuteReader();
+                search.Read();
+
+
+                /*
+                if (search["nif"].ToString() == p.)
+                {
+                    en.NOMBRE = search["nombre"].ToString();
+                    en.NIF = search["NIF"].ToString();
+                    en.EDAD = int.Parse(search["edad"].ToString());
+                }
+                else
+                {
+                    create = false;
+                }
+                */
+                search.Close();
+                conectsql.Close();
+            }
+            catch (SqlException e)
+            {
+                create = false;
+                Console.WriteLine("Order operation has failed.Error : {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                create = false;
+                Console.WriteLine("Order operation has failed.Error : {0}", e.Message);
+            }
+            return create;
         }
         public bool crearPedido(ENPedido p)
         {
-            return true;
+            bool create = false;
+            try
+            {
+                SqlConnection conectsql = null;
+                conectsql = new SqlConnection(constring);
+                conectsql.Open();
+
+                string cout = "";
+                SqlCommand consult = new SqlCommand(cout, conectsql);
+                consult.ExecuteNonQuery();
+                create = true;
+                conectsql.Close();
+            }
+            catch (SqlException e)
+            {
+                create = false;
+                Console.WriteLine("Order operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                create = false;
+                Console.WriteLine("Order operation has failed.Error: {0}", e.Message);
+            }
+            return create;
         }
 
         public bool eliminarPedido(ENPedido p)
         {
-            return true;
+            bool delete = true;
+            try
+            {
+                SqlConnection conectsql = null;
+                conectsql = new SqlConnection(constring);
+                conectsql.Open();
+
+                string cout = "DELETE FROM";
+                SqlCommand consulta = new SqlCommand(cout, conectsql);
+                consulta.ExecuteNonQuery();
+                delete = true;
+                conectsql.Close();
+            }
+            catch (SqlException e)
+            {
+                delete = false;
+                Console.WriteLine("Order operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                delete = false;
+                Console.WriteLine("Order operation has failed.Error: {0}", e.Message);
+            }
+            return delete;
         }
 
         public bool actualizarPedido(ENPedido p)
         {
-            return true;
+            bool update = true;
+            try
+            {
+                SqlConnection conectsql = null;
+                conectsql = new SqlConnection(constring);
+                conectsql.Open();
+
+                string cout = "UPDATE FROM";
+                SqlCommand consulta = new SqlCommand(cout, conectsql);
+                consulta.ExecuteNonQuery();
+                update = true;
+                conectsql.Close();
+            }
+            catch (SqlException e)
+            {
+                update = false;
+                Console.WriteLine("Order operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                update = false;
+                Console.WriteLine("Order operation has failed.Error: {0}", e.Message);
+            }
+            return update;
         }
 
         //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
@@ -44,7 +153,7 @@ namespace Library
             return 0;
         }
 
-        //Añadir producto al carrito
+        //Añadir producto desde favoritos al carrito
         public bool AñadirProducto()
         {
             return true;
@@ -61,12 +170,6 @@ namespace Library
         {
             return 0;
         }
-
-
-        //Boton de comprar exclusivo para carrito
-        public bool Comprar()
-        {
-            return true;
-        }
     }
 }
+
