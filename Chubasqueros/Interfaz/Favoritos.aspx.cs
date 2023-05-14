@@ -16,29 +16,39 @@ namespace Interfaz
         {
             if (!IsPostBack)
             {
-                ENUsuario usuario = new ENUsuario();
-                usuario.nombre = (string)Session["username"];
-                usuario.readUsuario();
-                ENFavoritos favoritos = new ENFavoritos(usuario.id);
-                favoritos.readFavoritos();
-                if (favoritos.productop != null)
+                if (Session["username"] == null)
                 {
-                    int cantidadP = favoritos.productop.Length;
-                    ENProducto[] productos = new ENProducto[cantidadP];
-                    for (int i = 0; i < cantidadP; i++)
+                    // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    ENUsuario usuario = new ENUsuario();
+                    usuario.nombre = (string)Session["username"];
+                    usuario.readUsuario();
+                    ENFavoritos favoritos = new ENFavoritos(usuario.id);
+                    favoritos.readFavoritos();
+                    if (favoritos.productop != null)
                     {
-                        productos[i] = new ENProducto();
-                        productos[i].setCodigo(favoritos.productop[i]);
-                        productos[i].readProducto();
+                        int cantidadP = favoritos.productop.Length;
+                        ENProducto[] productos = new ENProducto[cantidadP];
+                        for (int i = 0; i < cantidadP; i++)
+                        {
+                            productos[i] = new ENProducto();
+                            productos[i].setCodigo(favoritos.productop[i]);
+                            productos[i].readProducto();
+                            productos[i].setStock(favoritos.productop[i]);
+                        }
+                        listView_Favoritos.DataSource = productos;
+                        listView_Favoritos.DataBind();
                     }
-                    listView_Favoritos.DataSource = productos;
-                    listView_Favoritos.DataBind();
                 }
             }
         }
 
-        protected void eliminardeFavoritos(String name)
+        protected void eliminardeFavoritos(object sender, EventArgs ei)
         {
+            bool existe = false;
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
@@ -50,14 +60,14 @@ namespace Interfaz
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "Select * From [dbo].[Producto] Where nombre = " + name;
+                string query = "Select * From [dbo].[producto] Where nombre = '" + text_nombre.Text + "';";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 SqlDataReader busqueda = consulta.ExecuteReader();
                 busqueda.Read();
-
-                if (busqueda["nombre"].ToString() == name)
+                if (busqueda["nombre"].ToString() == text_nombre.Text)
                 {
-                    favoritos.deleteProductinBD(int.Parse(busqueda["codigo"].ToString()));
+                    existe = true;
+                    favoritos.deleteProductinBD(int.Parse(busqueda["id"].ToString()));
                 }
                 busqueda.Close();
             }
@@ -71,6 +81,8 @@ namespace Interfaz
             finally
             {
                 connection.Close();
+                if (!existe) Mensaje.Text = "Nombre del producto no válido";
+                else Response.Redirect("Favoritos.aspx");
             }
         }
     }

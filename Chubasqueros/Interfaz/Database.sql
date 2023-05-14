@@ -45,10 +45,11 @@ CREATE TABLE Favoritos (
     FOREIGN KEY (producto) REFERENCES producto(id)
 );
 
-CREATE TABLE Reserva (
+CREATE TABLE Reservas (
     usuario INT NOT NULL,
     producto INT NOT NULL,
     cantidad INT NOT NULL,
+    ptotal FLOAT NOT NULL,
     fecha VARCHAR(50) NULL,
     PRIMARY KEY (producto,usuario),
     FOREIGN KEY (usuario) REFERENCES usuario(id),

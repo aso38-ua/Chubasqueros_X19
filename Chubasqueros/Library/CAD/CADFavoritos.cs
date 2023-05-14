@@ -22,7 +22,7 @@ namespace Library
             bool creado = false;
             try
             {
-                String consultaString = "INSERT INTO [dbo].[Favoritos] (producto,usuario) VALUES ('" + en.productop[0] + "', " + en.usuariop + ");";
+                String consultaString = "INSERT INTO [dbo].[Favoritos] (producto,usuario) VALUES (" + en.productop[0] + ", " + en.usuariop + ");";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -32,7 +32,7 @@ namespace Library
                 {
                     for(int i = 1; i < en.productop.Length; i++)
                     {
-                        consultaString = "INSERT INTO [dbo].[Favoritos] (producto,usuario) VALUES ('" + en.productop[i] + "', " + en.usuariop + ");";
+                        consultaString = "INSERT INTO [dbo].[Favoritos] (producto,usuario) VALUES (" + en.productop[i] + ", " + en.usuariop + ");";
                         consulta = new SqlCommand(consultaString, conexion);
                         consulta.ExecuteNonQuery();
                     }
@@ -58,7 +58,7 @@ namespace Library
             bool leido = false;
             try
             {
-                String consultaString = "SELECT * FROM [dbo].[Favoritos] WHERE usuario = '" + en.usuariop + "';";
+                String consultaString = "SELECT * FROM [dbo].[Favoritos] WHERE usuario = " + en.usuariop + ";";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -101,7 +101,7 @@ namespace Library
             bool leido = false;
             try
             {
-                String consultaString = "SELECT * FROM [dbo].[Favoritos] WHERE usuario = '" + en.usuariop + " AND producto = '" + en.productop[0] + ";";
+                String consultaString = "SELECT * FROM [dbo].[Favoritos] WHERE usuario = " + en.usuariop + " AND producto = " + en.productop[0] + ";";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -133,7 +133,7 @@ namespace Library
             bool borrado = false;
             try
             {
-                String consultaString = "DELETE FROM [dbo].[Favoritos] WHERE usuario = '" + en.usuariop + "';";
+                String consultaString = "DELETE FROM [dbo].[Favoritos] WHERE usuario = " + en.usuariop + ";";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -160,7 +160,7 @@ namespace Library
             bool borrado = false;
             try
             {
-                String consultaString = "DELETE FROM [dbo].[Favoritos] WHERE usuario = '" + en.usuariop + " AND producto = '" + en.productop[0] + "';";
+                String consultaString = "DELETE FROM [dbo].[Favoritos] WHERE usuario = " + en.usuariop + " AND producto = " + en.productop[0] + ";";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -187,7 +187,7 @@ namespace Library
             bool borrado = false;
             try
             {
-                String consultaString = "INSERT INTO [dbo].[Favoritos] (producto,usuario) VALUES ('" + en.productop[0] + "', " + en.usuariop + ");";
+                String consultaString = "INSERT INTO [dbo].[Favoritos] (producto,usuario) VALUES (" + en.productop[0] + ", " + en.usuariop + ");";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 

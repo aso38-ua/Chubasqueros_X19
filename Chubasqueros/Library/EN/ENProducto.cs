@@ -13,8 +13,18 @@ namespace Library
         private string descripcion;
         private int stock;
         private float precio;
-        private int codigoCategoria;
+        private int cant;
+        private string fech;
+        private float total;
+        public int cantidad { get {return cant; } set {cant = value; } }
+        public string fecha { get { return fech; } set { fech = value; } }
+        public float ptotal { get { return total; } set { ptotal = value; } }
 
+        private int codigoCategoria;
+        public string auxnombre { get {return nombre; }}
+        public string auxdescripcion { get {return descripcion; } }
+        public int auxstock { get {return stock; } }
+        public float auxprecio { get {return precio; } }
 
         public ENProducto()
         {
