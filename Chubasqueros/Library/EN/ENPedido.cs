@@ -10,7 +10,7 @@ namespace Library
     {
         private int cantidad; //cantidad de productos pedidos 
         private float total; //precio total
-        private int idPedido;
+        private int idPedido; //id del Pedido
         private DateTime fechaaprox; //fecha aproximada de llegada
 
         public int c
@@ -25,7 +25,7 @@ namespace Library
             set { total = value; }
         }
 
-        public int id
+        public int idp
         {
             get { return idPedido;  }
             set { idPedido = value; }
@@ -40,18 +40,18 @@ namespace Library
      
         public ENPedido()
         {
-            idPedido = 0;
-            cantidad = 0;
-            total = 0;
-            fechaaprox = DateTime.Now;
+            idp = 0;
+            c = 0;
+            t = 0;
+            fecha = DateTime.Now;
         }
 
         public ENPedido(int CANT, float TOT, int id, DateTime tiempo)
         {
-            CANT = cantidad;
-            TOT = total;
-            id = idPedido;
-            tiempo = fechaaprox;
+            CANT = c;
+            TOT = t;
+            id = idp;
+            tiempo = fecha;
         }
 
         public bool leerPedido()
@@ -77,17 +77,17 @@ namespace Library
             CADPedido pedido = new CADPedido();
             bool actualizar = false;
 
-            ped.cantidad = this.cantidad;
-            ped.total = this.total;
-            ped.idPedido = this.idPedido;
-            ped.fechaaprox = this.fechaaprox;
+            ped.c = this.c;
+            ped.t = this.t;
+            ped.idp = this.idp;
+            ped.fecha = this.fecha;
 
             if (pedido.leerPedido(this))
             {
-                this.cantidad = ped.cantidad;
-                this.total = ped.total;
-                this.idPedido = ped.idPedido;
-                this.fechaaprox = ped.fechaaprox;
+                this.c = ped.c;
+                this.t = ped.t;
+                this.idp = ped.idp;
+                this.fecha = ped.fecha;
                 actualizar = pedido.actualizarPedido(this);
             }
             return actualizar;

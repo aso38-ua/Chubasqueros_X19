@@ -9,9 +9,16 @@ namespace Library
     public class ENCarrito
     {
         private int cantidad; //cantidad de productos pedidos
-        private float total; //precio total 
+        private float total; //precio total
+        private ENProducto producto; //Producto en el carrito actualmente
+        private int idcarrito; //id del carrito (podria ser igual que el id de pedido)
 
-
+        public ENProducto p
+        {
+            get { return producto; }
+            set { producto = value; }
+        }
+ 
         public int c
         {
             get { return cantidad; }
@@ -24,14 +31,19 @@ namespace Library
             set { total = value; }
         }
 
+        public int idc
+        {
+            get { return idcarrito; }
+            set { idcarrito = value; }
+        }
 
-        /*Constructor: pondra la cantidad a 0, el total a 0, todos los productos (numprod) = 0,
+        /*Constructor: pondra la cantidad a 0, el total a 0,
          la clase se enlazara con usuario y producto*/
         public ENCarrito()
         {
             c = 0;
             t = 0;
-
+            producto = new ENProducto();
         }
 
         public ENCarrito(int cant, int tot)
@@ -60,10 +72,14 @@ namespace Library
         {
             CADCarrito carrito = new CADCarrito();
             bool eliminar = false;
-            if (!carrito.verCarrito(this))
+            ENProducto pr = new ENProducto();
+            /*
+            if (pr = null)
             {
                 eliminar = carrito.eliminarCarrito(this);
             }
+            */
+            carrito.crearCarrito(this);
             return eliminar;
         }
         

@@ -72,7 +72,8 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "";
+                //el ID es un numero aleatorio
+                string cout = "INSERT INTO [dbo].[pedido] (id) VALUES ('" + p.idp + "')";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 consult.ExecuteNonQuery();
                 create = true;
@@ -100,7 +101,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "DELETE FROM";
+                string cout = "DELETE FROM [dbo].[pedido] where producto_id is not NULL";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 delete = true;
@@ -128,7 +129,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "UPDATE FROM";
+                string cout = "UPDATE [dbo].[pedido] set ";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 update = true;

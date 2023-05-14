@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
     <h1 style="color: blue"><u>Carrito de la compra</u></h1>
+    <asp:Label ID ="Message" runat ="server"></asp:Label>
      <asp:Panel id ="CajaProducto" BackColor="LightYellow" runat="server">
      <asp:Image ID="miImagen" runat="server" Height="27px" Width="27px" />
      Nombre del producto
