@@ -90,6 +90,7 @@ namespace Library
                         en.nombre = reader["nombre"].ToString();
                         en.contraseña = reader["contraseña"].ToString();
                         en.email = reader["email"].ToString();
+                        en.esAdmin = bool.Parse(reader["esAdmin"].ToString());
                         resultado = true;
                     }
 

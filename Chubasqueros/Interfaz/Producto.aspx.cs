@@ -144,6 +144,7 @@ namespace Interfaz
             }
             else
             {
+                reserva.ptotal = reserva.ptotal + (reserva.ptotal / reserva.cantidadp);
                 reserva.cantidadp = reserva.cantidadp + 1;
                 reserva.updateReserva();
                 Mensaje.Text = "Reserva actualizada, añadida una cantidad más a la antigua reserva";

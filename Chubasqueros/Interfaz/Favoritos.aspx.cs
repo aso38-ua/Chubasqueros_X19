@@ -21,28 +21,25 @@ namespace Interfaz
                     // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
                     Response.Redirect("Login.aspx");
                 }
-                else
+            }
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            ENFavoritos favoritos = new ENFavoritos(usuario.id);
+            favoritos.readFavoritos();
+            if (favoritos.productop != null)
+            {
+                int cantidadP = favoritos.productop.Length;
+                ENProducto[] productos = new ENProducto[cantidadP];
+                for (int i = 0; i < cantidadP; i++)
                 {
-                    ENUsuario usuario = new ENUsuario();
-                    usuario.nombre = (string)Session["username"];
-                    usuario.readUsuario();
-                    ENFavoritos favoritos = new ENFavoritos(usuario.id);
-                    favoritos.readFavoritos();
-                    if (favoritos.productop != null)
-                    {
-                        int cantidadP = favoritos.productop.Length;
-                        ENProducto[] productos = new ENProducto[cantidadP];
-                        for (int i = 0; i < cantidadP; i++)
-                        {
-                            productos[i] = new ENProducto();
-                            productos[i].setCodigo(favoritos.productop[i]);
-                            productos[i].readProducto();
-                            productos[i].setStock(favoritos.productop[i]);
-                        }
-                        listView_Favoritos.DataSource = productos;
-                        listView_Favoritos.DataBind();
-                    }
+                    productos[i] = new ENProducto();
+                    productos[i].setCodigo(favoritos.productop[i]);
+                    productos[i].readProducto();
+                    productos[i].setStock(favoritos.productop[i]);
                 }
+                listView_Favoritos.DataSource = productos;
+                listView_Favoritos.DataBind();
             }
         }
 

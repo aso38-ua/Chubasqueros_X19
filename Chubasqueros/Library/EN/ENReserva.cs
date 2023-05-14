@@ -12,9 +12,9 @@ namespace Library
         private string fecha;
         private int producto;
         private int usuario;
-        private float preciot;
+        private double preciot;
 
-        public float ptotal
+        public double ptotal
         {
             get { return preciot; }
             set { preciot = value; }
@@ -101,14 +101,11 @@ namespace Library
 
             if (reserva.readReserva(aux))
             {
-                ENProducto product = new ENProducto();
-                product.setCodigo(producto);
-                product.readProducto();
                 aux.cantidad = cantidad;
                 aux.fecha = fecha;
                 aux.producto = producto;
                 aux.usuario = usuario;
-                aux.ptotal = cantidad * product.getPrecio();
+                aux.ptotal = ptotal;
                 actualizado = reserva.updateReserva(aux);
             }
 

@@ -49,7 +49,7 @@ CREATE TABLE Reservas (
     usuario INT NOT NULL,
     producto INT NOT NULL,
     cantidad INT NOT NULL,
-    ptotal FLOAT NOT NULL,
+    ptotal VARCHAR(20) NOT NULL,
     fecha VARCHAR(50) NULL,
     PRIMARY KEY (producto,usuario),
     FOREIGN KEY (usuario) REFERENCES usuario(id),

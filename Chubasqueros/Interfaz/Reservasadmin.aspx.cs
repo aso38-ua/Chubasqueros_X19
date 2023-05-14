@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Interfaz
 {
-    public partial class Reservas : System.Web.UI.Page
+    public partial class Reservasadmin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,69 +21,73 @@ namespace Interfaz
                     // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
                     Response.Redirect("Login.aspx");
                 }
-                else
-                {
-                    ENUsuario usuario = new ENUsuario();
-                    usuario.nombre = (string)Session["username"];
-                    usuario.readUsuario();
-                    if (usuario.esAdmin) { Response.Redirect("Reservasadmin.aspx"); }
-                    else
-                    {
-                        String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
-                        String consultaString = "SELECT * FROM [dbo].[Reservas] WHERE usuario = '" + usuario.id + "';";
-                        SqlConnection conexion = new SqlConnection(constring);
-                        conexion.Open();
-                        ENProducto[] productos = new ENProducto[1];
-                        try
-                        {
-
-                            SqlCommand consulta = new SqlCommand(consultaString, conexion);
-                            SqlDataReader consultabusqueda = consulta.ExecuteReader();
-                            int contador = 0;
-                            while (consultabusqueda.Read())
-                            {
-                                contador++;
-                            }
-                            productos = new ENProducto[contador];
-                            contador = 0;
-                            consultabusqueda.Close();
-                            consultabusqueda = consulta.ExecuteReader();
-                            while (consultabusqueda.Read())
-                            {
-                                productos[contador] = new ENProducto();
-                                productos[contador].setCodigo(int.Parse(consultabusqueda["producto"].ToString()));
-                                productos[contador].readProducto();
-                                productos[contador].cantidad = int.Parse(consultabusqueda["cantidad"].ToString());
-                                productos[contador].ptotal = double.Parse(consultabusqueda["ptotal"].ToString());
-                                productos[contador].fecha = consultabusqueda["fecha"].ToString();
-                                contador++;
-                            }
-                            consultabusqueda.Close();
-                            if (contador == 0) productos = null;
-                        }
-                        catch (SqlException ex)
-                        {
-                            Console.WriteLine("Favorites operation has failed. Error: {0} ", ex.Message);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("Favorites operation has failed. Error: {0} ", ex.Message);
-                        }
-                        finally
-                        {
-                            conexion.Close();
-                        }
-                        listView_Reservas.DataSource = productos;
-                        listView_Reservas.DataBind();
-                    }
-                }
             }
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            if (!usuario.esAdmin) { Response.Redirect("Reservas.aspx"); }
+        }
+
+        protected void buscarUsuario(object sender, EventArgs e)
+        {
+            Mensaje.Text = "";
+            ENUsuario usuario = new ENUsuario();
+            if(text_nombreu.Text == "") usuario.nombre = (string)Session["username"];
+            else usuario.nombre = text_nombreu.Text;
+            usuario.readUsuario();
+            String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            String consultaString = "SELECT * FROM [dbo].[Reservas] WHERE usuario = '" + usuario.id + "';";
+            SqlConnection conexion = new SqlConnection(constring);
+            conexion.Open();
+            ENProducto[] productos = new ENProducto[1];
+            try
+            {
+
+                SqlCommand consulta = new SqlCommand(consultaString, conexion);
+                SqlDataReader consultabusqueda = consulta.ExecuteReader();
+                int contador = 0;
+                while (consultabusqueda.Read())
+                {
+                    contador++;
+                }
+                productos = new ENProducto[contador];
+                contador = 0;
+                consultabusqueda.Close();
+                consultabusqueda = consulta.ExecuteReader();
+                while (consultabusqueda.Read())
+                {
+                    productos[contador] = new ENProducto();
+                    productos[contador].setCodigo(int.Parse(consultabusqueda["producto"].ToString()));
+                    productos[contador].readProducto();
+                    productos[contador].cantidad = int.Parse(consultabusqueda["cantidad"].ToString());
+                    productos[contador].ptotal = double.Parse(consultabusqueda["ptotal"].ToString());
+                    productos[contador].fecha = consultabusqueda["fecha"].ToString();
+                    contador++;
+                }
+                consultabusqueda.Close();
+                if (contador == 0) productos = null;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Favorites operation has failed. Error: {0} ", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Favorites operation has failed. Error: {0} ", ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            listView_Reservas.DataSource = productos;
+            listView_Reservas.DataBind();
         }
         protected void cancelarReserva(object sender, EventArgs ei)
         {
             bool existe = false;
             ENUsuario usuario = new ENUsuario();
-            usuario.nombre = (string)Session["username"];
+            if (text_nombreu.Text != "") usuario.nombre = text_nombreu.Text;
+            else usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
             String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
             SqlConnection connection = null;
@@ -116,7 +120,11 @@ namespace Interfaz
             {
                 connection.Close();
                 if (!existe) Mensaje.Text = "Nombre del producto no válido";
-                else Response.Redirect("Reservas.aspx");
+                else
+                {
+                    buscarUsuario(sender, ei);
+                    Mensaje.Text = "Reserva borrada";
+                }
             }
         }
         protected void editarReserva(object sender, EventArgs ei)
@@ -126,7 +134,8 @@ namespace Interfaz
             {
                 bool existe = false;
                 ENUsuario usuario = new ENUsuario();
-                usuario.nombre = (string)Session["username"];
+                if (text_nombreu.Text != "") usuario.nombre = text_nombreu.Text;
+                else usuario.nombre = (string)Session["username"];
                 usuario.readUsuario();
                 String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
                 SqlConnection connection = null;
@@ -162,7 +171,11 @@ namespace Interfaz
                 {
                     connection.Close();
                     if (!existe) Mensaje.Text = "Nombre del producto no válido";
-                    else Response.Redirect("Reservas.aspx");
+                    else
+                    {
+                        buscarUsuario(sender, ei);
+                        Mensaje.Text = "Reserva actualizada";
+                    }
                 }
             }
         }

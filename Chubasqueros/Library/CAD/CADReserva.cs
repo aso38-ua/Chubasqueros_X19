@@ -22,7 +22,7 @@ namespace Library
             bool creado = false;
             try
             {
-                String consultaString = "INSERT INTO [dbo].[Reservas] (cantidad,fecha,producto,usuario,ptotal) VALUES (" + en.cantidadp + ", '" + en.fechap + "', " + en.productop + ", " + en.usuariop + ", " + en.ptotal + ");";
+                String consultaString = "INSERT INTO [dbo].[Reservas] (cantidad,fecha,producto,usuario,ptotal) VALUES (" + en.cantidadp + ", '" + en.fechap + "', " + en.productop + ", " + en.usuariop + ", '" + en.ptotal.ToString() + "');";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -88,7 +88,7 @@ namespace Library
             bool actualizado = false;
             try
             {
-                String consultaString = "UPDATE [dbo].[Reservas] SET cantidad = " + en.cantidadp + " ,ptotal = " + en.ptotal + " WHERE usuario = " + en.usuariop + " AND producto = " + en.productop + ";";
+                String consultaString = "UPDATE [dbo].[Reservas] SET cantidad = " + en.cantidadp + " ,ptotal = '" + en.ptotal.ToString() + "' WHERE usuario = " + en.usuariop + " AND producto = " + en.productop + ";";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
