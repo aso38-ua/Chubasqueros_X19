@@ -117,6 +117,7 @@
     <Content Include="Reservas.aspx" />
     <Content Include="Web.config" />
     <Content Include="Comentario.aspx" />
+    <Content Include="ModificarComentario.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categoria.aspx.cs">
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="Comentario.aspx.designer.cs">
       <DependentUpon>Comentario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarComentario.aspx.cs">
+      <DependentUpon>ModificarComentario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarComentario.aspx.designer.cs">
+      <DependentUpon>ModificarComentario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
