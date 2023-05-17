@@ -16,7 +16,7 @@ namespace Library
 
         public void Registrar(int id,string nombre, string apellido, string email, string contraseña)
         {
-            ENUsuario nuevoUsuario = new ENUsuario(id, nombre, apellido, email, contraseña);
+            ENUsuario nuevoUsuario = new ENUsuario(id, nombre, email, contraseña);
 
             if (!ValidarRegistro(nuevoUsuario))
             {
@@ -25,7 +25,7 @@ namespace Library
             }
 
             // Si el registro es válido, guardar el usuario en la base de datos o en la estructura de datos utilizada
-            CADUsuario.CrearUsuario(nuevoUsuario);
+            //CADUsuario.CrearUsuario(nuevoUsuario);
 
             Console.WriteLine("El usuario ha sido registrado exitosamente.");
         }

@@ -30,7 +30,32 @@
 
     <script type="text/javascript" src="JS/JavaScript.js"></script>
         
-    
+    <style>
+        #miPerfil li a {
+        font-size: 16px;
+            padding: 10px 10px;
+    }
+    #miPerfil {
+        display: none;
+    }
+
+    #liperfil:hover #miPerfil {
+        display: block;
+        
+    }
+</style>
+
+    <script>
+    function mostrarPerfil() {
+        var miPerfil = document.getElementById('miPerfil');
+        miPerfil.style.display = 'block';
+    }
+
+    function ocultarPerfil() {
+        var miPerfil = document.getElementById('miPerfil');
+        miPerfil.style.display = 'none';
+    }
+    </script>
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -55,11 +80,22 @@
                 <li><a class="coolButton" href="Default.aspx">Inicio</a></li>
                 <li><a class="coolButton" href="Producto.aspx">Productos</a></li>
                 <li><a class="coolButton" href="Contacto.aspx">Contacto</a></li>
-                <li><a class="coolButton" href="Registro.aspx">Registro</a></li>
                 <li><a class="coolButton" href="Oferta.aspx">Ofertas</a></li>
                 <li><a class="coolButton" href="Servicio.aspx">Servicios</a></li>
                 <li><a class="coolButton" href="Colaboracion.aspx">Colaboracion</a></li>
                 <li><a class="coolButton" href="Comentario.aspx">Comentario</a></li>
+                <li id="liregistro" runat="server"><a class="coolButton" href="Login.aspx">Login</a></li>
+                <li id="liperfil" runat="server"><a class="coolButton" href="Perfil.aspx">Mi cuenta</a>
+                    <ul id="miPerfil">
+                        
+                        <li><a class="coolButton" href="Perfil.aspx">Mi perfil</a>
+                <ul>
+                    <li><a class="coolButton" href="CerrarSesion.aspx">Cerrar sesión</a></li>
+                </ul>
+                        </li>
+                        
+                    </ul>
+                </li>
                 
             
                 <li><label class="switch">
