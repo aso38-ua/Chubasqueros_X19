@@ -245,16 +245,6 @@ namespace Library
             throw new NotImplementedException();
         }
 
-        public static ENUsuario ObtenerUsuarioPorEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static List<ENUsuario> ObtenerTodosLosUsuarios()
-        {
-            throw new NotImplementedException();
-        }
-
         // Update
         public static void ActualizarUsuario(ENUsuario usuario)
         {
@@ -265,6 +255,83 @@ namespace Library
         public static void EliminarUsuario(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public static bool ValidarCredenciales(string username, string password)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM usuario WHERE (nombre = @username OR email = @username) AND contraseña = @password";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", password);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0; // Retorna true si se encontró un registro, o false si no se encontró
+                }
+            }
+        }
+
+        public static string ObtenerEmailPorUsuario(string username)
+        {
+            string email = string.Empty;
+
+            if (EsCorreoElectronico(username))
+            {
+                return username; // El 'username' ya es un correo electrónico, devolverlo directamente
+            }
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT email FROM usuario WHERE nombre = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    email = (string)command.ExecuteScalar();
+                }
+            }
+
+            return email;
+        }
+
+        public static string ObtenerUsuarioPorEmail(string email)
+        {
+            string username = string.Empty;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT nombre FROM usuario WHERE email = @email";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+
+                    connection.Open();
+                    username = (string)command.ExecuteScalar();
+                }
+            }
+
+            return username;
+        }
+
+        public static bool EsCorreoElectronico(string input)
+        {
+            try
+            {
+                var email = new System.Net.Mail.MailAddress(input);
+                return email.Address == input;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

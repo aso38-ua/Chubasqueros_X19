@@ -31,16 +31,6 @@ namespace Library
             this.contraseña = contraseña;
         }
 
-        //Crear usuario
-        public bool createUsuario()
-        {
-            CADUsuario user = new CADUsuario();
-            bool create = false;
-            if (!user.ReadUsuario(this))
-                create = user.CrearUsuario(this);
-            return create;
-        }
-
         //Lee un usuario de la base de datos
         public bool readUsuario()
         {
@@ -91,21 +81,6 @@ namespace Library
             return created;
         }
 
-        // Read
-        public static ENUsuario ObtenerUsuarioPorId(int id)
-        {
-            return CADUsuario.ObtenerUsuarioPorId(id);
-        }
-
-        public static ENUsuario ObtenerUsuarioPorEmail(string email)
-        {
-            return CADUsuario.ObtenerUsuarioPorEmail(email);
-        }
-
-        public static List<ENUsuario> ObtenerTodosLosUsuarios()
-        {
-            return CADUsuario.ObtenerTodosLosUsuarios();
-        }
 
         // Update
         public void ActualizarNombre(string nuevoNombre)
@@ -136,6 +111,21 @@ namespace Library
         public void Eliminar()
         {
             CADUsuario.EliminarUsuario(this.id);
+        }
+
+        public bool ValidarCredenciales(string nombre, string contraseña)
+        {
+            return CADUsuario.ValidarCredenciales(nombre, contraseña);
+        }
+
+        public string ObtenerEmailPorUsuario(string username)
+        {
+            return CADUsuario.ObtenerEmailPorUsuario(username);
+        }
+
+        public string ObtenerUsuarioPorEmail(string email)
+        {
+            return CADUsuario.ObtenerUsuarioPorEmail(email);
         }
     }
 }

@@ -54,7 +54,6 @@
     <Compile Include="CAD\CADPerfil.cs" />
     <Compile Include="CAD\CADProducto.cs" />
     <Compile Include="CAD\CADPuntuacion.cs" />
-    <Compile Include="CAD\CADRegistro.cs" />
     <Compile Include="CAD\CADReserva.cs" />
     <Compile Include="CAD\CADUsuario.cs" />
     <Compile Include="EN\ENCarrito.cs" />
@@ -69,7 +68,6 @@
     <Compile Include="EN\ENPerfil.cs" />
     <Compile Include="EN\ENProducto.cs" />
     <Compile Include="EN\ENPuntuacion.cs" />
-    <Compile Include="EN\ENRegistro.cs" />
     <Compile Include="EN\ENReserva.cs" />
     <Compile Include="EN\ENUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

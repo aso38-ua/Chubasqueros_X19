@@ -15,6 +15,24 @@ namespace Interfaz
     {
 
         /// <summary>
+        /// Control lblImagePath.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblImagePath;
+
+        /// <summary>
+        /// Control lblDebug.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDebug;
+
+        /// <summary>
         /// Control imgProfile.
         /// </summary>
         /// <remarks>
@@ -60,6 +78,15 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.Label lblBirthdate;
 
         /// <summary>
+        /// Control fileUploadProfileImage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUploadProfileImage;
+
+        /// <summary>
         /// Control btnUpload.
         /// </summary>
         /// <remarks>
@@ -67,5 +94,14 @@ namespace Interfaz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload;
+
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

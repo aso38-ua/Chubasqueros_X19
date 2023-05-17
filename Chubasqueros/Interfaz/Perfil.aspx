@@ -7,7 +7,8 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-
+    <asp:Label ID="lblImagePath" runat="server"></asp:Label>
+    <asp:Label ID="lblDebug" runat="server"></asp:Label>
 
     <div class="perfil">
             <h2>Perfil</h2>
@@ -34,10 +35,11 @@
             </div>
 
                     <div class="upload-form">
-                    
-                    <asp:Button ID="btnUpload" runat="server" Text="Editar Perfil" OnClick="btnUpload_Click" />
-                </div>
 
+                    <asp:FileUpload ID="fileUploadProfileImage" runat="server" />
+                    <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+                </div>
+                <asp:Button ID="Button1" runat="server" Text="Editar Perfil" OnClick="btnEdit_Click" />
         </div>
 
 </asp:Content>
