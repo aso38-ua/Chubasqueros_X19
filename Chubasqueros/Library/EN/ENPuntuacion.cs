@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,8 @@ namespace library
     public class ENPuntuacion
     {
         private int estrellas;
-        private string item;
-        private string id_user;
+        private int item;
+        private int id_user;
 
         public int aux_estrella
         {
@@ -18,13 +19,13 @@ namespace library
             set { estrellas = value; }
         }
 
-        public string aux_item
+        public int aux_item
         {
             get { return item; }
             set { item = value; }
         }
 
-        public string aux_id_user
+        public int aux_id_user
         {
             get { return id_user; }
             set { id_user = value; }
@@ -33,11 +34,11 @@ namespace library
         public ENPuntuacion()
         {
             aux_estrella = 0;
-            aux_item = "";
-            aux_id_user = "";
+            aux_item = 0;
+            aux_id_user = 0;
         }
 
-        public ENPuntuacion(int estrella, string item, string id_user)
+        public ENPuntuacion(int estrella, int item, int id_user)
         {
             aux_estrella = estrella;
             aux_item = item;
@@ -55,14 +56,16 @@ namespace library
             bool puntuar = false;
             ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
-           /* ENProducto aux_EN_Prod = new ENProducto(item);
+            ENProducto aux_EN_Prod = new ENProducto();
             CADProducto aux_CAD_Prod = new CADProducto();
-            ENUsuario aux_EN_User = new ENUsuario(id_user);
-            ENUsuario aux_CAD_User = new CADUsuario();
-            if (aux_CAD_Prod.read(aux_EN_Prod) && aux_CAD_User.read(aux_EN_User))
+            aux_EN_Prod.setCodigo(item);
+            ENUsuario aux_EN_User = new ENUsuario();
+            CADUsuario aux_CAD_User = new CADUsuario();
+            aux_EN_User.id = id_user;
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.ReadUsuario(aux_EN_User))
             {
                 puntuar = aux_CAD_Pun.createPuntuacion(this);
-            }*/
+            }
             return puntuar;
         }
 

@@ -23,11 +23,10 @@ namespace Library
             this.contraseña="";
         }
 
-        public ENUsuario(int id, string nombre, string apellido, string email, string contraseña)
+        public ENUsuario(int id, string nombre, string email, string contraseña)
         {
             this.id = id;
             this.nombre = nombre;
-            this.apellido = apellido;
             this.email = email;
             this.contraseña = contraseña;
         }
@@ -37,8 +36,8 @@ namespace Library
         {
             CADUsuario user = new CADUsuario();
             bool create = false;
-            if (!user.readUsuario(this))
-                create = user.createUsuario(this);
+            if (!user.ReadUsuario(this))
+                create = user.CrearUsuario(this);
             return create;
         }
 
@@ -46,7 +45,7 @@ namespace Library
         public bool readUsuario()
         {
             CADUsuario user = new CADUsuario();
-            bool read = user.readUsuario(this);
+            bool read = user.ReadUsuario(this);
             return read;
         }
 
@@ -56,7 +55,7 @@ namespace Library
             ENUsuario aux = new ENUsuario();
             CADUsuario user = new CADUsuario();
             bool update = false;
-            if (user.readUsuario(aux))
+            if (user.ReadUsuario(aux))
             {
                 this.id = id;
                 this.nombre = nombre;
@@ -73,16 +72,23 @@ namespace Library
         {
             CADUsuario user = new CADUsuario();
             bool eliminado = false;
-            if (user.readUsuario(this))
+            if (user.ReadUsuario(this))
                 eliminado = user.deleteUsuario(this);
             return eliminado;
         }
 
         // Create
-        public static void CrearUsuario(int id, string nombre, string apellido, string email, string contraseña)
+        public bool CrearUsuario(int id, string nombre, string email, string contraseña)
         {
-            ENUsuario nuevoUsuario = new ENUsuario(id, nombre, apellido, email, contraseña);
-            CADUsuario.CrearUsuario(nuevoUsuario);
+            CADUsuario user = new CADUsuario();
+            bool created = false;
+
+            if (!user.ReadUsuario(this))
+            {
+                created = user.CrearUsuario(this);
+            }
+
+            return created;
         }
 
         // Read
