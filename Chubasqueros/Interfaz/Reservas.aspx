@@ -4,8 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+    <br /><br /><br /><br />
     <div id="HReservas">
-        <h1>Lista de Reservas</h1>
+        <h2>Lista de Reservas</h2>
     </div>
     <div id="list" style="width:90%">
         <asp:ListView ID="listView_Reservas" runat="server" GroupItemCount="1" GroupPlaceholderID="groupPlaceholder1"  ItemPlaceholderID="itemPlaceholder1">
