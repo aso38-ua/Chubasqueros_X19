@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Categoria.aspx" />
+    <Content Include="IMGS\Instagram-Icon.png" />
+    <Content Include="IMGS\twitter-logo-9.png" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
     <Content Include="Contacto.aspx" />
