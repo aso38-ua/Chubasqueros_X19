@@ -64,9 +64,7 @@ CREATE TABLE Comentario (
     dislikes INT NULL,
     comentario VARCHAR(200) NOT NULL,
     PRIMARY KEY (id_user, item, estrellas),
-    FOREIGN KEY (id_user) REFERENCES usuario(id),
-    FOREIGN KEY (item) REFERENCES producto(id),
-    FOREIGN KEY (estrellas) REFERENCES Puntuacion(estrellas)
+    FOREIGN KEY (estrellas, item, id_user) REFERENCES Puntuacion(estrellas, item, id_user)
 );
 
 CREATE TABLE Puntuacion (
@@ -75,6 +73,7 @@ CREATE TABLE Puntuacion (
     estrellas INT NOT NULL,
     media INT NOT NULL,
     contador INT NOT NULL,
+    PRIMARY KEY (id_user, item, estrellas),
     FOREIGN KEY (id_user) REFERENCES usuario(id),
     FOREIGN KEY (item) REFERENCES producto(id)
 );
