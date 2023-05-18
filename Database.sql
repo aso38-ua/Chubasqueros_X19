@@ -79,9 +79,17 @@ CREATE TABLE Puntuacion (
 );
 
 CREATE TABLE Oferta (
-    codigoOferta INT NOT NULL,
+    codigoOferta INT IDENTITY(1, 1) NOT NULL,
     fechaInicio DATE NOT NULL,
     fechaFin DATE NOT NULL,
     porcentajeDescuento FLOAT NOT NULL,
     PRIMARY KEY (codigoOferta)
+);
+
+CREATE TABLE Servicios (
+    idServicio INT IDENTITY(1, 1) NOT NULL,
+    titulo VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(500) NOT NULL,
+    img VARCHAR(500) NOT NULL,
+    PRIMARY KEY (idServicio)
 );
