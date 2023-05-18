@@ -26,11 +26,11 @@ namespace library
         public bool createServicio(ENServicio servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
-            string query = "INSERT INTO [dbo].[Servicio] (idServicio, titulo, descripcion, img) VALUES ('" + servicio.IdServicio + "', '" + servicio.Titulo + "', " + servicio.Descripcion + "', " + servicio.Img + ")";
 
             try
             {
                 conn.Open();
+                string query = "INSERT INTO [dbo].[Servicio] (idServicio, titulo, descripcion, img) VALUES ('" + servicio.IdServicio + "', '" + servicio.Titulo + "', '" + servicio.Descripcion + "', '" + servicio.Img + "')";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.ExecuteNonQuery();
                 conn.Close();
@@ -56,11 +56,11 @@ namespace library
         public bool readServicio(ENServicio servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
-            string query = "SELECT * FROM [dbo].[Servicio] WHERE idServicio = '" + servicio.IdServicio + "'";
 
             try
             {
                 conn.Open();
+                string query = "SELECT * FROM [dbo].[Servicio] WHERE idServicio = '" + servicio.IdServicio + "'";
                 SqlCommand comm = new SqlCommand(query, conn);
                 SqlDataReader reader = comm.ExecuteReader();
                 reader.Read();
@@ -98,11 +98,11 @@ namespace library
         public bool updateServicio(ENServicio servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
-            string query = "UPDATE [dbo].[Servicio] SET idServicio = '" + servicio.IdServicio + "' , titulo =" + servicio.Titulo + "' , descripcion =" + servicio.Descripcion + "' , img =" + servicio.Img + "WHERE idServicio = '" + servicio.IdServicio + "'";
 
             try
             {
                 conn.Open();
+                string query = "UPDATE [dbo].[Servicio] SET idServicio = '" + servicio.IdServicio + "' , titulo = '" + servicio.Titulo + "' , descripcion = '" + servicio.Descripcion + "' , img = '" + servicio.Img + "' WHERE idServicio = '" + servicio.IdServicio + "'";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.ExecuteNonQuery();
                 return true;
@@ -143,7 +143,7 @@ namespace library
             }
         }
 
-        /*public DataTable readAllServices()
+        public DataTable readAllServices()
         {
             DataTable dataTable = new DataTable();
 
@@ -169,6 +169,6 @@ namespace library
             }
 
             return dataTable;
-        }*/
+        }
     }
 }

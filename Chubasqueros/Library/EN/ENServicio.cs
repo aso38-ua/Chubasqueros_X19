@@ -143,13 +143,13 @@ namespace library
             return false;
         }
 
-       /* public static DataTable readAllServices()
+        public static DataTable readAllServices()
         {
             DataTable basedatos = new DataTable();
             CADServicio servicio = new CADServicio();
             basedatos = servicio.readAllServices();
 
             return basedatos;
-        }*/
+        }
     }
 }
