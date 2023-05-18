@@ -6,11 +6,13 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
 
     <img src="IMGS/change.jpg" style="width:16%; display: flex; justify-content: center; align-items: center; margin-left: 42%; margin-right: 4px;"/>
-    <div >
+    <h2>Información de perfil</h2>
+
+    <div style="margin-top:100px;">
         
 
         
-
+                  
                   <asp:Button ID="btnChangeName" runat="server" Text="Cambiar Nombre" OnClick="btnName_Click" />  
                   <asp:TextBox ID="txtNewUsername" runat="server"></asp:TextBox>
                   <asp:Label runat="server" Text="" ID="changeName"></asp:Label><br /><br /><br />
@@ -19,7 +21,13 @@
         
 
                 <h2>Cargar imagen de perfil</h2>
-                    <asp:FileUpload ID="fileUploadProfileImage" runat="server" />
-                    <asp:Button ID="btnUpload" runat="server" Text="Cargar" OnClick="btnUpload_Click" />
+                    <div class="upload-form">
+
+                        <asp:FileUpload ID="fileUploadProfileImage" runat="server" />
+                        <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+                    </div>
+
                 </div>
+
+
 </asp:Content>

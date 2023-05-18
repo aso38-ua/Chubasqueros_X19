@@ -19,45 +19,22 @@ namespace Interfaz
                 // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
                 Response.Redirect("Login.aspx");
             }
+            // Configuración del encabezado de respuesta HTTP para evitar el almacenamiento en caché
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
             if (fileUploadProfileImage.HasFile)
             {
-                string fileName = Path.GetFileName(fileUploadProfileImage.FileName);
-                string imagePath = Server.MapPath("~/ProfileImages/") + fileName;
-                fileUploadProfileImage.SaveAs(imagePath);
+                string fileName = "profile.jpg"; // Nombre de archivo deseado
+                string uploadsPath = Server.MapPath("~/ProfileImages");
+                string filePath = Path.Combine(uploadsPath, fileName);
 
-                // Obtén el nombre de usuario del usuario autenticado desde la sesión
-                string username = Session["username"] as string;
+                fileUploadProfileImage.SaveAs(filePath);
 
-                // Actualiza la ruta de la imagen de perfil en la base de datos para el usuario actual
-                ActualizarRutaImagenPerfil(username, imagePath);
-
-
-            }
-            else
-            {
-
-            }
-        }
-
-        private void ActualizarRutaImagenPerfil(string username, string imagePath)
-        {
-
-            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "UPDATE usuario SET ImagenPerfil = CONVERT(varbinary(max), @imagePath) WHERE nombre = @username";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@imagePath", imagePath);
-                    command.Parameters.AddWithValue("@username", username);
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
+                // Guardar la ruta del archivo en la base de datos o cualquier otra operación necesaria
             }
         }
 
@@ -129,6 +106,8 @@ namespace Interfaz
                 }
             }
         }
+
+
 
         protected void volver(object sender, EventArgs e)
         {

@@ -52,6 +52,75 @@ namespace Interfaz
             }
         }
 
+        protected void btnName_Click(object sender, EventArgs e)
+        {
+            string newUsername = txtNewUsername.Text;
+
+            // Verificar si el nuevo nombre de usuario ya existe en la base de datos
+            bool usernameExists = VerificarNombreUsuarioExistente(newUsername);
+
+            if (usernameExists)
+            {
+                // El nuevo nombre de usuario ya existe, mostrar mensaje de error
+                changeName.Text = "El nombre de usuario ya está en uso. Por favor, elija otro nombre.";
+            }
+            else if (newUsername == "")
+            {
+                changeName.Text = "No se admiten nombres vacíos.";
+            }
+            else
+            {
+                // El nuevo nombre de usuario está disponible, actualizar en la base de datos
+                ActualizarNombreUsuario(Session["username"] as string, newUsername);
+
+                // Mostrar mensaje de éxito
+                changeName.Text = "El nombre de usuario se ha actualizado correctamente.";
+
+                // Actualizar el nombre de usuario en la sesión
+                Session["username"] = newUsername;
+            }
+        }
+
+        private bool VerificarNombreUsuarioExistente(string newUsername)
+        {
+            // Consulta SQL para verificar si el nombre de usuario ya existe en la base de datos
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM usuario WHERE nombre = @newUsername";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newUsername", newUsername);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
+        private void ActualizarNombreUsuario(string currentUsername, string newUsername)
+        {
+            // Consulta SQL para actualizar el nombre de usuario en la base de datos
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE usuario SET nombre = @newUsername WHERE nombre = @currentUsername";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newUsername", newUsername);
+                    command.Parameters.AddWithValue("@currentUsername", currentUsername);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    // Actualizar el valor en la sesión
+                    Session["username"] = newUsername;
+                }
+            }
+        }
+
         /*private byte[] HexToBytes(string hex)
         {
             int length = hex.Length / 2;
