@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
 using System.Data.SqlClient;
+using System.Web.UI.HtmlControls;
 
 namespace Interfaz {
     public partial class Servicio : System.Web.UI.Page {
@@ -26,24 +27,34 @@ namespace Interfaz {
             labelInfo.Text = "";
             foreach (DataRow row in dataTable.Rows)
             {
-                labelInfo.Text += "<div class='container-servicio'>";
-                labelInfo.Text += "  <div class='img-servicio'>";
-                string imagePath = row["img"].ToString();
-                if (!string.IsNullOrEmpty(imagePath))
-                {
-                    labelInfo.Text += "    <img src='" + imagePath + "' alt='Imagen' />";
-                }
-                labelInfo.Text += "  </div>";
-                labelInfo.Text += "  <div class='content-container-service'>";
-                labelInfo.Text += "    <h3 class='h3-servicio'>" + row["titulo"].ToString() + "</h3>";
-                labelInfo.Text += "    <p class='p-servicio'>" + row["descripcion"].ToString() + "</p>";
-                labelInfo.Text += "  </div>";
-                labelInfo.Text += "  <div class='button-container-service'>";
-                // labelInfo.Text += "    <input type='button' value='Añadir servicio al carrito' onclick='addToCart(" + row["idServicio"].ToString() + ")' class='neon-btn' />";
-                labelInfo.Text += "  </div>";
-                labelInfo.Text += "</div>";
+                string idServicio = row["idServicio"].ToString();
+                string titulo = row["titulo"].ToString();
+                string descripcion = row["descripcion"].ToString();
+                string img = row["img"].ToString();
+
+                string servicioHtml = $@"
+                    <div class='servicio-container'>
+                        <div class='servicio-imagen'>
+                            <img src='{img}' alt='Imagen del servicio' class='servicio-imagen-img' />
+                        </div>
+                        <div class='servicio-contenido'>
+                            <h2>{titulo}</h2>
+                            <p class='p-servicio'>{descripcion}</p>
+                            <button class='btn-carrito' onclick='agregarAlCarrito({idServicio})'>Añadir servicio al carrito</button>
+                        </div>
+                    </div>
+                ";
+
+                LiteralControl literalControl = new LiteralControl(servicioHtml);
+                labelInfo.Controls.Add(literalControl);
             }
         }
 
+        protected void agregarAlCarrito(string idServicio)
+        {
+            // Lógica para agregar el servicio al carrito
+            // Puedes implementar la funcionalidad aquí o llamar a otro método/clase para manejarlo
+            Console.WriteLine("Añadiendo servicio al carrito. ID de servicio:", idServicio);
+        }
     }
 }

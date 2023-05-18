@@ -2,9 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <link rel="stylesheet" href="/CSS/Servicio.css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <h1 class="h1-servicio">Nuestros servicios</h1>
+    <h2>Nuestros servicios</h2>
     <div class="container-servicio">
         <div>
             <br />
