@@ -11,169 +11,115 @@ namespace Interfaz
 {
 
 
-    public partial class Servicio
+    public partial class adminServicio
     {
 
         /// <summary>
-        /// Control imgServicio1.
+        /// Control lblIdServicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgServicio1;
+        protected global::System.Web.UI.WebControls.Label lblIdServicio;
 
         /// <summary>
-        /// Control lblTitulo1.
+        /// Control txtIdServicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitulo1;
+        protected global::System.Web.UI.WebControls.TextBox txtIdServicio;
 
         /// <summary>
-        /// Control lblDescripcion1.
+        /// Control lblTitle.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion1;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
-        /// Control imgServicio2.
+        /// Control txtTitle.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgServicio2;
+        protected global::System.Web.UI.WebControls.TextBox txtTitle;
 
         /// <summary>
-        /// Control lblTitulo2.
+        /// Control lblDescription.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitulo2;
+        protected global::System.Web.UI.WebControls.Label lblDescription;
 
         /// <summary>
-        /// Control lblDescripcion2.
+        /// Control txtDescription.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion2;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// Control imgServicio3.
+        /// Control lblImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgServicio3;
+        protected global::System.Web.UI.WebControls.Label lblImage;
 
         /// <summary>
-        /// Control lblTitulo3.
+        /// Control txtImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitulo3;
+        protected global::System.Web.UI.WebControls.TextBox txtImage;
 
         /// <summary>
-        /// Control lblDescripcion3.
+        /// Control btnAddOffer.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion3;
+        protected global::System.Web.UI.WebControls.Button btnAddOffer;
 
         /// <summary>
-        /// Control imgServicio4.
+        /// Control btnEditService.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgServicio4;
+        protected global::System.Web.UI.WebControls.Button btnEditService;
 
         /// <summary>
-        /// Control lblTitulo4.
+        /// Control btnDeleteService.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitulo4;
+        protected global::System.Web.UI.WebControls.Button btnDeleteService;
 
         /// <summary>
-        /// Control lblDescripcion4.
+        /// Control mensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion4;
-
-        /// <summary>
-        /// Control imgServicio5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgServicio5;
-
-        /// <summary>
-        /// Control lblTitulo5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitulo5;
-
-        /// <summary>
-        /// Control lblDescripcion5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion5;
-
-        /// <summary>
-        /// Control imgServicio6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgServicio6;
-
-        /// <summary>
-        /// Control lblTitulo6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitulo6;
-
-        /// <summary>
-        /// Control lblDescripcion6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion6;
+        protected global::System.Web.UI.WebControls.Label mensaje;
     }
 }

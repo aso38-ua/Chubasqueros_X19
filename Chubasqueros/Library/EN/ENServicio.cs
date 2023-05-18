@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace library
 {
@@ -11,7 +12,7 @@ namespace library
         private int idServicio;
         private string titulo;
         private string descripcion;
-        private string img; // Ruta de la imagen 
+        private string img;
 
         /*
          Servicio servicio = new Servicio();
@@ -72,10 +73,10 @@ namespace library
 
         public ENServicio()
         {
-            idServicio = -1;
-            descripcion = "";
-            titulo = "";
-            img = "";
+            this.idServicio = -1;
+            this.descripcion = "";
+            this.titulo = "";
+            this.img = "";
         }
 
         public ENServicio(int idServicio, string titulo, string descripcion, string img)
@@ -141,5 +142,14 @@ namespace library
 
             return false;
         }
+
+       /* public static DataTable readAllServices()
+        {
+            DataTable basedatos = new DataTable();
+            CADServicio servicio = new CADServicio();
+            basedatos = servicio.readAllServices();
+
+            return basedatos;
+        }*/
     }
 }

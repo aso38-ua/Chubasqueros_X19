@@ -12,7 +12,7 @@ namespace library {
         private string constring;
 
         public CADOferta() {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         public bool createOferta(ENOferta oferta) {

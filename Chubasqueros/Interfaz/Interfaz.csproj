@@ -87,9 +87,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database.mdf" />
-    <Content Include="App_Data\Database_log.ldf">
-      <DependentUpon>Database.mdf</DependentUpon>
+    <Content Include="adminServicio.aspx" />
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="Categoria.aspx" />
     <Content Include="CerrarSesion.aspx" />
@@ -148,6 +149,13 @@
     <Content Include="Comentario.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminServicio.aspx.cs">
+      <DependentUpon>adminServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminServicio.aspx.designer.cs">
+      <DependentUpon>adminServicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Categoria.aspx.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
