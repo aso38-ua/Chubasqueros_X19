@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -36,9 +37,13 @@ namespace Interfaz
                     Response.Cache.SetCacheability(HttpCacheability.NoCache);
                     Response.Cache.SetNoStore();
 
+                    // Crear una instancia de ENUsuario
+                    ENUsuario usuario = new ENUsuario();
+                    usuario.nombre = username;
+                    usuario.email = email;
+
                     // Obtén la ruta de la imagen de perfil del usuario desde la base de datos o desde la ubicación especificada
-                    string imagePath = ObtenerRutaImagenPerfil(username);
-                    lblDebug.Text = "Image Path: " + imagePath;
+                    string imagePath = usuario.ObtenerRutaImagenPerfil(usuario.nombre);
 
                     // Asigna la ruta de la imagen al control <asp:Image>
                     imgProfile.ImageUrl = ResolveUrl(imagePath);
@@ -47,7 +52,7 @@ namespace Interfaz
             }
         }
 
-        private byte[] HexToBytes(string hex)
+        /*private byte[] HexToBytes(string hex)
         {
             int length = hex.Length / 2;
             byte[] bytes = new byte[length];
@@ -58,9 +63,9 @@ namespace Interfaz
             }
 
             return bytes;
-        }
+        }*/
 
-        private string ObtenerRutaImagenPerfil(string username)
+        /*private string ObtenerRutaImagenPerfil(string username)
         {
             // Aquí debes implementar la lógica para obtener la ruta de la imagen de perfil del usuario desde la base de datos
             
@@ -96,7 +101,7 @@ namespace Interfaz
                     }
                 }
             }
-        }
+        }*/
 
 
 

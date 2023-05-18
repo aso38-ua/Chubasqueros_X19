@@ -321,6 +321,52 @@ namespace Library
             return username;
         }
 
+        public static string ObtenerRutaImagenPerfil(string username)
+        {
+            string imagePath = string.Empty;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ImagenPerfil FROM usuario WHERE nombre = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    imagePath = command.ExecuteScalar() as string;
+                }
+            }
+
+            // Verifica si la ruta de la imagen de perfil está vacía o nula
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                // La ruta de la imagen de perfil existe, convierte la ruta hexadecimal a una cadena
+                byte[] bytes = CADUsuario.HexToBytes(imagePath);
+                string rutaCadena = Encoding.UTF8.GetString(bytes);
+
+                return rutaCadena;
+            }
+            else
+            {
+                // La ruta de la imagen de perfil está vacía o nula, puedes retornar una ruta predeterminada o mostrar una imagen por defecto
+                return "~/ProfileImages/Profile.jpg";
+            }
+        }
+
+        private static byte[] HexToBytes(string hex)
+        {
+            int length = hex.Length / 2;
+            byte[] bytes = new byte[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                bytes[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
+            }
+
+            return bytes;
+        }
+
         public static bool EsCorreoElectronico(string input)
         {
             try

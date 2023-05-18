@@ -127,5 +127,10 @@ namespace Library
         {
             return CADUsuario.ObtenerUsuarioPorEmail(email);
         }
+
+        public string ObtenerRutaImagenPerfil(string username)
+        {
+            return CADUsuario.ObtenerRutaImagenPerfil(username);
+        }
     }
 }
