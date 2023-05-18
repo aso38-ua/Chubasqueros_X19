@@ -11,27 +11,39 @@ using System.Data.SqlClient;
 
 namespace Interfaz {
     public partial class Servicio : System.Web.UI.Page {
-        protected void Page_Load(object sender, EventArgs e) {
+        protected void Page_Load(object sender, EventArgs e)
+        {
             if (!IsPostBack)
             {
-                CargarServicios();
+                LoadAllServices();
             }
         }
 
-        protected void CargarServicios()
+        private void LoadAllServices()
         {
-            // 1. Crear una instancia de la clase ENServicio
-            ENServicio enServicio = new ENServicio();
+            DataTable dataTable = ENServicio.readAllServices();
 
-            // 2. Llamar al método createServicio() para obtener los datos de la base de datos
-            List<Servicio> servicios = enServicio.createServicio();
-
-            // 3. Asignar la lista de servicios al Repeater
-            rptServicios.DataSource = servicios;
-            rptServicios.DataBind();
+            labelInfo.Text = "";
+            foreach (DataRow row in dataTable.Rows)
+            {
+                labelInfo.Text += "<div class='service-container'>";
+                labelInfo.Text += "  <div class='image-container'>";
+                string imagePath = row["img"].ToString();
+                if (!string.IsNullOrEmpty(imagePath))
+                {
+                    labelInfo.Text += "    <img src='" + imagePath + "' alt='Imagen' />";
+                }
+                labelInfo.Text += "  </div>";
+                labelInfo.Text += "  <div class='content-container'>";
+                labelInfo.Text += "    <h3>" + row["titulo"].ToString() + "</h3>";
+                labelInfo.Text += "    <p>" + row["descripcion"].ToString() + "</p>";
+                labelInfo.Text += "  </div>";
+                labelInfo.Text += "  <div class='button-container'>";
+                // labelInfo.Text += "    <input type='button' value='Añadir servicio al carrito' onclick='addToCart(" + row["idServicio"].ToString() + ")' class='neon-btn' />";
+                labelInfo.Text += "  </div>";
+                labelInfo.Text += "</div>";
+                labelInfo.Text += "<hr />";
+            }
         }
-
-
-
     }
 }
