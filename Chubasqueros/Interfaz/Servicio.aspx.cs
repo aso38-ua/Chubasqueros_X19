@@ -26,24 +26,24 @@ namespace Interfaz {
             labelInfo.Text = "";
             foreach (DataRow row in dataTable.Rows)
             {
-                labelInfo.Text += "<div class='service-container'>";
-                labelInfo.Text += "  <div class='image-container'>";
+                labelInfo.Text += "<div class='container-servicio'>";
+                labelInfo.Text += "  <div class='img-servicio'>";
                 string imagePath = row["img"].ToString();
                 if (!string.IsNullOrEmpty(imagePath))
                 {
                     labelInfo.Text += "    <img src='" + imagePath + "' alt='Imagen' />";
                 }
                 labelInfo.Text += "  </div>";
-                labelInfo.Text += "  <div class='content-container'>";
-                labelInfo.Text += "    <h3>" + row["titulo"].ToString() + "</h3>";
-                labelInfo.Text += "    <p>" + row["descripcion"].ToString() + "</p>";
+                labelInfo.Text += "  <div class='content-container-service'>";
+                labelInfo.Text += "    <h3 class='h3-servicio'>" + row["titulo"].ToString() + "</h3>";
+                labelInfo.Text += "    <p class='p-servicio'>" + row["descripcion"].ToString() + "</p>";
                 labelInfo.Text += "  </div>";
-                labelInfo.Text += "  <div class='button-container'>";
+                labelInfo.Text += "  <div class='button-container-service'>";
                 // labelInfo.Text += "    <input type='button' value='Añadir servicio al carrito' onclick='addToCart(" + row["idServicio"].ToString() + ")' class='neon-btn' />";
                 labelInfo.Text += "  </div>";
                 labelInfo.Text += "</div>";
-                labelInfo.Text += "<hr />";
             }
         }
+
     }
 }

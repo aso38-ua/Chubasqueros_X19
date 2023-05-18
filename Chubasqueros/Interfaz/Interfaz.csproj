@@ -88,9 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adminServicio.aspx" />
-    <Content Include="App_Data\Database1.mdf" />
-    <Content Include="App_Data\Database1_log.ldf">
-      <DependentUpon>Database1.mdf</DependentUpon>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="Categoria.aspx" />
     <Content Include="CerrarSesion.aspx" />

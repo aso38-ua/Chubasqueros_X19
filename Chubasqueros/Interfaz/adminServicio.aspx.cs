@@ -29,7 +29,7 @@ namespace Interfaz
 
                 if (servicio.createServicio())
                 {
-                    mensaje.Text = "Servicio " + servicio.Titulo + "creado";
+                    mensaje.Text = "Servicio " + servicio.Titulo + " creado";
                 }
                 else
                 {
@@ -51,7 +51,7 @@ namespace Interfaz
 
                 if (servicio.updateServicio())
                 {
-                    mensaje.Text = "Servicio " + servicio.Titulo + "actualizado";
+                    mensaje.Text = "Servicio " + servicio.Titulo + " actualizado";
                 }
                 else
                 {
@@ -73,7 +73,7 @@ namespace Interfaz
 
                 if (servicio.deleteServicio())
                 {
-                    mensaje.Text = "Servicio " + servicio.Titulo + "eliminado";
+                    mensaje.Text = "Servicio " + servicio.Titulo + " eliminado";
                 }
                 else
                 {

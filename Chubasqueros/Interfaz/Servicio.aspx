@@ -3,20 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <link href="css/Servicio.css" rel="stylesheet" />
-
     <h1 class="h1-servicio">Nuestros servicios</h1>
-    
-    <div class="container">
+    <div class="container-servicio">
         <div>
-            <h1> Aquí aparecería todo dinámicamente</h1>
             <br />
             <br />
             <asp:Label ID="labelInfo" runat="server" Text=""></asp:Label>
         </div>
     </div>
-
 </asp:Content>
-
