@@ -31,9 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,7 +52,7 @@
     <Compile Include="CAD\CADComentario.cs" />
     <Compile Include="CAD\CADCurriculum.cs" />
     <Compile Include="CAD\CADFavoritos.cs" />
-    <Compile Include="CAD\CADForo.cs" />
+    <Compile Include="CAD\CADServicio.cs" />
     <Compile Include="CAD\CADOferta.cs" />
     <Compile Include="CAD\CADPedido.cs" />
     <Compile Include="CAD\CADPerfil.cs" />
@@ -63,7 +67,7 @@
     <Compile Include="EN\ENComentario.cs" />
     <Compile Include="EN\ENCurriculum.cs" />
     <Compile Include="EN\ENFavoritos.cs" />
-    <Compile Include="EN\ENForo.cs" />
+    <Compile Include="EN\ENServicio.cs" />
     <Compile Include="EN\ENOferta.cs" />
     <Compile Include="EN\ENPedido.cs" />
     <Compile Include="EN\ENPerfil.cs" />
@@ -73,6 +77,9 @@
     <Compile Include="EN\ENReserva.cs" />
     <Compile Include="EN\ENUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
