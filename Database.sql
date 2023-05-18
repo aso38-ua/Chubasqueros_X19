@@ -86,8 +86,8 @@ CREATE TABLE Oferta (
     PRIMARY KEY (codigoOferta)
 );
 
-CREATE TABLE Servicios (
-    idServicio INT IDENTITY(1, 1) NOT NULL,
+CREATE TABLE Servicio (
+    idServicio INT NOT NULL,
     titulo VARCHAR(100) NOT NULL,
     descripcion VARCHAR(500) NOT NULL,
     img VARCHAR(500) NOT NULL,
