@@ -21,7 +21,6 @@
     <br />
     <asp:Button ID="Estrella5" runat="server" Text="☆☆☆☆☆" onClick="Estrella5Click" BackColor="Yellow" BorderColor="#FFCC00" BorderStyle="NotSet"/>
     <br />
-    <asp:TextBox ID="TBPuntuar" runat="server" Height="33px" Width="118px"></asp:TextBox>
     <asp:Label ID="Label3" runat="server" />
     <asp:Button ID="BtnPuntuar" runat="server" Text="☆Puntuar☆" onClick="PuntuarClick" BackColor= "#0099ff" BorderStyle="Groove" BorderColor="#9966ff"/>
     <br />
@@ -46,10 +45,5 @@
     <br />
     <asp:Button ID="BtnModificar" runat="server" Text="Modificar" onClick="ModificarClick" BackColor="#ff9933" BorderColor="Red" BorderStyle="Groove"/>
     <br />
-    Responder:&nbsp;&nbsp;&nbsp;
-    <br />
-        <asp:TextBox ID="TextBox1" runat="server" Height="150px" Width="550px"></asp:TextBox>
-    <br />
-    <asp:Button ID="BtnRespuesta" runat="server" Text="Responder" onClick="RespuestaClick"/>
     <body-style = "backgroud-color:rgb(208, 171, 255)"></body-style>
 </asp:Content>

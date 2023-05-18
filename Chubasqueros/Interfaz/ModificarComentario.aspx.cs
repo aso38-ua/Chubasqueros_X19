@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using library;
+using Library;
 
 namespace Interfaz
 {
@@ -19,6 +20,10 @@ namespace Interfaz
                     Response.Redirect("Login.aspx");
                 }
             }
+            else
+            {
+                //TBComentario.Text = //Pillar de la BD
+            }
         }
 
         protected void RegresarClick(object sender, EventArgs e)
@@ -28,10 +33,21 @@ namespace Interfaz
         }
 
         protected void ModificarClick(object sender, EventArgs e)
-        {      
-            ENComentario en = new ENComentario();
-            //Datos del comentario (user, item)
-            if (en.changeComment() == true)
+        {
+            ENProducto en_prod = new ENProducto();
+            //en_prod.getNombre
+            ENUsuario en_u = new ENUsuario();
+            en_u.nombre = (string)Session["username"];
+            en_u.readUsuario();
+            ENPuntuacion en_p = new ENPuntuacion();
+           // en_p.aux_estrella = int.Parse(Label3.Text);
+            en_p.aux_id_user = en_u.id;
+            ENComentario en_c = new ENComentario();
+            en_c.aux_estrellas = en_p.aux_estrella;
+            en_c.aux_id_user = en_p.aux_id_user;
+            en_c.aux_item = en_c.aux_item;
+            en_c.aux_comentario = TBModificar.Text;
+            if (en_c.changeComment() == true)
             {
                 Label1.Text = "Se ha modificado el comentario correctamente";
             }
