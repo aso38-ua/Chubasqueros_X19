@@ -32,7 +32,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "";
+                string cout = "INSERT INTO[dbo].[carrito] (producto, usuario) VALUES('" + c.producto + "', " + c.usuario + "';";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 consult.ExecuteNonQuery();
                 create = true;
@@ -60,7 +60,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "DELETE FROM";
+                string cout = "DELETE * FROM [dbo].[carrito]";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 delete = true;
@@ -88,7 +88,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "UPDATE FROM";
+                string cout = "UPDATE * FROM [dbo].[carrito]";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 update = true;
@@ -114,9 +114,32 @@ namespace Library
         }
 
         //Añadir producto desde favoritos al carrito
-        public bool AñadirProducto()
+        public bool AñadirProducto(ENCarrito c)
         {
-            return true;
+            bool aprod = false;
+            try
+            {
+                SqlConnection conectsql = null;
+                conectsql = new SqlConnection(constring);
+                conectsql.Open();
+
+                string cout = "INSERT INTO [dbo].[carrito] (producto, usuario) VALUES ('" + c.producto + "', " + c.usuario + "';";
+                SqlCommand consulta = new SqlCommand(cout, conectsql);
+                consulta.ExecuteNonQuery();
+                aprod = true;
+                conectsql.Close();
+            }
+            catch (SqlException e)
+            {
+                aprod = false;
+                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                aprod = false;
+                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+            }
+            return aprod;
         }
 
         //Eliminar producto del carrito
@@ -125,13 +148,6 @@ namespace Library
             return true;
         }
 
-        //Sacar el producto de la cesta y guardarlo en un subcarrito aparte
-        public bool GuardarProducto()
-        {
-            return true;
-        }
-
-
         //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
         public int ProductosTotales()
         {
@@ -139,8 +155,30 @@ namespace Library
         }
 
         //Calcula el precio total que hay en el carrito
-        public float PrecioTotal()
+        public float PrecioTotal(ENCarrito c)
         {
+            ENProducto producto = new ENProducto();
+
+            try
+            {
+                SqlConnection conectsql = null;
+                conectsql = new SqlConnection(constring);
+                conectsql.Open();
+                
+                string cout = "SELECT PRECIO FROM PRODUCTO";
+                SqlCommand consulta = new SqlCommand(cout, conectsql);
+                consulta.ExecuteNonQuery();
+               
+                conectsql.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+            }
             return 0;
         }
 

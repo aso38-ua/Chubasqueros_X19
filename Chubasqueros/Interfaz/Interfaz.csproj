@@ -67,7 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DatabaseCarrito.mdf" />
+    <Content Include="App_Data\DatabaseCarrito_log.ldf">
+      <DependentUpon>DatabaseCarrito.mdf</DependentUpon>
+    </Content>
     <Content Include="Colaboracion.aspx" />
+    <Content Include="CSS\EstiloCarrito.css" />
     <Content Include="IMGS\adidas.jpeg" />
     <Content Include="IMGS\Brent Black.jpeg" />
     <Content Include="IMGS\mayka.jpeg" />
@@ -165,8 +170,8 @@
     </Compile>
     <Compile Include="Oferta.aspx.designer.cs">
       <DependentUpon>Oferta.aspx</DependentUpon>
-	    <SubType>ASPXCodeBehind</SubType>
-	</Compile>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -179,10 +184,10 @@
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-	  <Compile Include="Registro.aspx.designer.cs">
-		  <DependentUpon>Registro.aspx</DependentUpon>
-		  <SubType>ASPXCodeBehind</SubType>
-	  </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Favoritos.aspx.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

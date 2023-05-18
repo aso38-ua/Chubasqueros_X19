@@ -8,49 +8,66 @@ namespace Library
 {
     public class ENCarrito
     {
-        private int cantidad; //cantidad de productos pedidos
-        private float total; //precio total
-        private ENProducto producto; //Producto en el carrito actualmente
-        private int idcarrito; //id del carrito (podria ser igual que el id de pedido)
+        private int cantidadp; //cantidad de productos pedidos
+        private float totalp; //precio total
+        private int productop; //Producto en el carrito actualmente
+        private int idcarritop; //id del carrito (podria ser igual que el id de pedido)
+        private int usuariop; //Id del usuario
 
-        public ENProducto p
+
+        public int usuario
         {
-            get { return producto; }
-            set { producto = value; }
+            get { return usuariop; }
+            set { usuariop = value; }
+        }
+        public int producto
+        {
+            get { return productop; }
+            set { productop = value; }
         }
  
-        public int c
+        public int cantidad
         {
-            get { return cantidad; }
-            set { cantidad = value; }
+            get { return cantidadp; }
+            set { cantidadp = value; }
         }
 
-        public float t
+        public float total
         {
-            get { return total; }
-            set { total = value; }
+            get { return totalp; }
+            set { totalp = value; }
         }
 
-        public int idc
+        public int idcarrito
         {
-            get { return idcarrito; }
-            set { idcarrito = value; }
+            get { return idcarritop; }
+            set { idcarritop = value; }
         }
 
         /*Constructor: pondra la cantidad a 0, el total a 0,
          la clase se enlazara con usuario y producto*/
-        public ENCarrito()
+        public ENCarrito(int prod, int usu)
         {
-            c = 0;
-            t = 0;
-            producto = new ENProducto();
+            ENProducto product = new ENProducto();
+            product.setCodigo(prod);
+            product.readProducto();
+            total = product.getPrecio();
+            cantidad = 1;
+            producto = prod;
+            usuario = usu;
         }
 
-        public ENCarrito(int cant, int tot)
+        public ENCarrito(int cantidad, int producto, int usuario)
         {
-            c = cant;
-            t = tot;
+            ENProducto product = new ENProducto();
+            product.setCodigo(producto);
+            product.readProducto();
+            this.total = product.getPrecio() * cantidad;
+            this.cantidad = cantidad;
+            this.producto = producto;
+            this.usuario = usuario;
         }
+
         public bool verCarrito()
         {
             CADCarrito carrito = new CADCarrito();
@@ -61,10 +78,7 @@ namespace Library
         {
             CADCarrito carrito = new CADCarrito();
             bool crear = false;
-            if (!carrito.verCarrito(this))
-            {
-                crear = carrito.crearCarrito(this);
-            }
+            crear = carrito.crearCarrito(this);
             return crear;
         }
 
@@ -72,41 +86,39 @@ namespace Library
         {
             CADCarrito carrito = new CADCarrito();
             bool eliminar = false;
-            ENProducto pr = new ENProducto();
-            /*
-            if (pr = null)
+
+            if (carrito.verCarrito(this))
             {
                 eliminar = carrito.eliminarCarrito(this);
             }
-            */
-            carrito.crearCarrito(this);
+
             return eliminar;
         }
         
         public bool actualizarCarrito()
         {
-            ENCarrito carro = new ENCarrito();
+            ENCarrito carro = new ENCarrito(cantidad, producto, usuario);
             CADCarrito carrito = new CADCarrito();
             bool actualizar = false;
 
-            carro.cantidad = this.cantidad;
-            carro.total = this.total;
-
-            if (carrito.verCarrito(this))
+            
+            if (carrito.verCarrito(carro))
             {
-                this.cantidad = carro.cantidad;
-                this.total = carro.total;
-                actualizar = carrito.actualizarCarrito(this);
+                carro.cantidad = this.cantidad;
+                carro.total = this.total;
+                carro.producto = this.producto;
+                carro.usuario = this.usuario;
+                actualizar = carrito.actualizarCarrito(carro);
             }
             return actualizar;
         }
 
-       
-
+  
         //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
         public int cuentaCantidad()
         {
             CADCarrito carrito = new CADCarrito();
+            ENProducto producto = new ENProducto();
             int cant = 0;
             for(int i = 0; i < carrito.cuentaCantidad(); i++)
             {
@@ -118,7 +130,11 @@ namespace Library
         //Añadir producto al carrito
         public bool AñadirProducto()
         {
-            return true;
+            CADCarrito carrito = new CADCarrito();
+            ENProducto aux = new ENProducto();
+            bool insertar = false;
+            
+            return insertar;
         }   
 
         //Eliminar producto del carrito
@@ -126,12 +142,6 @@ namespace Library
         {
             return true;
         }
-
-        //Sacar el producto de la cesta y guardarlo en un subcarrito aparte
-        public bool GuardarProducto()
-        {
-            return true;
-         }
 
         //Calcula el precio total que hay en el carrito
         public float PrecioTotal()

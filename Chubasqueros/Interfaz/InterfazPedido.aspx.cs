@@ -23,6 +23,7 @@ namespace Interfaz
         protected void btn_cancelar(object sender, EventArgs e)
         {
             Response.Redirect("InterfazCarrito.aspx");
+            /*
             ENPedido pedido = new ENPedido();
             if (pedido.eliminarPedido())
             {
@@ -32,6 +33,7 @@ namespace Interfaz
             {
                 Message.Text = "No es posible cancelar el pedido. Intentalo mas tarde";
             }
+            */
         }
     }
 }

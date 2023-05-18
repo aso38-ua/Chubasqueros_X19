@@ -22,6 +22,7 @@ namespace Interfaz
 
 		protected void btn_eliminar(object sender, EventArgs e)
 		{
+			/*
 			ENCarrito carrito = new ENCarrito();
             if (carrito.eliminarCarrito())
             {
@@ -31,6 +32,7 @@ namespace Interfaz
             {
 				Message.Text = "No hay productos en el carrito";
             }
+			*/
 		}
 	}
 }

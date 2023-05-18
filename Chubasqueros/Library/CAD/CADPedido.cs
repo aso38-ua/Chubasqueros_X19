@@ -73,7 +73,7 @@ namespace Library
                 conectsql.Open();
 
                 //el ID es un numero aleatorio
-                string cout = "INSERT INTO [dbo].[pedido] (id) VALUES ('" + p.idp + "')";
+                string cout = "INSERT INTO [dbo].[pedido] (id) VALUES ('" + p.idPedido + "')";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 consult.ExecuteNonQuery();
                 create = true;
