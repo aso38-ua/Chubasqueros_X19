@@ -77,3 +77,11 @@ CREATE TABLE Puntuacion (
     FOREIGN KEY (id_user) REFERENCES usuario(id),
     FOREIGN KEY (item) REFERENCES producto(id)
 );
+
+CREATE TABLE Oferta (
+    codigoOferta INT NOT NULL,
+    fechaInicio DATE NOT NULL,
+    fechaFin DATE NOT NULL,
+    porcentajeDescuento FLOAT NOT NULL,
+    PRIMARY KEY (codigoOferta)
+);
