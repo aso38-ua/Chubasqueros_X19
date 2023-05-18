@@ -16,6 +16,7 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 if (Session["username"] == null)
@@ -56,8 +57,11 @@ namespace Interfaz
         {
             string newUsername = txtNewUsername.Text;
 
+            // Crear una instancia de ENUsuario
+            ENUsuario usuario = new ENUsuario();
+
             // Verificar si el nuevo nombre de usuario ya existe en la base de datos
-            bool usernameExists = VerificarNombreUsuarioExistente(newUsername);
+            bool usernameExists = usuario.VerificarNombreUsuarioExistente(newUsername);
 
             if (usernameExists)
             {
@@ -71,7 +75,7 @@ namespace Interfaz
             else
             {
                 // El nuevo nombre de usuario está disponible, actualizar en la base de datos
-                ActualizarNombreUsuario(Session["username"] as string, newUsername);
+                usuario.ActualizarNombreUsuario(Session["username"] as string, newUsername);
 
                 // Mostrar mensaje de éxito
                 changeName.Text = "El nombre de usuario se ha actualizado correctamente.";
@@ -80,99 +84,6 @@ namespace Interfaz
                 Session["username"] = newUsername;
             }
         }
-
-        private bool VerificarNombreUsuarioExistente(string newUsername)
-        {
-            // Consulta SQL para verificar si el nombre de usuario ya existe en la base de datos
-            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "SELECT COUNT(*) FROM usuario WHERE nombre = @newUsername";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@newUsername", newUsername);
-
-                    connection.Open();
-                    int count = (int)command.ExecuteScalar();
-
-                    return count > 0;
-                }
-            }
-        }
-
-        private void ActualizarNombreUsuario(string currentUsername, string newUsername)
-        {
-            // Consulta SQL para actualizar el nombre de usuario en la base de datos
-            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "UPDATE usuario SET nombre = @newUsername WHERE nombre = @currentUsername";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@newUsername", newUsername);
-                    command.Parameters.AddWithValue("@currentUsername", currentUsername);
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-
-                    // Actualizar el valor en la sesión
-                    Session["username"] = newUsername;
-                }
-            }
-        }
-
-        /*private byte[] HexToBytes(string hex)
-        {
-            int length = hex.Length / 2;
-            byte[] bytes = new byte[length];
-
-            for (int i = 0; i < length; i++)
-            {
-                bytes[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
-            }
-
-            return bytes;
-        }*/
-
-        /*private string ObtenerRutaImagenPerfil(string username)
-        {
-            // Aquí debes implementar la lógica para obtener la ruta de la imagen de perfil del usuario desde la base de datos
-            
-
-            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "SELECT ImagenPerfil FROM usuario WHERE nombre = @username";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@username", username);
-
-                    connection.Open();
-                    string imagePath = command.ExecuteScalar() as string;
-
-                    // Configuración del encabezado de respuesta HTTP para evitar el almacenamiento en caché
-                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                    Response.Cache.SetNoStore();
-
-                    // Verifica si la ruta de la imagen de perfil está vacía o nula
-                    if (!string.IsNullOrEmpty(imagePath))
-                    {
-                        // La ruta de la imagen de perfil existe, convierte la ruta hexadecimal a una cadena
-                        byte[] bytes = HexToBytes(imagePath);
-                        string rutaCadena = Encoding.UTF8.GetString(bytes);
-
-                        return rutaCadena;
-                    }
-                    else
-                    {
-                        // La ruta de la imagen de perfil está vacía o nula, puedes retornar una ruta predeterminada o mostrar una imagen por defecto
-                        return "~/ProfileImages/Profile.jpg";
-                    }
-                }
-            }
-        }*/
-
-
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {

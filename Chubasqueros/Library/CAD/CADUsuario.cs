@@ -354,6 +354,42 @@ namespace Library
             }
         }
 
+        public static bool VerificarNombreUsuarioExistente(string newUsername)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM usuario WHERE nombre = @newUsername";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newUsername", newUsername);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
+        public static void ActualizarNombreUsuario(string currentUsername, string newUsername)
+        {
+            // Consulta SQL para actualizar el nombre de usuario en la base de datos
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE usuario SET nombre = @newUsername WHERE nombre = @currentUsername";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newUsername", newUsername);
+                    command.Parameters.AddWithValue("@currentUsername", currentUsername);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         private static byte[] HexToBytes(string hex)
         {
             int length = hex.Length / 2;

@@ -114,7 +114,7 @@
     </Content>
     <Content Include="Categoria.aspx" />
     <Content Include="CerrarSesion.aspx" />
-    <Content Include="EditarPerfil.aspx" />
+    <Content Include="CV.aspx" />
     <Content Include="IMGS\change.jpg" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
@@ -183,12 +183,12 @@
     <Compile Include="CerrarSesion.aspx.designer.cs">
       <DependentUpon>CerrarSesion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditarPerfil.aspx.cs">
-      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+    <Compile Include="CV.aspx.cs">
+      <DependentUpon>CV.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditarPerfil.aspx.designer.cs">
-      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+    <Compile Include="CV.aspx.designer.cs">
+      <DependentUpon>CV.aspx</DependentUpon>
     </Compile>
     <Compile Include="Producto.aspx.cs">
       <DependentUpon>Producto.aspx</DependentUpon>
@@ -327,7 +327,6 @@
       <Name>Library</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

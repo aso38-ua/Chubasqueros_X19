@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace Library
 {
-    class CADCurriculum
+    public class CADCurriculum
     {
         private string constring; // Cadena de conexión a la base de datos
         public CADCurriculum()
@@ -30,7 +30,7 @@ namespace Library
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Nombre", curriculum.Nombre);
                     command.Parameters.AddWithValue("@Apellido", curriculum.Apellido);
-                    command.Parameters.AddWithValue("@ExperienciaLaboral", curriculum.ExperienciaLaboral);
+                    command.Parameters.AddWithValue("@ExperienciaLaboral", curriculum.Experiencia);
 
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -63,7 +63,7 @@ namespace Library
                         curriculum.Id = id;
                         curriculum.Nombre = reader["Nombre"].ToString();
                         curriculum.Apellido = reader["Apellido"].ToString();
-                        curriculum.ExperienciaLaboral = reader["ExperienciaLaboral"].ToString();
+                        curriculum.Experiencia = reader["ExperienciaLaboral"].ToString();
                     }
 
                     reader.Close();
@@ -87,7 +87,7 @@ namespace Library
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Nombre", curriculum.Nombre);
                     command.Parameters.AddWithValue("@Apellido", curriculum.Apellido);
-                    command.Parameters.AddWithValue("@ExperienciaLaboral", curriculum.ExperienciaLaboral);
+                    command.Parameters.AddWithValue("@ExperienciaLaboral", curriculum.Experiencia);
                     command.Parameters.AddWithValue("@Id", curriculum.Id);
 
                     connection.Open();

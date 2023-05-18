@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Library
 {
@@ -13,6 +14,7 @@ namespace Library
         public string apellido { get; set; }
         public string email { get; set; }
         public string contraseña { get; set; }
+        public bool EsAdmin { get; set; }
 
         public ENUsuario()
         {
@@ -21,6 +23,7 @@ namespace Library
             this.apellido = "";
             this.email = "";
             this.contraseña="";
+            this.EsAdmin = false;
         }
 
         public ENUsuario(int id, string nombre, string email, string contraseña)
@@ -131,6 +134,19 @@ namespace Library
         public string ObtenerRutaImagenPerfil(string username)
         {
             return CADUsuario.ObtenerRutaImagenPerfil(username);
+        }
+
+        public bool VerificarNombreUsuarioExistente(string newUsername)
+        {
+            return CADUsuario.VerificarNombreUsuarioExistente(newUsername);
+        }
+
+        public void ActualizarNombreUsuario(string currentUsername, string newUsername)
+        {
+            CADUsuario.ActualizarNombreUsuario(currentUsername, newUsername);
+
+            // Actualizar el valor en la sesión
+            HttpContext.Current.Session["username"] = newUsername;
         }
     }
 }
