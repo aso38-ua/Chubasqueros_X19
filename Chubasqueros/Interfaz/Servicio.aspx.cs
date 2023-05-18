@@ -38,7 +38,7 @@ namespace Interfaz {
                             <img src='{img}' alt='Imagen del servicio' class='servicio-imagen-img' />
                         </div>
                         <div class='servicio-contenido'>
-                            <h2>{titulo}</h2>
+                            <h2 class='h2-servicio'>{titulo}</h2>
                             <p class='p-servicio'>{descripcion}</p>
                             <button class='btn-carrito' onclick='agregarAlCarrito({idServicio})'>Añadir servicio al carrito</button>
                         </div>
@@ -52,9 +52,7 @@ namespace Interfaz {
 
         protected void agregarAlCarrito(string idServicio)
         {
-            // Lógica para agregar el servicio al carrito
-            // Puedes implementar la funcionalidad aquí o llamar a otro método/clase para manejarlo
-            Console.WriteLine("Añadiendo servicio al carrito. ID de servicio:", idServicio);
+
         }
     }
 }

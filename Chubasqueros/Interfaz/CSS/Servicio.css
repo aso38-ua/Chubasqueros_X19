@@ -4,13 +4,12 @@
 }
 
 .servicio-imagen-img {
-    /* Estilos adicionales para el elemento img */
     margin-left: 100px;
     margin-right: 300px;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
+    margin-top: 150px;
     width: 500px;
     height: auto;
-    /* Otros estilos personalizados */
 }
 
 .servicio-contenido {
@@ -24,3 +23,11 @@
     animation: neon 1.5s ease-in-out infinite alternate;
 }
 
+.h2-servicio {
+    color: #ffa31a;
+    text-align: center;
+    font-size: 50px;
+    margin-top: -50px;
+    text-shadow: 0 0 10px #ffa31a, 0 0 20px #ffa31a, 0 0 30px #ffa31a, 0 0 40px #ffa31a;
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
