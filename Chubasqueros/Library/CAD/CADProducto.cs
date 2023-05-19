@@ -31,7 +31,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (" + en.getCodigo() + ", " + en.getNombre() + ", " + en.getDescripcion() + ", " + en.getStock() + ", " + en.getPrecio() + ", " + en.getCodigoCategoria() + ")";
+                string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (" + en.getCodigo() + ", '" + en.getNombre() + "', '" + en.getDescripcion() + "', " + en.getStock() + ", " + en.getPrecio() + ", " + en.getCodigoCategoria() + ")";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
                 creado = true;
@@ -109,7 +109,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "UPDATE [dbo].[Producto] SET codigo = " + en.getCodigo() + " ,nombre= " + en.getNombre() + " ,descripcion= " + en.getDescripcion() + " ,stock= " + en.getStock() + " ,precio= " + en.getPrecio() + " ,codigoCategoria= " + en.getCodigoCategoria() + "WHERE codigo = " + en.getCodigo();
+                string query = "UPDATE [dbo].[Producto] SET codigo = " + en.getCodigo() + " ,nombre= '" + en.getNombre() + "' ,descripcion= '" + en.getDescripcion() + "' ,stock= " + en.getStock() + " ,precio= " + en.getPrecio() + " ,codigoCategoria= " + en.getCodigoCategoria() + "WHERE codigo = " + en.getCodigo();
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
             }
