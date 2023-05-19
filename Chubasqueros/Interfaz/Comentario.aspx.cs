@@ -13,7 +13,28 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["username"] == null)
+                {
+                    Like.Visible = false;
+                    Dislike.Visible = false;
+                    BtnEliminar.Visible = false;
+                    BtnModificar.Visible = false;
+                }
+            }
+            else
+            {
+                ENComentario en_c = new ENComentario();
+                en_c.aux_comentario = TBComentario.Text;
+                //en_c.aux_item = s
+                if(en_c.aux_comentario == "")
+                {
+                    BtnEliminar.Visible = false;
+                    BtnModificar.Visible = false;
+                }
+               // en_c.showComments();
+            }            
         }
 
         protected void RegresarClick(object sender, EventArgs e)
@@ -61,7 +82,15 @@ namespace Interfaz
                 en_p.aux_id_user = en_u.id;
                 if (en_p.createPuntuacion() == true)
                 {
-                    Label3.Text = "Ha puntuado correctamente";
+                    Label3.Text = "Ha puntuado correctamente con " + en_p.aux_estrella;
+                    if(en_p.aux_estrella == 1)
+                    {
+                        Label3.Text += "estrella";
+                    }
+                    else
+                    {
+                        Label3.Text += "estrellas";
+                    }
                 }
                 else
                 {
@@ -95,6 +124,7 @@ namespace Interfaz
                 //Datos del comentario (user, item)
                 if (en_c.createComment() == true)
                 {
+                    TBComentario.Text = en_c.aux_comentario;
                     Label1.Text = "Se ha creado el comentario correctamente";
                 }
                 else
@@ -123,7 +153,7 @@ namespace Interfaz
                 en_c.aux_estrellas = en_p.aux_estrella;
                 en_c.aux_id_user = en_p.aux_id_user;
                 en_c.aux_item = en_c.aux_item;
-                en_c.aux_comentario = TBComentario.Text;
+                en_c.aux_comentario = TBComentario.Text;                
                 //Datos del comentario (user, item)
                 if (en_c.eliminateComment() == true)
                 {
