@@ -68,8 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Categoria.aspx" />
+    <Content Include="CSS\Colaboracion.css" />
     <Content Include="IMGS\Instagram-Icon.png" />
     <Content Include="IMGS\twitter-logo-9.png" />
+    <Content Include="IMGS\sombrero.png" />
+    <Content Include="IMGS\zyro-image.png" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
     <Content Include="Contacto.aspx" />
@@ -78,8 +81,6 @@
     <Content Include="IMGS\Google_Contacts_logo.png" />
     <Content Include="IMGS\Mapa.png" />
     <Content Include="IMGS\mayka.jpeg" />
-    <Content Include="IMGS\Pull and Bear.jpeg" />
-    <Content Include="IMGS\zara.jpeg" />
     <Content Include="IMGS\banyo.jfif" />
     <Content Include="IMGS\costurero.jfif" />
     <Content Include="IMGS\entrenamiento.jfif" />
