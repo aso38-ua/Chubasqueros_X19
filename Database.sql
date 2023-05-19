@@ -56,26 +56,26 @@ CREATE TABLE Reservas (
     FOREIGN KEY (producto) REFERENCES producto(id)
 );
 
-CREATE TABLE Comentario (
-    id_user INT NOT NULL,
-    item INT NOT NULL,
-    estrellas INT NOT NULL,
-    likes INT NULL,
-    dislikes INT NULL,
-    comentario VARCHAR(200) NOT NULL,
-    PRIMARY KEY (id_user, item, estrellas),
-    FOREIGN KEY (estrellas, item, id_user) REFERENCES Puntuacion(estrellas, item, id_user)
+CREATE TABLE [dbo].[Comentario] (
+    [id_user]    INT NOT NULL,
+    [item]       INT NOT NULL,
+    [estrellas]  INT NOT NULL,
+    [likes]      INT NULL,
+    [dislikes]   INT NULL,
+    [comentario] VARCHAR (200) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id_user] ASC, [item] ASC, [estrellas] ASC),
+    FOREIGN KEY ([id_user], [item], [estrellas]) REFERENCES [dbo].[Puntuacion] ([id_user], [item], [estrellas])
 );
 
-CREATE TABLE Puntuacion (
-    id_user INT NOT NULL,
-    item INT NOT NULL,
-    estrellas INT NOT NULL,
-    media INT NOT NULL,
-    contador INT NOT NULL,
-    PRIMARY KEY (id_user, item, estrellas),
-    FOREIGN KEY (id_user) REFERENCES usuario(id),
-    FOREIGN KEY (item) REFERENCES producto(id)
+CREATE TABLE [dbo].[Puntuacion] (
+    [id_user]   INT NOT NULL,
+    [item]      INT NOT NULL,
+    [estrellas] INT NOT NULL,
+    [media]     INT NOT NULL,
+    [contador]  INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([id_user] ASC, [item] ASC, [estrellas] ASC),
+    FOREIGN KEY ([id_user]) REFERENCES [dbo].[usuario] ([id]),
+    FOREIGN KEY ([item]) REFERENCES [dbo].[producto] ([id])
 );
 
 CREATE TABLE Oferta (
