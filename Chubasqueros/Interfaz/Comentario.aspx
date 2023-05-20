@@ -30,6 +30,8 @@
     <asp:Button ID="BtnPuntuar" runat="server" Text="☆Puntuar☆" onClick="PuntuarClick" BackColor= "#0099ff" BorderStyle="Groove" BorderColor="#9966ff"/>
     <asp:Label ID="Label7" runat="server" />
     <br />
+    <asp:Button ID="eliminarP" runat="server" Text="Eliminar Puntuación" onClick="EliminarPClick" BackColor="#ff3300" BorderColor="Red" BorderStyle="Groove" Height="36px" Width="279px"/>
+    <br />
     <h3>Puntuación media:</h3>
     <asp:Label ID="Label6" runat="server" />
     <br />

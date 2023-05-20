@@ -23,6 +23,7 @@ namespace Interfaz
                     BtnEliminar.Visible = false;
                     BtnModificar.Visible = false;
                     TBModificar.Visible = false;
+                    eliminarP.Visible = false;
                 }
             }
         }
@@ -90,7 +91,7 @@ namespace Interfaz
 
         }
 
-            protected void Estrella1Click(object sender, EventArgs e)
+        protected void Estrella1Click(object sender, EventArgs e)
         {
             Label3.Text = "1";
         }
@@ -159,7 +160,10 @@ namespace Interfaz
                             Label7.Text = "Ha habido un error, compruebe que haya seleccionado una opción";
                         }
                     }
-                    Label7.Text = "Busque un producto válido antes de puntuar con el botón buscar";
+                    else
+                    {
+                        Label7.Text = "Busque un producto válido antes de puntuar con el botón buscar";
+                    }                   
                 }
                 else
                 {
@@ -167,6 +171,50 @@ namespace Interfaz
                 }
             }
         }
+
+        protected void EliminarPClick(object sender, EventArgs e)
+        {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                //Se asegura de que haya buscado un producto válido antes de puntuar
+                if (Label6.Text != "" && TBBuscar.Text != "")
+                {
+                    ENProducto en_prod = new ENProducto();
+                    en_prod.setNombre(TBComentario.Text);
+                    if (en_prod.readProducto())
+                    {
+                        ENUsuario en_u = new ENUsuario();
+                        en_u.nombre = (string)Session["username"];
+                        en_u.readUsuario();
+                        ENPuntuacion en_p = new ENPuntuacion();
+                        en_p.aux_estrella = int.Parse(Label3.Text);
+                        en_p.aux_id_user = en_u.id;
+                        en_p.aux_item = en_prod.getCodigo();
+                        if (en_p.eliminatePuntuacion() == true)
+                        {
+                            Label7.Text = "La puntuación se ha eliminado correctamente";
+                        }
+                        else
+                        {
+                            Label7.Text = "Ha habido un error, compruebe que haya seleccionado una opción";
+                        }
+                    }
+                    else
+                    {
+                        Label7.Text = "Busque un producto válido antes de eliminar puntuación con el botón buscar";
+                    }
+                }                
+                else
+                {
+                    Label7.Text = "Busque un producto antes de eliminar puntuación";
+                }
+            }
+        }
+
         protected void ComentarClick(object sender, EventArgs e)
         {
             //Comprueba que se haya registrado

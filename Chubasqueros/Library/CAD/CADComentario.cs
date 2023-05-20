@@ -19,6 +19,7 @@ namespace library
             conn = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
         }
 
+        //Crea comentario
         public bool createComment(ENComentario en)
         {
             bool create = false;
@@ -50,6 +51,7 @@ namespace library
             return create;
         }
 
+        //Elimina comentario
         public bool eliminateComment(ENComentario en)
         {
             bool eliminate = false;
@@ -81,6 +83,7 @@ namespace library
             return eliminate;
         }
 
+        //Modifica comentario
         public bool changeComment(ENComentario en)
         {
             bool change = false;
@@ -111,6 +114,7 @@ namespace library
             }
             return change;
         }
+        //Muestra comentarios
         public bool showComments(ENComentario en)
         {
             bool show = false;
@@ -124,7 +128,6 @@ namespace library
                 SqlCommand consulta = new SqlCommand(comando, conexion);
                 SqlDataReader rd = consulta.ExecuteReader();
                 rd.Read();
-
                 if (int.Parse(rd["item"].ToString()) == en.aux_item)
                 {
                     show = true;
@@ -155,6 +158,7 @@ namespace library
             return show;
         }
 
+        //Obtine los datos de un comentario según el item y el usuario
         public bool readComment(ENComentario en)
         {
             bool read = false;
@@ -199,6 +203,7 @@ namespace library
             return read;
         }
 
+        //Suma 1 al like
         public bool likesItem(ENComentario en)
         {
             bool like = false;
@@ -229,6 +234,7 @@ namespace library
             return like;
         }
 
+        //Suma 1 al dislike
         public bool dislikesItem(ENComentario en)
         {
             bool dislike = false;

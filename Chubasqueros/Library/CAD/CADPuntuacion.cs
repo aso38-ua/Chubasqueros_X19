@@ -19,6 +19,7 @@ namespace library
             conn = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
         }
 
+        //Crea una puntuación
         public bool createPuntuacion(ENPuntuacion en)
         {
             bool puntuar = false;
@@ -50,6 +51,7 @@ namespace library
             return puntuar;
         }
 
+        //Elimina una puntuación
         public bool eliminatePuntuacion(ENPuntuacion en)
         {
             bool eliminate = false;
@@ -81,6 +83,7 @@ namespace library
             return eliminate;
         }
 
+        //Modifica una puntuación
         public bool changePuntuacion(ENPuntuacion en)
         {
             bool change = false;
@@ -112,6 +115,7 @@ namespace library
             return change;
         }
 
+        //Calcula la media de las puntuaciones
         public bool mediaPuntuacion(ENPuntuacion en)
         {
             bool mediaP = false;
@@ -143,6 +147,7 @@ namespace library
             return mediaP;
         }
 
+        //Calcula el número total de estrellas de un item
         public bool totalEstrellas(ENPuntuacion en)
         {
             bool totalE = false;
@@ -180,6 +185,7 @@ namespace library
             return totalE;
         }
 
+        //Obtienes los datos de la puntuación de un objeto
         public bool findItem(ENPuntuacion en)
         {
             bool find = false;
