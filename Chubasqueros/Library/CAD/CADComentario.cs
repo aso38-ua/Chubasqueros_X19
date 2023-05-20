@@ -154,7 +154,51 @@ namespace library
             }
             return show;
         }
-            
+
+        public bool readComment(ENComentario en)
+        {
+            bool read = false;
+            SqlConnection conexion = null;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item + ", user_id = " + en.aux_id_user;
+            try
+            {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader rd = consulta.ExecuteReader();
+                rd.Read();
+
+                if (int.Parse(rd["item"].ToString()) == en.aux_item)
+                {
+                    read = true;
+                    en.aux_id_user = int.Parse(rd["id_user"].ToString());
+                    en.aux_estrellas = int.Parse(rd["estrellas"].ToString());
+                    en.aux_item = int.Parse(rd["item"].ToString());
+                    en.aux_likes = int.Parse(rd["likes"].ToString());
+                    en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
+                    en.aux_comentario = rd["comentario"].ToString();
+                }
+
+                rd.Close();
+            }
+            catch (SqlException sqlex)
+            {
+                read = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                read = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return read;
+        }
+
         public bool likesItem(ENComentario en)
         {
             bool like = false;

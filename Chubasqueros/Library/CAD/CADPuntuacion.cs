@@ -23,7 +23,7 @@ namespace library
         {
             bool puntuar = false;
             SqlConnection conexion = null;
-            string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item) values (" + en.aux_estrella + ", " + en.aux_id_user + ", " + en.aux_item + ")";
+            string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item, media, contador) values (" + en.aux_estrella + ", " + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_media + ", " + en.aux_contador + ")";
             try
             {
                 conexion = new SqlConnection(conn);
@@ -143,6 +143,43 @@ namespace library
             return mediaP;
         }
 
+        public bool totalEstrellas(ENPuntuacion en)
+        {
+            bool totalE = false;
+            SqlConnection conexion = null;
+            string comando = "select SUM(estrellas) from [dbo].[Puntuacion] where item = " + en.aux_item;
+            try
+            {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader rd = consulta.ExecuteReader();
+                rd.Read();
+
+                if (int.Parse(rd["item"].ToString()) == en.aux_item)
+                {
+                    totalE = true;
+                    // en.aux_estrella = rd;
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                totalE = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                totalE = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return totalE;
+        }
+
         public bool findItem(ENPuntuacion en)
         {
             bool find = false;
@@ -163,6 +200,8 @@ namespace library
                     en.aux_id_user = int.Parse(rd["id_user"].ToString());
                     en.aux_estrella = int.Parse(rd["estrellas"].ToString());
                     en.aux_item = int.Parse(rd["item"].ToString());
+                    en.aux_media = int.Parse(rd["media"].ToString());
+                    en.aux_contador = int.Parse(rd["contador"].ToString());
                 }
 
                 rd.Close();

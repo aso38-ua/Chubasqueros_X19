@@ -119,9 +119,21 @@ namespace library
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             if (aux_CAD_Pun.findItem(aux_EN_Pun))
             {
-                mediaP = aux_CAD_Pun.changePuntuacion(this);
+                mediaP = aux_CAD_Pun.mediaPuntuacion(this);
             }
             return mediaP;
+        }
+
+        public bool totalEstrellas()
+        {
+            bool totalE = false;
+            ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            if (aux_CAD_Pun.findItem(aux_EN_Pun))
+            {
+                totalE = aux_CAD_Pun.totalEstrellas(this);
+            }
+            return totalE;
         }
 
         public bool findItem()

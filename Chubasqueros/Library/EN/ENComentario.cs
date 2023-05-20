@@ -140,6 +140,22 @@ namespace library
             return show;
         }
 
+        public bool readComment()
+        {
+            bool read = false;
+
+            ENComentario aux_EN_Com = new ENComentario(this);
+            CADComentario aux_CAD_Com = new CADComentario();
+            ENProducto aux_EN_Prod = new ENProducto();
+            CADProducto aux_CAD_Prod = new CADProducto();
+            aux_EN_Prod.setCodigo(item);
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod))
+            {
+                read = aux_CAD_Com.readComment(this);
+            }
+            return read;
+        }
+
         public bool likesItem()
         {
             bool like = false;

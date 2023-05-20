@@ -4,11 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <h2>Producto</h2>
-    Nombre: 
     <br />
     <asp:Button ID="BtnRegresar" runat="server" Text="Regresar a producto" onClick="RegresarClick" BackColor="#33cc33" BorderColor="Green" BorderStyle="Groove"/>
     <br />
+    <h2>Producto</h2>
+    Nombre: 
+    <asp:TextBox ID="TBBuscar" runat="server" Height="50px" Width="250px"></asp:TextBox>
+    <br />
+    <asp:Button ID="BtnBuscar" runat="server" Text="Buscar" onClick="BuscarClick" BackColor="#ff33cc" BorderColor="Pink" BorderStyle="Groove"/>
+    <br />
+    <asp:Label ID="Label9" runat="server" />
     <h2> Puntuación</h2>
 
     <asp:Button ID="Estrella1" runat="server" Text="☆" onClick="Estrella1Click" BackColor="#ff0000" BorderColor="#FFCC00"/>
@@ -23,8 +28,10 @@
     <br />
     <asp:Label ID="Label3" runat="server" />
     <asp:Button ID="BtnPuntuar" runat="server" Text="☆Puntuar☆" onClick="PuntuarClick" BackColor= "#0099ff" BorderStyle="Groove" BorderColor="#9966ff"/>
+    <asp:Label ID="Label7" runat="server" />
     <br />
     <h3>Puntuación media:</h3>
+    <asp:Label ID="Label6" runat="server" />
     <br />
     <h2>Comentarios</h2>
     Comentario:&nbsp;&nbsp;&nbsp;
@@ -43,6 +50,10 @@
     <asp:Button ID="Dislike" runat="server" Text="Dislike" onClick="DislikeClick" BackColor= "#ff0000"/>
     <br />
     <br />
+    <br />
+    <asp:TextBox ID="TBModificar" runat="server" Height="150px" Width="550px"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label8" runat="server" />
     <asp:Button ID="BtnModificar" runat="server" Text="Modificar" onClick="ModificarClick" BackColor="#ff9933" BorderColor="Red" BorderStyle="Groove"/>
     <br />
     <body-style = "backgroud-color:rgb(208, 171, 255)"></body-style>
