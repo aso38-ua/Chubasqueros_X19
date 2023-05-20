@@ -156,6 +156,39 @@ namespace library
             return read;
         }
 
+        public bool FirstComment()
+        {
+            bool first = false;
+            ENComentario en_c = new ENComentario();
+            CADComentario cad_c = new CADComentario();
+            first = cad_c.FirstComment(this);
+            return first;
+        }
+
+        public bool PrevComment()
+        {
+            bool prev = false;
+            ENComentario en_c = new ENComentario();
+            CADComentario cad_c = new CADComentario();
+            if (cad_c.FirstComment(en_c) && aux_id_user != en_c.aux_id_user)
+            {
+                prev = cad_c.PrevComment(this);
+            }
+            return prev;
+        }
+
+        public bool NextComment()
+        {
+            bool next = false;
+            ENComentario en_c = new ENComentario(this);
+            CADComentario cad_c = new CADComentario();
+            if (cad_c.FirstComment(en_c) && aux_id_user != en_c.aux_id_user)
+            {
+                next = cad_c.NextComment(this);
+            }            
+            return next;
+        }
+
         public bool likesItem()
         {
             bool like = false;

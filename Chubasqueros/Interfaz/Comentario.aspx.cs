@@ -172,7 +172,92 @@ namespace Interfaz
             }
         }
 
-        protected void EliminarPClick(object sender, EventArgs e)
+        protected void PrimeroClick(object sender, EventArgs e)
+        {
+            if (TBBuscar.Text != "")
+            {
+                ENComentario en = new ENComentario();
+                if (en.FirstComment() == true)
+                {
+                    Comentarios.Text = en.aux_comentario;
+                    Label10.Text = Convert.ToString(en.aux_likes);
+                    Label11.Text = Convert.ToString(en.aux_dislikes);
+                }
+                else
+                {
+                    Label12.Text = "No hay comentarios";
+                }
+            }
+            else
+            {
+                Label9.Text = "Busque un Producto, por favor";
+            }
+        }
+        protected void SiguienteClick(object sender, EventArgs e)
+        {
+            if (TBBuscar.Text != "")
+            {
+                if (Comentarios.Text == "")
+                {
+                    Label12.Text = "No hay comentarios, pruebe a leer el primer comentario";
+                }
+                else
+                {
+                    ENComentario en = new ENComentario();
+                    en.aux_comentario = Comentarios.Text;
+                    en.aux_likes = int.Parse(Label10.Text);
+                    en.aux_dislikes = int.Parse(Label11.Text);
+                    if (en.PrevComment() == true)
+                    {
+                        Comentarios.Text = en.aux_comentario;
+                        Label10.Text = Convert.ToString(en.aux_likes);
+                        Label11.Text = Convert.ToString(en.aux_dislikes);
+                    }
+                    else
+                    {
+                        Label12.Text = "No es posible acceder a esta posición(Anterior)";
+                    }
+                }
+            }
+            else
+            {
+                Label9.Text = "Busque un Producto, por favor";
+            }
+        }
+
+        protected void AnteriorClick(object sender, EventArgs e)
+        {
+            if (TBBuscar.Text != "")
+            {
+                if (Comentarios.Text == "")
+                {
+                    Label12.Text = "No hay comentarios, pruebe a leer el primer comentario";
+                }
+                else
+                {
+                    ENComentario en = new ENComentario();
+                    en.aux_comentario = Comentarios.Text;
+                    en.aux_likes = int.Parse(Label10.Text);
+                    en.aux_dislikes = int.Parse(Label11.Text);
+                    if (en.NextComment() == true)
+                    {
+                        Comentarios.Text = en.aux_comentario;
+                        Label10.Text = Convert.ToString(en.aux_likes);
+                        Label11.Text = Convert.ToString(en.aux_dislikes);
+                    }
+                    else
+                    {
+                        Label12.Text = "No es posible acceder a esta posición(Siguiente)";
+                    }
+                }
+            }
+            else
+            {
+                Label9.Text = "Busque un Producto, por favor";
+            }
+        }
+
+            protected void EliminarPClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
             {

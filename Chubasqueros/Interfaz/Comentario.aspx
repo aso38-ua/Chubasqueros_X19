@@ -36,6 +36,20 @@
     <asp:Label ID="Label6" runat="server" />
     <br />
     <h2>Comentarios</h2>
+    <br />
+        <asp:TextBox ID="Comentarios" runat="server" Height="150px" Width="550px"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label10" runat="server" />
+    <asp:Button ID="Button1" runat="server" Text="Like" onClick="LikeClick" BackColor= "#00ff00"/>
+    <asp:Label ID="Label11" runat="server" />
+    <asp:Button ID="Button2" runat="server" Text="Dislike" onClick="DislikeClick" BackColor= "#ff0000"/>
+    <br />
+    <asp:Button ID="BtnLeerPrimero" runat="server" Text="Leer Primero" onClick="PrimeroClick"/>
+    <asp:Button ID="BtnLeerAnterior" runat="server" Text="Leer Anterior" onClick="AnteriorClick"/>
+    <asp:Button ID="BtnLeerSiguiente" runat="server" Text="Leer Siguiente" onClick="SiguienteClick"/>
+    <br />
+    <asp:Label ID="Label12" runat="server" />
+    <br />
     Comentario:&nbsp;&nbsp;&nbsp;
     <br />
         <asp:TextBox ID="TBComentario" runat="server" Height="150px" Width="550px"></asp:TextBox>

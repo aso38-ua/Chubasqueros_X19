@@ -56,7 +56,7 @@ namespace library
         {
             bool eliminate = false;
             SqlConnection conexion = null;
-            string comando = "delete from [dbo].[Usuarios] where item = '" + en.aux_item + "'";
+            string comando = "delete from [dbo].[Usuarios] where item = " + en.aux_item + "and id_user = " + en.aux_id_user;
             try
             {
                 eliminate = true;
@@ -88,7 +88,7 @@ namespace library
         {
             bool change = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set comentario = '" + en.aux_comentario + "' where id_user = " + en.aux_id_user + ", item = " + en.aux_item;
+            string comando = "update [dbo].[Comentario] set comentario = '" + en.aux_comentario + "' where id_user = " + en.aux_id_user + "and item = " + en.aux_item;
             try
             {
                 change = true;
@@ -114,6 +114,158 @@ namespace library
             }
             return change;
         }
+
+        public bool FirstComment(ENComentario en)
+        {
+            bool first = true;
+            SqlConnection conexion = null;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item;
+            try {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader rd = consulta.ExecuteReader();
+                rd.Read();
+                en.aux_comentario = rd["comentario"].ToString();
+                en.aux_likes = int.Parse(rd["likes"].ToString());
+                en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
+
+                rd.Close();
+                conexion.Close();
+            }
+            catch (SqlException sqlex)
+            {
+                first = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                first = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return first;
+        }
+
+        public bool PrevComment(ENComentario en)
+        {
+            bool prev = false;
+            SqlConnection conexion = null;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item;
+            try
+            {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader rd = consulta.ExecuteReader();
+                rd.Read();
+                en.aux_comentario = rd["comentario"].ToString();
+                en.aux_likes = int.Parse(rd["likes"].ToString());
+                en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
+
+                while (rd.Read() == true && prev == false)
+                {
+                    if (rd["id_user"].ToString() == en.aux_id_user.ToString())
+                    {
+                        prev = true;
+                    }
+                    if (prev != true)
+                    {
+                        en.aux_comentario = rd["comentario"].ToString();
+                        en.aux_likes = int.Parse(rd["likes"].ToString());
+                        en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
+                    }
+                }
+                if (prev == true)
+                {
+                    en.aux_comentario = rd["comentario"].ToString();
+                    en.aux_likes = int.Parse(rd["likes"].ToString());
+                    en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
+                }
+
+                rd.Close();
+            }
+            catch (SqlException sqlex)
+            {
+                prev = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                prev = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return prev;
+        }
+
+        public bool NextComment(ENComentario en)
+        {
+            bool next = false, aux = false;
+            SqlConnection conexion = null;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item;
+            try
+            {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader rd = consulta.ExecuteReader();
+                rd.Read();
+                en.aux_comentario = rd["comentario"].ToString();
+                en.aux_likes = int.Parse(rd["likes"].ToString());
+                en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
+
+                while (rd.Read() == true && next == false)
+                {
+                    if (aux == true)
+                    {
+                        next = true;
+                        en.aux_comentario = rd["comentario"].ToString();
+                        en.aux_likes = int.Parse(rd["likes"].ToString());
+                        en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
+                    }
+                    if (rd["id_user"].ToString() == en.aux_id_user.ToString())
+                    {
+                        aux = true;
+                    }                    
+                }
+                if (next == true)
+                {
+                    en.aux_comentario = rd["comentario"].ToString();
+                    en.aux_likes = int.Parse(rd["likes"].ToString());
+                    en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
+                }
+
+                rd.Close();
+            }
+            catch (SqlException sqlex)
+            {
+                next = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                next = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return next;
+        }
+
+
+
         //Muestra comentarios
         public bool showComments(ENComentario en)
         {
@@ -163,7 +315,7 @@ namespace library
         {
             bool read = false;
             SqlConnection conexion = null;
-            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item + ", user_id = " + en.aux_id_user;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item + "and user_id = " + en.aux_id_user;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -208,7 +360,7 @@ namespace library
         {
             bool like = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item;
+            string comando = "update [dbo].[Comentario] set likes = " + en.aux_likes + 1 + " where item = " + en.aux_item + "and estrellas = " + en.aux_estrellas;
             try {
                 like = true;
                 conexion = new SqlConnection(conn);
@@ -239,7 +391,7 @@ namespace library
         {
             bool dislike = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item;
+            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item + "and estrellas = " + en.aux_estrellas;
             try
             {
                 dislike = true;

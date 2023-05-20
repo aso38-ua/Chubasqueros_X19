@@ -56,7 +56,7 @@ namespace library
         {
             bool eliminate = false;
             SqlConnection conexion = null;
-            string comando = "delete from [dbo].[Puntuacion] where id_user = " + en.aux_id_user + ", estrellas = " + en.aux_estrella + ", item = " + en.aux_item;
+            string comando = "delete from [dbo].[Puntuacion] where id_user = " + en.aux_id_user + "and estrellas = " + en.aux_estrella + "and item = " + en.aux_item;
             try
             {
                 eliminate = true;
@@ -88,7 +88,7 @@ namespace library
         {
             bool change = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Puntuacion] set estrellas = " + en.aux_estrella + " where id_user = " + en.aux_id_user + ", item = " + en.aux_item;
+            string comando = "update [dbo].[Puntuacion] set estrellas = " + en.aux_estrella + " where id_user = " + en.aux_id_user + "and item = " + en.aux_item;
             try
             {
                 change = true;
@@ -190,7 +190,7 @@ namespace library
         {
             bool find = false;
             SqlConnection conexion = null;
-            string comando = "select * from [dbo].[Puntuacion] where item = " + en.aux_item;
+            string comando = "select * from [dbo].[Puntuacion] where item = " + en.aux_item + "and id_user = " + en.aux_id_user;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -200,7 +200,7 @@ namespace library
                 SqlDataReader rd = consulta.ExecuteReader();
                 rd.Read();
 
-                if (int.Parse(rd["item"].ToString()) == en.aux_item)
+                if (int.Parse(rd["item"].ToString()) == en.aux_item && int.Parse(rd["id_user"].ToString()) == en.aux_id_user)
                 {
                     find = true;
                     en.aux_id_user = int.Parse(rd["id_user"].ToString());
