@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Categoria.aspx" />
     <Content Include="CSS\Colaboracion.css" />
+    <Content Include="Donaciones.aspx" />
     <Content Include="IMGS\Instagram-Icon.png" />
     <Content Include="IMGS\twitter-logo-9.png" />
     <Content Include="IMGS\sombrero.png" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="Categoria.aspx.designer.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Donaciones.aspx.cs">
+      <DependentUpon>Donaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Donaciones.aspx.designer.cs">
+      <DependentUpon>Donaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Producto.aspx.cs">
       <DependentUpon>Producto.aspx</DependentUpon>

@@ -34,7 +34,7 @@
 <br /><br /><br /><br /><br />
     <center>
         <p><u>Redes sociales:</u></p>
-        <a href="https://www.instagram.com/chubasquerosparapecesglupglup/"> <img src="IMGS/Instagram-Icon.png" style="height: 216px; width: 233px"/></a>
-        <a href="https://twitter.com/ChubasquerosPez"> <img src="IMGS/twitter-logo-9.png" style="height: 216px; width: 233px; margin-left: 61px;"/></a>
+        <a target="_blank" href="https://www.instagram.com/chubasquerosparapecesglupglup/"> <img src="IMGS/Instagram-Icon.png" style="height: 216px; width: 233px"/></a>
+        <a target="_blank" href="https://twitter.com/ChubasquerosPez"> <img src="IMGS/twitter-logo-9.png" style="height: 216px; width: 233px; margin-left: 61px;"/></a>
     </center>  
 </asp:Content>
