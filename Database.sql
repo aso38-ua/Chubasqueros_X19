@@ -83,8 +83,6 @@ CREATE TABLE Oferta (
     fechaInicio DATE NOT NULL,
     fechaFin DATE NOT NULL,
     porcentajeDescuento INT NOT NULL,
-    descripcion VARCHAR(500) NOT NULL,
-    img VARCHAR(500) NOT NULL,
     PRIMARY KEY (codigoOferta)
 );
 
