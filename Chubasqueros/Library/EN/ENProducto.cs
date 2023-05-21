@@ -15,10 +15,10 @@ namespace Library
         private float precio;
         private int cant;
         private string fech;
-        private double total;
+        private float total;
         public int cantidad { get {return cant; } set {cant = value; } }
         public string fecha { get { return fech; } set { fech = value; } }
-        public double ptotal { get { return total; } set { total = value; } }
+        public float ptotal { get { return total; } set { total = value; } }
 
         private int codigoCategoria;
         public string auxnombre { get {return nombre; }}

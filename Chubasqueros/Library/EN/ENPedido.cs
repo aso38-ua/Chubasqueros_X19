@@ -9,7 +9,7 @@ namespace Library
     public class ENPedido
     {
         private int cantidadp; //cantidad de productos pedidos 
-        private float totalp; //precio total
+        private double totalp; //precio total
         private int idPedidop; //id del Pedido
         private string fechaaproxp; //fecha aproximada de llegada
         private int usuariop;
@@ -21,7 +21,7 @@ namespace Library
             set { cantidadp = value; }
         }
 
-        public float total
+        public double total
         {
             get { return totalp; }
             set { totalp = value; }
