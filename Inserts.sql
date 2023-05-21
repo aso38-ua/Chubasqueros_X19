@@ -64,18 +64,18 @@ VALUES ('Carolina', 'secure987', 'carolina@example.com', 'Ramírez', 0);
 INSERT INTO usuario (nombre, contraseña, email, esAdmin)
 VALUES ('Diego', 'password654', 'diego@example.com', 0);
 
-INSERT INTO Categoría (nombre) VALUES ('Comida');
-INSERT INTO Categoría (nombre) VALUES ('Ropa');
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Pienso', 'Pienso para peces', 2, 20.3, 1);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Manzana', 'Manzana de los Alpes', 6, 5.6, 1);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Coco', 'Coco tropical sabroso', 3, 4.7, 1);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Plátano', 'Plátano de Canarias', 2, 3.5, 1);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Arroz', 'Arroz exportado desde Madrid, sobre unos 500 gramos', 2, 2.2, 1);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Chaqueta', 'Chaqueta lujosa perfecta para comuniones', 1, 45, 2);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Pantalon', 'Pantalon Gucci', 1, 220, 2);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Camisa', 'Camisa facherita', 1, 53, 2);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Gorra', 'Gorra grande perfecta para cabezones', 1, 15.4, 2);
-INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Zapatos', 'Zapatos glamurosos', 1, 60, 2);
+INSERT INTO Categoría (codCategoria, nombre) VALUES (1, 'Comida');
+INSERT INTO Categoría (codCategoria, nombre) VALUES (2, 'Ropa');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (1, 'Pienso', 'Pienso para peces', 2, 20.3, 1);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (2, 'Manzana', 'Manzana de los Alpes', 6, 5.6, 1);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (3, 'Coco', 'Coco tropical sabroso', 3, 4.7, 1);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (4, 'Plátano', 'Plátano de Canarias', 2, 3.5, 1);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (5, 'Arroz', 'Arroz exportado desde Madrid, sobre unos 500 gramos', 2, 2.2, 1);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (6, 'Chaqueta', 'Chaqueta lujosa perfecta para comuniones', 1, 45, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (7, 'Pantalon', 'Pantalon Gucci', 1, 220, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (8, 'Camisa', 'Camisa facherita', 1, 53, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (9, 'Gorra', 'Gorra grande perfecta para cabezones', 1, 15.4, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (10, 'Zapatos', 'Zapatos glamurosos', 1, 60, 2);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (15,1);
 INSERT INTO Favoritos (usuario, producto) VALUES (15,2);
