@@ -33,3 +33,43 @@ VALUES ('Pedro', 'securepass', 'pedro@example.com', 'González', 1);
 
 INSERT INTO usuario (nombre, email)
 VALUES ('Sofía', 'sofia@example.com');
+
+-- Ejemplo 6
+INSERT INTO usuario (nombre, contraseña, email, apellidos, esAdmin)
+VALUES ('Juan', 'pass123', 'juan@example.com', 'Pérez', 0);
+
+-- Ejemplo 7
+INSERT INTO usuario (nombre, contraseña, email, esAdmin)
+VALUES ('María', 'password456', 'maria@example.com', 1);
+
+-- Ejemplo 8
+INSERT INTO usuario (nombre, contraseña, email, apellidos, esAdmin)
+VALUES ('Luisa', 'secure123', 'luisa@example.com', 'Gómez', 0);
+
+-- Ejemplo 9
+INSERT INTO usuario (nombre, contraseña, email, esAdmin)
+VALUES ('Carlos', 'password789', 'carlos@example.com', 0);
+
+-- Ejemplo 10
+INSERT INTO usuario (nombre, contraseña, email, apellidos, esAdmin)
+VALUES ('Laura', 'pass456', 'laura@example.com', 'Fernández', 1);
+
+-- Ejemplo 11
+INSERT INTO usuario (nombre, contraseña, email, esAdmin)
+VALUES ('Manuel', 'secure789', 'manuel@example.com', 0);
+
+-- Ejemplo 12
+INSERT INTO usuario (nombre, contraseña, email, apellidos, esAdmin)
+VALUES ('Marta', 'password987', 'marta@example.com', 'López', 0);
+
+-- Ejemplo 13
+INSERT INTO usuario (nombre, contraseña, email, esAdmin)
+VALUES ('Andrés', 'pass789', 'andres@example.com', 0);
+
+-- Ejemplo 14
+INSERT INTO usuario (nombre, contraseña, email, apellidos, esAdmin)
+VALUES ('Carolina', 'secure987', 'carolina@example.com', 'Ramírez', 1);
+
+-- Ejemplo 15
+INSERT INTO usuario (nombre, contraseña, email, esAdmin)
+VALUES ('Diego', 'password654', 'diego@example.com', 1);
