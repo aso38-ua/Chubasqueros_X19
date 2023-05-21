@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -164,6 +165,15 @@ namespace Library
             ENProducto[] productos;
             productos = producto.mostrarProductosPorCategoria(en);
             return productos;
+        }
+
+        public static DataTable readAllServices()
+        {
+            DataTable basedatos = new DataTable();
+            CADProducto servicio = new CADProducto();
+            basedatos = servicio.readAllServices();
+
+            return basedatos;
         }
     }
 }

@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Net.Mail;
 
 using Library;
+using System.Data;
+using library;
 
 namespace Interfaz
 {
@@ -14,6 +16,11 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LoadAllProductos();
+            }
+
             if (Session["username"] == null)
             {
                 buttom_Favoritos.Visible = false;
@@ -26,6 +33,40 @@ namespace Interfaz
             }
                 outputMsg.Text = "";
         }
+
+        private void LoadAllProductos()
+        {
+            DataTable dataTable = ENProducto.readAllServices();
+
+            labelInfo.Text = "";
+            foreach (DataRow row in dataTable.Rows)
+            {
+                string codigo = row["codigo"].ToString();
+                string nombre = row["nombre"].ToString();
+                string descripcion = row["descripcion"].ToString();
+                string precio = row["precio"].ToString();
+                string stock = row["stock"].ToString();
+                string img = row["img"].ToString();
+
+                string innerHTML = $@"
+            <div class='producto-container'>
+                <div class='producto-imagen'>
+                    <img src='{img}' alt='Imagen del producto' class='producto-imagen-img' />
+                </div>
+                <div class='producto-contenido'>
+                    <p class='h2-producto'>{nombre}</p>
+                    <p class='p-producto'>Descripción: {descripcion}</p>
+                    <p class='p-producto'>Precio: {precio}</p>
+                    <p class='p-producto'>Stock: {stock}</p>
+                </div>
+            </div>
+        ";
+
+                LiteralControl literalControl = new LiteralControl(innerHTML);
+                labelInfo.Controls.Add(literalControl);
+            }
+        }
+
 
         protected void onLeer(object sender, EventArgs e)
         {

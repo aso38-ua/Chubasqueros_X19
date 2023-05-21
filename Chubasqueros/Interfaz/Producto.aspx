@@ -4,6 +4,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+
+
+    <div class="container-producto">
+        <div>
+            <div class='producto-imagen'>
+                <br />
+                <br />
+                <asp:Label ID="labelInfo" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+    </div>
+
     <div>
         <h2> Productos </h2>
         <asp:Label ID="Mensaje" runat="server"></asp:Label><br/>

@@ -217,6 +217,34 @@ namespace Library
             return productos;
         }
 
+        public DataTable readAllServices()
+        {
+            DataTable dataTable = new DataTable();
+
+            SqlConnection conn = new SqlConnection(constring);
+            try
+            {
+                conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Producto", conn);
+                SqlDataAdapter da = new SqlDataAdapter(comm);
+                da.Fill(dataTable);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("The operation has failed. Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The operation has failed. Error: {0}", ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dataTable;
+        }
+
     }
 
 }
