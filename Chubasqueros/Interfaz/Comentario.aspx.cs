@@ -81,7 +81,7 @@ namespace Interfaz
                 }
                 else
                 {
-                    TBBuscar.Text = "El producto no existe. Por favor introzca un producto válido";
+                    Label9.Text = "El producto no existe. Por favor introzca un producto válido";
                 }
             }
             else
