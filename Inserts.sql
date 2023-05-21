@@ -17,3 +17,19 @@ INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (5, 
 INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (6, 0, 'El primer día de cada mes, los chubasqueros a mitad de precio', 'IMGS/especial.jfif');
 INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (7, 0, 'Compra una tarjeta regalo en la segunda semana del mes y llévate un regalo', 'IMGS/tarjetaregalo.jfif');
 INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (8, 0, 'Compra un chubasquero para tu pez en época de lluvia y te costará la mitad que el resto del año', 'IMGS/epocalluvia.jfif');
+
+
+INSERT INTO usuario (nombre, contraseña, email, apellidos, esAdmin)
+VALUES ('Juan', '123456', 'juan@example.com', 'Pérez', 0);
+
+INSERT INTO usuario (nombre, contraseña, email, apellidos, esAdmin)
+VALUES ('María', 'abcdef', 'maria@example.com', 'Gómez', 1);
+
+INSERT INTO usuario (nombre, contraseña, email, esAdmin)
+VALUES ('Ana', 'password123', 'ana@example.com', 0);
+
+INSERT INTO usuario (nombre, contraseña, email, apellidos, esAdmin)
+VALUES ('Pedro', 'securepass', 'pedro@example.com', 'González', 1);
+
+INSERT INTO usuario (nombre, email)
+VALUES ('Sofía', 'sofia@example.com');
