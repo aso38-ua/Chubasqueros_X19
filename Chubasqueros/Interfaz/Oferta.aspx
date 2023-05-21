@@ -8,20 +8,20 @@
         .servicio-container {
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centra los elementos verticalmente */
-            text-align: center; /* Centra el texto horizontalmente */
+            align-items: center;
+            text-align: center;
         }
 
         .servicio-imagen-img {
-            margin-bottom: 20px; /* Ajusta el margen inferior de la imagen según tus necesidades */
+            margin-bottom: 20px; 
             width: 500px;
             height: auto;
         }
 
         .p-servicio {
             font-size: 25px;
-            margin: 0; /* Elimina los márgenes para tener el texto justo debajo de la imagen */
-            margin-bottom: 40px;
+            margin: 0;
+            margin-bottom: 130px;
         }
 
         h2 {

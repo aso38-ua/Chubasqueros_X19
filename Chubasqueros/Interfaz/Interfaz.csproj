@@ -120,7 +120,6 @@
     <Content Include="Servicio.aspx" />
     <Content Include="CSS\Servicio.css" />
     <Content Include="CSS\Default.css" />
-    <Content Include="CSS\Oferta.css" />
     <Content Include="CSS\Perfil.css" />
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleSheet1.css" />
