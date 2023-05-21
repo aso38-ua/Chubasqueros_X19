@@ -11,7 +11,7 @@ namespace Library
         private int cantidadp; //cantidad de productos pedidos 
         private float totalp; //precio total
         private int idPedidop; //id del Pedido
-        private DateTime fechaaproxp; //fecha aproximada de llegada
+        private string fechaaproxp; //fecha aproximada de llegada
         private int usuariop;
         private int productop;
 
@@ -45,14 +45,14 @@ namespace Library
             set { usuariop = value; }
         }
 
-        public DateTime fechaaprox
+        public string fechaaprox
         {
             get { return fechaaproxp; }
             set { fechaaproxp = value; }
         }
 
 
-        public ENPedido(DateTime fecha, int producto, int usuario)
+        public ENPedido(string fecha, int producto, int usuario)
         {
             ENProducto product = new ENProducto();
             product.setCodigo(producto);
@@ -71,12 +71,12 @@ namespace Library
             product.readProducto();
             this.total = product.getPrecio();
             this.cantidad = 1;
-            this.fechaaprox = DateTime.Now;
+            this.fechaaprox = "";
             this.producto = producto;
             this.usuario = usuario;
         }
 
-        public ENPedido(int cantidad, DateTime fecha, int producto, int usuario)
+        public ENPedido(int cantidad, string fecha, int producto, int usuario)
         {
             ENProducto product = new ENProducto();
             product.setCodigo(producto);
@@ -131,23 +131,9 @@ namespace Library
             return eliminar;
         }
 
-        
-
-        //Añadir producto al carrito
-        public bool añadirProducto()
-        {
-            return true;
-        }
-
         public int cuentaCantidad()
         {
             return 0;
-        }
-
-        //Eliminar producto del carrito
-        public bool EliminarProducto()
-        {
-            return true;
         }
 
         //Calcula el precio total que hay en el carrito

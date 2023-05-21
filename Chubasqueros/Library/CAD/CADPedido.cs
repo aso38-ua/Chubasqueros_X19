@@ -23,45 +23,42 @@ namespace Library
         //Para ver los pedidos realizados y consultar de nuevo la fecha de llegada del pedido
         public bool leerPedido(ENPedido p)
         {
-            bool create = true;
+            bool leido = true;
             try
             {
                 SqlConnection conectsql = null;
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "";
+                string cout = "SELECT * FROM [dbo].[pedido] WHERE usuario = '" + p.usuario + "' AND producto = '" + p.producto + "';";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 SqlDataReader search = consult.ExecuteReader();
                 search.Read();
 
+                if(int.Parse(search["usuario"].ToString()) == p.usuario)
+                {
+                    leido = true;
+                    p.cantidad = int.Parse(search["cantidad"].ToString());
+                    //p.fechaaprox = search["fecha"].ToString();
+                    p.producto = int.Parse(search["producto"].ToString());
+                    p.usuario = int.Parse(search["usuario"].ToString());
+                }
 
-                /*
-                if (search["nif"].ToString() == p.)
-                {
-                    en.NOMBRE = search["nombre"].ToString();
-                    en.NIF = search["NIF"].ToString();
-                    en.EDAD = int.Parse(search["edad"].ToString());
-                }
-                else
-                {
-                    create = false;
-                }
-                */
+              
                 search.Close();
                 conectsql.Close();
             }
             catch (SqlException e)
             {
-                create = false;
+                leido = false;
                 Console.WriteLine("Order operation has failed.Error : {0}", e.Message);
             }
             catch (Exception e)
             {
-                create = false;
+                leido = false;
                 Console.WriteLine("Order operation has failed.Error : {0}", e.Message);
             }
-            return create;
+            return leido;
         }
         public bool crearPedido(ENPedido p)
         {
@@ -73,7 +70,7 @@ namespace Library
                 conectsql.Open();
 
                 //el ID es un numero aleatorio
-                string cout = "INSERT INTO [dbo].[pedido] (id) VALUES ('" + p.idPedido + "')";
+                String cout = "INSERT INTO [dbo].[pedido] (cantidad, fecha, producto, usuario) VALUES ('" + p.cantidad + "', '" + p.fechaaprox + "', '" + p.producto + "', '" + p.usuario + "')";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 consult.ExecuteNonQuery();
                 create = true;
@@ -101,7 +98,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "DELETE FROM [dbo].[pedido] where producto_id is not NULL";
+                string cout = "DELETE FROM [dbo].[pedido] where usuario ='" + p.usuario + " AND producto ='" + p.producto + "';";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 delete = true;
@@ -122,14 +119,14 @@ namespace Library
 
         public bool actualizarPedido(ENPedido p)
         {
-            bool update = true;
+            bool update = false;
             try
             {
                 SqlConnection conectsql = null;
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "UPDATE [dbo].[pedido] set ";
+                string cout = "UPDATE [dbo].[pedido] SET cantidad = '" + p.cantidad + "', producto = " + p.producto + " WHERE usuario = '" + p.usuario + " AND producto = '" + p.producto + "';"; 
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 update = true;
@@ -152,18 +149,6 @@ namespace Library
         public int cuentaCantidad()
         {
             return 0;
-        }
-
-        //Añadir producto desde favoritos al carrito
-        public bool AñadirProducto()
-        {
-            return true;
-        }
-
-        //Eliminar producto del carrito
-        public bool EliminarProducto()
-        {
-            return true;
         }
 
         //Calcula el precio total que hay en el carrito

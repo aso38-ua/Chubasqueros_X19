@@ -10,7 +10,8 @@ namespace Library
     {
         private int cantidadp; //cantidad de productos pedidos
         private float totalp; //precio total
-        private int productop; //Producto en el carrito actualmente
+        private int[] productop; //Producto en el carrito actualmente
+        //private int productop; //Producto en el carrito actualmente
         private int idcarritop; //id del carrito (podria ser igual que el id de pedido)
         private int usuariop; //Id del usuario
 
@@ -20,7 +21,7 @@ namespace Library
             get { return usuariop; }
             set { usuariop = value; }
         }
-        public int producto
+        public int[] producto
         {
             get { return productop; }
             set { productop = value; }
@@ -44,27 +45,50 @@ namespace Library
             set { idcarritop = value; }
         }
 
+
+        public ENCarrito(int usu)
+        {
+            this.usuario = usu;
+        }
+
+
         /*Constructor: pondra la cantidad a 0, el total a 0,
          la clase se enlazara con usuario y producto*/
         public ENCarrito(int prod, int usu)
         {
+            /*
             ENProducto product = new ENProducto();
             product.setCodigo(prod);
             product.readProducto();
             total = product.getPrecio();
+            */
             cantidad = 1;
-            producto = prod;
+            this.producto = new int[1];
+            this.producto[0] = prod;
             usuario = usu;
+        }
+
+        public ENCarrito(int[] prod, int usu)
+        {
+            this.producto = new int[producto.Length];
+            for(int i = 0; i < producto.Length; i++)
+            {
+                this.producto[i] = producto[i];
+            }
+            this.usuario = usuario;
         }
 
         public ENCarrito(int cantidad, int producto, int usuario)
         {
+            /*
             ENProducto product = new ENProducto();
             product.setCodigo(producto);
             product.readProducto();
             this.total = product.getPrecio() * cantidad;
+            */
             this.cantidad = cantidad;
-            this.producto = producto;
+            this.producto = new int[1];
+            this.producto[0] = producto;
             this.usuario = usuario;
         }
 
@@ -86,10 +110,23 @@ namespace Library
         {
             CADCarrito carrito = new CADCarrito();
             bool eliminar = false;
+            if (carrito.verCarrito(this))
+            {
+                eliminar = carrito.eliminarCarrito(this);
+            }
+            return eliminar;
+        }
+
+        public bool eliminarCarritoBD(int producto)
+        {
+            CADCarrito carrito = new CADCarrito();
+            ENCarrito aux = new ENCarrito(producto, this.usuario);
+            bool eliminar = false;
 
             if (carrito.verCarrito(this))
             {
                 eliminar = carrito.eliminarCarrito(this);
+                this.EliminarProducto(producto);
             }
 
             return eliminar;
@@ -97,7 +134,7 @@ namespace Library
         
         public bool actualizarCarrito()
         {
-            ENCarrito carro = new ENCarrito(cantidad, producto, usuario);
+            ENCarrito carro = new ENCarrito(producto, usuario);
             CADCarrito carrito = new CADCarrito();
             bool actualizar = false;
 
@@ -127,21 +164,48 @@ namespace Library
             return cant;
         }
 
+        public void AñadirProducto(int producto)
+        {
+            int[] aux = new int[this.producto.Length + 1];
+            for(int i = 0; i < this.producto.Length; i++){
+                aux[i] = this.producto[i];
+            }
+            aux[this.producto.Length] = producto;
+            this.producto = aux;
+
+        }
+
         //Añadir producto al carrito
-        public bool AñadirProducto()
+        public bool AñadirProductoBD(int producto)
         {
             CADCarrito carrito = new CADCarrito();
-            ENProducto aux = new ENProducto();
+            ENCarrito carro = new ENCarrito(producto, this.usuario);
             bool insertar = false;
-            
+            insertar = carrito.AñadirProducto(carro);
+            this.AñadirProducto(producto);
             return insertar;
         }   
 
         //Eliminar producto del carrito
-        public bool EliminarProducto()
+        public bool EliminarProducto(int producto)
         {
-            return true;
+            bool borrar = false;
+            int[] aux = new int[this.producto.Length - 1];
+            if (this.producto.Contains(producto))
+            {
+                for(int i = 0; i < this.producto.Length; i++)
+                {
+                    if(this.producto[i] != producto)
+                    {
+                        aux[i] = this.producto[i];
+                    }
+                }
+            }
+            this.producto = aux;
+            
+            return borrar;
         }
+
 
         //Calcula el precio total que hay en el carrito
         public float PrecioTotal()
@@ -151,12 +215,6 @@ namespace Library
             return precio;
         }
 
-
-        //Boton de comprar exclusivo para carrito
-        public bool Comprar()
-        {
-            return true;
-        }
    
     }
 }
