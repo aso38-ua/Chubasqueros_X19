@@ -14,6 +14,7 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             if (!IsPostBack)
             {
                 if(Session["username"] == null)
@@ -25,6 +26,7 @@ namespace Interfaz
             {
 
             }
+            */
         }
 
         protected void btn_pagar(object sender, EventArgs e)
