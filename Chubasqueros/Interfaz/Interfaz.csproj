@@ -116,6 +116,7 @@
     <Content Include="CerrarSesion.aspx" />
     <Content Include="CV.aspx" />
     <Content Include="IMGS\change.jpg" />
+    <Content Include="IMGS\fregando.jpg" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
     <Content Include="Contacto.aspx" />

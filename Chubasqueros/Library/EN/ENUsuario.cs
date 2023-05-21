@@ -84,38 +84,6 @@ namespace Library
             return created;
         }
 
-
-        // Update
-        public void ActualizarNombre(string nuevoNombre)
-        {
-            this.nombre = nuevoNombre;
-            CADUsuario.ActualizarUsuario(this);
-        }
-
-        public void ActualizarApellido(string nuevoApellido)
-        {
-            this.apellido = nuevoApellido;
-            CADUsuario.ActualizarUsuario(this);
-        }
-
-        public void ActualizarEmail(string nuevoEmail)
-        {
-            this.email = nuevoEmail;
-            CADUsuario.ActualizarUsuario(this);
-        }
-
-        public void ActualizarContraseña(string nuevaContraseña)
-        {
-            this.contraseña = nuevaContraseña;
-            CADUsuario.ActualizarUsuario(this);
-        }
-
-        // Delete
-        public void Eliminar()
-        {
-            CADUsuario.EliminarUsuario(this.id);
-        }
-
         public bool ValidarCredenciales(string nombre, string contraseña)
         {
             return CADUsuario.ValidarCredenciales(nombre, contraseña);
@@ -141,6 +109,11 @@ namespace Library
             return CADUsuario.VerificarNombreUsuarioExistente(newUsername);
         }
 
+        public bool VerificarEmailExistente(string newEmail)
+        {
+            return CADUsuario.VerificarEmailExistente(newEmail);
+        }
+
         public void ActualizarNombreUsuario(string currentUsername, string newUsername)
         {
             CADUsuario.ActualizarNombreUsuario(currentUsername, newUsername);
@@ -148,5 +121,14 @@ namespace Library
             // Actualizar el valor en la sesión
             HttpContext.Current.Session["username"] = newUsername;
         }
+
+        public void ActualizarEmail(string currentEmail, string newEmail)
+        {
+            CADUsuario.ActualizarEmail(currentEmail, newEmail);
+
+            // Actualizar el valor en la sesión
+            HttpContext.Current.Session["email"] = newEmail;
+        }
+
     }
 }

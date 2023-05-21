@@ -27,9 +27,9 @@
                         <label Style="margin-left:23%">Email:</label>
                         <asp:Label ID="lblEmail" runat="server" Text="john.doe@example.com"></asp:Label>
 
-                        <asp:Button ID="Button1" runat="server" Text="Cambiar email" OnClick="btnName_Click" Style="font-size:15px; margin-left:6%" Height="21px" />
-                        <asp:TextBox ID="TextBox1" runat="server" Style="width: 180px; height: 18px; font-size:15px"></asp:TextBox>
-                        <asp:Label runat="server" Text="" ID="Label1" Style="font-size:15px;"></asp:Label>
+                        <asp:Button ID="Button1" runat="server" Text="Cambiar email" OnClick="btnEmail_Click" Style="font-size:15px; margin-left:6%" Height="21px" />
+                        <asp:TextBox ID="txtNewEmail" runat="server" Style="width: 180px; height: 18px; font-size:15px"></asp:TextBox>
+                        <asp:Label runat="server" Text="" ID="changEmail" Style="font-size:15px;"></asp:Label>
                     </div>
                     <div class="info-row">
                         <label>Apellido:</label>

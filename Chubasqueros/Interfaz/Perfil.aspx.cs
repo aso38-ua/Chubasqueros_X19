@@ -85,6 +85,39 @@ namespace Interfaz
             }
         }
 
+        protected void btnEmail_Click(object sender, EventArgs e)
+        {
+            
+            string newEmail = txtNewEmail.Text;
+
+            // Crear una instancia de ENUsuario
+            ENUsuario usuario = new ENUsuario();
+
+            // Verificar si el nuevo nombre de usuario ya existe en la base de datos
+            bool usernameExists = usuario.VerificarEmailExistente(newEmail);
+
+            if (usernameExists)
+            {
+                // El nuevo nombre de usuario ya existe, mostrar mensaje de error
+                changEmail.Text = "El email ya está en uso. Por favor, elija otro nombre.";
+            }
+            else if (newEmail == "")
+            {
+                changEmail.Text = "No se admiten emails vacíos.";
+            }
+            else
+            {
+                // El nuevo nombre de usuario está disponible, actualizar en la base de datos
+                usuario.ActualizarEmail(Session["email"] as string, newEmail);
+
+                // Mostrar mensaje de éxito
+                changEmail.Text = "El email se ha actualizado correctamente.";
+
+                // Actualizar el nombre de usuario en la sesión
+                Session["email"] = newEmail;
+            }
+        }
+
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             Response.Redirect("EditarPerfil.aspx");

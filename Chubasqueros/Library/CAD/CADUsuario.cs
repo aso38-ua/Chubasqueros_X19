@@ -238,25 +238,6 @@ namespace Library
             return existeUsuario;
         }
 
-
-
-        public static ENUsuario ObtenerUsuarioPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        // Update
-        public static void ActualizarUsuario(ENUsuario usuario)
-        {
-            throw new NotImplementedException();
-        }
-
-        // Delete
-        public static void EliminarUsuario(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public static bool ValidarCredenciales(string username, string password)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
@@ -388,6 +369,46 @@ namespace Library
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        public static bool VerificarEmailExistente(string newEmail)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM usuario WHERE email = @newEmail";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newEmail", newEmail);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
+        public static void ActualizarEmail(string currentEmail, string newEmail)
+        {
+            if (EsCorreoElectronico(newEmail))
+            {
+                // Consulta SQL para actualizar el nombre de usuario en la base de datos
+                string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "UPDATE usuario SET email = @newEmail WHERE email = @currentEmail";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@newEmail", newEmail);
+                        command.Parameters.AddWithValue("@currentEmail", currentEmail);
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            
         }
 
         private static byte[] HexToBytes(string hex)
