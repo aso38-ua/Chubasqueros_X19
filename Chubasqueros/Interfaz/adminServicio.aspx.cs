@@ -14,7 +14,7 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
+            if (!IsPostBack)
             {
                 if (Session["username"] == null)
                 {
@@ -27,7 +27,7 @@ namespace Interfaz
             usuario.readUsuario();
 
             if (!usuario.esAdmin) { 
-                Response.Redirect("Servicio.aspx"); }*/
+                Response.Redirect("Servicio.aspx"); }
         }
 
         protected void btnAddService_Click(object sender, EventArgs e)
