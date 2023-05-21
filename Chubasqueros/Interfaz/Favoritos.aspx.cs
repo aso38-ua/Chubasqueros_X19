@@ -64,7 +64,7 @@ namespace Interfaz
                 if (busqueda["nombre"].ToString() == text_nombre.Text)
                 {
                     existe = true;
-                    favoritos.deleteProductinBD(int.Parse(busqueda["id"].ToString()));
+                    favoritos.deleteProductinBD(int.Parse(busqueda["codigo"].ToString()));
                 }
                 busqueda.Close();
             }

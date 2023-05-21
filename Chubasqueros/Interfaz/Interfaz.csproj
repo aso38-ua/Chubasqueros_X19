@@ -108,10 +108,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DatabaseCarrito.mdf" />
-    <Content Include="App_Data\DatabaseCarrito_log.ldf">
-      <DependentUpon>DatabaseCarrito.mdf</DependentUpon>
-    </Content>
     <Content Include="Colaboracion.aspx" />
     <Content Include="CSS\EstiloCarrito.css" />
     <Content Include="adminOferta.aspx" />
@@ -132,7 +128,6 @@
     <Content Include="CV.aspx" />
     <Content Include="IMGS\change.jpg" />
     <Content Include="IMGS\fregando.jpg" />
-    <Content Include="EditarPerfil.aspx" />
     <Content Include="Formulario web1.aspx" />
     <Content Include="IMGS\buceo.jpg" />
     <Content Include="IMGS\change.jpg" />

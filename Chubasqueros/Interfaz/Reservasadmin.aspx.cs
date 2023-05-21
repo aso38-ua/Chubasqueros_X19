@@ -102,7 +102,7 @@ namespace Interfaz
                 busqueda.Read();
                 if (busqueda["nombre"].ToString() == text_nombre.Text)
                 {
-                    ENReserva reserva = new ENReserva(int.Parse(busqueda["id"].ToString()), usuario.id);
+                    ENReserva reserva = new ENReserva(int.Parse(busqueda["codigo"].ToString()), usuario.id);
                     existe = true;
                     reserva.deleteReserva();
                 }
@@ -150,7 +150,7 @@ namespace Interfaz
                     busqueda.Read();
                     if (busqueda["nombre"].ToString() == text_nombre.Text)
                     {
-                        ENReserva reserva = new ENReserva(int.Parse(busqueda["id"].ToString()), usuario.id);
+                        ENReserva reserva = new ENReserva(int.Parse(busqueda["codigo"].ToString()), usuario.id);
                         existe = true;
                         reserva.readReserva();
                         reserva.cantidadp = int.Parse(text_cantidad.Text);
