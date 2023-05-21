@@ -63,3 +63,16 @@ VALUES ('Carolina', 'secure987', 'carolina@example.com', 'Ramírez', 0);
 
 INSERT INTO usuario (nombre, contraseña, email, esAdmin)
 VALUES ('Diego', 'password654', 'diego@example.com', 0);
+
+INSERT INTO Categoría (codCategoria, nombre) VALUES (2, 'Comida');
+INSERT INTO Categoría (codCategoria, nombre) VALUES (3, 'Ropa');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (33, 'Pienso', 'Pienso para peces', 2, 20.3, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (34, 'Manzana', 'Manzana de los Alpes', 6, 5.6, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (35, 'Coco', 'Coco tropical sabroso', 3, 4.7, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (36, 'Plátano', 'Plátano de Canarias', 2, 3.5, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (37, 'Arroz', 'Arroz exportado desde Madrid, sobre unos 500 gramos', 2, 2.2, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (22, 'Chaqueta', 'Chaqueta lujosa perfecta para comuniones', 1, 45, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (23, 'Pantalon', 'Pantalon Gucci', 1, 220, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (24, 'Camisa', 'Camisa facherita', 1, 53, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (25, 'Gorra', 'Gorra grande perfecta para cabezones', 1, 15.4, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (26, 'Zapatos', 'Zapatos glamurosos', 1, 60, 3);
