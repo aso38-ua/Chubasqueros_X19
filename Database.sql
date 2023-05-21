@@ -9,14 +9,13 @@ CREATE TABLE [dbo].[usuario] (
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
-CREATE TABLE producto (
-    id INT IDENTITY(1, 1) NOT NULL,
-    nombre VARCHAR(100) NOT NULL,
-    descripcion VARCHAR(500) NULL,
-    precio DECIMAL(10, 2) NOT NULL,
-    cantidad INT NOT NULL,
-    imagen VARBINARY(MAX) NULL,
-    PRIMARY KEY (id)
+CREATE TABLE [dbo].[Producto] (
+    [codigo] INT IDENTITY(1, 1) NOT NULL,
+    [nombre] NVARCHAR(100) NOT NULL,
+    [descripcion] NVARCHAR(500) NULL,
+    [precio] DECIMAL(10, 2) NOT NULL,
+    [stock] INT NOT NULL,
+    PRIMARY KEY (codigo)
 );
 
 CREATE TABLE carrito (
