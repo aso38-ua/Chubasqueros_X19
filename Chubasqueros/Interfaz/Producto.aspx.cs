@@ -170,8 +170,11 @@ namespace Interfaz
             }
             else
             {
-                reserva.ptotal = reserva.ptotal + (reserva.ptotal / reserva.cantidadp);
+                ENProducto producto = new ENProducto();
+                producto.setCodigo(reserva.productop);
+                producto.readProducto();
                 reserva.cantidadp = reserva.cantidadp + 1;
+                reserva.ptotal = producto.getPrecio() * reserva.cantidadp;
                 reserva.updateReserva();
                 Mensaje.Text = "Reserva actualizada, añadida una cantidad más a la antigua reserva";
             }

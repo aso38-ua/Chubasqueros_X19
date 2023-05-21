@@ -108,14 +108,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Colaboracion.aspx" />
-    <Content Include="CSS\EstiloCarrito.css" />
-    <Content Include="adminOferta.aspx" />
-    <Content Include="adminServicio.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Colaboracion.aspx" />
+    <Content Include="CSS\EstiloCarrito.css" />
+    <Content Include="adminOferta.aspx" />
+    <Content Include="adminServicio.aspx" />
     <Content Include="Database.sql" />
     <Content Include="Categoria.aspx" />
     <Content Include="CSS\Colaboracion.css" />
