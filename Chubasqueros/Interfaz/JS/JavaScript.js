@@ -7,4 +7,3 @@
         slidesToScroll: 1
     });
 });
-

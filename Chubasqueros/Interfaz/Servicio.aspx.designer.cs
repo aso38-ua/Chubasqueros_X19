@@ -7,9 +7,20 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Interfaz {
+namespace Interfaz
+{
 
 
-    public partial class ComentarioForo {
+    public partial class Servicio
+    {
+
+        /// <summary>
+        /// Control labelInfo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelInfo;
     }
 }
