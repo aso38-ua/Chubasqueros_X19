@@ -77,19 +77,19 @@ INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUE
 INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Gorra', 'Gorra grande perfecta para cabezones', 1, 15.4, 2);
 INSERT INTO Producto (nombre, descripcion, stock, precio, codigoCategoria) VALUES ('Zapatos', 'Zapatos glamurosos', 1, 60, 2);
 
-INSERT INTO Favoritos (usuario, producto) VALUES (15,33);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,35);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,26);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,25);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,23);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,1);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,2);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,3);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,6);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,5);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,4);
 
-INSERT INTO Favoritos (usuario, producto) VALUES (1,25);
-INSERT INTO Favoritos (usuario, producto) VALUES (1,35);
-INSERT INTO Favoritos (usuario, producto) VALUES (1,24);
-INSERT INTO Favoritos (usuario, producto) VALUES (1,26);
-INSERT INTO Favoritos (usuario, producto) VALUES (1,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (1,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,1);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,2);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,3);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,4);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,5);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,6);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (2,33);
 INSERT INTO Favoritos (usuario, producto) VALUES (2,22);
