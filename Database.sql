@@ -96,7 +96,6 @@ CREATE TABLE Servicio (
 
 CREATE TABLE curriculum (
     id INT IDENTITY(1, 1) NOT NULL,
-    usuario_id INT NOT NULL,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
     direccion VARCHAR(200) NOT NULL,
@@ -106,5 +105,4 @@ CREATE TABLE curriculum (
     educacion VARCHAR(MAX) NOT NULL,
     habilidades VARCHAR(MAX) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
