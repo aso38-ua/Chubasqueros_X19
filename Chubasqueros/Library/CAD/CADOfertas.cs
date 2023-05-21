@@ -9,23 +9,28 @@ using System.Configuration;
 
 namespace library
 {
-    public class CADOferta
+    public class CADOfertas
     {
         private string constring;
 
-        public CADOferta()
+        public CADOfertas()
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
-        public bool createOferta(ENOferta oferta)
+        public CADOfertas(ENOfertas servicio)
+        {
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+        }
+
+        public bool createOferta(ENOfertas servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
-            string query = "INSERT INTO Oferta (codigoOferta, fechaInicio, fechaFin, porcentajeDescuento) VALUES ('" + oferta.CodigoOferta + "', '" + oferta.FechaInicio + "', " + oferta.FechaFin + ", '" + oferta.PorcentajeDescuento + ")";
 
             try
             {
                 conn.Open();
+                string query = "INSERT INTO [dbo].[Oferta] (idOferta, porcentajeDescuento, descripcion, img) VALUES ('" + servicio.IdOferta + "', '" + servicio.PorcentajeDescuento + "', '" + servicio.Descripcion + "', '" + servicio.Img + "')";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.ExecuteNonQuery();
                 conn.Close();
@@ -48,25 +53,24 @@ namespace library
             }
         }
 
-        public bool readOferta(ENOferta oferta)
+        public bool readOferta(ENOfertas servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
-
-            string query = "SELECT * FROM Oferta WHERE codigoOferta = '" + oferta.CodigoOferta + "'";
 
             try
             {
                 conn.Open();
+                string query = "SELECT * FROM [dbo].[Oferta] WHERE idOferta = '" + servicio.IdOferta + "'";
                 SqlCommand comm = new SqlCommand(query, conn);
                 SqlDataReader reader = comm.ExecuteReader();
                 reader.Read();
 
-                if (reader["codigoOferta"].ToString() == oferta.CodigoOferta.ToString())
+                if (reader["idOferta"].ToString() == servicio.IdOferta.ToString())
                 {
-                    oferta.CodigoOferta = int.Parse(reader["codigoOferta"].ToString());
-                    oferta.FechaInicio = reader["fechaInicio"].ToString();
-                    oferta.FechaFin = reader["FechaFin"].ToString();
-                    oferta.PorcentajeDescuento = int.Parse(reader["porcentajeDescuento"].ToString());
+                    servicio.IdOferta = int.Parse(reader["idOferta"].ToString());
+                    servicio.PorcentajeDescuento = int.Parse(reader["porcentajeDescuento"].ToString());
+                    servicio.Descripcion = reader["descripcion"].ToString();
+                    servicio.Img = reader["Img"].ToString();
 
                     reader.Close();
                     conn.Close();
@@ -91,10 +95,34 @@ namespace library
             }
         }
 
-        public bool updateOferta(ENOferta oferta)
+        public bool updateOferta(ENOfertas servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
-            string query = "UPDATE Oferta SET codigoOferta = '" + oferta.CodigoOferta + "', fechaInicio =" + oferta.FechaInicio + "', fechaFin =" + oferta.FechaFin + "', porcentajeDescuento = " + oferta.PorcentajeDescuento + "WHERE codigoOferta = '" + oferta.CodigoOferta + "'";
+
+            try
+            {
+                conn.Open();
+                string query = "UPDATE [dbo].[Oferta] SET idOferta = '" + servicio.IdOferta + "' , porcentajeDescuento = '" + servicio.PorcentajeDescuento + "' , descripcion = '" + servicio.Descripcion + "' , img = '" + servicio.Img + "' WHERE idOferta = '" + servicio.IdOferta + "'";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+                return false;
+            }
+        }
+
+        public bool deleteOferta(ENOfertas servicio)
+        {
+            SqlConnection conn = new SqlConnection(constring);
+            string query = "DELETE FROM [dbo].[Oferta] WHERE idOferta = '" + servicio.IdOferta + "'";
 
             try
             {
@@ -115,28 +143,32 @@ namespace library
             }
         }
 
-        public bool deleteOferta(ENOferta oferta)
+        public DataTable readAllOffers()
         {
-            SqlConnection conn = new SqlConnection(constring);
-            string query = "DELETE FROM Oferta WHERE codigoOferta = '" + oferta.CodigoOferta + "'";
+            DataTable dataTable = new DataTable();
 
+            SqlConnection conn = new SqlConnection(constring);
             try
             {
                 conn.Open();
-                SqlCommand comm = new SqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                return true;
+                SqlCommand comm = new SqlCommand("SELECT * FROM Oferta", conn);
+                SqlDataAdapter da = new SqlDataAdapter(comm);
+                da.Fill(dataTable);
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
-                return false;
+                Console.WriteLine("The operation has failed. Error: {0}", ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
-                return false;
+                Console.WriteLine("The operation has failed. Error: {0}", ex.Message);
             }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dataTable;
         }
     }
 }
