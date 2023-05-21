@@ -92,6 +92,12 @@
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="Categoria.aspx" />
+    <Content Include="CSS\Colaboracion.css" />
+    <Content Include="Donaciones.aspx" />
+    <Content Include="IMGS\Instagram-Icon.png" />
+    <Content Include="IMGS\twitter-logo-9.png" />
+    <Content Include="IMGS\sombrero.png" />
+    <Content Include="IMGS\zyro-image.png" />
     <Content Include="CerrarSesion.aspx" />
     <Content Include="EditarPerfil.aspx" />
     <Content Include="IMGS\change.jpg" />
@@ -103,8 +109,6 @@
     <Content Include="IMGS\Google_Contacts_logo.png" />
     <Content Include="IMGS\Mapa.png" />
     <Content Include="IMGS\mayka.jpeg" />
-    <Content Include="IMGS\Pull and Bear.jpeg" />
-    <Content Include="IMGS\zara.jpeg" />
     <Content Include="IMGS\banyo.jfif" />
     <Content Include="IMGS\costurero.jfif" />
     <Content Include="IMGS\entrenamiento.jfif" />
@@ -154,6 +158,14 @@
     </Compile>
     <Compile Include="Categoria.aspx.designer.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Donaciones.aspx.cs">
+      <DependentUpon>Donaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Donaciones.aspx.designer.cs">
+      <DependentUpon>Donaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CerrarSesion.aspx.cs">
       <DependentUpon>CerrarSesion.aspx</DependentUpon>
