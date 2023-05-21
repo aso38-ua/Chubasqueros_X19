@@ -40,69 +40,72 @@ namespace Interfaz
            if(TBBuscar.Text != "")
             {
                 ENProducto en_prod = new ENProducto();
-                en_prod.setCodigo(int.Parse(TBBuscar.Text));
-                en_prod.readProducto();
-                TBBuscar.Text = en_prod.getNombre();
-                if (en_prod.readProducto() == true)
+                if (int.TryParse(TBBuscar.Text, out int numero))
                 {
-                    TBBuscar.Text = en_prod.getNombre();
-                    ENUsuario en_u = new ENUsuario();
-                    en_u.nombre = (string)Session["username"];
-                    //Si tiene la sesión iniciada se le muestran sus datos 
-                    if (en_u.readUsuario())
+                    en_prod.setNombre(TBBuscar.Text);
+                    if (en_prod.readProducto() == true)
                     {
-                        ENPuntuacion en_p = new ENPuntuacion();
-                        en_p.aux_item = en_prod.getCodigo();
-                        if(en_p.findItem() == true)
+                        TBBuscar.Text = en_prod.getNombre();
+                        ENUsuario en_u = new ENUsuario();
+                        en_u.nombre = (string)Session["username"];
+                        //Si tiene la sesión iniciada se le muestran sus datos 
+                        if (en_u.readUsuario())
                         {
-                            Label3.Text = Convert.ToString(en_p.aux_estrella);
-                            Label6.Text = Convert.ToString(en_p.aux_media);
-                            ENComentario en_c = new ENComentario();
-                            en_c.aux_id_user = en_u.id;
-                            en_c.readComment();
-                            TBComentario.Text = en_c.aux_comentario;                            
-                            en_c.aux_item = en_prod.getCodigo();
-                            //Si no hay comentario por parte del usuario no puede modificar o eliminar
-                            if (en_c.aux_comentario == "")
-                            {
-                                Label4.Text = "0";
-                                Label5.Text = "0";
-                                BtnEliminar.Visible = false;
-                                BtnModificar.Visible = false;
-                            }
-                            else
-                            {
-                                //Sino se muestran los likes y dislikes
-                                Label4.Text = Convert.ToString(en_c.aux_likes);
-                                Label5.Text = Convert.ToString(en_c.aux_dislikes);
-                            }
-                        }
-                        else
-                        {
-                            if (en_p.createPuntuacion())
+                            ENPuntuacion en_p = new ENPuntuacion();
+                            en_p.aux_item = en_prod.getCodigo();
+                            if (en_p.findItem() == true)
                             {
                                 Label3.Text = Convert.ToString(en_p.aux_estrella);
                                 Label6.Text = Convert.ToString(en_p.aux_media);
                                 ENComentario en_c = new ENComentario();
                                 en_c.aux_id_user = en_u.id;
-                                en_c.aux_estrellas = en_p.aux_estrella;
-                                en_c.aux_item = en_p.aux_item;
-                                if (en_c.createComment())
+                                en_c.readComment();
+                                TBComentario.Text = en_c.aux_comentario;
+                                en_c.aux_item = en_prod.getCodigo();
+                                //Si no hay comentario por parte del usuario no puede modificar o eliminar
+                                if (en_c.aux_comentario == "")
                                 {
-                                    Label10.Text = Convert.ToString(en_c.aux_likes);
-                                    Label11.Text = Convert.ToString(en_c.aux_dislikes);
+                                    Label4.Text = "0";
+                                    Label5.Text = "0";
+                                    BtnEliminar.Visible = false;
+                                    BtnModificar.Visible = false;
                                 }
                                 else
                                 {
-                                    Label6.Text = "Ha ocurrido un error inesperado";
+                                    //Sino se muestran los likes y dislikes
+                                    Label4.Text = Convert.ToString(en_c.aux_likes);
+                                    Label5.Text = Convert.ToString(en_c.aux_dislikes);
                                 }
-
                             }
                             else
                             {
-                                Label12.Text = "Ha ocurrido un error inesperado";
+                                if (en_p.createPuntuacion())
+                                {
+                                    Label3.Text = Convert.ToString(en_p.aux_estrella);
+                                    Label6.Text = Convert.ToString(en_p.aux_media);
+                                    ENComentario en_c = new ENComentario();
+                                    en_c.aux_id_user = en_u.id;
+                                    en_c.aux_estrellas = en_p.aux_estrella;
+                                    en_c.aux_item = en_p.aux_item;
+                                    if (en_c.createComment())
+                                    {
+                                        Label10.Text = Convert.ToString(en_c.aux_likes);
+                                        Label11.Text = Convert.ToString(en_c.aux_dislikes);
+                                    }
+                                    else
+                                    {
+                                        Label6.Text = "Ha ocurrido un error inesperado";
+                                    }
+
+                                }
+                                else
+                                {
+                                    Label12.Text = "Ha ocurrido un error inesperado";
+                                }
                             }
                         }
+
+                
                     }
                     else
                     {
@@ -110,6 +113,75 @@ namespace Interfaz
                         en_p.aux_item = en_prod.getCodigo();
                         Label3.Text = Convert.ToString(en_p.aux_estrella);
                         Label6.Text = Convert.ToString(en_p.aux_media);
+                    }
+                }
+
+                else if (!string.IsNullOrEmpty(TBBuscar.Text))
+                {
+                    en_prod.setNombre(TBBuscar.Text);
+                    if (en_prod.readProducto() == true)
+                    {
+                        TBBuscar.Text = en_prod.getNombre();
+                        ENUsuario en_u = new ENUsuario();
+                        en_u.nombre = (string)Session["username"];
+                        //Si tiene la sesión iniciada se le muestran sus datos 
+                        if (en_u.readUsuario())
+                        {
+                            ENPuntuacion en_p = new ENPuntuacion();
+                            en_p.aux_item = en_prod.getCodigo();
+                            if (en_p.findItem() == true)
+                            {
+                                Label3.Text = Convert.ToString(en_p.aux_estrella);
+                                Label6.Text = Convert.ToString(en_p.aux_media);
+                                ENComentario en_c = new ENComentario();
+                                en_c.aux_id_user = en_u.id;
+                                en_c.readComment();
+                                TBComentario.Text = en_c.aux_comentario;
+                                en_c.aux_item = en_prod.getCodigo();
+                                //Si no hay comentario por parte del usuario no puede modificar o eliminar
+                                if (en_c.aux_comentario == "")
+                                {
+                                    Label4.Text = "0";
+                                    Label5.Text = "0";
+                                    BtnEliminar.Visible = false;
+                                    BtnModificar.Visible = false;
+                                }
+                                else
+                                {
+                                    //Sino se muestran los likes y dislikes
+                                    Label4.Text = Convert.ToString(en_c.aux_likes);
+                                    Label5.Text = Convert.ToString(en_c.aux_dislikes);
+                                }
+                            }
+                            else
+                            {
+                                if (en_p.createPuntuacion())
+                                {
+                                    Label3.Text = Convert.ToString(en_p.aux_estrella);
+                                    Label6.Text = Convert.ToString(en_p.aux_media);
+                                    ENComentario en_c = new ENComentario();
+                                    en_c.aux_id_user = en_u.id;
+                                    en_c.aux_estrellas = en_p.aux_estrella;
+                                    en_c.aux_item = en_p.aux_item;
+                                    if (en_c.createComment())
+                                    {
+                                        Label10.Text = Convert.ToString(en_c.aux_likes);
+                                        Label11.Text = Convert.ToString(en_c.aux_dislikes);
+                                    }
+                                    else
+                                    {
+                                        Label6.Text = "Ha ocurrido un error inesperado";
+                                    }
+
+                                }
+                                else
+                                {
+                                    Label12.Text = "Ha ocurrido un error inesperado";
+                                }
+                            }
+                        }
+
+                
                     }
                 }
                 else

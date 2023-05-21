@@ -16,7 +16,7 @@ namespace library
 
         public CADPuntuacion()
         {
-            conn = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            conn = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         //Crea una puntuación
