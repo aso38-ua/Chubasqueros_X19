@@ -9,3 +9,11 @@ INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (8, 'Clases d
 INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (9, 'Clases de cocina para peces', '¿Quieres que tus peces se conviertan en verdaderos chefs acuáticos? Nuestro servicio de clases de cocina para peces les brinda la oportunidad de aprender a preparar deliciosos platillos acuáticos. Con la guía de nuestros expertos culinarios, tus peces aprenderán técnicas de cocción, combinación de sabores y presentación de alimentos acuáticos. Descubrirán nuevas recetas y se divertirán explorando el arte culinario submarino. ¡Prepara sus paladares para una experiencia gastronómica única!', 'IMGS/cocina.jpg');
 
 
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (1, 0, 'Por la compra de un chubasquero, llévate otro chubasquero gratis', 'IMGS/bienvenida.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (2, 5, 'Llévate un 5% de descuento por compartir una foto de tu pez con su chubasquero en las redes sociales y etiquetarnos', 'IMGS/5descuento.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (3, 10, 'Llévate un 10% de descuento por comprar dos o más chubasqueros de diferentes colores o modelos', 'IMGS/10descuento.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (4, 15, 'Llévate un 15% de descuento por comprar cinco o más chubasqueros de diferentes colores o modelos', 'IMGS/15descuento.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (5, 20, 'Llévate un 20% de descuento si recomiendas nuestra tienda a un amigo y hace una compra superior a 50€', 'IMGS/20descuento.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (6, 0, 'El primer día de cada mes, los chubasqueros a mitad de precio', 'IMGS/especial.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (7, 0, 'Compra una tarjeta regalo en la segunda semana del mes y llévate un regalo', 'IMGS/tarjetaregalo.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (8, 0, 'Compra un chubasquero para tu pez en época de lluvia y te costará la mitad que el resto del año', 'IMGS/epocalluvia.jfif');
