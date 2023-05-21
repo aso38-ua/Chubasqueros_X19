@@ -75,7 +75,7 @@ namespace Library
                     en.setStock(int.Parse(busqueda["stock"].ToString()));
                     en.setDescripcion(busqueda["descripcion"].ToString());
                     en.setPrecio(float.Parse(busqueda["precio"].ToString()));
-                    en.setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
+                    en.setCodigoCategoria(int.Parse(busqueda["codCategoria"].ToString()));
                 }
                 else creado = false;
 

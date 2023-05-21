@@ -41,7 +41,9 @@ namespace Interfaz
             {
                 ENProducto en_prod = new ENProducto();
                 en_prod.setCodigo(int.Parse(TBBuscar.Text));
-                if(en_prod.readProducto() == true)
+                en_prod.readProducto();
+                TBBuscar.Text = en_prod.getNombre();
+                if (en_prod.readProducto() == true)
                 {
                     TBBuscar.Text = en_prod.getNombre();
                     ENUsuario en_u = new ENUsuario();
