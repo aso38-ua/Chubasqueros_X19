@@ -8,7 +8,7 @@
     <asp:Button ID="BtnRegresar" runat="server" Text="Regresar a producto" onClick="RegresarClick" BackColor="#33cc33" BorderColor="Green" BorderStyle="Groove"/>
     <br />
     <h2>Producto</h2>
-    Nombre: 
+    ID: 
     <asp:TextBox ID="TBBuscar" runat="server" Height="50px" Width="250px"></asp:TextBox>
     <br />
     <asp:Button ID="BtnBuscar" runat="server" Text="Buscar" onClick="BuscarClick" BackColor="#ff33cc" BorderColor="Pink" BorderStyle="Groove"/>

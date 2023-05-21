@@ -40,7 +40,7 @@ namespace Interfaz
            if(TBBuscar.Text != "")
             {
                 ENProducto en_prod = new ENProducto();
-                en_prod.setNombre(TBBuscar.Text);
+                en_prod.setCodigo(int.Parse(TBBuscar.Text));
                 if(en_prod.readProducto() == true)
                 {
                     TBBuscar.Text = en_prod.getNombre();
@@ -71,13 +71,44 @@ namespace Interfaz
                             else
                             {
                                 //Sino se muestran los likes y dislikes
-                            }
-                            {
                                 Label4.Text = Convert.ToString(en_c.aux_likes);
                                 Label5.Text = Convert.ToString(en_c.aux_dislikes);
                             }
-                        }                        
-                    }                    
+                        }
+                        else
+                        {
+                            if (en_p.createPuntuacion())
+                            {
+                                Label3.Text = Convert.ToString(en_p.aux_estrella);
+                                Label6.Text = Convert.ToString(en_p.aux_media);
+                                ENComentario en_c = new ENComentario();
+                                en_c.aux_id_user = en_u.id;
+                                en_c.aux_estrellas = en_p.aux_estrella;
+                                en_c.aux_item = en_p.aux_item;
+                                if (en_c.createComment())
+                                {
+                                    Label10.Text = Convert.ToString(en_c.aux_likes);
+                                    Label11.Text = Convert.ToString(en_c.aux_dislikes);
+                                }
+                                else
+                                {
+                                    Label6.Text = "Ha ocurrido un error inesperado";
+                                }
+
+                            }
+                            else
+                            {
+                                Label12.Text = "Ha ocurrido un error inesperado";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        ENPuntuacion en_p = new ENPuntuacion();
+                        en_p.aux_item = en_prod.getCodigo();
+                        Label3.Text = Convert.ToString(en_p.aux_estrella);
+                        Label6.Text = Convert.ToString(en_p.aux_media);
+                    }
                 }
                 else
                 {
@@ -86,7 +117,7 @@ namespace Interfaz
             }
             else
             {
-                TBBuscar.Text = "Introduzca un producto";
+                Label9.Text = "Introduzca un producto";
             }
 
         }
