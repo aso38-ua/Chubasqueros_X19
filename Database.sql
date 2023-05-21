@@ -80,9 +80,9 @@ CREATE TABLE [dbo].[Puntuacion] (
 
 CREATE TABLE Oferta (
     codigoOferta INT NOT NULL,
-    fechaInicio DATE NOT NULL,
-    fechaFin DATE NOT NULL,
     porcentajeDescuento INT NOT NULL,
+    descripcion VARCHAR(500) NOT NULL,
+    img VARCHAR(500) NOT NULL,
     PRIMARY KEY (codigoOferta)
 );
 
