@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <br /><br /><br /><br />
+    <h1 style="color: blue"><u>Pedido</u></h1>
+    <asp:Label ID="Message" runat ="server"></asp:Label>
+
     <h2>Pedido</h2>
     <asp:Panel id ="CajaProducto" BackColor="LightYellow" runat="server">
      <asp:Image ID="miImagen" runat="server" Height="27px" Width="27px" />
@@ -28,7 +30,7 @@
         </p>
 
         <p>
-             Fecha de llegada aproximada: [dia]/[mes]/[año] [hora]:[minutos]
+             Fecha de llegada aproximada: [dia]/[mes]/[año]
         </p>
     </asp:Panel>
    
@@ -36,8 +38,8 @@
      <p>
          Precio total: [preciototal]
      </p>
-     <asp:Button ID ="botoncompra" BackColor="LightBlue" Text ="Pagar" runat ="server" />
+     <asp:Button ID ="botoncompra" BackColor="LightBlue" Text ="Pagar" runat ="server" onClick="btn_pagar"/>
     <p>
-      <asp:Button ID ="botoncancelar" BackColor="LightCoral" Text="Cancelar Pedido" runat="server" />
+      <asp:Button ID ="botoncancelar" BackColor="LightCoral" Text="Cancelar Pedido" runat="server" onClick="btn_cancelar"/>
     </p>
 </asp:Content>
