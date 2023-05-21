@@ -7,14 +7,14 @@ h2 {
     color: #ffa31a;
     text-align: center;
     font-size: 50px;
-    text-shadow: 0 0 10px #ffa31a, 0 0 20px #ffa31a, 0 0 30px #ffa31a, 0 0 40px #ffa31a;
+    text-shadow: 0 0 10px #ffca72, 0 0 20px #ffa31a, 0 0 30px #ffbf00, 0 0 40px #ffa31a;
     animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 p {
     color: #ffa31a;
     font-size: 35px;
-    text-shadow: 0 0 10px #ffa31a, 0 0 20px #ffa31a, 0 0 30px #ffa31a, 0 0 40px #ffa31a;
+    text-shadow: 0 0 10px #ffca72, 0 0 20px #ffa31a, 0 0 30px #ffbf00, 0 0 40px #ffa31a;
     animation: neon 1.5s ease-in-out infinite alternate;
 }
 
@@ -22,10 +22,10 @@ p {
 
 @keyframes neon {
     from {
-        text-shadow: 0 0 10px #ffa31a, 0 0 20px #fff, 0 0 30px #ffa31a, 0 0 40px #ffa31a, 0 0 70px #ffa31a;
+        text-shadow: 0 0 10px #ffca72, 0 0 20px #fff, 0 0 30px #ffbf00, 0 0 40px #ffca72;
     }
 
     to {
-        text-shadow: 0 0 20px #ffa31a, 0 0 30px #ffa31a, 0 0 40px #ffa31a, 0 0 50px #ffa31a, 0 0 80px #ffa31a;
+        text-shadow: 0 0 20px #ffca72, 0 0 30px #ffa31a, 0 0 40px #ffbf00, 0 0 50px #ffca72;
     }
 }
