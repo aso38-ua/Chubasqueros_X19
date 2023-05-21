@@ -16,7 +16,7 @@ namespace Interfaz
 
         protected void onLeer(object sender, EventArgs e)
         {
-            if (text_NIF.Text == "")
+            /**if (text_NIF.Text == "")
                 outputMsg.Text = "Clave primaria de categoría no introducida.";
             else
             {
@@ -30,12 +30,12 @@ namespace Interfaz
                     outputMsg.Text = "Categoría " + categoria.getNombre() + ", " + categoria.getCodCategoria();
                 }
                 else outputMsg.Text = "Categoría no encontrada en la B.D.";
-            }
+            }*/
         }
 
         protected void onCrear(object sender, EventArgs e)
         {
-            if (text_nombre.Text != "" && text_codCategoria.Text != "")
+            /**if (text_nombre.Text != "" && text_codCategoria.Text != "")
             {
                 ENCategoria categoria = new ENCategoria(text_codCategoria.Text, text_nombre.Text);
 
@@ -44,12 +44,12 @@ namespace Interfaz
                 else outputMsg.Text = "No es posible insertar la categoría.";
             }
 
-            else outputMsg.Text = "Alguno de los campos no estan especificados.";
+            else outputMsg.Text = "Alguno de los campos no estan especificados.";*/
         }
 
         protected void onActualizar(object sender, EventArgs e)
         {
-            if (text_nombre.Text != "" && text_codCategoria.Text != "")
+            /**if (text_nombre.Text != "" && text_codCategoria.Text != "")
             {
                 ENCategoria categoria = new ENCategoria(text_codCategoria.Text, text_nombre.Text);
 
@@ -60,13 +60,13 @@ namespace Interfaz
                 else outputMsg.Text = "Esta categoría no existe en la B.D.";
             }
 
-            else outputMsg.Text = "Alguno de los campos no estan especificados.";
+            else outputMsg.Text = "Alguno de los campos no estan especificados.";*/
 
         }
 
         protected void onBorrar(object sender, EventArgs e)
         {
-            if (text_nombre.Text != "" && text_codCategoria.Text != "")
+            /**if (text_nombre.Text != "" && text_codCategoria.Text != "")
             {
                 ENCategoria categoria = new ENCategoria(text_codCategoria.Text, text_nombre.Text);
 
@@ -76,7 +76,7 @@ namespace Interfaz
 
             }
 
-            else outputMsg.Text = "Alguno de los campos no estan especificados.";
+            else outputMsg.Text = "Alguno de los campos no estan especificados.";*/
         }
     }
 }

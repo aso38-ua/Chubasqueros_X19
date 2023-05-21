@@ -16,6 +16,20 @@
         <asp:TextBox ID ="boxcantidad" TextMode ="SingleLine" CssClass="box" runat="server"></asp:TextBox>
     </div>
      <p class="preciot">
+
+    <h2>Carrito de la compra</h2>
+     <asp:Panel id ="CajaProducto" BackColor="LightYellow" runat="server">
+     <asp:Image ID="miImagen" runat="server" Height="27px" Width="27px" />
+     Nombre del producto
+     <p> 
+         Precio: [precio]
+     </p>
+ 
+     <p>
+           Cantidad: <asp:TextBox ID ="boxcantidad" TextMode ="SingleLine" Columns ="1" runat="server"></asp:TextBox>
+     </p>
+    </asp:Panel>
+     <p>
          Precio total: [preciototal]
      </p>
      <asp:Button ID ="botoncompra"  BackColor="LightBlue"  Text="Comprar" runat ="server" onCLick="btn_compra"/>
