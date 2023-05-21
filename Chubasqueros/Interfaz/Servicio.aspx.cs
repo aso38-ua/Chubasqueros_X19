@@ -32,7 +32,7 @@ namespace Interfaz {
                 string descripcion = row["descripcion"].ToString();
                 string img = row["img"].ToString();
 
-                string servicioHtml = $@"
+                string innerHTML = $@"
                     <div class='servicio-container'>
                         <div class='servicio-imagen'>
                             <img src='{img}' alt='Imagen del servicio' class='servicio-imagen-img' />
@@ -45,14 +45,21 @@ namespace Interfaz {
                     </div>
                 ";
 
-                LiteralControl literalControl = new LiteralControl(servicioHtml);
+                LiteralControl literalControl = new LiteralControl(innerHTML);
                 labelInfo.Controls.Add(literalControl);
             }
         }
 
-        protected void agregarAlCarrito(string idServicio)
+        protected void agregarAlCarrito()
         {
+            /* ???????????????????????
 
+            CADCarrito carrito = new CADCarrito(); 
+
+            bool productoAgregado = carrito.AñadirProducto();
+
+            Response.Redirect("/Carrito.aspx");
+             */
         }
     }
 }
