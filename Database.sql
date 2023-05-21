@@ -79,7 +79,7 @@ CREATE TABLE [dbo].[Puntuacion] (
 );
 
 CREATE TABLE Oferta (
-    codigoOferta INT IDENTITY(1, 1) NOT NULL,
+    codigoOferta INT NOT NULL,
     fechaInicio DATE NOT NULL,
     fechaFin DATE NOT NULL,
     porcentajeDescuento INT NOT NULL,
