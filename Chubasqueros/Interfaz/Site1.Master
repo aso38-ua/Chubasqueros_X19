@@ -85,6 +85,8 @@
                 <li><a class="coolButton" href="Colaboracion.aspx">Colaboracion</a></li>
                 <li><a class="coolButton" href="Comentario.aspx">Comentario</a></li>
                 <li id="liregistro" runat="server"><a class="coolButton" href="Login.aspx">Login</a></li>
+                <li id="lifav" runat="server"><a class="coolButton" href="Favoritos.aspx">Favoritos</a></li>
+                <li id="lireg" runat="server"><a class="coolButton" href="Reservas.aspx">Reservas</a></li>
                 <li id="liperfil" runat="server"><a class="coolButton" href="Perfil.aspx">Mi cuenta</a>
                     <ul id="miPerfil">
                         
