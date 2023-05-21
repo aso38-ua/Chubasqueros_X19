@@ -33,6 +33,24 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.TextBox txtIdServicio;
 
         /// <summary>
+        /// Control rfvIdServicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvIdServicio;
+
+        /// <summary>
+        /// Control revIdServicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revIdServicio;
+
+        /// <summary>
         /// Control lblTitle.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace Interfaz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
+
+        /// <summary>
+        /// Control rfvTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTitle;
 
         /// <summary>
         /// Control lblDescription.
@@ -69,6 +96,15 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
+        /// Control rfvDescription.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
+
+        /// <summary>
         /// Control lblImage.
         /// </summary>
         /// <remarks>
@@ -87,13 +123,31 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.TextBox txtImage;
 
         /// <summary>
-        /// Control btnAddOffer.
+        /// Control rfvImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddOffer;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvImage;
+
+        /// <summary>
+        /// Control revImage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revImage;
+
+        /// <summary>
+        /// Control btnAddService.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddService;
 
         /// <summary>
         /// Control btnEditService.

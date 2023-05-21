@@ -7,15 +7,19 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace library {
-    public class CADOferta {
+namespace library
+{
+    public class CADOferta
+    {
         private string constring;
 
-        public CADOferta() {
+        public CADOferta()
+        {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
-        public bool createOferta(ENOferta oferta) {
+        public bool createOferta(ENOferta oferta)
+        {
             SqlConnection conn = new SqlConnection(constring);
             string query = "INSERT INTO Oferta (codigoOferta, fechaInicio, fechaFin, porcentajeDescuento) VALUES ('" + oferta.CodigoOferta + "', '" + oferta.FechaInicio + "', " + oferta.FechaFin + ", '" + oferta.PorcentajeDescuento + ")";
 
@@ -44,7 +48,8 @@ namespace library {
             }
         }
 
-        public bool readOferta(ENOferta oferta) {
+        public bool readOferta(ENOferta oferta)
+        {
             SqlConnection conn = new SqlConnection(constring);
 
             string query = "SELECT * FROM Oferta WHERE codigoOferta = '" + oferta.CodigoOferta + "'";
@@ -56,7 +61,8 @@ namespace library {
                 SqlDataReader reader = comm.ExecuteReader();
                 reader.Read();
 
-                if (reader["codigoOferta"].ToString() == oferta.CodigoOferta.ToString()) {
+                if (reader["codigoOferta"].ToString() == oferta.CodigoOferta.ToString())
+                {
                     oferta.CodigoOferta = int.Parse(reader["codigoOferta"].ToString());
                     oferta.FechaInicio = reader["fechaInicio"].ToString();
                     oferta.FechaFin = reader["FechaFin"].ToString();
@@ -85,7 +91,8 @@ namespace library {
             }
         }
 
-        public bool updateOferta(ENOferta oferta) {
+        public bool updateOferta(ENOferta oferta)
+        {
             SqlConnection conn = new SqlConnection(constring);
             string query = "UPDATE Oferta SET codigoOferta = '" + oferta.CodigoOferta + "', fechaInicio =" + oferta.FechaInicio + "', fechaFin =" + oferta.FechaFin + "', porcentajeDescuento = " + oferta.PorcentajeDescuento + "WHERE codigoOferta = '" + oferta.CodigoOferta + "'";
 
@@ -108,7 +115,8 @@ namespace library {
             }
         }
 
-        public bool deleteOferta(ENOferta oferta) {
+        public bool deleteOferta(ENOferta oferta)
+        {
             SqlConnection conn = new SqlConnection(constring);
             string query = "DELETE FROM Oferta WHERE codigoOferta = '" + oferta.CodigoOferta + "'";
 

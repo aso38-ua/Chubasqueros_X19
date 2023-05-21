@@ -1,86 +1,138 @@
-﻿using library;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
+using library;
+using Library;
 
 namespace Interfaz
 {
     public partial class adminServicio : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*if (!IsPostBack)
+            {
+                if (Session["username"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            }
+
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+
+            if (!usuario.esAdmin) { 
+                Response.Redirect("Servicio.aspx"); }*/
         }
 
         protected void btnAddService_Click(object sender, EventArgs e)
         {
-            ENServicio servicio = new ENServicio();
-
-            if (txtIdServicio.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
+            if (Page.IsValid)
             {
-                servicio.IdServicio = int.Parse(txtIdServicio.Text);
-                servicio.Titulo = txtTitle.Text;
-                servicio.Descripcion = txtDescription.Text;
-                servicio.Img = txtImage.Text;
+                try
+                {
+                    if (txtIdServicio.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
+                    {
+                        ENServicio servicio = new ENServicio();
+                        servicio.IdServicio = int.Parse(txtIdServicio.Text);
+                        servicio.Titulo = txtTitle.Text;
+                        servicio.Descripcion = txtDescription.Text;
+                        servicio.Img = txtImage.Text;
 
-                if (servicio.createServicio())
-                {
-                    mensaje.Text = "Servicio " + servicio.Titulo + " creado";
+                        if (servicio.createServicio())
+                        {
+                            mensaje.Text = "Servicio \"" + servicio.Titulo + "\" creado";
+                        }
+                        else
+                        {
+                            mensaje.Text = "Servicio \"" + servicio.Titulo + "\" no creado";
+                        }
+                    }
+                    else
+                    {
+                        mensaje.Text = "Por favor, complete todos los campos.";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    mensaje.Text = "Servicio " + servicio.Titulo + " no creado";
+                    mensaje.Text = "Error al agregar el servicio: " + ex.Message;
                 }
             }
-            
         }
 
         protected void btnEditService_Click(object sender, EventArgs e)
         {
-            if (txtIdServicio.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
+            if (Page.IsValid)
             {
-                ENServicio servicio = new ENServicio();
-                servicio.IdServicio = int.Parse(txtIdServicio.Text);
-                servicio.Titulo = txtTitle.Text;
-                servicio.Descripcion = txtDescription.Text;
-                servicio.Img = txtImage.Text;
+                try
+                {
+                    if (txtIdServicio.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
+                    {
+                        ENServicio servicio = new ENServicio();
+                        servicio.IdServicio = int.Parse(txtIdServicio.Text);
+                        servicio.Titulo = txtTitle.Text;
+                        servicio.Descripcion = txtDescription.Text;
+                        servicio.Img = txtImage.Text;
 
-                if (servicio.updateServicio())
-                {
-                    mensaje.Text = "Servicio " + servicio.Titulo + " actualizado";
+                        if (servicio.updateServicio())
+                        {
+                            mensaje.Text = "Servicio \"" + servicio.Titulo + "\" actualizado";
+                        }
+                        else
+                        {
+                            mensaje.Text = "Servicio \"" + servicio.Titulo + "\" no actualizado";
+                        }
+                    }
+                    else
+                    {
+                        mensaje.Text = "Por favor, complete todos los campos.";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    mensaje.Text = "Servicio " + servicio.Titulo + " no actualizado";
+                    mensaje.Text = "Error al editar el servicio: " + ex.Message;
                 }
             }
-            
         }
 
         protected void btnDeleteService_Click(object sender, EventArgs e)
         {
-            if (txtIdServicio.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
+            if (Page.IsValid)
             {
-                ENServicio servicio = new ENServicio();
-                servicio.IdServicio = int.Parse(txtIdServicio.Text);
-                servicio.Titulo = txtTitle.Text;
-                servicio.Descripcion = txtDescription.Text;
-                servicio.Img = txtImage.Text;
+                try
+                {
+                    if (txtIdServicio.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
+                    {
+                        ENServicio servicio = new ENServicio();
+                        servicio.IdServicio = int.Parse(txtIdServicio.Text);
+                        servicio.Titulo = txtTitle.Text;
+                        servicio.Descripcion = txtDescription.Text;
+                        servicio.Img = txtImage.Text;
 
-                if (servicio.deleteServicio())
-                {
-                    mensaje.Text = "Servicio " + servicio.Titulo + " eliminado";
+                        if (servicio.deleteServicio())
+                        {
+                            mensaje.Text = "Servicio \"" + servicio.Titulo + "\" eliminado";
+                        }
+                        else
+                        {
+                            mensaje.Text = "Servicio \"" + servicio.Titulo + "\" no eliminado";
+                        }
+                    }
+                    else
+                    {
+                        mensaje.Text = "Por favor, complete todos los campos.";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    mensaje.Text = "Servicio " + servicio.Titulo + " no eliminado";
+                    mensaje.Text = "Error al eliminar el servicio: " + ex.Message;
                 }
             }
-            
         }
     }
 }

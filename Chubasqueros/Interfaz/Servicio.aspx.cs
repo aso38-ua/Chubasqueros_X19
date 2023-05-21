@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using library;
 using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
+using Library;
 
 namespace Interfaz {
     public partial class Servicio : System.Web.UI.Page {
@@ -40,7 +41,6 @@ namespace Interfaz {
                         <div class='servicio-contenido'>
                             <h2 class='h2-servicio'>{titulo}</h2>
                             <p class='p-servicio'>{descripcion}</p>
-                            <button class='btn-carrito' onclick='agregarAlCarrito({idServicio})'>Añadir servicio al carrito</button>
                         </div>
                     </div>
                 ";
@@ -48,18 +48,6 @@ namespace Interfaz {
                 LiteralControl literalControl = new LiteralControl(innerHTML);
                 labelInfo.Controls.Add(literalControl);
             }
-        }
-
-        protected void agregarAlCarrito()
-        {
-            /* ???????????????????????
-
-            CADCarrito carrito = new CADCarrito(); 
-
-            bool productoAgregado = carrito.AñadirProducto();
-
-            Response.Redirect("/Carrito.aspx");
-             */
         }
     }
 }

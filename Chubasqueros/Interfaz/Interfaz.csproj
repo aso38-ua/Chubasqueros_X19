@@ -95,7 +95,10 @@
     <Content Include="Categoria.aspx" />
     <Content Include="CerrarSesion.aspx" />
     <Content Include="EditarPerfil.aspx" />
+    <Content Include="IMGS\buceo.jpg" />
     <Content Include="IMGS\change.jpg" />
+    <Content Include="IMGS\cocina.jpg" />
+    <Content Include="IMGS\masaje.jpg" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
     <Content Include="Contacto.aspx" />
