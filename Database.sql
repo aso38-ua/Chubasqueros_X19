@@ -75,7 +75,7 @@ CREATE TABLE [dbo].[Puntuacion] (
     [contador]  INT NOT NULL,
     PRIMARY KEY CLUSTERED ([id_user] ASC, [item] ASC, [estrellas] ASC),
     FOREIGN KEY ([id_user]) REFERENCES [dbo].[usuario] ([id]),
-    FOREIGN KEY ([item]) REFERENCES [dbo].[producto] ([id])
+    FOREIGN KEY ([item]) REFERENCES [dbo].[producto] ([codigo])
 );
 
 CREATE TABLE Oferta (
