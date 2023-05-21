@@ -26,6 +26,7 @@
         <link rel="stylesheet" type="text/css" href="~/CSS/Default.css" />
         <link rel="stylesheet" type="text/css" href="~/CSS/Perfil.css" />
         <link rel="stylesheet" type="text/css" href="~/CSS/Oferta.css" />
+        <link rel="stylesheet" type="text/css" href="~/CSS/Comentario.css" />
 
     <script type="text/javascript" src="JS/JavaScript.js"></script>
         
@@ -82,6 +83,7 @@
                 <li><a class="coolButton" href="Oferta.aspx">Ofertas</a></li>
                 <li><a class="coolButton" href="Servicio.aspx">Servicios</a></li>
                 <li><a class="coolButton" href="Colaboracion.aspx">Colaboracion</a></li>
+                <li><a class="coolButton" href="Comentario.aspx">Comentario</a></li>
                 <li id="liregistro" runat="server"><a class="coolButton" href="Login.aspx">Login</a></li>
                 <li id="liperfil" runat="server"><a class="coolButton" href="Perfil.aspx">Mi cuenta</a>
                     <ul id="miPerfil">
@@ -94,7 +96,6 @@
                         
                     </ul>
                 </li>
-
                 
             
                 <li><label class="switch">

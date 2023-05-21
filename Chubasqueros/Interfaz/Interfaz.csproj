@@ -108,15 +108,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminOferta.aspx" />
+    <Content Include="adminServicio.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="Categoria.aspx" />
+    <Content Include="CSS\Colaboracion.css" />
+    <Content Include="Donaciones.aspx" />
+    <Content Include="IMGS\Instagram-Icon.png" />
+    <Content Include="IMGS\twitter-logo-9.png" />
+    <Content Include="IMGS\sombrero.png" />
+    <Content Include="IMGS\zyro-image.png" />
     <Content Include="CerrarSesion.aspx" />
     <Content Include="CV.aspx" />
     <Content Include="IMGS\change.jpg" />
     <Content Include="IMGS\fregando.jpg" />
+    <Content Include="EditarPerfil.aspx" />
+    <Content Include="IMGS\buceo.jpg" />
+    <Content Include="IMGS\change.jpg" />
+    <Content Include="IMGS\cocina.jpg" />
+    <Content Include="IMGS\masaje.jpg" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
     <Content Include="Contacto.aspx" />
@@ -125,8 +138,6 @@
     <Content Include="IMGS\Google_Contacts_logo.png" />
     <Content Include="IMGS\Mapa.png" />
     <Content Include="IMGS\mayka.jpeg" />
-    <Content Include="IMGS\Pull and Bear.jpeg" />
-    <Content Include="IMGS\zara.jpeg" />
     <Content Include="IMGS\banyo.jfif" />
     <Content Include="IMGS\costurero.jfif" />
     <Content Include="IMGS\entrenamiento.jfif" />
@@ -137,7 +148,6 @@
     <Content Include="Servicio.aspx" />
     <Content Include="CSS\Servicio.css" />
     <Content Include="CSS\Default.css" />
-    <Content Include="CSS\Oferta.css" />
     <Content Include="CSS\Perfil.css" />
     <Content Include="CSS\Registro.css" />
     <Content Include="CSS\StyleSheet1.css" />
@@ -170,12 +180,34 @@
     <Content Include="Comentario.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminOferta.aspx.cs">
+      <DependentUpon>adminOferta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminOferta.aspx.designer.cs">
+      <DependentUpon>adminOferta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminServicio.aspx.cs">
+      <DependentUpon>adminServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminServicio.aspx.designer.cs">
+      <DependentUpon>adminServicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Categoria.aspx.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Categoria.aspx.designer.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Donaciones.aspx.cs">
+      <DependentUpon>Donaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Donaciones.aspx.designer.cs">
+      <DependentUpon>Donaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CerrarSesion.aspx.cs">
       <DependentUpon>CerrarSesion.aspx</DependentUpon>
