@@ -98,11 +98,9 @@ CREATE TABLE curriculum (
     id INT IDENTITY(1, 1) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
-    direccion VARCHAR(200) NOT NULL,
     telefono VARCHAR(20) NOT NULL,
     email VARCHAR(100) NOT NULL,
     experiencia VARCHAR(MAX) NOT NULL,
     educacion VARCHAR(MAX) NOT NULL,
-    habilidades VARCHAR(MAX) NOT NULL,
     PRIMARY KEY (id),
 );
