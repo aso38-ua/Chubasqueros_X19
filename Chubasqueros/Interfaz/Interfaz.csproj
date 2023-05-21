@@ -108,6 +108,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DatabaseCarrito.mdf" />
+    <Content Include="App_Data\DatabaseCarrito_log.ldf">
+      <DependentUpon>DatabaseCarrito.mdf</DependentUpon>
+    </Content>
+    <Content Include="Colaboracion.aspx" />
+    <Content Include="CSS\EstiloCarrito.css" />
     <Content Include="adminOferta.aspx" />
     <Content Include="adminServicio.aspx" />
     <Content Include="App_Data\Database.mdf" />
