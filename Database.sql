@@ -10,7 +10,7 @@ CREATE TABLE [dbo].[usuario] (
 );
 
 CREATE TABLE [dbo].[Producto] (
-    [codigo] INT IDENTITY(1, 1) NOT NULL,
+    [codigo] INT NOT NULL,
     [nombre] NVARCHAR(100) NOT NULL,
     [descripcion] NVARCHAR(500) NULL,
     [precio] DECIMAL(10, 2) NOT NULL,
