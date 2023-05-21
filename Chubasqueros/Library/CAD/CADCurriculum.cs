@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace Library
 {
-    class CADCurriculum
+    public class CADCurriculum
     {
         private string constring; // Cadena de conexión a la base de datos
         public CADCurriculum()
@@ -26,11 +26,18 @@ namespace Library
             {
                 using (SqlConnection connection = new SqlConnection(constring))
                 {
-                    string query = "INSERT INTO Curriculums (Nombre, Apellido, ExperienciaLaboral) VALUES (@Nombre, @Apellido, @ExperienciaLaboral)";
+                    
+                    string query = "INSERT INTO curriculum ( nombre, apellido, direccion, telefono, email, experiencia, educacion, habilidades) " +
+                                   "VALUES ( @nombre, @apellido, @direccion, @telefono, @email, @experiencia, @educacion, @habilidades)";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Nombre", curriculum.Nombre);
-                    command.Parameters.AddWithValue("@Apellido", curriculum.Apellido);
-                    command.Parameters.AddWithValue("@ExperienciaLaboral", curriculum.ExperienciaLaboral);
+                    command.Parameters.AddWithValue("@nombre", curriculum.Nombre);
+                    command.Parameters.AddWithValue("@apellido", curriculum.Apellido);
+                    command.Parameters.AddWithValue("@direccion", curriculum.Direccion);
+                    command.Parameters.AddWithValue("@telefono", curriculum.Telefono);
+                    command.Parameters.AddWithValue("@email", curriculum.Email);
+                    command.Parameters.AddWithValue("@experiencia", curriculum.Experiencia);
+                    command.Parameters.AddWithValue("@educacion", curriculum.Educacion);
+                    command.Parameters.AddWithValue("@habilidades", curriculum.Habilidades);
 
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -42,6 +49,7 @@ namespace Library
             }
         }
 
+
         public ENCurriculum LeerCurriculum(int id)
         {
             ENCurriculum curriculum = null;
@@ -50,7 +58,7 @@ namespace Library
             {
                 using (SqlConnection connection = new SqlConnection(constring))
                 {
-                    string query = "SELECT Nombre, Apellido, ExperienciaLaboral FROM Curriculums WHERE Id = @Id";
+                    string query = "SELECT Nombre, Apellido, ExperienciaLaboral FROM curriculum WHERE Id = @Id";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Id", id);
 
@@ -63,7 +71,7 @@ namespace Library
                         curriculum.Id = id;
                         curriculum.Nombre = reader["Nombre"].ToString();
                         curriculum.Apellido = reader["Apellido"].ToString();
-                        curriculum.ExperienciaLaboral = reader["ExperienciaLaboral"].ToString();
+                        curriculum.Experiencia = reader["ExperienciaLaboral"].ToString();
                     }
 
                     reader.Close();
@@ -83,11 +91,11 @@ namespace Library
             {
                 using (SqlConnection connection = new SqlConnection(constring))
                 {
-                    string query = "UPDATE Curriculums SET Nombre = @Nombre, Apellido = @Apellido, ExperienciaLaboral = @ExperienciaLaboral WHERE Id = @Id";
+                    string query = "UPDATE curriculum SET Nombre = @Nombre, Apellido = @Apellido, ExperienciaLaboral = @ExperienciaLaboral WHERE Id = @Id";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Nombre", curriculum.Nombre);
                     command.Parameters.AddWithValue("@Apellido", curriculum.Apellido);
-                    command.Parameters.AddWithValue("@ExperienciaLaboral", curriculum.ExperienciaLaboral);
+                    command.Parameters.AddWithValue("@ExperienciaLaboral", curriculum.Experiencia);
                     command.Parameters.AddWithValue("@Id", curriculum.Id);
 
                     connection.Open();
@@ -106,7 +114,7 @@ namespace Library
             {
                 using (SqlConnection connection = new SqlConnection(constring))
                 {
-                    string query = "DELETE FROM Curriculums WHERE Id = @Id";
+                    string query = "DELETE FROM curriculum WHERE Id = @Id";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Id", id);
 
