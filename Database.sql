@@ -42,7 +42,7 @@ CREATE TABLE Favoritos (
     producto INT NOT NULL,
     PRIMARY KEY (producto,usuario),
     FOREIGN KEY (usuario) REFERENCES usuario(id),
-    FOREIGN KEY (producto) REFERENCES producto(id)
+    FOREIGN KEY (producto) REFERENCES producto(codigo)
 );
 
 CREATE TABLE Reservas (
@@ -53,7 +53,7 @@ CREATE TABLE Reservas (
     fecha VARCHAR(50) NULL,
     PRIMARY KEY (producto,usuario),
     FOREIGN KEY (usuario) REFERENCES usuario(id),
-    FOREIGN KEY (producto) REFERENCES producto(id)
+    FOREIGN KEY (producto) REFERENCES producto(codigo)
 );
 
 CREATE TABLE [dbo].[Comentario] (
