@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Library;
 
 namespace Interfaz
 {
@@ -11,7 +12,17 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            outputMsg.Text = "";
+            if (Session["username"] == null)
+            {
+                buttom_Favoritos.Visible = false;
+                buttom_Reservar.Visible = false;
+            }
+            else
+            {
+                buttom_Favoritos.Visible = true;
+                buttom_Reservar.Visible = true;
+            }
+                outputMsg.Text = "";
         }
 
         protected void onLeer(object sender, EventArgs e)
@@ -97,8 +108,19 @@ namespace Interfaz
 
         protected void onFavoritos(object sender, EventArgs e)
         {
-
-
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            ENFavoritos favoritos = new ENFavoritos(int.Parse(text_codigo.Text),usuario.id);
+            if (!favoritos.readFavoritosWithP())
+            {
+                favoritos.insertProductinBD(int.Parse(text_codigo.Text));
+                Mensaje.Text = "Producto agregado a lista de favoritos.";
+            }
+            else
+            {
+                Mensaje.Text = "El producto ya estaba en su lista de favoritos.";
+            }
         }
 
         protected void onPuntuar(object sender, EventArgs e)
@@ -109,7 +131,24 @@ namespace Interfaz
 
         protected void onReservar(object sender, EventArgs e)
         {
-
+            DateTime thisDay = DateTime.Today;
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            ENReserva reserva = new ENReserva(int.Parse(text_codigo.Text),usuario.id);
+            if (!reserva.readReserva())
+            {
+                reserva.fechap = thisDay.ToString("d");
+                reserva.createReserva();
+                Mensaje.Text = "Reserva creada";
+            }
+            else
+            {
+                reserva.ptotal = reserva.ptotal + (reserva.ptotal / reserva.cantidadp);
+                reserva.cantidadp = reserva.cantidadp + 1;
+                reserva.updateReserva();
+                Mensaje.Text = "Reserva actualizada, añadida una cantidad más a la antigua reserva";
+            }
 
         }
 

@@ -14,7 +14,7 @@ namespace Library
         public string apellido { get; set; }
         public string email { get; set; }
         public string contraseña { get; set; }
-        public bool EsAdmin { get; set; }
+        public bool esAdmin { get; set; }
 
         public ENUsuario()
         {

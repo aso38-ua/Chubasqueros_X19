@@ -6,6 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
     <div>
         <h2> Productos </h2>
+        <asp:Label ID="Mensaje" runat="server"></asp:Label><br/>
         <p>
             codigo: &nbsp;<asp:TextBox ID="text_codigo" runat="server" Height="25px" style="color:deeppink; margin-top: 10px; margin-left: 15px;" Width="200px"></asp:TextBox>
         </p>

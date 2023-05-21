@@ -11,79 +11,79 @@ namespace Interfaz
 {
 
 
-    public partial class Site1
+    public partial class Reservasadmin
     {
 
         /// <summary>
-        /// Control head.
+        /// Control text_nombreu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox text_nombreu;
 
         /// <summary>
-        /// Control form1.
+        /// Control button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button button1;
 
         /// <summary>
-        /// Control ContentPlaceHolder1.
+        /// Control text_nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.TextBox text_nombre;
 
         /// <summary>
-        /// Control liregistro.
+        /// Control button.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liregistro;
+        protected global::System.Web.UI.WebControls.Button button;
 
         /// <summary>
-        /// Control lifav.
+        /// Control text_cantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lifav;
+        protected global::System.Web.UI.WebControls.TextBox text_cantidad;
 
         /// <summary>
-        /// Control lireg.
+        /// Control button2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lireg;
+        protected global::System.Web.UI.WebControls.Button button2;
 
         /// <summary>
-        /// Control liperfil.
+        /// Control Mensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liperfil;
+        protected global::System.Web.UI.WebControls.Label Mensaje;
 
         /// <summary>
-        /// Control body.
+        /// Control listView_Reservas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder body;
+        protected global::System.Web.UI.WebControls.ListView listView_Reservas;
     }
 }

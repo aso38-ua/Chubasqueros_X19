@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class ENFavoritos
+    public class ENFavoritos
     {
         private int[] productos;
         private int usuario;
@@ -38,10 +38,13 @@ namespace Library
 
         public ENFavoritos(int[] productos, int usuario)
         {
-            this.productos = new int[productos.Length];
-            for(int i = 0; i < productos.Length; i++)
+            if (productos != null)
             {
-                this.productos[i] = productos[i];
+                this.productos = new int[productos.Length];
+                for (int i = 0; i < productos.Length; i++)
+                {
+                    this.productos[i] = productos[i];
+                }
             }
             this.usuario = usuario;
         }
@@ -60,6 +63,13 @@ namespace Library
             return leido;
         }
 
+        public bool readFavoritosWithP()
+        {
+            CADFavoritos favorito = new CADFavoritos();
+            bool leido = favorito.readFavoritesWithP(this);
+            return leido;
+        }
+
         public bool deleteFavoritos()
         {
             CADFavoritos favorito = new CADFavoritos();
@@ -73,7 +83,7 @@ namespace Library
             CADFavoritos favorito = new CADFavoritos();
             ENFavoritos aux = new ENFavoritos(producto, this.usuario);
             bool borrado = false;
-            if (favorito.readFavorites(this))
+            if (aux.readFavoritosWithP())
             {
                 borrado = favorito.deleteProduct(aux);
                 this.borrarProducto(producto);
