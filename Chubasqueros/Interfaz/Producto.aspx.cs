@@ -18,13 +18,21 @@ namespace Interfaz
             {
                 buttom_Favoritos.Visible = false;
                 buttom_Reservar.Visible = false;
+                //buttom_Comprar.Visible = false;
+                buttom_Carrito.Visible = false;
+                buttom_Puntuar.Visible = false;
+
             }
             else
             {
                 buttom_Favoritos.Visible = true;
                 buttom_Reservar.Visible = true;
+                //buttom_Comprar.Visible = true;
+                buttom_Carrito.Visible = true;
+                buttom_Puntuar.Visible = true;
+
             }
-                outputMsg.Text = "";
+            outputMsg.Text = "";
         }
 
         protected void onLeer(object sender, EventArgs e)
@@ -197,7 +205,7 @@ namespace Interfaz
                     else
                     {
                         outputMsg.Text = "Mostrando productos de la categoría " + en.getNombre() + " con código " + en.getCodCategoria();
-
+                        //labelInfo.Text = "";
                         for (int i = 0; i < productos.Length; i++)
                         {
 
@@ -208,7 +216,22 @@ namespace Interfaz
                             text_precio.Text = productos[i].getPrecio().ToString();
                             text_codigoCategoria.Text = productos[i].getCodigoCategoria().ToString();
 
+                            string innerHTML = $@"
+                          <div class='producto-container'>
+                
+                <div class='producto-contenido'>
+                    <p class='h2-producto'>{productos[i].getNombre()}</p>
+                    <p class='p-producto'>Código: {productos[i].getCodigo().ToString()}</p>
+                    <p class='p-producto'>Descripción: {productos[i].getDescripcion()}</p>
+                    <p class='p-producto'>Precio: {productos[i].getPrecio().ToString()}</p>
+                    <p class='p-producto'>Stock: {productos[i].getStock().ToString()}</p>
+                    <p class='p-producto'>CodigoCategoria: {productos[i].getCodigoCategoria().ToString()}</p>
+                </div>
+            </div>
+        ";
 
+                            LiteralControl literalControl = new LiteralControl(innerHTML);
+                            //labelInfo.Controls.Add(literalControl);
                         }
 
                     }

@@ -31,15 +31,17 @@
     <asp:Label ID="outputMsg" runat="server"></asp:Label><br />
     
 
-    <asp:Button text="Ver/Leer producto" onClick="onLeer" ID="buttom_Leer" runat="server" Width="137px" style="color:red" /><br /><br />
-    <asp:Button text="Filtrar por categoría" onClick="onCategoria" ID="buttom_Categoria" runat="server" Width="157px" style="color:red" /><br /><br />
-    <asp:Button text="Comprar producto" onClick="onComprar" ID="buttom_Comprar" runat="server" Width="148px" style="color:red" /><br /><br />
+    <asp:Button text="Ver/Leer producto" onClick="onLeer" ID="buttom_Leer" runat="server" Width="137px" style="color:red" />
+    <asp:Button text="Crear producto" onClick="onCrear" ID="buttom_Crear" runat="server" style="color:red" Width="143px" /><br /><br />
+    <asp:Button text="Filtrar por categoría" onClick="onCategoria" ID="buttom_Categoria" runat="server" Width="157px" style="color:red" />
+    <asp:Button text="Actualizar producto" onClick="onActualizar" ID="buttom_Actualizar" runat="server" Width="148px" style="color:red" /><br /><br />
+    <asp:Button text="Comprar producto" onClick="onComprar" ID="buttom_Comprar" runat="server" Width="148px" style="color:red" />
+    <asp:Button text="Borrar producto" onClick="onBorrar" ID="buttom_Borrar" runat="server" Width="147px" style="color:red" /><br /><br />
     <asp:Button text="Añadir al carrito" onClick="onCarrito" ID="buttom_Carrito" runat="server" Width="136px" style="color:red" /><br /><br />
     <asp:Button text="Añadir a favoritos" onClick="onFavoritos" ID="buttom_Favoritos" runat="server" Width="139px" style="color:red" /><br /><br />
     <asp:Button text="Puntuar producto" onClick="onPuntuar" ID="buttom_Puntuar" runat="server" Width="136px" style="color:red" /><br /><br />
     <asp:Button text="Reservar producto" onClick="onReservar" ID="buttom_Reservar" runat="server" Width="144px" style="color:red" /><br /><br />
-    <asp:Button text="Crear producto" onClick="onCrear" ID="buttom_Crear" runat="server" style="color:red" Width="143px" /><br /><br />
-    <asp:Button text="Actualizar producto" onClick="onActualizar" ID="buttom_Actualizar" runat="server" Width="148px" style="color:red" /><br /><br />
-    <asp:Button text="Borrar producto" onClick="onBorrar" ID="buttom_Borrar" runat="server" Width="147px" style="color:red" /><br /><br />
+    
+    
 
 </asp:Content>
