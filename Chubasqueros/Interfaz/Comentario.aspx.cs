@@ -48,9 +48,9 @@ namespace Interfaz
                     Label13.Text = "Nombre: ";
                     Label14.Text = en_prod.getNombre();
                     Label15.Text = "Precio: ";
-                    Label14.Text = Convert.ToString(en_prod.getPrecio());
+                    Label16.Text = Convert.ToString(en_prod.getPrecio());
                     Label17.Text = "ID: ";
-                    Label14.Text = Convert.ToString(en_prod.getCodigo());
+                    Label18.Text = Convert.ToString(en_prod.getCodigo());
                     //Creo un usuario con el usuario logeado
                     ENUsuario en_u = new ENUsuario();
                     en_u.nombre = (string)Session["username"];
@@ -152,7 +152,7 @@ namespace Interfaz
                         en_p.aux_id_user = en_u.id;
                         en_p.aux_item = en_prod.getCodigo();
                         en_p.aux_contador = en_p.aux_contador + 1;
-                        if (en_p.createPuntuacion() == true)
+                        if (en_p.changePuntuacion() == true)
                         {
                             /*en_p.aux_contador = en_p.aux_contador + 1;
                             ENPuntuacion en_p_aux = new ENPuntuacion();
@@ -194,7 +194,11 @@ namespace Interfaz
         {
             if (TBBuscar.Text != "")
             {
+                ENProducto en_prod = new ENProducto();
+                en_prod.setCodigo(int.Parse(TBBuscar.Text));
+                en_prod.readProducto();
                 ENComentario en = new ENComentario();
+                en.aux_item = en_prod.getCodigo();
                 if (en.FirstComment() == true)
                 {
                     Comentarios.Text = en.aux_comentario;
@@ -215,13 +219,17 @@ namespace Interfaz
         {
             if (TBBuscar.Text != "")
             {
+                ENProducto en_prod = new ENProducto();
+                en_prod.setCodigo(int.Parse(TBBuscar.Text));
+                en_prod.readProducto();
+                ENComentario en = new ENComentario();
+                en.aux_item = en_prod.getCodigo();
                 if (Comentarios.Text == "")
                 {
                     Label12.Text = "No hay comentarios, pruebe a leer el primer comentario";
                 }
                 else
                 {
-                    ENComentario en = new ENComentario();
                     en.aux_comentario = Comentarios.Text;
                     en.aux_likes = int.Parse(Label10.Text);
                     en.aux_dislikes = int.Parse(Label11.Text);
@@ -247,13 +255,17 @@ namespace Interfaz
         {
             if (TBBuscar.Text != "")
             {
+                ENProducto en_prod = new ENProducto();
+                en_prod.setCodigo(int.Parse(TBBuscar.Text));
+                en_prod.readProducto();
+                ENComentario en = new ENComentario();
+                en.aux_item = en_prod.getCodigo();
                 if (Comentarios.Text == "")
                 {
                     Label12.Text = "No hay comentarios, pruebe a leer el primer comentario";
                 }
                 else
                 {
-                    ENComentario en = new ENComentario();
                     en.aux_comentario = Comentarios.Text;
                     en.aux_likes = int.Parse(Label10.Text);
                     en.aux_dislikes = int.Parse(Label11.Text);
@@ -287,7 +299,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -331,7 +343,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -375,7 +387,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "" && TBComentario.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -418,7 +430,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "" && TBComentario.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -461,7 +473,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "" && TBComentario.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -505,7 +517,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "" && TBComentario.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
