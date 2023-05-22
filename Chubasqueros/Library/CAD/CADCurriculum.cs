@@ -27,17 +27,15 @@ namespace Library
                 using (SqlConnection connection = new SqlConnection(constring))
                 {
                     
-                    string query = "INSERT INTO curriculum ( nombre, apellido, direccion, telefono, email, experiencia, educacion, habilidades) " +
-                                   "VALUES ( @nombre, @apellido, @direccion, @telefono, @email, @experiencia, @educacion, @habilidades)";
+                    string query = "INSERT INTO curriculum ( nombre, apellido, telefono, email, experiencia, educacion) " +
+                                   "VALUES ( @nombre, @apellido, @telefono, @email, @experiencia, @educacion)";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@nombre", curriculum.Nombre);
                     command.Parameters.AddWithValue("@apellido", curriculum.Apellido);
-                    command.Parameters.AddWithValue("@direccion", curriculum.Direccion);
                     command.Parameters.AddWithValue("@telefono", curriculum.Telefono);
                     command.Parameters.AddWithValue("@email", curriculum.Email);
                     command.Parameters.AddWithValue("@experiencia", curriculum.Experiencia);
                     command.Parameters.AddWithValue("@educacion", curriculum.Educacion);
-                    command.Parameters.AddWithValue("@habilidades", curriculum.Habilidades);
 
                     connection.Open();
                     command.ExecuteNonQuery();
