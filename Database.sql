@@ -15,8 +15,14 @@ CREATE TABLE [dbo].[Producto] (
     [descripcion] NVARCHAR(500) NULL,
     [precio] DECIMAL(10, 2) NOT NULL,
     [stock] INT NOT NULL,
-    [codCategoria] INT NOT NULL,
+    [codigoCategoria] INT NOT NULL,
     PRIMARY KEY (codigo)
+);
+
+CREATE TABLE [dbo].[Categoría] (
+    [codCategoria] INT NOT NULL,
+    [nombre] NVARCHAR(100) NOT NULL,
+    PRIMARY KEY (codCategoria)
 );
 
 CREATE TABLE carrito (
