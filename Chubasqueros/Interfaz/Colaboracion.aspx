@@ -12,7 +12,7 @@
 <div class="fila">
     <div class="columna">
         <img class="imagen" src="IMGS/adidas.jpeg"/>
-        <p class="parrafo1">Chubasquero para peces & Adidas</p>
+        <p class="parrafo1"><a href='MostrarColaboraciones.aspx?'>Chubasquero para peces & Adidas</a> </p>
     </div>
     <div class="columna">
         <img class="imagen" src="IMGS/zara.jpeg"/>
@@ -30,12 +30,12 @@
 
 <div class="fila">
     <div class="columna"> 
-        <img class="imagen" <img src="IMGS/sombrero.png"/>
+        <img class="imagen" src="IMGS/sombrero.png"/>
         <p class="parrafo1">Chubasqueros para peces & Brent Black</p>
     </div>
     <div class="columna">
         <img class="imagen" src="IMGS/zyro-image.png"/>
-        <p class="parrafo1">Chubasqueros para peces & Oull and Bear</p>
+        <p class="parrafo1">Chubasqueros para peces & Pull and Bear</p>
     </div>
 </div>
 </asp:Content>

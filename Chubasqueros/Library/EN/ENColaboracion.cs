@@ -8,35 +8,34 @@ namespace Library
 {
     public class ENColaboracion
     {
-        //Atributos privados
+        //Atributos
         private int Id;
         private string Nombre;
-        private string Descripcion;
-        private float Precio;
+        public string Descripcion;
+        public float Precio;
 
-        //Getters y setters
-        public int intId
+        public int id
         {
-            get { return Id; }
-            set { Id = value; }
+            get => Id;
+            set => Id = value;
         }
 
-        public string stringNombre
+        public string nombre
         {
-            get { return Nombre; }
-            set { Nombre = value; }
+            get => Nombre;
+            set => Nombre = value;
         }
 
-        public string stringDescripcion
+        public string descripcion
         {
-            get { return Descripcion; }
-            set { Descripcion = value; }
+            get => Descripcion;
+            set => Descripcion = value;
         }
 
-        public float floatPrecio
+        public float precio
         {
-            get { return Precio; }
-            set {   Precio = value; }
+            get => Precio;
+            set => Precio = value;
         }
 
         //Constructor por defecto
@@ -47,7 +46,7 @@ namespace Library
             Precio = 0;
         }
 
-        //Constructor copia
+        //Constructor con parámetros
         public ENColaboracion(int id, string nombre, string descripcion, float precio) {
             Id = id;
             Nombre = nombre;

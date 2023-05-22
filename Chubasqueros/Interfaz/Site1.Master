@@ -58,7 +58,7 @@
                 <li><a class="coolButton" href="Oferta.aspx">Ofertas</a></li>
                 <li><a class="coolButton" href="Servicio.aspx">Servicios</a></li>
                 <li><a class="coolButton" href="Colaboracion.aspx">Colaboracion</a></li>
-
+                 <li><a class="coolButton" href="Donaciones.aspx">Donaciones</a></li>
                 
             
                 <li><label class="switch">
