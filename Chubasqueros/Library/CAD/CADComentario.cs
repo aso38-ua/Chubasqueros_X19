@@ -16,7 +16,7 @@ namespace library
 
         public CADComentario()
         {
-            conn = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            conn = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         //Crea comentario
@@ -120,7 +120,8 @@ namespace library
             bool first = true;
             SqlConnection conexion = null;
             string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item;
-            try {
+            try
+            {
                 conexion = new SqlConnection(conn);
                 conexion.Open();
 
@@ -236,7 +237,7 @@ namespace library
                     if (rd["id_user"].ToString() == en.aux_id_user.ToString())
                     {
                         aux = true;
-                    }                    
+                    }
                 }
                 if (next == true)
                 {
@@ -271,7 +272,7 @@ namespace library
         {
             bool show = false;
             SqlConnection conexion = null;
-            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item + "and id_user = " + en.aux_id_user;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -361,7 +362,8 @@ namespace library
             bool like = false;
             SqlConnection conexion = null;
             string comando = "update [dbo].[Comentario] set likes = " + en.aux_likes + 1 + " where item = " + en.aux_item + "and estrellas = " + en.aux_estrellas;
-            try {
+            try
+            {
                 like = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();

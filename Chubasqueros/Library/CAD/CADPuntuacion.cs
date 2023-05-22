@@ -34,7 +34,7 @@ namespace library
                 consulta.ExecuteNonQuery();
                 puntuar = true;
             }
-            catch(SqlException sqlex)
+            catch (SqlException sqlex)
             {
                 puntuar = false;
                 Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
@@ -227,6 +227,49 @@ namespace library
                 if (conexion != null) conexion.Close();
             }
             return find;
+        }
+
+        public bool findItemSinUser(ENPuntuacion en)
+        {
+            bool findU = false;
+            SqlConnection conexion = null;
+            string comando = "select * from [dbo].[Puntuacion] where item = " + en.aux_item;
+            try
+            {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader rd = consulta.ExecuteReader();
+                rd.Read();
+
+                if (int.Parse(rd["item"].ToString()) == en.aux_item)
+                {
+                    findU = true;
+                    en.aux_id_user = int.Parse(rd["id_user"].ToString());
+                    en.aux_estrella = int.Parse(rd["estrellas"].ToString());
+                    en.aux_item = int.Parse(rd["item"].ToString());
+                    en.aux_media = int.Parse(rd["media"].ToString());
+                    en.aux_contador = int.Parse(rd["contador"].ToString());
+                }
+
+                rd.Close();
+            }
+            catch (SqlException sqlex)
+            {
+                findU = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                findU = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return findU;
         }
     }
 }
