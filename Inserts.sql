@@ -77,6 +77,19 @@ INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategori
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (9, 'Gorra', 'Gorra grande perfecta para cabezones', 1, 15.4, 2);
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (10, 'Zapatos', 'Zapatos glamurosos', 1, 60, 2);
 
+
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (1, 'Bañamos a tu pez', 'Servicio de baño relajante y terapéutico para peces', 15.99, 500, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (2, 'Paseamos a tu pez', 'Servicio exclusivo de paseo al aire libre para peces', 12.50, 300, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (3, 'Cuidamos a tu pez', 'Servicio de guardería para peces mientras estás de viaje', 20.00, 800, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (4, 'Diseñamos chubasqueros', 'Servicio de diseño personalizado de chubasqueros para peces', 30.99, 50, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (5, 'Fotografiamos a tu pez', 'Servicio de fotografía para peces con chubasqueros', 25.50, 100, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (6, 'Entrenamos a tu pez', 'Servicio de entrenamiento y trucos para peces', 18.99, 30, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (7, 'Masaje relajante para tu pez', 'Servicio de masaje acuático relajante para peces', 10.99, 70, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (8, 'Clases de buceo para tu pez', 'Servicio de clases de buceo exclusivas para peces', 22.50, 90, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (9, 'Clases de cocina para tu pez', 'Servicio de clases de cocina para peces chefs acuáticos', 28.75, 7, 3);
+
+
+
 INSERT INTO Favoritos (usuario, producto) VALUES (15,1);
 INSERT INTO Favoritos (usuario, producto) VALUES (15,2);
 INSERT INTO Favoritos (usuario, producto) VALUES (15,3);
