@@ -8,6 +8,10 @@
     <div id="HFavoritos">
         <h2>Lista de Favoritos</h2>
     </div>
+    <div id="ElimFav">
+        <p>Nombre del producto a borrar: &nbsp;<asp:TextBox ID="text_nombre" runat="server" Height="25px" style="color:black; margin-top: 10px; margin-left: 15px;" Width="400px"></asp:TextBox></asp:TextBox><asp:Button style="background-color:white; border-color:black; color:red; margin-top: 10px; margin-left: 15px;" Width="150px" id="button1" runat="server" text="Eliminar" onClick="eliminardeFavoritos"/></p>
+        <asp:Label ID="Mensaje" runat="server"></asp:Label><br/>
+    </div>
     <div id="list" style="width:90%">
         <asp:ListView ID="listView_Favoritos" runat="server" GroupItemCount="1" GroupPlaceholderID="groupPlaceholder1"  ItemPlaceholderID="itemPlaceholder1">
             <EmptyDataTemplate>
@@ -41,16 +45,15 @@
                      <table cellpadding="2" cellspacing="0" border="1" style="width: 800px; height: 100px; border: dashed 2px #04AFEF; background-color: #B0E2F5">
                          <tr>
                              <td>
-                                 <b><u><span class="name">
-                                     <%# Eval("ContactName") %></span></u>
+                                 <b><u><span style="color:black" class="name"><%# Eval("auxnombre") %></span></u>
                                  </b>
-                             </td>
+                             &nbsp;</td>
                          </tr>
                          <tr>
                              <td>
-                                 <b>Description: </b><span class="description"><%# Eval("descripcion") %></span><br />
-                                 <b>Stock: </b><span class="stock"><%# Eval("stock") %></span><br />
-                                 <b>Precio: </b><span class="precio"><%# Eval("precio")%></span><br />
+                                 <b style="color:grey">Description: </b><span style="color:blue" class="description"><%# Eval("auxdescripcion") %></span><br />
+                                 <b style="color:grey">Stock: </b><span style="color:blue" class="stock"><%# Eval("auxstock") %></span><br />
+                                 <b style="color:grey">Precio: </b><span style="color:blue" class="precio"><%# Eval("auxprecio")%></span><b style="color:blue">€</b><br />
                              </td>
                          </tr>
                      </table>

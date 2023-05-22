@@ -140,6 +140,55 @@ namespace library
             return show;
         }
 
+        public bool readComment()
+        {
+            bool read = false;
+
+            ENComentario aux_EN_Com = new ENComentario(this);
+            CADComentario aux_CAD_Com = new CADComentario();
+            ENProducto aux_EN_Prod = new ENProducto();
+            CADProducto aux_CAD_Prod = new CADProducto();
+            aux_EN_Prod.setCodigo(item);
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod))
+            {
+                read = aux_CAD_Com.readComment(this);
+            }
+            return read;
+        }
+
+        public bool FirstComment()
+        {
+            bool first = false;
+            ENComentario en_c = new ENComentario();
+            CADComentario cad_c = new CADComentario();
+            first = cad_c.FirstComment(this);
+            return first;
+        }
+
+        public bool PrevComment()
+        {
+            bool prev = false;
+            ENComentario en_c = new ENComentario();
+            CADComentario cad_c = new CADComentario();
+            if (cad_c.FirstComment(en_c) && aux_id_user != en_c.aux_id_user)
+            {
+                prev = cad_c.PrevComment(this);
+            }
+            return prev;
+        }
+
+        public bool NextComment()
+        {
+            bool next = false;
+            ENComentario en_c = new ENComentario(this);
+            CADComentario cad_c = new CADComentario();
+            if (cad_c.FirstComment(en_c) && aux_id_user != en_c.aux_id_user)
+            {
+                next = cad_c.NextComment(this);
+            }            
+            return next;
+        }
+
         public bool likesItem()
         {
             bool like = false;

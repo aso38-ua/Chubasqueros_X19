@@ -11,61 +11,79 @@ namespace Interfaz
 {
 
 
-    public partial class EditarPerfil
+    public partial class Reservasadmin
     {
 
         /// <summary>
-        /// Control btnChangeName.
+        /// Control text_nombreu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnChangeName;
+        protected global::System.Web.UI.WebControls.TextBox text_nombreu;
 
         /// <summary>
-        /// Control txtNewUsername.
+        /// Control button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewUsername;
+        protected global::System.Web.UI.WebControls.Button button1;
 
         /// <summary>
-        /// Control changeName.
+        /// Control text_nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label changeName;
+        protected global::System.Web.UI.WebControls.TextBox text_nombre;
 
         /// <summary>
-        /// Control Button1.
+        /// Control button.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button button;
 
         /// <summary>
-        /// Control fileUploadProfileImage.
+        /// Control text_cantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUploadProfileImage;
+        protected global::System.Web.UI.WebControls.TextBox text_cantidad;
 
         /// <summary>
-        /// Control btnUpload.
+        /// Control button2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpload;
+        protected global::System.Web.UI.WebControls.Button button2;
+
+        /// <summary>
+        /// Control Mensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Mensaje;
+
+        /// <summary>
+        /// Control listView_Reservas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView listView_Reservas;
     }
 }

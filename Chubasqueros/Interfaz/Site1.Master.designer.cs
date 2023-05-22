@@ -51,6 +51,24 @@ namespace Interfaz
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liregistro;
 
         /// <summary>
+        /// Control lifav.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lifav;
+
+        /// <summary>
+        /// Control lireg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lireg;
+
+        /// <summary>
         /// Control liperfil.
         /// </summary>
         /// <remarks>

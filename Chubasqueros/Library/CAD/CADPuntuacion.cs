@@ -19,11 +19,12 @@ namespace library
             conn = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
         }
 
+        //Crea una puntuación
         public bool createPuntuacion(ENPuntuacion en)
         {
             bool puntuar = false;
             SqlConnection conexion = null;
-            string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item) values (" + en.aux_estrella + ", " + en.aux_id_user + ", " + en.aux_item + ")";
+            string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item, media, contador) values (" + en.aux_estrella + ", " + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_media + ", " + en.aux_contador + ")";
             try
             {
                 conexion = new SqlConnection(conn);
@@ -50,13 +51,15 @@ namespace library
             return puntuar;
         }
 
+        //Elimina una puntuación
         public bool eliminatePuntuacion(ENPuntuacion en)
         {
             bool eliminate = false;
             SqlConnection conexion = null;
-            string comando = "delete from [dbo].[Puntuacion] where id_user = " + en.aux_id_user + ", estrellas = " + en.aux_estrella + ", item = " + en.aux_item;
+            string comando = "delete from [dbo].[Puntuacion] where id_user = " + en.aux_id_user + "and estrellas = " + en.aux_estrella + "and item = " + en.aux_item;
             try
             {
+                eliminate = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
@@ -80,13 +83,15 @@ namespace library
             return eliminate;
         }
 
+        //Modifica una puntuación
         public bool changePuntuacion(ENPuntuacion en)
         {
             bool change = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Puntuacion] set estrellas = " + en.aux_estrella + " where id_user = " + en.aux_id_user + ", item = " + en.aux_item;
+            string comando = "update [dbo].[Puntuacion] set estrellas = " + en.aux_estrella + " where id_user = " + en.aux_id_user + "and item = " + en.aux_item;
             try
             {
+                change = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
@@ -110,17 +115,44 @@ namespace library
             return change;
         }
 
+        //Calcula la media de las puntuaciones
         public bool mediaPuntuacion(ENPuntuacion en)
         {
-            bool media = false;
-            return media;
+            bool mediaP = false;
+            SqlConnection conexion = null;
+            string comando = "update [dbo].[Puntuacion] set media = " + en.aux_estrella / en.aux_contador + "where item = " + en.aux_item;
+            try
+            {
+                mediaP = true;
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.ExecuteNonQuery();
+
+            }
+            catch (SqlException sqlex)
+            {
+                mediaP = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                mediaP = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return mediaP;
         }
 
-        public bool findItem(ENPuntuacion en)
+        //Calcula el número total de estrellas de un item
+        public bool totalEstrellas(ENPuntuacion en)
         {
-            bool find = false;
+            bool totalE = false;
             SqlConnection conexion = null;
-            string comando = "select * from [dbo].[Puntuacion] where item = " + en.aux_item;
+            string comando = "select SUM(estrellas) from [dbo].[Puntuacion] where item = " + en.aux_item;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -132,10 +164,50 @@ namespace library
 
                 if (int.Parse(rd["item"].ToString()) == en.aux_item)
                 {
+                    totalE = true;
+                    // en.aux_estrella = rd;
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                totalE = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                totalE = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return totalE;
+        }
+
+        //Obtienes los datos de la puntuación de un objeto
+        public bool findItem(ENPuntuacion en)
+        {
+            bool find = false;
+            SqlConnection conexion = null;
+            string comando = "select * from [dbo].[Puntuacion] where item = " + en.aux_item + "and id_user = " + en.aux_id_user;
+            try
+            {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader rd = consulta.ExecuteReader();
+                rd.Read();
+
+                if (int.Parse(rd["item"].ToString()) == en.aux_item && int.Parse(rd["id_user"].ToString()) == en.aux_id_user)
+                {
                     find = true;
                     en.aux_id_user = int.Parse(rd["id_user"].ToString());
                     en.aux_estrella = int.Parse(rd["estrellas"].ToString());
                     en.aux_item = int.Parse(rd["item"].ToString());
+                    en.aux_media = int.Parse(rd["media"].ToString());
+                    en.aux_contador = int.Parse(rd["contador"].ToString());
                 }
 
                 rd.Close();
