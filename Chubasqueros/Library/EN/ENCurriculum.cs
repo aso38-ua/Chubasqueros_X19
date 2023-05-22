@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class ENCurriculum
+    public class ENCurriculum
     {
         // Atributos
         public int Id { get; set; }
+        public int UsuarioId { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string ExperienciaLaboral { get; set; }
+        public string Telefono { get; set; }
+        public string Email { get; set; }
+        public string Experiencia { get; set; }
+        public string Educacion { get; set; }
 
         // Constructor
         public ENCurriculum()
@@ -38,7 +42,7 @@ namespace Library
             {
                 this.Nombre = curriculum.Nombre;
                 this.Apellido = curriculum.Apellido;
-                this.ExperienciaLaboral = curriculum.ExperienciaLaboral;
+                this.Experiencia = curriculum.Experiencia;
                 Console.WriteLine("Curriculum leído exitosamente.");
             }
             else

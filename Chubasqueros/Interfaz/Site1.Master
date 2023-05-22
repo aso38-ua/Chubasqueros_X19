@@ -79,13 +79,14 @@
             
                 <li><a class="coolButton" href="Default.aspx">Inicio</a></li>
                 <li><a class="coolButton" href="Producto.aspx">Productos</a></li>
-                <li><a class="coolButton" href="Contacto.aspx">Contacto</a></li>
                 <li><a class="coolButton" href="Oferta.aspx">Ofertas</a></li>
                 <li><a class="coolButton" href="Servicio.aspx">Servicios</a></li>
                 <li><a class="coolButton" href="Colaboracion.aspx">Colaboracion</a></li>
                 <li><a class="coolButton" href="Comentario.aspx">Comentario</a></li>
                 <li><a class="coolButton" href="Donaciones.aspx">Donaciones</a></li>
                 <li id="liregistro" runat="server"><a class="coolButton" href="Login.aspx">Login</a></li>
+                <li id="lifav" runat="server"><a class="coolButton" href="Favoritos.aspx">Favoritos</a></li>
+                <li id="lireg" runat="server"><a class="coolButton" href="Reservas.aspx">Reservas</a></li>
                 <li id="liperfil" runat="server"><a class="coolButton" href="Perfil.aspx">Mi cuenta</a>
                     <ul id="miPerfil">
                         
@@ -165,7 +166,17 @@
 
     </form>
 
-    
+    <footer>
+              <a href="Contacto.aspx" style="margin-left:0%;filter: hue-rotate(10deg);">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Contacto
+                </a>
+              <p>Derechos de autor ©2023 - Chubasqueros para peces</p>
+    </footer>
 
 </body>
+
 </html>
