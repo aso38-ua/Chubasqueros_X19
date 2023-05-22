@@ -23,7 +23,7 @@ namespace Library
             this.apellido = "";
             this.email = "";
             this.contraseña="";
-            this.EsAdmin = false;
+            this.esAdmin = false;
         }
 
         public ENUsuario(int id, string nombre, string email, string contraseña)
