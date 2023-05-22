@@ -30,7 +30,7 @@ namespace Library
             //Establecemos conexión
             using (SqlConnection conexion = new SqlConnection(constring))
             {   //Creamos una consulta sql
-                string query = "INSERT INTO colaboracion (Id,Nombre,Descripcion,Precio)" + "VALUES (@Id,@Nombre,@Descripcion,@Precio)";
+                string query = "INSERT INTO colaboracion (Id,Nombre,Descripcion,Precio)" + "VALUES (@id,@nombre,@descripcion,@precio)";
                 //Creamos la consulta como comando
                 SqlCommand command = new SqlCommand(query, conexion);
                 //Ejecutamos el comando
@@ -46,7 +46,7 @@ namespace Library
             using (SqlConnection connection = new SqlConnection(constring))
             {
                 //Creamos una consulta sql
-                string query = "SELECT * FROM colaboracion WHERE Id = @Id";
+                string query = "SELECT * FROM colaboracion WHERE Id = @id";
                 //Creamos la consulta como comando
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -72,7 +72,7 @@ namespace Library
                 catch (SqlException e)
                 {
                     leido = false;
-                    Console.WriteLine("Colaboration operation has failed. Error: {0}", e.Message);
+                    Console.WriteLine("Colaboration operation has failed", e.Message);
                 }
             }
             return leido;
@@ -86,7 +86,7 @@ namespace Library
             using (SqlConnection connection = new SqlConnection(constring))
             {
                 //Creamos una consulta sql
-                string query = "UPDATE FROM colaboracion WHERE Id = @Id";
+                string query = "UPDATE FROM colaboracion WHERE Id = @id";
                 //Creamos la consulta como comando
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -101,7 +101,7 @@ namespace Library
                 catch (SqlException e)
                 {
                     modificado = false;
-                    Console.WriteLine("Colaboration operation has failed. Error: {0}", e.Message);
+                    Console.WriteLine("Colaboration operation has failed", e.Message);
                 }
                 return modificado;
             }
@@ -115,7 +115,7 @@ namespace Library
             using (SqlConnection connection = new SqlConnection(constring))
             {
                 //Creamos una consulta sql
-                string query = "DELETE FROM colaboracion WHERE Id = @Id";
+                string query = "DELETE FROM colaboracion WHERE Id = @id";
                 //Creamos la consulta como comando
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -130,7 +130,7 @@ namespace Library
                 catch (SqlException e)
                 {
                     eliminado = false;
-                    Console.WriteLine("Colaboration operation has failed. Error: {0}", e.Message);
+                    Console.WriteLine("Colaboration operation has failed", e.Message);
                 }
                 return eliminado;
             }

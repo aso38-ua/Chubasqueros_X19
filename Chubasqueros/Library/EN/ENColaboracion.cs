@@ -40,18 +40,18 @@ namespace Library
 
         //Constructor por defecto
         public ENColaboracion() {
-            Id = 0;
-            Nombre = string.Empty;
-            Descripcion = string.Empty;
-            Precio = 0;
+            id = 0;
+            nombre = string.Empty;
+            descripcion = string.Empty;
+            precio = 0;
         }
 
         //Constructor con parámetros
         public ENColaboracion(int id, string nombre, string descripcion, float precio) {
-            Id = id;
-            Nombre = nombre;
-            Descripcion = descripcion;
-            Precio = precio;
+            this.id = id;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.precio = precio;
         }
 
         //Crear colaboracion
@@ -77,14 +77,15 @@ namespace Library
             bool update = false;
             if (user.readColaboracion(aux))
             {
-                this.Id = aux.Id;
-                this.Nombre = aux.Nombre;
-                this.Descripcion = aux.Descripcion;
-                this.Precio = aux.Precio;
+                this.id = aux.id;
+                this.nombre = aux.nombre;
+                this.descripcion = aux.descripcion;
+                this.precio = aux.precio;
                 update = user.updateColaboracion(this);
             }
             return update;
         }
+        //Elimina colaboracion
         public bool deleteColaboracion() {
             CADColaboracion colab = new CADColaboracion();
             bool eliminado = false;

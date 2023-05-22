@@ -67,13 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="Categoria.aspx" />
     <Content Include="CSS\Colaboracion.css" />
     <Content Include="Donaciones.aspx" />
+    <Content Include="CSS\Donaciones.css" />
     <Content Include="IMGS\Instagram-Icon.png" />
     <Content Include="IMGS\twitter-logo-9.png" />
     <Content Include="IMGS\sombrero.png" />
+    <Content Include="IMGS\zara.jpeg" />
     <Content Include="IMGS\zyro-image.png" />
+    <Content Include="MostrarColaboraciones.aspx" />
     <Content Include="Producto.aspx" />
     <Content Include="Colaboracion.aspx" />
     <Content Include="Contacto.aspx" />
@@ -136,6 +143,13 @@
     </Compile>
     <Compile Include="Donaciones.aspx.designer.cs">
       <DependentUpon>Donaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarColaboraciones.aspx.cs">
+      <DependentUpon>MostrarColaboraciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MostrarColaboraciones.aspx.designer.cs">
+      <DependentUpon>MostrarColaboraciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Producto.aspx.cs">
       <DependentUpon>Producto.aspx</DependentUpon>
