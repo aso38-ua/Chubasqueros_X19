@@ -241,7 +241,7 @@ namespace Interfaz
                     }
                     else
                     {
-                        Label12.Text = "No es posible acceder a esta posición(Anterior)";
+                        Label12.Text = "No es posible acceder a esta posición(Siguiente)";
                     }
                 }
             }
@@ -326,6 +326,59 @@ namespace Interfaz
                 else
                 {
                     Label7.Text = "Busque un producto antes de eliminar puntuación";
+                }
+            }
+        }
+
+        protected void LikeMostrar(object sender, EventArgs e)
+        {
+            //Comprueba que se haya registrado
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                ENComentario en_c = new ENComentario();
+                en_c.aux_comentario = Comentarios.Text;
+                en_c.aux_item = int.Parse(TBBuscar.Text);
+                if (en_c.aux_comentario != "")
+                {
+                    int likes = int.Parse(Label10.Text);
+                    likes++;
+                    Label10.Text = Convert.ToString(likes);
+                    en_c.aux_likes = likes;
+                    if (!en_c.likesItem())
+                    {
+                        Label10.Text = "Error like";
+                    }
+                }
+            }
+        }
+
+        protected void DisLikeMostrar(object sender, EventArgs e)
+        {
+            //Comprueba que se haya registrado
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                ENComentario en_c = new ENComentario();
+                en_c.aux_comentario = Comentarios.Text;
+                en_c.aux_item = int.Parse(TBBuscar.Text);
+                if (en_c.aux_comentario != "")
+                {
+                    int dislikes = int.Parse(Label11.Text);
+                    dislikes++;
+                    Label11.Text = Convert.ToString(dislikes);
+                    en_c.aux_dislikes = dislikes;
+                    en_c.dislikesItem();
+                    if (!en_c.dislikesItem())
+                    {
+                        Label10.Text = "Error dislike";
+                    }
                 }
             }
         }
@@ -441,9 +494,14 @@ namespace Interfaz
                         en_c.aux_item = en_prod.getCodigo();
                         en_c.aux_id_user = en_u.id;
                         en_c.aux_comentario = TBComentario.Text;
-                        if (en_c.likesItem() == false)
+                        int likes = int.Parse(Label4.Text);
+                        likes++;
+                        Label4.Text = Convert.ToString(likes);
+                        en_c.aux_dislikes = likes;
+                        en_c.likesItem();
+                        if (!en_c.likesItem())
                         {
-                            Label4.Text = "Ha habido un error";
+                            Label4.Text = "Error like";
                         }
                         else
                         {
@@ -484,6 +542,10 @@ namespace Interfaz
                         en_c.aux_item = en_prod.getCodigo();
                         en_c.aux_id_user = en_u.id;
                         en_c.aux_comentario = TBComentario.Text;
+                        int dislikes = int.Parse(Label5.Text);
+                        dislikes++;
+                        Label5.Text = Convert.ToString(dislikes);
+                        en_c.aux_dislikes = dislikes;
                         if (en_c.dislikesItem() == false)
                         {
                             Label5.Text = "Ha habido un error";

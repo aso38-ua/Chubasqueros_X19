@@ -361,7 +361,7 @@ namespace library
         {
             bool like = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set likes = " + en.aux_likes + 1 + " where item = " + en.aux_item + "and estrellas = " + en.aux_estrellas;
+            string comando = "update [dbo].[Comentario] set likes = " + en.aux_likes + " where item = " + en.aux_item + "and comentario = " + en.aux_comentario;
             try
             {
                 like = true;
@@ -393,7 +393,7 @@ namespace library
         {
             bool dislike = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item + "and estrellas = " + en.aux_estrellas;
+            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_dislikes + 1 + "' where item = " + en.aux_item + "and comentario = " + en.aux_comentario;
             try
             {
                 dislike = true;
