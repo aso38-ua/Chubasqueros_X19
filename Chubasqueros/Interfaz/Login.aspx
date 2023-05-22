@@ -23,7 +23,10 @@
          <asp:Label ID="Label2" runat="server" Text="Contraseña" CssClass="neon-label"></asp:Label>
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPassword" ErrorMessage="Por favor, introduzca una contraseña." ValidationGroup="vgRegister"></asp:RequiredFieldValidator>
-        <br /><br />
+        <br />
+
+            <asp:Label ID="message" runat="server"></asp:Label>
+            <br />
 
             <asp:Button ID="btnRegister" runat="server" Text="Entrar" OnClick="btnLogin_Click" CssClass="neon-btn" /><br /><br />
         <asp:Button ID="Button1" runat="server" Text="¿Aún no estás registrado?" PostBackUrl="~/Registro.aspx" CssClass="neon-btn" />
