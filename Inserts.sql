@@ -284,3 +284,16 @@ INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 2,
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 3, 2, 9.4, '14/03/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 4, 1, 3.5, '13/03/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 9, 2, 30.8, '12/03/2023');
+
+
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (100, 1, 3, 14.1, 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (101, 1, 5, 2.2, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (102, 1, 10, 60, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (103, 1, 8, 53, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (104, 1, 4, 14, 4);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (105, 1, 6, 45, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (106, 1, 2, 11.2 , 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (107, 1, 9, 15.4, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (108, 1, 10, 120, 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (109, 1, 3, 47, 10);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (110, 1, 7, 220, 1);
