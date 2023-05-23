@@ -1,52 +1,7 @@
-﻿/*
+﻿
 .h1-carrito {
     align-items: center;
     padding: 60px 0 10px 10px;
     color: orange;
 }
 
-.container-prod {
-    background-color: lightyellow;
-    padding: 0 0 40px 10px;
-    width: 1000px;
-    height: 200px;
-    border: 3px solid orange;
-    display: flex;
-    flex-direction: column;
-}
-
-.container-prod img{
-    margin: 10px 700px 10px 0px;
-    width: 300px;
-    height: 500px;
-    object-fit: cover;
-}
-
-
-.nprod {
-    font-size: 30px;
-    line-height: 10%;
-    color: orange;
-}
-
-.prec {
-    font-size: 20px;
-    color: orange;
-    
-}
-
-.cant {
-    font-size: 20px;
-    color: orange;
-}
-
-.box {
-    width: 10px;
-    height: 10px;
-}
-
-.br {
-    margin-top: 20px;
-    display: block;
-}
-    */

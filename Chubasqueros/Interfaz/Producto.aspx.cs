@@ -102,7 +102,19 @@ namespace Interfaz
 
         protected void onCarrito(object sender, EventArgs e)
         {
-
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            ENCarrito carrito = new ENCarrito(int.Parse(text_codigo.Text), usuario.id);
+            if (!carrito.readCarritoinProduct())
+            {
+                carrito.AñadirProductoBD(int.Parse(text_codigo.Text));
+                Mensaje.Text = "Producto agregado al carrito.";
+            }
+            else
+            {
+                Mensaje.Text = "Ya tienes este producto en el carrito.";
+            }
 
         }
 

@@ -106,6 +106,13 @@ namespace Library
             return crear;
         }
 
+        public bool readCarritoinProduct()
+        {
+            CADCarrito carrito = new CADCarrito();
+            bool leido = carrito.readCarritoinProduct(this);
+            return leido;
+        }
+
         public bool eliminarCarrito()
         {
             CADCarrito carrito = new CADCarrito();
@@ -148,20 +155,6 @@ namespace Library
                 actualizar = carrito.actualizarCarrito(carro);
             }
             return actualizar;
-        }
-
-  
-        //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
-        public int cuentaCantidad()
-        {
-            CADCarrito carrito = new CADCarrito();
-            ENProducto producto = new ENProducto();
-            int cant = 0;
-            for(int i = 0; i < carrito.cuentaCantidad(); i++)
-            {
-                cant++;
-            }
-            return cant;
         }
 
         public void AñadirProducto(int producto)
@@ -208,13 +201,22 @@ namespace Library
 
 
         //Calcula el precio total que hay en el carrito
-        public float PrecioTotal()
+        public bool PrecioTotal()
         {
             CADCarrito carrito = new CADCarrito();
-            float precio = 0;
+            bool precio = false;
             return precio;
         }
 
-   
+        //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
+        public bool cuentaCantidad()
+        {
+            CADCarrito carrito = new CADCarrito();
+            ENProducto producto = new ENProducto();
+            bool cant = false;
+
+            return cant;
+        }
+
     }
 }

@@ -22,8 +22,8 @@ namespace Library
             this.nombre = "";
             this.apellido = "";
             this.email = "";
-            this.contraseña="";
-            this.EsAdmin = false;
+            this.contraseña = "";
+            this.esAdmin = false;
         }
 
         public ENUsuario(int id, string nombre, string email, string contraseña)
