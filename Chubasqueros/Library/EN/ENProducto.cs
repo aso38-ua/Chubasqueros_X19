@@ -27,6 +27,7 @@ namespace Library
         public int auxstock { get {return stock; } }
         public float auxprecio { get {return precio; } }
         
+        
 
         public ENProducto()
         {
@@ -37,6 +38,7 @@ namespace Library
             this.stock = 0;
             this.precio = 0;
             
+
         }
 
         public ENProducto(int codigo, string nombre, string descripcion, int stock, float precio, int codigoCat)

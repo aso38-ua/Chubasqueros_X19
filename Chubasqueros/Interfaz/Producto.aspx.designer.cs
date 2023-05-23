@@ -12,8 +12,7 @@ namespace Interfaz
 
 
     public partial class Producto
-    {
-
+    { 
 
         /// <summary>
         /// Control Mensaje.

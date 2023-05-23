@@ -14,6 +14,7 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             //SI NO ESTÁ LOGUEADO
             if (Session["username"] == null)
             {
@@ -122,6 +123,8 @@ namespace Interfaz
 
             else outputMsg.Text = "Alguno de los campos no estan especificados.";
         }
+
+       
 
         protected void onComprar(object sender, EventArgs e)
         {
