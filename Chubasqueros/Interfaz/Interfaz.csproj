@@ -147,6 +147,7 @@
     <Content Include="IMGS\fotografia.jfif" />
     <Content Include="IMGS\guarderia.jfif" />
     <Content Include="IMGS\paseo.jfif" />
+    <Content Include="ProfileImages\Perfil.jpg" />
     <Content Include="ProfileImages\Profile.jpg" />
     <Content Include="Reservasadmin.aspx" />
     <Content Include="Servicio.aspx" />

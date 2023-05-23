@@ -156,15 +156,12 @@
 
 
         <asp:ContentPlaceHolder ID="body" runat="server">
-            <footer>
-              <p>Contacto: correo@ejemplo.com</p>
-              <p>Derechos de autor ©2023 - Chubasqueros para peces</p>
-        </footer>
+            
             
         </asp:ContentPlaceHolder>
 
     </form>
-
+    <br />
     <footer>
               <a href="Contacto.aspx" style="margin-left:0%;filter: hue-rotate(10deg);">
                     <span></span>

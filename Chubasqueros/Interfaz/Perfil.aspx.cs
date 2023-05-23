@@ -127,15 +127,35 @@ namespace Interfaz
         {
             if (fileUploadProfileImage.HasFile)
             {
-                string fileName = "profile.jpg"; // Nombre de archivo deseado
+                string fileName = Path.GetFileName(fileUploadProfileImage.FileName); // Obtiene el nombre del archivo
                 string uploadsPath = Server.MapPath("~/ProfileImages");
                 string filePath = Path.Combine(uploadsPath, fileName);
 
                 fileUploadProfileImage.SaveAs(filePath);
 
                 // Guardar la ruta del archivo en la base de datos o cualquier otra operación necesaria
+                string username = Session["username"].ToString(); // Reemplaza con el nombre de usuario del usuario actual
+                string imagePath = "~/ProfileImages/" + fileName; // Ruta relativa que se guardará en la base de datos
+
+                string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "UPDATE usuario SET ImagenPerfil = @imagePath WHERE nombre = @username";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@imagePath", imagePath);
+                        command.Parameters.AddWithValue("@username", username);
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
             }
         }
+
+
 
 
 

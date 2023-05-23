@@ -316,25 +316,21 @@ namespace Library
                     command.Parameters.AddWithValue("@username", username);
 
                     connection.Open();
-                    imagePath = command.ExecuteScalar() as string;
+                    var result = command.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        imagePath = result.ToString();
+                        return imagePath;
+                    }
                 }
             }
 
-            // Verifica si la ruta de la imagen de perfil está vacía o nula
-            if (!string.IsNullOrEmpty(imagePath))
-            {
-                // La ruta de la imagen de perfil existe, convierte la ruta hexadecimal a una cadena
-                byte[] bytes = CADUsuario.HexToBytes(imagePath);
-                string rutaCadena = Encoding.UTF8.GetString(bytes);
-
-                return rutaCadena;
-            }
-            else
-            {
-                // La ruta de la imagen de perfil está vacía o nula, puedes retornar una ruta predeterminada o mostrar una imagen por defecto
-                return "~/ProfileImages/Profile.jpg";
-            }
+            // La ruta de la imagen de perfil está vacía o nula, mostrar una imagen por defecto
+            return "~/ProfileImages/Profile.jpg";
         }
+
+
 
         public static bool VerificarNombreUsuarioExistente(string newUsername)
         {
