@@ -14,20 +14,18 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
+            if (!IsPostBack)
             {
                 if (Session["username"] == null)
-                {
                     Response.Redirect("Login.aspx");
-                }
             }
 
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
 
-            if (!usuario.esAdmin) { 
-                Response.Redirect("Oferta.aspx"); }*/
+            if (!usuario.esAdmin) 
+                Response.Redirect("Oferta.aspx"); 
         }
 
         protected void btnAddOffer_Click(object sender, EventArgs e)

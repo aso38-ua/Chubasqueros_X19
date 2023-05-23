@@ -17,17 +17,15 @@ namespace Interfaz
             if (!IsPostBack)
             {
                 if (Session["username"] == null)
-                {
                     Response.Redirect("Login.aspx");
-                }
             }
 
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
 
-            if (!usuario.esAdmin) { 
-                Response.Redirect("Servicio.aspx"); }
+            if (!usuario.esAdmin)
+                Response.Redirect("Servicio.aspx"); 
         }
 
         protected void btnAddService_Click(object sender, EventArgs e)
