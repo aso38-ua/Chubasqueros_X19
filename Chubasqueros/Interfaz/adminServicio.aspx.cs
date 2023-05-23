@@ -15,7 +15,7 @@ namespace Interfaz
         // Evento al carga la página 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Comprueba si la página es una carga inicial o un postback
+            /*// Comprueba si la página es una carga inicial o un postback
             if (!IsPostBack)
             {
                 // Verifica si no se ha iniciado sesión 
@@ -29,7 +29,7 @@ namespace Interfaz
 
             // Si el usuario no es admin, redirige a Servicio
             if (!usuario.esAdmin)
-                Response.Redirect("Servicio.aspx"); 
+                Response.Redirect("Servicio.aspx"); */
         }
 
         // Botón agregar servicio

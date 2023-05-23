@@ -27,6 +27,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+    <h2 style="margin-top: -50px; margin-bottom: 100px">Añadir servicio</h2>
     <div class="container">
         <div class="form-group">
             <!-- Campo de ID del servicio -->
@@ -36,14 +37,14 @@
             <asp:RegularExpressionValidator ID="revIdServicio" runat="server" ControlToValidate="txtIdServicio" ErrorMessage="El ID de servicio debe ser numérico" ValidationExpression="^\d+$" />
 
             <!-- Campo del título del servicio  -->
-            <asp:Label ID="lblTitle" runat="server" Text="Título de la oferta" CssClass="neon-label form-control"></asp:Label>
+            <asp:Label ID="lblTitle" runat="server" Text="Título del servicio" CssClass="neon-label form-control"></asp:Label>
             <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvTitle" runat="server" ControlToValidate="txtTitle" ErrorMessage="El título de la oferta es obligatorio" />
+            <asp:RequiredFieldValidator ID="rfvTitle" runat="server" ControlToValidate="txtTitle" ErrorMessage="El título del servicio es obligatorio" />
 
             <!-- Campo de descripción del servicio -->
-            <asp:Label ID="lblDescription" runat="server" Text="Descripción de la oferta" CssClass="neon-label form-control"></asp:Label>
+            <asp:Label ID="lblDescription" runat="server" Text="Descripción del servicio" CssClass="neon-label form-control"></asp:Label>
             <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvDescription" runat="server" ControlToValidate="txtDescription" ErrorMessage="La descripción de la oferta es obligatoria" />
+            <asp:RequiredFieldValidator ID="rfvDescription" runat="server" ControlToValidate="txtDescription" ErrorMessage="La descripción del servicio es obligatoria" />
 
             <!-- Campo de ruta de la imagen -->
             <asp:Label ID="lblImage" runat="server" Text="Ruta de la imagen" CssClass="neon-label form-control"></asp:Label>

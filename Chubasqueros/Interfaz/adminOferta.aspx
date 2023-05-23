@@ -27,6 +27,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+    <h2 style="margin-top: -50px; margin-bottom: 100px">Añadir oferta</h2>
     <div class="container">
         <div class="form-group">
             <!-- Campo de ID de oferta -->
