@@ -14,6 +14,7 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //SI NO ESTÁ LOGUEADO
             if (Session["username"] == null)
             {
                 buttom_Favoritos.Visible = false;
@@ -32,6 +33,24 @@ namespace Interfaz
                 buttom_Puntuar.Visible = true;
 
             }
+
+            //OPCIONES ADMIN
+            /**ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            if (!usuario.esAdmin)
+            {
+                buttom_Crear.Visible = false;
+                buttom_Actualizar.Visible = false;
+                buttom_Borrar.Visible = false;
+            }
+            else
+            {
+                buttom_Crear.Visible = true;
+                buttom_Actualizar.Visible = true;
+                buttom_Borrar.Visible = true;
+            }*/
+
             outputMsg.Text = "";
         }
 
@@ -124,7 +143,7 @@ namespace Interfaz
                         //saldoUsuario - precio
                         outputMsg.Text = "Producto " + producto.getCodigo() + " con un precio de " + producto.getPrecio() + "€ comprado con éxito";
                         producto.updateProducto();
-                        //Mandar email al usuario confirmando su compra
+                        //Mandar email al usuario confirmando su compra posible mejora
 
 
                     }
@@ -205,9 +224,17 @@ namespace Interfaz
                     else
                     {
                         outputMsg.Text = "Mostrando productos de la categoría " + en.getNombre() + " con código " + en.getCodCategoria();
-                        //labelInfo.Text = "";
+                        //text_codigoCategoria.Text += " "; para mostrar todos concatenados
                         for (int i = 0; i < productos.Length; i++)
                         {
+                            //así los muestra todos pero en la misma TextBox, lo que queria era que fuese 1 a 1, pero no funcionan los Sleeps() ni llamar a nada y database peta 
+                            //entonces directamente muestra el último, o los muestra todos pero concatenándolos en la misma TextBox :(
+                            /**text_nombre.Text += productos[i].getNombre() + " ";
+                            text_codigo.Text += productos[i].getCodigo().ToString() + " ";
+                            text_descripcion.Text += productos[i].getDescripcion() + " ";
+                            text_stock.Text += productos[i].getStock().ToString() + " ";
+                            text_precio.Text += productos[i].getPrecio().ToString() + " ";
+                            text_codigoCategoria.Text += productos[i].getCodigoCategoria().ToString() + " ";*/
 
                             text_nombre.Text = productos[i].getNombre();
                             text_codigo.Text = productos[i].getCodigo().ToString();
@@ -216,28 +243,14 @@ namespace Interfaz
                             text_precio.Text = productos[i].getPrecio().ToString();
                             text_codigoCategoria.Text = productos[i].getCodigoCategoria().ToString();
 
-                            string innerHTML = $@"
-                          <div class='producto-container'>
-                
-                <div class='producto-contenido'>
-                    <p class='h2-producto'>{productos[i].getNombre()}</p>
-                    <p class='p-producto'>Código: {productos[i].getCodigo().ToString()}</p>
-                    <p class='p-producto'>Descripción: {productos[i].getDescripcion()}</p>
-                    <p class='p-producto'>Precio: {productos[i].getPrecio().ToString()}</p>
-                    <p class='p-producto'>Stock: {productos[i].getStock().ToString()}</p>
-                    <p class='p-producto'>CodigoCategoria: {productos[i].getCodigoCategoria().ToString()}</p>
-                </div>
-            </div>
-        ";
-
-                            LiteralControl literalControl = new LiteralControl(innerHTML);
-                            //labelInfo.Controls.Add(literalControl);
                         }
+                        
 
                     }
 
                 }
                 else outputMsg.Text = "Categoría inexistente en la B.D.";
+                
 
 
             }
