@@ -14,7 +14,7 @@ namespace Library
         public string apellido { get; set; }
         public string email { get; set; }
         public string contraseña { get; set; }
-        public bool EsAdmin { get; set; }
+        public bool esAdmin { get; set; }
 
         public ENUsuario()
         {
@@ -23,7 +23,7 @@ namespace Library
             this.apellido = "";
             this.email = "";
             this.contraseña="";
-            this.EsAdmin = false;
+            this.esAdmin = false;
         }
 
         public ENUsuario(int id, string nombre, string email, string contraseña)
@@ -128,6 +128,13 @@ namespace Library
 
             // Actualizar el valor en la sesión
             HttpContext.Current.Session["email"] = newEmail;
+        }
+
+        public bool EsAdmin(string username)
+        {
+            CADUsuario usuario = new CADUsuario();
+            bool esAdmin = usuario.EsAdmin(username);
+            return esAdmin;
         }
 
     }

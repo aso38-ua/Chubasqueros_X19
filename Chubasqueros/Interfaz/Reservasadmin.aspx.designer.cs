@@ -11,17 +11,26 @@ namespace Interfaz
 {
 
 
-    public partial class Categoria
+    public partial class Reservasadmin
     {
 
         /// <summary>
-        /// Control text_codCategoria.
+        /// Control text_nombreu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox text_codCategoria;
+        protected global::System.Web.UI.WebControls.TextBox text_nombreu;
+
+        /// <summary>
+        /// Control button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button1;
 
         /// <summary>
         /// Control text_nombre.
@@ -33,48 +42,48 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.TextBox text_nombre;
 
         /// <summary>
-        /// Control outputMsg.
+        /// Control button.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label outputMsg;
+        protected global::System.Web.UI.WebControls.Button button;
 
         /// <summary>
-        /// Control buttom_Leer.
+        /// Control text_cantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttom_Leer;
+        protected global::System.Web.UI.WebControls.TextBox text_cantidad;
 
         /// <summary>
-        /// Control buttom_Crear.
+        /// Control button2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttom_Crear;
+        protected global::System.Web.UI.WebControls.Button button2;
 
         /// <summary>
-        /// Control buttom_Actualizar.
+        /// Control Mensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttom_Actualizar;
+        protected global::System.Web.UI.WebControls.Label Mensaje;
 
         /// <summary>
-        /// Control buttom_Borrar.
+        /// Control listView_Reservas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttom_Borrar;
+        protected global::System.Web.UI.WebControls.ListView listView_Reservas;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Reservas.aspx.cs" Inherits="Interfaz.Reservas" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site1.Master" CodeBehind="Reservasadmin.aspx.cs" Inherits="Interfaz.Reservasadmin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -9,6 +9,8 @@
         <h2>Lista de Reservas</h2>
     </div>
     <div id="ElimReserva">
+        <p>Nombre del usuario: &nbsp;<asp:TextBox ID="text_nombreu" runat="server" Height="25px" style="color:black; margin-top: 10px; margin-left: 15px;" Width="400px"></asp:TextBox>
+            <asp:Button style="background-color:white; border-color:black; color:red; margin-top: 10px; margin-left: 15px;" Width="150px" id="button1" runat="server" text="Buscar" onClick="buscarUsuario"/></p>
         <p>Nombre del producto: &nbsp;<asp:TextBox ID="text_nombre" runat="server" Height="25px" style="color:black; margin-top: 10px; margin-left: 15px;" Width="400px"></asp:TextBox>
             <asp:Button style="background-color:white; border-color:black; color:red; margin-top: 10px; margin-left: 15px;" Width="150px" id="button" runat="server" text="Eliminar" onClick="cancelarReserva"/></p>
         <p>Número de cantidad: &nbsp;<asp:TextBox ID="text_cantidad" runat="server" Height="25px" style="color:black; margin-top: 10px; margin-left: 15px;" Width="400px">

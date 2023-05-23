@@ -108,12 +108,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adminOferta.aspx" />
-    <Content Include="adminServicio.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Colaboracion.aspx" />
+    <Content Include="CSS\EstiloCarrito.css" />
+    <Content Include="adminOferta.aspx" />
+    <Content Include="adminServicio.aspx" />
+    <Content Include="Database.sql" />
     <Content Include="Categoria.aspx" />
     <Content Include="CSS\Colaboracion.css" />
     <Content Include="Donaciones.aspx" />
@@ -125,7 +128,7 @@
     <Content Include="CV.aspx" />
     <Content Include="IMGS\change.jpg" />
     <Content Include="IMGS\fregando.jpg" />
-    <Content Include="EditarPerfil.aspx" />
+    <Content Include="Formulario web1.aspx" />
     <Content Include="IMGS\buceo.jpg" />
     <Content Include="IMGS\change.jpg" />
     <Content Include="IMGS\cocina.jpg" />
@@ -144,7 +147,9 @@
     <Content Include="IMGS\fotografia.jfif" />
     <Content Include="IMGS\guarderia.jfif" />
     <Content Include="IMGS\paseo.jfif" />
+    <Content Include="ProfileImages\Perfil.jpg" />
     <Content Include="ProfileImages\Profile.jpg" />
+    <Content Include="Reservasadmin.aspx" />
     <Content Include="Servicio.aspx" />
     <Content Include="CSS\Servicio.css" />
     <Content Include="CSS\Default.css" />
@@ -223,6 +228,13 @@
     <Compile Include="CV.aspx.designer.cs">
       <DependentUpon>CV.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formulario web1.aspx.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario web1.aspx.designer.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Producto.aspx.cs">
       <DependentUpon>Producto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -245,6 +257,13 @@
     </Compile>
     <Compile Include="Contacto.aspx.designer.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservasadmin.aspx.cs">
+      <DependentUpon>Reservasadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservasadmin.aspx.designer.cs">
+      <DependentUpon>Reservasadmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Servicio.aspx.cs">
       <DependentUpon>Servicio.aspx</DependentUpon>
