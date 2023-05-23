@@ -24,7 +24,7 @@ namespace library
         {
             bool create = false;
             SqlConnection conexion = null;
-            string comando = "insert into [dbo].[Comentario] (id_user, item, estrellas, likes, dislikes, comentario) values (" + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_estrellas + ", " + en.aux_likes + ", " + en.aux_dislikes + ", en.comentario = '" + en.aux_comentario + "')";
+            string comando = "insert into [dbo].[Comentario] (id_user, item, estrellas, likes, dislikes, comentario) values (" + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_estrellas + ", " + en.aux_likes + ", " + en.aux_dislikes + ", '" + en.aux_comentario + "')";
             try
             {
                 conexion = new SqlConnection(conn);
@@ -361,7 +361,7 @@ namespace library
         {
             bool like = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set likes = " + en.aux_likes + " where item = " + en.aux_item + "and comentario = " + en.aux_comentario;
+            string comando = "update [dbo].[Comentario] set likes = " + en.aux_likes + " where item = " + en.aux_item + "and comentario = '" + en.aux_comentario + "'";
             try
             {
                 like = true;
@@ -393,7 +393,7 @@ namespace library
         {
             bool dislike = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_dislikes + 1 + "' where item = " + en.aux_item + "and comentario = " + en.aux_comentario;
+            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_dislikes + 1 + "' where item = " + en.aux_item + "and comentario = '" + en.aux_comentario + "'";
             try
             {
                 dislike = true;

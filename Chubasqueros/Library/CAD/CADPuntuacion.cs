@@ -165,7 +165,7 @@ namespace library
                 if (int.Parse(rd["item"].ToString()) == en.aux_item)
                 {
                     totalE = true;
-                    // en.aux_estrella = rd;
+                    //en.aux_estrella = int.Parse(rd);
                 }
             }
             catch (SqlException sqlex)

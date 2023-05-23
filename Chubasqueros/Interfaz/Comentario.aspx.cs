@@ -154,23 +154,22 @@ namespace Interfaz
                         en_p.aux_contador = en_p.aux_contador + 1;
                         if (en_p.changePuntuacion() == true)
                         {
-                            /*en_p.aux_contador = en_p.aux_contador + 1;
-                            ENPuntuacion en_p_aux = new ENPuntuacion();
-                            en_p_aux.totalEstrellas();
-                            en_p_aux.aux_contador = en_p.aux_contador;
-                            en_p_aux.totalEstrellas();
-                            en_p_aux.mediaPuntuacion();
-                            en_p.aux_media = en_p_aux.aux_media;*/
+                            /* ENPuntuacion en_p_aux = new ENPuntuacion();
+                             en_p_aux.totalEstrellas();
+                             en_p_aux.aux_contador = en_p.aux_contador;
+                             en_p_aux.totalEstrellas();
+                             en_p_aux.mediaPuntuacion();*/
+                            en_p.aux_media = en_p.aux_estrella;
                             Label3.Text = Convert.ToString(en_p.aux_estrella);
                             Label6.Text = Convert.ToString(en_p.aux_media);
                             Label7.Text = "Ha puntuado correctamente con " + en_p.aux_estrella;
                             if (en_p.aux_estrella == 1)
                             {
-                                Label7.Text += "estrella";
+                                Label7.Text += " estrella";
                             }
                             else
                             {
-                                Label7.Text += "estrellas";
+                                Label7.Text += " estrellas";
                             }
                         }
                         else
