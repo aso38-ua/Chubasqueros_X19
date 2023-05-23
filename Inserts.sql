@@ -35,6 +35,21 @@ INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos]
 INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (17, N'Diego', N'password654', N'diego@example.com', NULL, NULL, 0, 0, 0)
 
 
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('asd', 'disco190');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'asd');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Juan');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'María');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Ana');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Pedro');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Luisa');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Carlos');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Laura');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Manuel');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Marta');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Andrés');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Carolina');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Diego');
+
 
 
 
