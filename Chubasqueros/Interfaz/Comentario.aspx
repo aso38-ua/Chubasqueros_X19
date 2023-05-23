@@ -8,8 +8,17 @@
     <asp:Button ID="BtnRegresar" runat="server" Text="Regresar a producto" onClick="RegresarClick" BackColor="#33cc33" BorderColor="Green" BorderStyle="Groove"/>
     <br />
     <h2>Producto</h2>
-    Nombre: 
+    ID: 
     <asp:TextBox ID="TBBuscar" runat="server" Height="50px" Width="250px"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label13" runat="server" />
+    <asp:Label ID="Label14" runat="server" />
+    <br />
+    <asp:Label ID="Label15" runat="server" />
+    <asp:Label ID="Label16" runat="server" />
+    <br />
+    <asp:Label ID="Label17" runat="server" />
+    <asp:Label ID="Label18" runat="server" />
     <br />
     <asp:Button ID="BtnBuscar" runat="server" Text="Buscar" onClick="BuscarClick" BackColor="#ff33cc" BorderColor="Pink" BorderStyle="Groove"/>
     <br />
@@ -40,9 +49,9 @@
         <asp:TextBox ID="Comentarios" runat="server" Height="150px" Width="550px"></asp:TextBox>
     <br />
     <asp:Label ID="Label10" runat="server" />
-    <asp:Button ID="Button1" runat="server" Text="Like" onClick="LikeClick" BackColor= "#00ff00"/>
+    <asp:Button ID="Button1" runat="server" Text="Like" onClick="LikeMostrar" BackColor= "#00ff00"/>
     <asp:Label ID="Label11" runat="server" />
-    <asp:Button ID="Button2" runat="server" Text="Dislike" onClick="DislikeClick" BackColor= "#ff0000"/>
+    <asp:Button ID="Button2" runat="server" Text="Dislike" onClick="DisLikeMostrar" BackColor= "#ff0000"/>
     <br />
     <asp:Button ID="BtnLeerPrimero" runat="server" Text="Leer Primero" onClick="PrimeroClick"/>
     <asp:Button ID="BtnLeerAnterior" runat="server" Text="Leer Anterior" onClick="AnteriorClick"/>

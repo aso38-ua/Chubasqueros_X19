@@ -32,15 +32,40 @@
                         <asp:Label runat="server" Text="" ID="changEmail" Style="font-size:15px;"></asp:Label>
                     </div>
                     <div class="info-row">
-                        <label>Apellido:</label>
-                        <asp:Label ID="lblCountry" runat="server" Text="wfgh"></asp:Label>
+                        <label>Pais:</label>
+                        <asp:Label ID="lblCountry" runat="server" Text=""></asp:Label>
                     </div>
                     <div class="info-row">
                         <label>Birthdate:</label>
-                        <asp:Label ID="lblBirthdate" runat="server" Text="01/01/1980"></asp:Label>
+                        <asp:Label ID="lblBirthdate" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
             </div>
+
+        <div>
+           <label>Mis seguidores:</label>
+           <span id="misSubs" runat="server"></span>
+        </div>
+        <div>
+           <label>Mis seguidos:</label>
+           <span id="misimp" runat="server"></span>
+        </div>
+        <br />
+        <h2>Buscar usuario</h2>
+        
+
+        <div>
+            <input type="text" id="txtSeguido" runat="server" />
+            <asp:Button ID="btnSeguir" runat="server" Text="Seguir" OnClick="btnSeguir_Click" />
+        </div>
+
+        <div>
+           <label>Seguidores:</label>
+           <span id="lblFollowers" runat="server"></span>
+        </div>
+        
+        
+        
 
         <h2>Cargar imagen de perfil</h2>
                     <div class="upload-form">
@@ -52,4 +77,15 @@
                     
         </div>
 
+    
+    <div id="divUsuariosConMasSeguidores" runat="server" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top:5%;">
+    <asp:Button ID="btnMostrarUsuarios" runat="server" Text="Mostrar Usuarios con Más Seguidores" OnClick="btnMostrarUsuarios_Click" />
+
+    <asp:GridView ID="gvUsuariosConMasSeguidores" runat="server" AutoGenerateColumns="False">
+    <Columns>
+        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+        <asp:BoundField DataField="NumeroSeguidores" HeaderText="Seguidores" />
+    </Columns>
+    </asp:GridView>
+        </div>
 </asp:Content>

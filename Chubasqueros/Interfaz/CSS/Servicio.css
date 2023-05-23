@@ -1,8 +1,10 @@
-﻿.servicio-container {
+﻿/* Contenedor */
+.servicio-container {
     display: flex;
     align-items: center;
 }
 
+/* Imagen */
 .servicio-imagen-img {
     margin-left: 100px;
     margin-right: 300px;
@@ -12,22 +14,20 @@
     height: auto;
 }
 
+/* Título y descripción de cada servicio */
 .servicio-contenido {
     flex: 1 1 auto;
 }
 
+/* Descripción */
 .p-servicio {
-    color: #ffa31a;
     font-size: 25px;
-    text-shadow: 0 0 10px #ffa31a, 0 0 20px #ffa31a, 0 0 30px #ffa31a, 0 0 40px #ffa31a;
-    animation: neon 1.5s ease-in-out infinite alternate;
 }
 
+/* Título de la página */
+
 .h2-servicio {
-    color: #ffa31a;
     text-align: center;
     font-size: 50px;
     margin-top: -50px;
-    text-shadow: 0 0 10px #ffa31a, 0 0 20px #ffa31a, 0 0 30px #ffa31a, 0 0 40px #ffa31a;
-    animation: neon 1.5s ease-in-out infinite alternate;
 }

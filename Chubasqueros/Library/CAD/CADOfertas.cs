@@ -18,19 +18,20 @@ namespace library
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
-        public CADOfertas(ENOfertas servicio)
+        public CADOfertas(ENOfertas oferta)
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
-        public bool createOferta(ENOfertas servicio)
+        // Crea una oferta en la BD
+        public bool createOferta(ENOfertas oferta)
         {
             SqlConnection conn = new SqlConnection(constring);
 
             try
             {
                 conn.Open();
-                string query = "INSERT INTO [dbo].[Oferta] (idOferta, porcentajeDescuento, descripcion, img) VALUES ('" + servicio.IdOferta + "', '" + servicio.PorcentajeDescuento + "', '" + servicio.Descripcion + "', '" + servicio.Img + "')";
+                string query = "INSERT INTO [dbo].[Oferta] (idOferta, porcentajeDescuento, descripcion, img) VALUES ('" + oferta.IdOferta + "', '" + oferta.PorcentajeDescuento + "', '" + oferta.Descripcion + "', '" + oferta.Img + "')";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.ExecuteNonQuery();
                 conn.Close();
@@ -53,24 +54,25 @@ namespace library
             }
         }
 
-        public bool readOferta(ENOfertas servicio)
+        // Lee una oferta de la BD
+        public bool readOferta(ENOfertas oferta)
         {
             SqlConnection conn = new SqlConnection(constring);
 
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM [dbo].[Oferta] WHERE idOferta = '" + servicio.IdOferta + "'";
+                string query = "SELECT * FROM [dbo].[Oferta] WHERE idOferta = '" + oferta.IdOferta + "'";
                 SqlCommand comm = new SqlCommand(query, conn);
                 SqlDataReader reader = comm.ExecuteReader();
                 reader.Read();
 
-                if (reader["idOferta"].ToString() == servicio.IdOferta.ToString())
+                if (reader["idOferta"].ToString() == oferta.IdOferta.ToString())
                 {
-                    servicio.IdOferta = int.Parse(reader["idOferta"].ToString());
-                    servicio.PorcentajeDescuento = int.Parse(reader["porcentajeDescuento"].ToString());
-                    servicio.Descripcion = reader["descripcion"].ToString();
-                    servicio.Img = reader["Img"].ToString();
+                    oferta.IdOferta = int.Parse(reader["idOferta"].ToString());
+                    oferta.PorcentajeDescuento = int.Parse(reader["porcentajeDescuento"].ToString());
+                    oferta.Descripcion = reader["descripcion"].ToString();
+                    oferta.Img = reader["Img"].ToString();
 
                     reader.Close();
                     conn.Close();
@@ -95,14 +97,15 @@ namespace library
             }
         }
 
-        public bool updateOferta(ENOfertas servicio)
+        // Actualiza una oferta en la BD
+        public bool updateOferta(ENOfertas oferta)
         {
             SqlConnection conn = new SqlConnection(constring);
 
             try
             {
                 conn.Open();
-                string query = "UPDATE [dbo].[Oferta] SET idOferta = '" + servicio.IdOferta + "' , porcentajeDescuento = '" + servicio.PorcentajeDescuento + "' , descripcion = '" + servicio.Descripcion + "' , img = '" + servicio.Img + "' WHERE idOferta = '" + servicio.IdOferta + "'";
+                string query = "UPDATE [dbo].[Oferta] SET idOferta = '" + oferta.IdOferta + "' , porcentajeDescuento = '" + oferta.PorcentajeDescuento + "' , descripcion = '" + oferta.Descripcion + "' , img = '" + oferta.Img + "' WHERE idOferta = '" + oferta.IdOferta + "'";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.ExecuteNonQuery();
                 return true;
@@ -119,10 +122,11 @@ namespace library
             }
         }
 
-        public bool deleteOferta(ENOfertas servicio)
+        // Elimina una oferta en la BD
+        public bool deleteOferta(ENOfertas oferta)
         {
             SqlConnection conn = new SqlConnection(constring);
-            string query = "DELETE FROM [dbo].[Oferta] WHERE idOferta = '" + servicio.IdOferta + "'";
+            string query = "DELETE FROM [dbo].[Oferta] WHERE idOferta = '" + oferta.IdOferta + "'";
 
             try
             {
@@ -143,6 +147,7 @@ namespace library
             }
         }
 
+        // Lee todas las ofertas de la BD
         public DataTable readAllOffers()
         {
             DataTable dataTable = new DataTable();

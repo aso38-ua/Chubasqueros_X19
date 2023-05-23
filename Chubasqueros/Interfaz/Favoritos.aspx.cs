@@ -36,7 +36,6 @@ namespace Interfaz
                     productos[i] = new ENProducto();
                     productos[i].setCodigo(favoritos.productop[i]);
                     productos[i].readProducto();
-                    productos[i].setStock(favoritos.productop[i]);
                 }
                 listView_Favoritos.DataSource = productos;
                 listView_Favoritos.DataBind();
@@ -64,7 +63,7 @@ namespace Interfaz
                 if (busqueda["nombre"].ToString() == text_nombre.Text)
                 {
                     existe = true;
-                    favoritos.deleteProductinBD(int.Parse(busqueda["id"].ToString()));
+                    favoritos.deleteProductinBD(int.Parse(busqueda["codigo"].ToString()));
                 }
                 busqueda.Close();
             }

@@ -31,7 +31,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "Insert INTO [dbo].[Categoría] (codCategoria, nombre) VALUES (" + en.getCodCategoria() + ", " + en.getNombre() + ")";
+                string query = "Insert INTO [dbo].[Categoría] (codCategoria, nombre) VALUES (" + en.getCodCategoria() + ", '" + en.getNombre() + "')";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
                 creado = true;
@@ -56,14 +56,14 @@ namespace Library
 
         public bool deleteCategoria(ENCategoria en)
         {
-            bool eliminado = false;
+            bool eliminado = true;
             SqlConnection connection = null;
             try
             {
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "DELETE FROM [dbo].[Producto] WHERE codCategoria = '" + en.getCodCategoria() + "'";
+                string query = "DELETE FROM [dbo].[Categoría] WHERE codCategoria = " + en.getCodCategoria();
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
                 eliminado = true;
@@ -95,7 +95,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "Select * From [dbo].[Categoria] Where codCategoria = " + en.getCodCategoria();
+                string query = "Select * From [dbo].[Categoría] Where codCategoria = " + en.getCodCategoria();
                 SqlCommand consulta = new SqlCommand(query, connection);
                 SqlDataReader busqueda = consulta.ExecuteReader();
                 busqueda.Read();
@@ -137,7 +137,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "UPDATE [dbo].[Categoria] SET codCategoria = " + en.getCodCategoria() + " ,nombre= " + en.getNombre() + "WHERE codCategoria = " + en.getCodCategoria();
+                string query = "UPDATE [dbo].[Categoría] SET codCategoria = " + en.getCodCategoria() + " ,nombre= '" + en.getNombre() + "' WHERE codCategoria = " + en.getCodCategoria();
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
             }

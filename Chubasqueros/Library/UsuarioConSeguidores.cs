@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class CADDonaciones
+    public class UsuarioConSeguidores
     {
+        public string Nombre { get; set; }
+        public int NumeroSeguidores { get; set; }
     }
 }
