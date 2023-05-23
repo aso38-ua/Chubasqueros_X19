@@ -107,6 +107,9 @@ footer {
 input {
     color: var(--fg);
     font: 1em/1.5 sans-serif;
+    width: 277px;
+    margin-left: 0px;
+    height: 27px;
 }
 
     input:checked + .switch__sr {

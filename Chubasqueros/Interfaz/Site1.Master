@@ -82,6 +82,7 @@
                 <li><a class="coolButton" href="Oferta.aspx">Ofertas</a></li>
                 <li><a class="coolButton" href="Servicio.aspx">Servicios</a></li>
                 <li><a class="coolButton" href="Comentario.aspx">Comentario</a></li>
+                <li><a class="coolButton" href="Donaciones.aspx">Donaciones</a></li>
                 <li id="liregistro" runat="server"><a class="coolButton" href="Login.aspx">Login</a></li>
 
                 <li id="lireg" runat="server"><a class="coolButton" href="Reservas.aspx">Reservas</a></li>
