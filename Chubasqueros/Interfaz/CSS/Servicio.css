@@ -1,8 +1,10 @@
-﻿.servicio-container {
+﻿/* Contenedor */
+.servicio-container {
     display: flex;
     align-items: center;
 }
 
+/* Imagen */
 .servicio-imagen-img {
     margin-left: 100px;
     margin-right: 300px;
@@ -12,13 +14,17 @@
     height: auto;
 }
 
+/* Título y descripción de cada servicio */
 .servicio-contenido {
     flex: 1 1 auto;
 }
 
+/* Descripción */
 .p-servicio {
     font-size: 25px;
 }
+
+/* Título de la página */
 
 .h2-servicio {
     text-align: center;
