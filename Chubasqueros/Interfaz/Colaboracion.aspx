@@ -12,7 +12,7 @@
 <div class="fila">
     <div class="columna">
         <img class="imagen" src="IMGS/adidas.jpeg"/>
-        <p class="parrafo1"><a href='MostrarColaboraciones.aspx?'>Chubasquero para peces & Adidas</a> </p>
+        <p class="parrafo1">Chubasquero para peces & Adidas</p>
     </div>
     <div class="columna">
         <img class="imagen" src="IMGS/zara.jpeg"/>
