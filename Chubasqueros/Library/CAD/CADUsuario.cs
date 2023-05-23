@@ -350,6 +350,29 @@ namespace Library
             }
         }
 
+        public bool EsAdmin(string username)
+        {
+            using (SqlConnection connection = new SqlConnection(constring))
+            {
+                string query = "SELECT esAdmin FROM usuario WHERE nombre = @username";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    var result = command.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return (bool)result;
+                    }
+                }
+            }
+
+            return false; // Si no se encuentra el usuario o la columna isAdmin es nula, se considera que no es administrador
+        }
+
         public static void ActualizarNombreUsuario(string currentUsername, string newUsername)
         {
             // Consulta SQL para actualizar el nombre de usuario en la base de datos
@@ -408,19 +431,6 @@ namespace Library
             
         }
 
-        private static byte[] HexToBytes(string hex)
-        {
-            int length = hex.Length / 2;
-            byte[] bytes = new byte[length];
-
-            for (int i = 0; i < length; i++)
-            {
-                bytes[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
-            }
-
-            return bytes;
-        }
-
         public static bool EsCorreoElectronico(string input)
         {
             try
@@ -433,5 +443,46 @@ namespace Library
                 return false;
             }
         }
+
+        public static int ObtenerNumeroSeguidores(string username)
+        {
+            int followersCount = 0;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM seguidores WHERE username_seguido = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    followersCount = (int)command.ExecuteScalar();
+                }
+            }
+
+            return followersCount;
+        }
+
+        public static int ObtenerNumeroSeguidos(string username)
+        {
+            int followingCount = 0;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM seguidores WHERE username_seguidor = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    followingCount = (int)command.ExecuteScalar();
+                }
+            }
+
+            return followingCount;
+        }
+
     }
 }

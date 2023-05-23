@@ -42,16 +42,49 @@ namespace Interfaz
                     ENUsuario usuario = new ENUsuario();
                     usuario.nombre = username;
                     usuario.email = email;
-
+                    ENSeguidores follow = new ENSeguidores();
                     // Obtén la ruta de la imagen de perfil del usuario desde la base de datos o desde la ubicación especificada
                     string imagePath = usuario.ObtenerRutaImagenPerfil(usuario.nombre);
 
                     // Asigna la ruta de la imagen al control <asp:Image>
                     imgProfile.ImageUrl = ResolveUrl(imagePath);
+
+                    int seguidores = follow.ObtenerNumeroSeguidos(username);
+                    int seguidos = follow.ObtenerNumeroSeguidores(username);
+
+                    int misubs = follow.MisSeguidores(username);
+                    misSubs.InnerText = misubs.ToString();
+                    misimp.InnerText = seguidores.ToString();
+
+                    // Asignar los valores a los elementos span
+                    lblFollowers.InnerText = misubs.ToString();
+                    //lblFollowing.InnerText = seguidos.ToString();
+
+                    if (usuario.EsAdmin(username))
+                    {
+                        // Mostrar el contenido solo si el usuario es administrador
+                        divUsuariosConMasSeguidores.Visible = true;
+                    }
+                    else
+                    {
+                        // Ocultar el contenido si el usuario no es administrador
+                        divUsuariosConMasSeguidores.Visible = false;
+                    }
+
                 }
                 
             }
         }
+
+        protected void btnMostrarUsuarios_Click(object sender, EventArgs e)
+        {
+            ENSeguidores follow = new ENSeguidores();
+            int cantidad = 10; // Cantidad de usuarios con más seguidores a mostrar
+            List<UsuarioConSeguidores> usuarios = follow.ObtenerUsuariosConMasSeguidores(cantidad);
+            gvUsuariosConMasSeguidores.DataSource = usuarios;
+            gvUsuariosConMasSeguidores.DataBind();
+        }
+
 
         protected void btnName_Click(object sender, EventArgs e)
         {
@@ -82,6 +115,8 @@ namespace Interfaz
 
                 // Actualizar el nombre de usuario en la sesión
                 Session["username"] = newUsername;
+
+                Response.Redirect(Request.Url.AbsoluteUri);
             }
         }
 
@@ -115,12 +150,9 @@ namespace Interfaz
 
                 // Actualizar el nombre de usuario en la sesión
                 Session["email"] = newEmail;
-            }
-        }
 
-        protected void btnEdit_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("EditarPerfil.aspx");
+                Response.Redirect(Request.Url.AbsoluteUri);
+            }
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -152,12 +184,25 @@ namespace Interfaz
                         command.ExecuteNonQuery();
                     }
                 }
+
+                Response.Redirect(Request.Url.AbsoluteUri);
             }
         }
 
+        protected void btnSeguir_Click(object sender, EventArgs e)
+        {
+            string seguido = txtSeguido.Value; // Obtener el valor del TextBox
+            string seguidor = Session["username"].ToString(); // Obtener el usuario actual
+            ENSeguidores follow = new ENSeguidores();
+            
+            follow.AgregarSeguido(seguidor, seguido);
 
-
-
+            // Actualizar la cantidad de seguidores y seguidos en la interfaz
+            int numeroSeguidores = follow.ObtenerNumeroSeguidores(seguido);
+            int numeroSeguidos = follow.ObtenerNumeroSeguidos(seguidor);
+            lblFollowers.InnerText = numeroSeguidores.ToString();
+            //lblFollowing.InnerText = numeroSeguidos.ToString();
+        }
 
 
     }

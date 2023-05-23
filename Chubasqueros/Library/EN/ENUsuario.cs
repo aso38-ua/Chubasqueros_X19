@@ -130,5 +130,12 @@ namespace Library
             HttpContext.Current.Session["email"] = newEmail;
         }
 
+        public bool EsAdmin(string username)
+        {
+            CADUsuario usuario = new CADUsuario();
+            bool esAdmin = usuario.EsAdmin(username);
+            return esAdmin;
+        }
+
     }
 }
