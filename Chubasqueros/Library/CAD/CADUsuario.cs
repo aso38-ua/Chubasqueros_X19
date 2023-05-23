@@ -90,6 +90,7 @@ namespace Library
                         en.nombre = reader["nombre"].ToString();
                         en.contraseña = reader["contraseña"].ToString();
                         en.email = reader["email"].ToString();
+                        en.esAdmin = bool.Parse(reader["esAdmin"].ToString());
                         resultado = true;
                     }
 
@@ -238,33 +239,250 @@ namespace Library
             return existeUsuario;
         }
 
-
-
-        public static ENUsuario ObtenerUsuarioPorId(int id)
+        public static bool ValidarCredenciales(string username, string password)
         {
-            throw new NotImplementedException();
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM usuario WHERE (nombre = @username OR email = @username) AND contraseña = @password";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", password);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0; // Retorna true si se encontró un registro, o false si no se encontró
+                }
+            }
         }
 
-        public static ENUsuario ObtenerUsuarioPorEmail(string email)
+        public static string ObtenerEmailPorUsuario(string username)
         {
-            throw new NotImplementedException();
+            string email = string.Empty;
+
+            if (EsCorreoElectronico(username))
+            {
+                return username; // El 'username' ya es un correo electrónico, devolverlo directamente
+            }
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT email FROM usuario WHERE nombre = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    email = (string)command.ExecuteScalar();
+                }
+            }
+
+            return email;
         }
 
-        public static List<ENUsuario> ObtenerTodosLosUsuarios()
+        public static string ObtenerUsuarioPorEmail(string email)
         {
-            throw new NotImplementedException();
+            string username = string.Empty;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT nombre FROM usuario WHERE email = @email";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+
+                    connection.Open();
+                    username = (string)command.ExecuteScalar();
+                }
+            }
+
+            return username;
         }
 
-        // Update
-        public static void ActualizarUsuario(ENUsuario usuario)
+        public static string ObtenerRutaImagenPerfil(string username)
         {
-            throw new NotImplementedException();
+            string imagePath = string.Empty;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ImagenPerfil FROM usuario WHERE nombre = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    var result = command.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        imagePath = result.ToString();
+                        return imagePath;
+                    }
+                }
+            }
+
+            // La ruta de la imagen de perfil está vacía o nula, mostrar una imagen por defecto
+            return "~/ProfileImages/Profile.jpg";
         }
 
-        // Delete
-        public static void EliminarUsuario(int id)
+
+
+        public static bool VerificarNombreUsuarioExistente(string newUsername)
         {
-            throw new NotImplementedException();
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM usuario WHERE nombre = @newUsername";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newUsername", newUsername);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
         }
+
+        public bool EsAdmin(string username)
+        {
+            using (SqlConnection connection = new SqlConnection(constring))
+            {
+                string query = "SELECT esAdmin FROM usuario WHERE nombre = @username";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    var result = command.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return (bool)result;
+                    }
+                }
+            }
+
+            return false; // Si no se encuentra el usuario o la columna isAdmin es nula, se considera que no es administrador
+        }
+
+        public static void ActualizarNombreUsuario(string currentUsername, string newUsername)
+        {
+            // Consulta SQL para actualizar el nombre de usuario en la base de datos
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE usuario SET nombre = @newUsername WHERE nombre = @currentUsername";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newUsername", newUsername);
+                    command.Parameters.AddWithValue("@currentUsername", currentUsername);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static bool VerificarEmailExistente(string newEmail)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM usuario WHERE email = @newEmail";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newEmail", newEmail);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
+        public static void ActualizarEmail(string currentEmail, string newEmail)
+        {
+            if (EsCorreoElectronico(newEmail))
+            {
+                // Consulta SQL para actualizar el nombre de usuario en la base de datos
+                string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "UPDATE usuario SET email = @newEmail WHERE email = @currentEmail";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@newEmail", newEmail);
+                        command.Parameters.AddWithValue("@currentEmail", currentEmail);
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            
+        }
+
+        public static bool EsCorreoElectronico(string input)
+        {
+            try
+            {
+                var email = new System.Net.Mail.MailAddress(input);
+                return email.Address == input;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static int ObtenerNumeroSeguidores(string username)
+        {
+            int followersCount = 0;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM seguidores WHERE username_seguido = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    followersCount = (int)command.ExecuteScalar();
+                }
+            }
+
+            return followersCount;
+        }
+
+        public static int ObtenerNumeroSeguidos(string username)
+        {
+            int followingCount = 0;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM seguidores WHERE username_seguidor = @username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+
+                    connection.Open();
+                    followingCount = (int)command.ExecuteScalar();
+                }
+            }
+
+            return followingCount;
+        }
+
     }
 }

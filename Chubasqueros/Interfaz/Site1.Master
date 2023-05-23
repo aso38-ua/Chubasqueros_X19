@@ -26,6 +26,7 @@
         <link rel="stylesheet" type="text/css" href="~/CSS/Default.css" />
         <link rel="stylesheet" type="text/css" href="~/CSS/Perfil.css" />
         <link rel="stylesheet" type="text/css" href="~/CSS/Oferta.css" />
+        <link rel="stylesheet" type="text/css" href="~/CSS/Comentario.css" />
 
     <script type="text/javascript" src="JS/JavaScript.js"></script>
         
@@ -78,15 +79,16 @@
             
                 <li><a class="coolButton" href="Default.aspx">Inicio</a></li>
                 <li><a class="coolButton" href="Producto.aspx">Productos</a></li>
-                <li><a class="coolButton" href="Contacto.aspx">Contacto</a></li>
                 <li><a class="coolButton" href="Oferta.aspx">Ofertas</a></li>
                 <li><a class="coolButton" href="Servicio.aspx">Servicios</a></li>
-                <li><a class="coolButton" href="Colaboracion.aspx">Colaboracion</a></li>
+                <li><a class="coolButton" href="Comentario.aspx">Comentario</a></li>
                 <li id="liregistro" runat="server"><a class="coolButton" href="Login.aspx">Login</a></li>
-                <li id="liperfil" runat="server"><a class="coolButton" href="Perfil.aspx">Mi cuenta</a>
+
+                <li id="lireg" runat="server"><a class="coolButton" href="Reservas.aspx">Reservas</a></li>
+                <li id="liperfil" runat="server"><a class="coolButton" href="Perfil.aspx">Mi perfil</a>
                     <ul id="miPerfil">
                         
-                        <li><a class="coolButton" href="Perfil.aspx">Mi perfil</a>
+                        <li id="lifav" runat="server"><a class="coolButton" href="Favoritos.aspx">Favoritos</a>
                 <ul>
                     <li><a class="coolButton" href="CerrarSesion.aspx">Cerrar sesión</a></li>
                 </ul>
@@ -94,7 +96,6 @@
                         
                     </ul>
                 </li>
-
                 
             
                 <li><label class="switch">
@@ -154,16 +155,23 @@
 
 
         <asp:ContentPlaceHolder ID="body" runat="server">
-            <footer>
-              <p>Contacto: correo@ejemplo.com</p>
-              <p>Derechos de autor ©2023 - Chubasqueros para peces</p>
-        </footer>
+            
             
         </asp:ContentPlaceHolder>
 
     </form>
-
-    
+    <br />
+    <footer>
+              <a href="Contacto.aspx" style="margin-left:0%;filter: hue-rotate(10deg);">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Contacto
+                </a>
+              <p>Derechos de autor ©2023 - Chubasqueros para peces</p>
+    </footer>
 
 </body>
+
 </html>

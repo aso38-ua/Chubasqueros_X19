@@ -14,7 +14,7 @@ namespace Library
 
         public CADReserva()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         public bool createReserva(ENReserva en)
@@ -22,7 +22,7 @@ namespace Library
             bool creado = false;
             try
             {
-                String consultaString = "INSERT INTO [dbo].[Reservas] (cantidad,fecha,producto,usuario) VALUES ('" + en.cantidadp + "', '" + en.fechap + "', " + en.productop + "', " + en.usuariop + ");";
+                String consultaString = "INSERT INTO [dbo].[Reservas] (cantidad,fecha,producto,usuario,ptotal) VALUES (" + en.cantidadp + ", '" + en.fechap + "', " + en.productop + ", " + en.usuariop + ", '" + en.ptotal.ToString() + "');";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -49,7 +49,7 @@ namespace Library
             bool leido = false;
             try
             {
-                String consultaString = "SELECT * FROM [dbo].[Reservas] WHERE usuario = '" + en.usuariop + " AND producto = '" + en.productop + "';";
+                String consultaString = "SELECT * FROM [dbo].[Reservas] WHERE usuario = " + en.usuariop + " AND producto = " + en.productop + ";";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -64,6 +64,7 @@ namespace Library
                     en.fechap = consultabusqueda["fecha"].ToString();
                     en.productop = int.Parse(consultabusqueda["producto"].ToString());
                     en.usuariop = int.Parse(consultabusqueda["usuario"].ToString());
+                    en.ptotal = float.Parse(consultabusqueda["ptotal"].ToString());
                 }
 
                 consultabusqueda.Close();
@@ -87,7 +88,7 @@ namespace Library
             bool actualizado = false;
             try
             {
-                String consultaString = "UPDATE [dbo].[Reservas] SET cantidad = '" + en.cantidadp + "' ,producto = " + en.productop + " WHERE usuario = '" + en.usuariop + " AND producto = '" + en.productop + "';";
+                String consultaString = "UPDATE [dbo].[Reservas] SET cantidad = " + en.cantidadp + " ,ptotal = '" + en.ptotal.ToString() + "' WHERE usuario = " + en.usuariop + " AND producto = " + en.productop + ";";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 
@@ -114,7 +115,7 @@ namespace Library
             bool borrado = false;
             try
             {
-                String consultaString = "DELETE FROM [dbo].[Reservas] WHERE usuario = '" + en.usuariop + " AND producto = '" + en.productop + "';";
+                String consultaString = "DELETE FROM [dbo].[Reservas] WHERE usuario = " + en.usuariop + " AND producto = " + en.productop + ";";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
 

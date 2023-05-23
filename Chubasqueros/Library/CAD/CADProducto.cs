@@ -31,7 +31,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (" + en.getCodigo() + ", " + en.getNombre() + ", " + en.getDescripcion() + ", " + en.getStock() + ", " + en.getPrecio() + ", " + en.getCodigoCategoria() + ")";
+                string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (" + en.getCodigo() + ", '" + en.getNombre() + "', '" + en.getDescripcion() + "', " + en.getStock() + ", " + en.getPrecio() + ", " + en.getCodigoCategoria() + ")";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
                 creado = true;
@@ -63,7 +63,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "Select * From [dbo].[Producto] Where codigo = " + en.getCodigo();
+                string query = "Select * From [dbo].[producto] Where codigo = " + en.getCodigo() + ";";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 SqlDataReader busqueda = consulta.ExecuteReader();
                 busqueda.Read();
@@ -75,7 +75,7 @@ namespace Library
                     en.setStock(int.Parse(busqueda["stock"].ToString()));
                     en.setDescripcion(busqueda["descripcion"].ToString());
                     en.setPrecio(float.Parse(busqueda["precio"].ToString()));
-                    en.setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
+                    en.setCodigoCategoria(int.Parse(busqueda["codCategoria"].ToString()));
                 }
                 else creado = false;
 
@@ -109,7 +109,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "UPDATE [dbo].[Producto] SET codigo = " + en.getCodigo() + " ,nombre= " + en.getNombre() + " ,descripcion= " + en.getDescripcion() + " ,stock= " + en.getStock() + " ,precio= " + en.getPrecio() + " ,codigoCategoria= " + en.getCodigoCategoria() + "WHERE codigo = " + en.getCodigo();
+                string query = "UPDATE [dbo].[Producto] SET codigo = " + en.getCodigo() + " ,nombre= '" + en.getNombre() + "' ,descripcion= '" + en.getDescripcion() + "' ,stock= " + en.getStock() + " ,precio= " + en.getPrecio() + " ,codigoCategoria= " + en.getCodigoCategoria() + "WHERE codigo = " + en.getCodigo();
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
             }
@@ -215,6 +215,34 @@ namespace Library
             }
 
             return productos;
+        }
+
+        public DataTable readAllServices()
+        {
+            DataTable dataTable = new DataTable();
+
+            SqlConnection conn = new SqlConnection(constring);
+            try
+            {
+                conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Producto", conn);
+                SqlDataAdapter da = new SqlDataAdapter(comm);
+                da.Fill(dataTable);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("The operation has failed. Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The operation has failed. Error: {0}", ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dataTable;
         }
 
     }
