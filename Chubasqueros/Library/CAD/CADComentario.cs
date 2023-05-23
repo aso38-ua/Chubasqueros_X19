@@ -171,7 +171,7 @@ namespace library
 
                 while (rd.Read() == true && prev == false)
                 {
-                    if (rd["id_user"].ToString() == en.aux_id_user.ToString())
+                    if (rd["item"].ToString() == en.aux_item.ToString())
                     {
                         prev = true;
                     }
@@ -221,20 +221,14 @@ namespace library
                 SqlCommand consulta = new SqlCommand(comando, conexion);
                 SqlDataReader rd = consulta.ExecuteReader();
                 rd.Read();
-                en.aux_comentario = rd["comentario"].ToString();
-                en.aux_likes = int.Parse(rd["likes"].ToString());
-                en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
 
                 while (rd.Read() == true && next == false)
                 {
                     if (aux == true)
                     {
                         next = true;
-                        en.aux_comentario = rd["comentario"].ToString();
-                        en.aux_likes = int.Parse(rd["likes"].ToString());
-                        en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
                     }
-                    if (rd["id_user"].ToString() == en.aux_id_user.ToString())
+                    if (rd["item"].ToString() == en.aux_item.ToString())
                     {
                         aux = true;
                     }

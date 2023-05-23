@@ -203,6 +203,7 @@ namespace Interfaz
                     Comentarios.Text = en.aux_comentario;
                     Label10.Text = Convert.ToString(en.aux_likes);
                     Label11.Text = Convert.ToString(en.aux_dislikes);
+                    Label12.Text = "";
                 }
                 else
                 {
@@ -232,11 +233,12 @@ namespace Interfaz
                     en.aux_comentario = Comentarios.Text;
                     en.aux_likes = int.Parse(Label10.Text);
                     en.aux_dislikes = int.Parse(Label11.Text);
-                    if (en.PrevComment() == true)
+                    if (en.NextComment() == true)
                     {
                         Comentarios.Text = en.aux_comentario;
                         Label10.Text = Convert.ToString(en.aux_likes);
                         Label11.Text = Convert.ToString(en.aux_dislikes);
+                        Label12.Text = "";
                     }
                     else
                     {
@@ -268,15 +270,16 @@ namespace Interfaz
                     en.aux_comentario = Comentarios.Text;
                     en.aux_likes = int.Parse(Label10.Text);
                     en.aux_dislikes = int.Parse(Label11.Text);
-                    if (en.NextComment() == true)
+                    if (en.PrevComment() == true)
                     {
                         Comentarios.Text = en.aux_comentario;
                         Label10.Text = Convert.ToString(en.aux_likes);
                         Label11.Text = Convert.ToString(en.aux_dislikes);
+                        Label12.Text = "";
                     }
                     else
                     {
-                        Label12.Text = "No es posible acceder a esta posición(Siguiente)";
+                        Label12.Text = "No es posible acceder a esta posición(Anterior)";
                     }
                 }
             }
