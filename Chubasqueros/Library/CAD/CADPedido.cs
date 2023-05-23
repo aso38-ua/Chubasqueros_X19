@@ -17,7 +17,7 @@ namespace Library
         private String constring; //Conexion con la BB.DD 
         public CADPedido()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         //Para ver los pedidos realizados y consultar de nuevo la fecha de llegada del pedido

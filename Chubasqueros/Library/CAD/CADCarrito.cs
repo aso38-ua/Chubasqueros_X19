@@ -17,7 +17,7 @@ namespace Library
         private String constring; //Conexion con la BB.DD 
         public CADCarrito()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
         public bool verCarrito(ENCarrito c)
         {
@@ -156,13 +156,7 @@ namespace Library
             return update;
         }
 
-        //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
-        public int cuentaCantidad()
-        {
-            return 0;
-        }
-
-        //Añadir producto desde favoritos al carrito
+        //Añadir producto desde el producto al carrito
         public bool AñadirProducto(ENCarrito c)
         {
             bool aprod = false;
@@ -221,38 +215,103 @@ namespace Library
 
         }
 
-        //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
-        public int ProductosTotales()
+        public bool readCarritoinProduct(ENCarrito c)
         {
-            return 0;
+            bool leido = false;
+            try
+            {
+                String consultaString = "SELECT * FROM [dbo].[carrito] WHERE usuario = " + c.usuario + " AND producto = " + c.producto[0] + ";";
+                SqlConnection conexion = new SqlConnection(constring);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(consultaString, conexion);
+                SqlDataReader consultabusqueda = consulta.ExecuteReader();
+                consultabusqueda.Read();
+                if (int.Parse(consultabusqueda["usuario"].ToString()) == c.usuario)
+                {
+                    leido = true;
+                }
+                consultabusqueda.Close();
+                conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                leido = false;
+                Console.WriteLine("Cart operation has failed. Error: {0} ", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                leido = false;
+                Console.WriteLine("Cart operation has failed. Error: {0} ", ex.Message);
+            }
+            return leido;
         }
 
         //Calcula el precio total que hay en el carrito
-        public float PrecioTotal(ENCarrito c)
+        public bool PrecioTotal(ENCarrito c)
         {
-            ENProducto producto = new ENProducto();
 
+            bool totalprecio = false;
+            try
+            {
+                
+                SqlConnection conectsql = null;
+                conectsql = new SqlConnection(constring);
+                conectsql.Open();
+                
+                string cout = "SELECT precio FROM [dbo].[producto]";
+                SqlCommand consulta = new SqlCommand(cout, conectsql);
+                consulta.ExecuteNonQuery();
+
+
+
+
+                
+                conectsql.Close();
+            }
+            catch (SqlException e)
+            {
+                totalprecio = false;
+                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                totalprecio = false;
+                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+            }
+            return totalprecio;
+        }
+
+        //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
+        public bool cuentaCantidad(ENCarrito c)
+        {
+            bool cant = false ;
             try
             {
                 SqlConnection conectsql = null;
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
-                
-                string cout = "SELECT total FROM [dbo].[carrito]";
-                SqlCommand consulta = new SqlCommand(cout, conectsql);
-                consulta.ExecuteNonQuery();
-               
+
+                string cout = "INSERT INTO carrito (cantidad) VALUES (@cantidad)";
+                using (SqlCommand command = new SqlCommand(cout, conectsql))
+                {
+                    command.Parameters.AddWithValue("@cantidad", c.cantidad);
+                    command.ExecuteNonQuery();
+                }
+                cant = true;
                 conectsql.Close();
             }
             catch (SqlException e)
             {
-                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+                cant = false ;
+                Console.WriteLine("User operation has failed.Error : {0}", e.Message);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+                cant = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
-            return 0;
+            return cant ;
         }
 
     }

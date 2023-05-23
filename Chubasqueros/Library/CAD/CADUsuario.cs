@@ -18,8 +18,8 @@ namespace Library
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
-        
-        
+
+
         // Create
         public bool CrearUsuario(ENUsuario en)
         {
@@ -74,7 +74,8 @@ namespace Library
             return resultado;
         }
 
-        public bool ReadUsuario(ENUsuario en) {
+        public bool ReadUsuario(ENUsuario en)
+        {
             bool resultado = false;
             string query = "SELECT * FROM usuario WHERE nombre = @Nombre";
 
@@ -119,7 +120,7 @@ namespace Library
             return resultado;
         }
 
-        public bool updateUsuario(ENUsuario en) 
+        public bool updateUsuario(ENUsuario en)
         {
             bool result = false;
 
@@ -163,7 +164,7 @@ namespace Library
             return result;
         }
 
-        public bool deleteUsuario(ENUsuario en) 
+        public bool deleteUsuario(ENUsuario en)
         {
             bool result = false;
 
@@ -445,7 +446,7 @@ namespace Library
                     }
                 }
             }
-            
+
         }
 
         public static bool EsCorreoElectronico(string input)

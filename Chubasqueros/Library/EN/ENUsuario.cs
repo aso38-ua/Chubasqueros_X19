@@ -22,7 +22,7 @@ namespace Library
             this.nombre = "";
             this.apellido = "";
             this.email = "";
-            this.contraseña="";
+            this.contraseña = "";
             this.esAdmin = false;
         }
 
