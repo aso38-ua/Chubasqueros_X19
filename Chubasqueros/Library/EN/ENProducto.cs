@@ -9,6 +9,7 @@ namespace Library
 {
     public class ENProducto
     {
+        
         private int codigo;
         private string nombre;
         private string descripcion;
@@ -26,6 +27,8 @@ namespace Library
         public string auxdescripcion { get {return descripcion; } }
         public int auxstock { get {return stock; } }
         public float auxprecio { get {return precio; } }
+        
+        
 
         public ENProducto()
         {
@@ -35,6 +38,8 @@ namespace Library
             this.descripcion = string.Empty;
             this.stock = 0;
             this.precio = 0;
+            
+
         }
 
         public ENProducto(int codigo, string nombre, string descripcion, int stock, float precio, int codigoCat)

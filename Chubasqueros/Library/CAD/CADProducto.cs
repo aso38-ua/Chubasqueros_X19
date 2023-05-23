@@ -63,6 +63,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
+                string query = "Select * From [dbo].[Producto] Where codigo = " + en.getCodigo();
                 string query = "Select * From [dbo].[producto] Where nombre='" +en.getNombre()+"' or codigo = " + en.getCodigo() + ";";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 SqlDataReader busqueda = consulta.ExecuteReader();
@@ -140,7 +141,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "DELETE FROM [dbo].[Producto] WHERE codigo = '" + en.getCodigo() + "'";
+                string query = "DELETE FROM [dbo].[Producto] WHERE codigo = " + en.getCodigo();
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
                 eliminado = true;
@@ -188,12 +189,12 @@ namespace Library
                 while (busqued.Read())
                 {
                     productos[i] = new ENProducto();
-                    productos[i].setNombre(busqueda["nombre"].ToString());
-                    productos[i].setCodigo(int.Parse(busqueda["codigo"].ToString()));
-                    productos[i].setStock(int.Parse(busqueda["stock"].ToString()));
-                    productos[i].setDescripcion(busqueda["descripcion"].ToString());
-                    productos[i].setPrecio(float.Parse(busqueda["precio"].ToString()));
-                    productos[i].setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
+                    productos[i].setNombre(busqued["nombre"].ToString());
+                    productos[i].setCodigo(int.Parse(busqued["codigo"].ToString()));
+                    productos[i].setStock(int.Parse(busqued["stock"].ToString()));
+                    productos[i].setDescripcion(busqued["descripcion"].ToString());
+                    productos[i].setPrecio(float.Parse(busqued["precio"].ToString()));
+                    productos[i].setCodigoCategoria(int.Parse(busqued["codigoCategoria"].ToString()));
                     i++;
                 }
 
@@ -201,12 +202,12 @@ namespace Library
             }
             catch (SqlException e)
             {
-                
+
                 Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
             catch (Exception e)
             {
-                
+
                 Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
             finally

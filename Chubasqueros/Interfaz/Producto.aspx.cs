@@ -16,6 +16,7 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //SI NO ESTÁ LOGUEADO
             if (!IsPostBack)
             {
                 LoadAllProductos();
@@ -25,13 +26,39 @@ namespace Interfaz
             {
                 buttom_Favoritos.Visible = false;
                 buttom_Reservar.Visible = false;
+                //buttom_Comprar.Visible = false;
+                buttom_Carrito.Visible = false;
+                buttom_Puntuar.Visible = false;
+
             }
             else
             {
                 buttom_Favoritos.Visible = true;
                 buttom_Reservar.Visible = true;
+                //buttom_Comprar.Visible = true;
+                buttom_Carrito.Visible = true;
+                buttom_Puntuar.Visible = true;
+
             }
-                outputMsg.Text = "";
+
+            //OPCIONES ADMIN
+            /**ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            if (!usuario.esAdmin)
+            {
+                buttom_Crear.Visible = false;
+                buttom_Actualizar.Visible = false;
+                buttom_Borrar.Visible = false;
+            }
+            else
+            {
+                buttom_Crear.Visible = true;
+                buttom_Actualizar.Visible = true;
+                buttom_Borrar.Visible = true;
+            }*/
+
+            outputMsg.Text = "";
         }
 
         private void LoadAllProductos()
@@ -137,9 +164,11 @@ namespace Interfaz
             else outputMsg.Text = "Alguno de los campos no estan especificados.";
         }
 
+       
+
         protected void onComprar(object sender, EventArgs e)
         {
-            
+
             if (text_codigo.Text == "")
                 outputMsg.Text = "Clave primaria de producto no introducida.";
             else
@@ -149,14 +178,15 @@ namespace Interfaz
 
                 if (producto.readProducto())
                 {
-                    if(producto.getStock() <= 0)
+                    if (producto.getStock() <= 0)
                         outputMsg.Text = "Este producto no está en stock.";
                     else
                     {
-                        producto.setStock(producto.getStock()-1);
+                        producto.setStock(producto.getStock() - 1);
                         //saldoUsuario - precio
-                        outputMsg.Text = "Producto " + producto.getCodigo() + "con un precio de " + producto.getPrecio() + "comprado con éxito";
+                        outputMsg.Text = "Producto " + producto.getCodigo() + " con un precio de " + producto.getPrecio() + "€ comprado con éxito";
                         producto.updateProducto();
+                        //Mandar email al usuario confirmando su compra posible mejora
 
 
                     }
@@ -224,33 +254,50 @@ namespace Interfaz
 
         protected void onCategoria(object sender, EventArgs e)
         {
-            if (text_codigo.Text == "" || text_codigoCategoria.Text == "")
-                outputMsg.Text = "Clave primaria de producto no introducida.";
+            if (text_codigoCategoria.Text == "")
+                outputMsg.Text = "Clave de la categoría no introducida";
             else
             {
-                ENProducto producto = new ENProducto();
-                producto.setCodigo(int.Parse(text_codigo.Text));
-                producto.setCodigoCategoria(int.Parse(text_codigoCategoria.Text));
                 ENCategoria en = new ENCategoria();
-                ENProducto[] productos = producto.mostrarProductosPorCategoria(en);
+                en.setCodCategoria(int.Parse(text_codigoCategoria.Text));
 
-                outputMsg.Text = "Mostrando productos de la categoría " + producto.getCodigoCategoria();
-                for (int i = 0; i < productos.Length; i++)
+                if (en.readCategoria())
                 {
-                    if (productos[i].readProducto())
+                    ENProducto producto = new ENProducto();
+                    ENProducto[] productos = producto.mostrarProductosPorCategoria(en);
+                    if (productos.Length == 0)
+                        outputMsg.Text = "La categoría " + en.getNombre() + " con código " + en.getCodCategoria() + " carece de productos";
+                    else
                     {
+                        outputMsg.Text = "Mostrando productos de la categoría " + en.getNombre() + " con código " + en.getCodCategoria();
+                        //text_codigoCategoria.Text += " "; para mostrar todos concatenados
+                        for (int i = 0; i < productos.Length; i++)
+                        {
+                            //así los muestra todos pero en la misma TextBox, lo que queria era que fuese 1 a 1, pero no funcionan los Sleeps() ni llamar a nada y database peta 
+                            //entonces directamente muestra el último, o los muestra todos pero concatenándolos en la misma TextBox :(
+                            /**text_nombre.Text += productos[i].getNombre() + " ";
+                            text_codigo.Text += productos[i].getCodigo().ToString() + " ";
+                            text_descripcion.Text += productos[i].getDescripcion() + " ";
+                            text_stock.Text += productos[i].getStock().ToString() + " ";
+                            text_precio.Text += productos[i].getPrecio().ToString() + " ";
+                            text_codigoCategoria.Text += productos[i].getCodigoCategoria().ToString() + " ";*/
 
-                        text_nombre.Text = productos[i].getNombre();
-                        text_codigo.Text = productos[i].getCodigo().ToString();
-                        text_descripcion.Text = productos[i].getDescripcion();
-                        text_stock.Text = productos[i].getStock().ToString();
-                        text_precio.Text = productos[i].getPrecio().ToString();
-                        text_codigoCategoria.Text = productos[i].getCodigoCategoria().ToString();
-                        outputMsg.Text = "Producto " + producto.getNombre() + ", " + producto.getCodigo();
+                            text_nombre.Text = productos[i].getNombre();
+                            text_codigo.Text = productos[i].getCodigo().ToString();
+                            text_descripcion.Text = productos[i].getDescripcion();
+                            text_stock.Text = productos[i].getStock().ToString();
+                            text_precio.Text = productos[i].getPrecio().ToString();
+                            text_codigoCategoria.Text = productos[i].getCodigoCategoria().ToString();
+
+                        }
+                        
+
                     }
-                    else outputMsg.Text = "Producto no encontrado en la B.D.";
 
                 }
+                else outputMsg.Text = "Categoría inexistente en la B.D.";
+                
+
 
             }
         }

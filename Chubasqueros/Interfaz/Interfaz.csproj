@@ -108,6 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
     <Content Include="App_Data\Database1.mdf" />
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
@@ -120,10 +123,30 @@
     <Content Include="Categoria.aspx" />
     <Content Include="CSS\Colaboracion.css" />
     <Content Include="Donaciones.aspx" />
+    <Content Include="IMGS\arroz.jpg" />
+    <Content Include="IMGS\aspiradora.jpg" />
+    <Content Include="IMGS\camisa.jpg" />
+    <Content Include="IMGS\chaqueta.jpg" />
+    <Content Include="IMGS\coco.jpg" />
+    <Content Include="IMGS\frigorifico.jpg" />
+    <Content Include="IMGS\gorra.jpg" />
+    <Content Include="IMGS\horno.jpg" />
     <Content Include="CSS\Donaciones.css" />
     <Content Include="IMGS\Instagram-Icon.png" />
+    <Content Include="IMGS\lavadora.jpg" />
+    <Content Include="IMGS\manzana.jpg" />
+    <Content Include="IMGS\microondas.jpg" />
+    <Content Include="IMGS\movil.jpg" />
+    <Content Include="IMGS\ordenador.jpg" />
+    <Content Include="IMGS\pantalon.jpg" />
+    <Content Include="IMGS\pienso.jpg" />
+    <Content Include="IMGS\platano.jpg" />
+    <Content Include="IMGS\playstation.jpg" />
+    <Content Include="IMGS\secadora.jpg" />
     <Content Include="IMGS\twitter-logo-9.png" />
     <Content Include="IMGS\sombrero.png" />
+    <Content Include="IMGS\xbox.jpg" />
+    <Content Include="IMGS\zapatos.jpg" />
     <Content Include="IMGS\zara.jpeg" />
     <Content Include="IMGS\zyro-image.png" />
     <Content Include="MostrarColaboraciones.aspx" />
