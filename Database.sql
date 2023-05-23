@@ -110,3 +110,13 @@ CREATE TABLE curriculum (
     educacion VARCHAR(MAX) NOT NULL,
     PRIMARY KEY (id),
 );
+
+CREATE TABLE [dbo].[seguidores] (
+    [id]                INT          IDENTITY (1, 1) NOT NULL,
+    [username_seguidor] VARCHAR (50) NOT NULL,
+    [username_seguido]  VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    CONSTRAINT [FK_seguidores_usuario_seguidor] FOREIGN KEY ([username_seguidor]) REFERENCES [dbo].[usuario] ([nombre]),
+    CONSTRAINT [FK_seguidores_usuario_seguido] FOREIGN KEY ([username_seguido]) REFERENCES [dbo].[usuario] ([nombre]),
+    CONSTRAINT [UQ_seguidores_seguidor_seguido] UNIQUE ([username_seguidor], [username_seguido])
+);
