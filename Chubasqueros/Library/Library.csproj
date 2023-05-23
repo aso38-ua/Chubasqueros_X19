@@ -56,7 +56,6 @@
     <Compile Include="CAD\CADOfertas.cs" />
     <Compile Include="CAD\CADSeguidores.cs" />
     <Compile Include="CAD\CADServicio.cs" />
-    <Compile Include="CAD\CADOferta.cs" />
     <Compile Include="CAD\CADPedido.cs" />
     <Compile Include="CAD\CADPerfil.cs" />
     <Compile Include="CAD\CADProducto.cs" />
@@ -73,7 +72,6 @@
     <Compile Include="EN\ENOfertas.cs" />
     <Compile Include="EN\ENSeguidores.cs" />
     <Compile Include="EN\ENServicio.cs" />
-    <Compile Include="EN\ENOferta.cs" />
     <Compile Include="EN\ENPedido.cs" />
     <Compile Include="EN\ENPerfil.cs" />
     <Compile Include="EN\ENProducto.cs" />

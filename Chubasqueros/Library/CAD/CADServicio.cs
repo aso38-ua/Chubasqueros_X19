@@ -23,6 +23,7 @@ namespace library
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
+        // Crea un servicio en la BD
         public bool createServicio(ENServicio servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
@@ -53,6 +54,7 @@ namespace library
             }
         }
 
+        // Lee un servicio de la BD
         public bool readServicio(ENServicio servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
@@ -95,6 +97,7 @@ namespace library
             }
         }
 
+        // Actualiza un servicio en la BD
         public bool updateServicio(ENServicio servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
@@ -119,6 +122,7 @@ namespace library
             }
         }
 
+        // Elimina un servicio en la BD
         public bool deleteServicio(ENServicio servicio)
         {
             SqlConnection conn = new SqlConnection(constring);
@@ -143,6 +147,7 @@ namespace library
             }
         }
 
+        // Lee todos los servicios de la BD
         public DataTable readAllServices()
         {
             DataTable dataTable = new DataTable();
