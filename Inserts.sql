@@ -64,8 +64,13 @@ VALUES ('Carolina', 'secure987', 'carolina@example.com', 'Ramírez', 0);
 INSERT INTO usuario (nombre, contraseña, email, esAdmin)
 VALUES ('Diego', 'password654', 'diego@example.com', 0);
 
+
+
 INSERT INTO Categoría (codCategoria, nombre) VALUES (1, 'Comida');
 INSERT INTO Categoría (codCategoria, nombre) VALUES (2, 'Ropa');
+INSERT INTO Categoría (codCategoria, nombre) VALUES (3, 'Electrodomésticos');
+INSERT INTO Categoría (codCategoria, nombre) VALUES (4, 'Tecnología y videoconsolas');
+
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (1, 'Pienso', 'Pienso para peces', 2, 20.3, 1);
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (2, 'Manzana', 'Manzana de los Alpes', 6, 5.6, 1);
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (3, 'Coco', 'Coco tropical sabroso', 3, 4.7, 1);
@@ -76,6 +81,19 @@ INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategori
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (8, 'Camisa', 'Camisa facherita', 1, 53, 2);
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (9, 'Gorra', 'Gorra grande perfecta para cabezones', 1, 15.4, 2);
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (10, 'Zapatos', 'Zapatos glamurosos', 1, 60, 2);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (11, 'Lavadora', 'Lavadora industrial', 2, 500, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (12, 'Microondas', 'Microondas con potencia de 1200 W', 1, 700, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (13, 'Secadora', 'Secadora rápida y eficiente', 1, 450, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (14, 'Horno', 'Horno eléctrico, perfecto para pizzas', 1, 600, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (15, 'Frigorífico', 'Frigorífico Bosch al estilo americano', 1, 800, 3);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (16, 'PlayStation', 'PlayStation 5 de nueva generación', 1, 500, 4);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (17, 'Móvil', 'Teléfono móvil Xiaomi', 3, 250, 4);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (18, 'Xbox', 'Xbox Series S', 1, 300, 4);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (19, 'Ordenador', 'Ordenador de sobremesa perfecto para tu despacho', 1, 2000, 4);
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (20, 'Aspiradora', 'Aspiradora inteligente Xiaomi', 2, 300, 4);
+
+
+
 
 
 INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codCategoria) VALUES (1, 'Bañamos a tu pez', 'Servicio de baño relajante y terapéutico para peces', 15.99, 500, 3);
