@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,10 @@ namespace Library
         private float precio;
         private int cant;
         private string fech;
-        private double total;
+        private float total;
         public int cantidad { get {return cant; } set {cant = value; } }
         public string fecha { get { return fech; } set { fech = value; } }
-        public double ptotal { get { return total; } set { total = value; } }
+        public float ptotal { get { return total; } set { total = value; } }
 
         private int codigoCategoria;
         public string auxnombre { get {return nombre; }}
@@ -169,6 +170,15 @@ namespace Library
             ENProducto[] productos;
             productos = producto.mostrarProductosPorCategoria(en);
             return productos;
+        }
+
+        public static DataTable readAllServices()
+        {
+            DataTable basedatos = new DataTable();
+            CADProducto servicio = new CADProducto();
+            basedatos = servicio.readAllServices();
+
+            return basedatos;
         }
     }
 }

@@ -4,6 +4,26 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+
+    <p>Visita nuestras colaboraciones con las mejores marcas</p>
+        <a href="Colaboracion.aspx" style="margin-left:0%;filter: hue-rotate(10deg);">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Marcas
+                </a>
+
+    <div class="container-producto">
+        <div>
+            <div class='producto-imagen'>
+                <br />
+                <br />
+                <asp:Label ID="labelInfo" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+    </div>
+
     <div>
         <h2> Productos </h2>
         <asp:Label ID="Mensaje" runat="server"></asp:Label><br/>

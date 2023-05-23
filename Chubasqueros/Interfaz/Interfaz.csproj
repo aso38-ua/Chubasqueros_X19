@@ -111,6 +111,9 @@
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="Colaboracion.aspx" />
     <Content Include="CSS\EstiloCarrito.css" />
@@ -128,6 +131,7 @@
     <Content Include="IMGS\frigorifico.jpg" />
     <Content Include="IMGS\gorra.jpg" />
     <Content Include="IMGS\horno.jpg" />
+    <Content Include="CSS\Donaciones.css" />
     <Content Include="IMGS\Instagram-Icon.png" />
     <Content Include="IMGS\lavadora.jpg" />
     <Content Include="IMGS\manzana.jpg" />
@@ -143,12 +147,13 @@
     <Content Include="IMGS\sombrero.png" />
     <Content Include="IMGS\xbox.jpg" />
     <Content Include="IMGS\zapatos.jpg" />
+    <Content Include="IMGS\zara.jpeg" />
     <Content Include="IMGS\zyro-image.png" />
+    <Content Include="MostrarColaboraciones.aspx" />
     <Content Include="CerrarSesion.aspx" />
     <Content Include="CV.aspx" />
     <Content Include="IMGS\change.jpg" />
     <Content Include="IMGS\fregando.jpg" />
-    <Content Include="EditarPerfil.aspx" />
     <Content Include="Formulario web1.aspx" />
     <Content Include="IMGS\buceo.jpg" />
     <Content Include="IMGS\change.jpg" />
@@ -168,6 +173,7 @@
     <Content Include="IMGS\fotografia.jfif" />
     <Content Include="IMGS\guarderia.jfif" />
     <Content Include="IMGS\paseo.jfif" />
+    <Content Include="ProfileImages\Perfil.jpg" />
     <Content Include="ProfileImages\Profile.jpg" />
     <Content Include="Reservasadmin.aspx" />
     <Content Include="Servicio.aspx" />
@@ -254,6 +260,13 @@
     </Compile>
     <Compile Include="Formulario web1.aspx.designer.cs">
       <DependentUpon>Formulario web1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarColaboraciones.aspx.cs">
+      <DependentUpon>MostrarColaboraciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MostrarColaboraciones.aspx.designer.cs">
+      <DependentUpon>MostrarColaboraciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Producto.aspx.cs">
       <DependentUpon>Producto.aspx</DependentUpon>

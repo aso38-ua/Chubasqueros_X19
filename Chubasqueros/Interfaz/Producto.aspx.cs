@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Net.Mail;
 
 using Library;
+using System.Data;
+using library;
 
 namespace Interfaz
 {
@@ -14,8 +16,12 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             //SI NO ESTÁ LOGUEADO
+            if (!IsPostBack)
+            {
+                LoadAllProductos();
+            }
+
             if (Session["username"] == null)
             {
                 buttom_Favoritos.Visible = false;
@@ -54,6 +60,40 @@ namespace Interfaz
 
             outputMsg.Text = "";
         }
+
+        private void LoadAllProductos()
+        {
+            DataTable dataTable = ENProducto.readAllServices();
+
+            labelInfo.Text = "";
+            foreach (DataRow row in dataTable.Rows)
+            {
+                string codigo = row["codigo"].ToString();
+                string nombre = row["nombre"].ToString();
+                string descripcion = row["descripcion"].ToString();
+                string precio = row["precio"].ToString();
+                string stock = row["stock"].ToString();
+                string img = row["img"].ToString();
+
+                string innerHTML = $@"
+            <div class='producto-container'>
+                <div class='producto-imagen'>
+                    <img src='{img}' alt='Imagen del producto' class='producto-imagen-img' />
+                </div>
+                <div class='producto-contenido'>
+                    <p class='h2-producto'>{nombre}</p>
+                    <p class='p-producto'>Descripción: {descripcion}</p>
+                    <p class='p-producto'>Precio: {precio}</p>
+                    <p class='p-producto'>Stock: {stock}</p>
+                </div>
+            </div>
+        ";
+
+                LiteralControl literalControl = new LiteralControl(innerHTML);
+                labelInfo.Controls.Add(literalControl);
+            }
+        }
+
 
         protected void onLeer(object sender, EventArgs e)
         {
@@ -201,8 +241,11 @@ namespace Interfaz
             }
             else
             {
-                reserva.ptotal = reserva.ptotal + (reserva.ptotal / reserva.cantidadp);
+                ENProducto producto = new ENProducto();
+                producto.setCodigo(reserva.productop);
+                producto.readProducto();
                 reserva.cantidadp = reserva.cantidadp + 1;
+                reserva.ptotal = producto.getPrecio() * reserva.cantidadp;
                 reserva.updateReserva();
                 Mensaje.Text = "Reserva actualizada, añadida una cantidad más a la antigua reserva";
             }

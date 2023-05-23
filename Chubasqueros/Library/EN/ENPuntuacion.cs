@@ -76,11 +76,12 @@ namespace library
             ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             ENProducto aux_EN_Prod = new ENProducto();
+            aux_EN_Prod.setCodigo(aux_EN_Pun.aux_item);
             CADProducto aux_CAD_Prod = new CADProducto();
-            aux_EN_Prod.setCodigo(item);
+            //aux_EN_Prod.setCodigo(item);
             ENUsuario aux_EN_User = new ENUsuario();
             CADUsuario aux_CAD_User = new CADUsuario();
-            aux_EN_User.id = id_user;
+            aux_EN_User.id = aux_EN_Pun.aux_id_user;
             if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.ReadUsuario(aux_EN_User))
             {
                 puntuar = aux_CAD_Pun.createPuntuacion(this);
@@ -142,6 +143,14 @@ namespace library
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             find = aux_CAD_Pun.findItem(this);
             return find;
+        }
+
+        public bool findItemSinUser()
+        {
+            bool findU = false;
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            findU = aux_CAD_Pun.findItemSinUser(this);
+            return findU;
         }
     }
 }

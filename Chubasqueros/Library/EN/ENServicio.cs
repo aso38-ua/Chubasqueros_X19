@@ -14,11 +14,7 @@ namespace library
         private string descripcion;
         private string img;
 
-        /*
-         Servicio servicio = new Servicio();
-         servicio.Img = "~/IMGS/nombreimagen.jpg";
-        */
-
+        // Propiedades para acceder a los campos privados
         public int IdServicio
         {
             get
@@ -71,6 +67,7 @@ namespace library
             }
         }
 
+        // Constructor sin parámetros
         public ENServicio()
         {
             this.idServicio = -1;
@@ -79,6 +76,7 @@ namespace library
             this.img = "";
         }
 
+        // Constructor con parámetros
         public ENServicio(int idServicio, string titulo, string descripcion, string img)
         {
             this.idServicio = idServicio;
@@ -87,6 +85,7 @@ namespace library
             this.img = img;
         }
 
+        // Constructor de copia
         public ENServicio(ENServicio servicio)
         {
             this.idServicio = servicio.idServicio;
@@ -95,6 +94,8 @@ namespace library
             this.img = servicio.img;
         }
 
+        // MÉTODOS CRUD 
+        // Crea un servicio en la BD
         public bool createServicio()
         {
             CADServicio servicio = new CADServicio();
@@ -105,6 +106,7 @@ namespace library
             return false;
         }
 
+        // Lee un servicio de la BD
         public bool readServicio()
         {
             CADServicio servicio = new CADServicio();
@@ -115,24 +117,26 @@ namespace library
             return false;
         }
 
+        // Actualiza un servicio en la BD
         public bool updateServicio()
         {
             ENServicio servicioaux = new ENServicio(this);
-            CADServicio oferta = new CADServicio();
+            CADServicio servicio = new CADServicio();
 
-            if (oferta.readServicio(this))
+            if (servicio.readServicio(this))
             {
                 this.idServicio = servicioaux.idServicio;
                 this.titulo = servicioaux.titulo;
                 this.descripcion = servicioaux.descripcion;
                 this.img = servicioaux.img;
 
-                return oferta.updateServicio(this);
+                return servicio.updateServicio(this);
             }
 
             return false;
         }
 
+        // Elimina un servicio de la BD
         public bool deleteServicio()
         {
             CADServicio servicio = new CADServicio();
@@ -143,6 +147,7 @@ namespace library
             return false;
         }
 
+        // Lee todos los servicios de la BD y las devuelve en un DataTable
         public static DataTable readAllServices()
         {
             DataTable basedatos = new DataTable();

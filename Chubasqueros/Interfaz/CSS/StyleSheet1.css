@@ -86,12 +86,11 @@ header nav ul li a{
 }
 
 footer {
-    position: absolute;
-    bottom: 100px;
     left: 0;
     width: 100%;
-    height: 50px; /* ajusta la altura a tu preferencia */
+    height: 10%; /* ajusta la altura a tu preferencia */
     text-align: center; /* opcional: centrar el contenido del pie de página */
+    border: 2px solid #FF86FF;
 }
 
 :root {
@@ -108,6 +107,9 @@ footer {
 input {
     color: var(--fg);
     font: 1em/1.5 sans-serif;
+    width: 277px;
+    margin-left: 0px;
+    height: 27px;
 }
 
     input:checked + .switch__sr {
@@ -259,3 +261,7 @@ body {
         content: "";
         background-color: var(--primary);
     }
+
+.contactoR{
+
+}
