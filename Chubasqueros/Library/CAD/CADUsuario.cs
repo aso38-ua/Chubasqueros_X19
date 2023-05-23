@@ -65,6 +65,10 @@ namespace Library
                     resultado = false;
                     Console.WriteLine("User operation has failed. Error: {0}", e.Message);
                 }
+                finally
+                {
+                    if (constring != null) connection.Close();
+                }
             }
 
             return resultado;
@@ -106,6 +110,10 @@ namespace Library
                     resultado = false;
                     Console.WriteLine("User operation has failed. Error: {0}", e.Message);
                 }
+                finally
+                {
+                    if (constring != null) connection.Close();
+                }
             }
 
             return resultado;
@@ -136,10 +144,19 @@ namespace Library
                         result = true;
                     }
                 }
+                catch (SqlException e)
+                {
+                    result = false;
+                    Console.WriteLine("User operation has failed. Error: {0}", e.Message);
+                }
                 catch (Exception ex)
                 {
                     // Manejar la excepción en caso de algún error
                     Console.WriteLine("Error al actualizar el usuario: " + ex.Message);
+                }
+                finally
+                {
+                    if (constring != null) connection.Close();
                 }
             }
 

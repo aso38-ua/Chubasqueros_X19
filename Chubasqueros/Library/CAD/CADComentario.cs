@@ -16,7 +16,7 @@ namespace library
 
         public CADComentario()
         {
-            conn = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            conn = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         //Crea comentario
@@ -24,7 +24,7 @@ namespace library
         {
             bool create = false;
             SqlConnection conexion = null;
-            string comando = "insert into [dbo].[Comentario] (id_user, item, estrellas, likes, dislikes, comentario) values (" + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_estrellas + ", " + en.aux_likes + ", " + en.aux_dislikes + ", en.comentario = '" + en.aux_comentario + "')";
+            string comando = "insert into [dbo].[Comentario] (id_user, item, estrellas, likes, dislikes, comentario) values (" + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_estrellas + ", " + en.aux_likes + ", " + en.aux_dislikes + ", '" + en.aux_comentario + "')";
             try
             {
                 conexion = new SqlConnection(conn);
@@ -120,7 +120,8 @@ namespace library
             bool first = true;
             SqlConnection conexion = null;
             string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item;
-            try {
+            try
+            {
                 conexion = new SqlConnection(conn);
                 conexion.Open();
 
@@ -170,7 +171,7 @@ namespace library
 
                 while (rd.Read() == true && prev == false)
                 {
-                    if (rd["id_user"].ToString() == en.aux_id_user.ToString())
+                    if (rd["item"].ToString() == en.aux_item.ToString())
                     {
                         prev = true;
                     }
@@ -220,23 +221,17 @@ namespace library
                 SqlCommand consulta = new SqlCommand(comando, conexion);
                 SqlDataReader rd = consulta.ExecuteReader();
                 rd.Read();
-                en.aux_comentario = rd["comentario"].ToString();
-                en.aux_likes = int.Parse(rd["likes"].ToString());
-                en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
 
                 while (rd.Read() == true && next == false)
                 {
                     if (aux == true)
                     {
                         next = true;
-                        en.aux_comentario = rd["comentario"].ToString();
-                        en.aux_likes = int.Parse(rd["likes"].ToString());
-                        en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
                     }
-                    if (rd["id_user"].ToString() == en.aux_id_user.ToString())
+                    if (rd["item"].ToString() == en.aux_item.ToString())
                     {
                         aux = true;
-                    }                    
+                    }
                 }
                 if (next == true)
                 {
@@ -271,7 +266,7 @@ namespace library
         {
             bool show = false;
             SqlConnection conexion = null;
-            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item + "and id_user = " + en.aux_id_user;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -360,8 +355,9 @@ namespace library
         {
             bool like = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set likes = " + en.aux_likes + 1 + " where item = " + en.aux_item + "and estrellas = " + en.aux_estrellas;
-            try {
+            string comando = "update [dbo].[Comentario] set likes = " + en.aux_likes + " where item = " + en.aux_item + "and comentario = '" + en.aux_comentario + "'";
+            try
+            {
                 like = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
@@ -391,7 +387,7 @@ namespace library
         {
             bool dislike = false;
             SqlConnection conexion = null;
-            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_likes + 1 + "' where item = " + en.aux_item + "and estrellas = " + en.aux_estrellas;
+            string comando = "update [dbo].[Comentario] set likes = '" + en.aux_dislikes + 1 + "' where item = " + en.aux_item + "and comentario = '" + en.aux_comentario + "'";
             try
             {
                 dislike = true;
