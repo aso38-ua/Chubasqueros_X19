@@ -159,7 +159,6 @@ namespace Interfaz
         protected string ObtenerPrecioTotal()
         {
             float total = 0;
-            bool existe = false;
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();

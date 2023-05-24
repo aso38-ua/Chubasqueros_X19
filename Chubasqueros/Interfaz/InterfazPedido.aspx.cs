@@ -114,9 +114,10 @@ namespace Interfaz
             {
                 connection = new SqlConnection(constring);
                 connection.Open();
-
+                
                 string query = "DELETE * FROM [dbo].[pedido] WHERE usuario_id = '" + usuario.id + "';";
                 SqlCommand consulta = new SqlCommand(query, connection);
+                existe = true;
 
                 connection.Close();
             }
@@ -141,7 +142,6 @@ namespace Interfaz
         protected string ObtenerPrecioTotal()
         {
             float total = 0;
-            bool existe = false;
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
