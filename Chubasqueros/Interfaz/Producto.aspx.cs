@@ -26,7 +26,7 @@ namespace Interfaz
             {
                 buttom_Favoritos.Visible = false;
                 buttom_Reservar.Visible = false;
-                //buttom_Comprar.Visible = false;
+                buttom_Comprar.Visible = false;
                 buttom_Carrito.Visible = false;
                 buttom_Puntuar.Visible = false;
 
@@ -35,14 +35,14 @@ namespace Interfaz
             {
                 buttom_Favoritos.Visible = true;
                 buttom_Reservar.Visible = true;
-                //buttom_Comprar.Visible = true;
+                buttom_Comprar.Visible = true;
                 buttom_Carrito.Visible = true;
                 buttom_Puntuar.Visible = true;
 
             }
 
             //OPCIONES ADMIN
-            /**ENUsuario usuario = new ENUsuario();
+            ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
             if (!usuario.esAdmin)
@@ -56,7 +56,7 @@ namespace Interfaz
                 buttom_Crear.Visible = true;
                 buttom_Actualizar.Visible = true;
                 buttom_Borrar.Visible = true;
-            }*/
+            }
 
             outputMsg.Text = "";
         }
@@ -122,7 +122,7 @@ namespace Interfaz
         {
             if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
             {
-                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), int.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
+                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), float.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
 
                 if (producto.createProducto())
                     outputMsg.Text = "Producto " + producto.getCodigo() + " insertado en la B.D.";
@@ -136,7 +136,7 @@ namespace Interfaz
         {
             if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
             {
-                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), int.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
+                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), float.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
 
                 if (producto.updateProducto())
                 {
@@ -153,7 +153,7 @@ namespace Interfaz
         {
             if (text_nombre.Text != "" && text_codigo.Text != "")
             {
-                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), int.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
+                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), float.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
 
                 if (producto.deleteProducto())
                     outputMsg.Text = "Producto " + producto.getCodigo() + " borrado";
@@ -233,7 +233,7 @@ namespace Interfaz
         }
 
         protected void onPuntuar(object sender, EventArgs e)
-        {
+        { //en otro lado?
 
 
         }
