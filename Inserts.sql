@@ -300,3 +300,30 @@ INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (1
 INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (108, 1, 10, 120, 2);
 INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (109, 1, 3, 47, 10);
 INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (110, 1, 7, 220, 1);
+
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (2, 4, 1, 4, 3)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (2, 1, 4, 1, 4, 'Muy buen producto, muy contento')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 2, 5, 4)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (4, 2, 5, 0, 5, 'Es lo que necesitaba mi pequeñín')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 1, 5, 5)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (4, 1, 3, 1, 5, 'Todo perfecto')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 3, 5, 6)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (4, 3, 2, 0, 5, 'Muy buen producto, volvería a comprar sin duda')
+
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (7, 3, 5, 3, 3)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (7, 5, 2, 4, 3, 'Podría ser mejor')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (8, 3, 10, 4, 4)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (8, 10, 1, 0, 3, 'Ok')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (9, 5, 12, 5, 5)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (9, 12, 5, 0, 5, 'Todo perfecto')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (12, 5, 13, 5, 6)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (12, 13, 2, 0, 5, 'Muy buen producto, volvería a comprar sin duda')
+
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (15, 4, 12, 4, 3)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (15, 12, 4, 1, 4, 'Me alegra haber encontrado esta tienda')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (14, 5, 15, 5, 4)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (14, 15, 1, 0, 5, 'Es lo que necesitaba')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (14, 5, 16, 5, 5)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (14, 16, 7, 1, 5, 'Todo bien')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (24, 5, 13, 5, 6)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (24, 13, 3, 0, 5, 'Muy buen producto')
