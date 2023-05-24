@@ -108,11 +108,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database.mdf" />
-    <Content Include="App_Data\Database_log.ldf">
-      <DependentUpon>Database.mdf</DependentUpon>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="Colaboracion.aspx" />
+    <Content Include="CSS\Comentario.css" />
     <Content Include="CSS\EstiloCarrito.css" />
     <Content Include="adminOferta.aspx" />
     <Content Include="adminServicio.aspx" />

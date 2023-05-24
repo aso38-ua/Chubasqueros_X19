@@ -95,6 +95,11 @@ namespace Interfaz
                             Label4.Text = Convert.ToString(en_c.aux_likes);
                             Label5.Text = Convert.ToString(en_c.aux_dislikes);
                         }
+                        else
+                        {
+                            Label4.Text = "0";
+                            Label5.Text = "0";
+                        }
                     }
                 }
                 else
@@ -152,30 +157,55 @@ namespace Interfaz
                         en_p.aux_id_user = en_u.id;
                         en_p.aux_item = en_prod.getCodigo();
                         en_p.aux_contador = en_p.aux_contador + 1;
-                        if (en_p.changePuntuacion() == true)
+                        if (en_p.findItem())
                         {
-                            /* ENPuntuacion en_p_aux = new ENPuntuacion();
-                             en_p_aux.totalEstrellas();
-                             en_p_aux.aux_contador = en_p.aux_contador;
-                             en_p_aux.totalEstrellas();
-                             en_p_aux.mediaPuntuacion();*/
-                            en_p.aux_media = en_p.aux_estrella;
-                            Label3.Text = Convert.ToString(en_p.aux_estrella);
-                            Label6.Text = Convert.ToString(en_p.aux_media);
-                            Label7.Text = "Ha puntuado correctamente con " + en_p.aux_estrella;
-                            if (en_p.aux_estrella == 1)
+                            if (en_p.changePuntuacion() == true)
                             {
-                                Label7.Text += " estrella";
+                                ENPuntuacion en_p_aux = new ENPuntuacion();
+                                en_p_aux.totalEstrellas();
+                                en_p_aux.aux_contador = en_p.aux_contador;
+                                en_p_aux.totalEstrellas();
+                                en_p_aux.mediaPuntuacion();
+                                en_p.aux_media = en_p_aux.aux_media;
+                                Label3.Text = Convert.ToString(en_p.aux_estrella);
+                                Label6.Text = Convert.ToString(en_p.aux_media);
+                                Label7.Text = "Ha puntuado correctamente con " + en_p.aux_estrella;
+                                if (en_p.aux_estrella == 1)
+                                {
+                                    Label7.Text += " estrella";
+                                }
+                                else
+                                {
+                                    Label7.Text += " estrellas";
+                                }
                             }
                             else
                             {
-                                Label7.Text += " estrellas";
+                                Label7.Text = "Ha habido un error, compruebe que haya seleccionado una opción2";
                             }
                         }
                         else
                         {
-                            Label7.Text = "Ha habido un error, compruebe que haya seleccionado una opción";
+                            if (en_p.createPuntuacion())
+                            {
+                                Label3.Text = Convert.ToString(en_p.aux_estrella);
+                                Label6.Text = Convert.ToString(en_p.aux_media);
+                                Label7.Text = "Ha puntuado correctamente con " + en_p.aux_estrella;
+                                if (en_p.aux_estrella == 1)
+                                {
+                                    Label7.Text += " estrella";
+                                }
+                                else
+                                {
+                                    Label7.Text += " estrellas";
+                                }
+                            }
+                            else
+                            {
+                                Label7.Text = "Ha habido un error, compruebe que haya seleccionado una opción";
+                            }
                         }
+
                     }
                     else
                     {
@@ -591,7 +621,7 @@ namespace Interfaz
                         en_c.aux_estrellas = int.Parse(Label3.Text);
                         en_c.aux_item = en_prod.getCodigo();
                         en_c.aux_id_user = en_u.id;
-                        en_c.aux_comentario = TBComentario.Text;
+                        en_c.aux_comentario = TBModificar.Text;
                         if (en_c.changeComment() == true)
                         {
                             TBModificar.Text = en_c.aux_comentario;

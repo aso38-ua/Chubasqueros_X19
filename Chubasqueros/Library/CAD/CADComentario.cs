@@ -228,7 +228,7 @@ namespace library
                     {
                         next = true;
                     }
-                    if (rd["item"].ToString() == en.aux_item.ToString())
+                    else if (rd["id_user"].ToString() == en.aux_id_user.ToString())
                     {
                         aux = true;
                     }

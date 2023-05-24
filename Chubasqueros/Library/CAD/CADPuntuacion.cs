@@ -151,8 +151,9 @@ namespace library
         public bool totalEstrellas(ENPuntuacion en)
         {
             bool totalE = false;
+            int aux = 0;
             SqlConnection conexion = null;
-            string comando = "select SUM(estrellas) from [dbo].[Puntuacion] where item = " + en.aux_item;
+            string comando = "select SUM(estrellas) AS aux from [dbo].[Puntuacion] where item = " + en.aux_item;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -165,7 +166,7 @@ namespace library
                 if (int.Parse(rd["item"].ToString()) == en.aux_item)
                 {
                     totalE = true;
-                    //en.aux_estrella = int.Parse(rd);
+                    en.aux_estrella = aux;
                 }
             }
             catch (SqlException sqlex)
