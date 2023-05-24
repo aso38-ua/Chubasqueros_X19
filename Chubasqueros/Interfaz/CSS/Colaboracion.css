@@ -1,0 +1,25 @@
+﻿.fila {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin: 3%; /*Distancia de la fila al margen de la página*/
+}
+
+.columna{
+    flex-basis: calc(33.33% - 20px);
+}
+
+.imagen {
+    width: 80%; /*Ancho*/
+    height: auto; /*Largo*/
+    border-radius: 20px; /*Marco de la imagen*/
+}
+
+.parrafo1{
+    margin-top: 20px; /*Espacio con la imagen*/
+    margin-right: 80px;
+    text-align: center;
+    font-size: 25px; /*Tamaño letra*/
+}

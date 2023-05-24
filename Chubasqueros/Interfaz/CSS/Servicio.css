@@ -1,46 +1,33 @@
-﻿.container-servicio {
+﻿/* Contenedor */
+.servicio-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
-.img-servicio {
-    width: 50%;
+/* Imagen */
+.servicio-imagen-img {
+    margin-left: 100px;
+    margin-right: 300px;
+    margin-bottom: 150px;
+    margin-top: 150px;
+    width: 500px;
     height: auto;
-    border-radius: 5px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #c2c2c2;
 }
 
-.row-servicio {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 50px;
+/* Título y descripción de cada servicio */
+.servicio-contenido {
+    flex: 1 1 auto;
 }
 
-.col-servicio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.h1-servicio {
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 50px;
-}
-
-.h2-servicio {
-    margin-top: 0;
+/* Descripción */
+.p-servicio {
     font-size: 25px;
 }
 
-.p-servicio {
-    font-size: 18px;
-    line-height: 1.5;
-    font-size: 20px;
-}
+/* Título de la página */
 
+.h2-servicio {
+    text-align: center;
+    font-size: 50px;
+    margin-top: -50px;
+}

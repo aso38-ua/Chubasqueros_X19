@@ -1,63 +1,54 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Oferta.aspx.cs" Inherits="Interfaz.Oferta" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        /* Contenedor */
+        .oferta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Imagen */
+        .oferta-imagen-img {
+            margin-bottom: 20px; 
+            width: 500px;
+            height: auto;
+        }
+
+        /* Descripción */
+        .p-oferta {
+            font-size: 25px;
+            margin: 0;
+            margin-bottom: 130px;
+        }
+
+        /* Título de la página */
+        h2 {
+            color: #FF86FF;
+            text-align: center;
+            font-size: 50px;
+            text-shadow: 0 0 10px #B25FB0, 0 0 20px #FF86FF, 0 0 30px #B25FB0, 0 0 40px #FF86FF;
+            animation: neon 1.5s ease-in-out infinite alternate;
+            font-weight: bold;
+        }
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
 
+    <h2>Descuentos y ofertas</h2>
 
-    <h2 class="h1-oferta">Descuentos y ofertas</h2>
+    <!-- Muestra dinámicamente lo que devuelve loadAllOffers en formato de HTML -->
     <div class="container-oferta">
-        <!-- PRIMERA FILA -->
-        <div class="row-oferta">
-        <div class="col-oferta">
-            <img src="IMGS/bienvenida.jfif" class="img-oferta">
-            <h2 class="h2-oferta">Descuento nuevo cliente</h2>
-            <p class="p-oferta">Por la compra de un chubasquero, llévate otro chubasquero gratis</p>
-        </div>
-        <div class="col-oferta">
-            <img src="IMGS/5descuento.jfif" class="img-oferta">
-            <h2 class="h2-oferta">Descuento del 5%</h2>
-            <p class="p-oferta">Llévate un 5% de descuento por compartir una foto de tu pez con su chubasquero en las redes sociales y etiquetarnos</p>
-        </div>
-        <div class="col-oferta">
-            <img src="IMGS/10descuento.jfif" class="img-oferta">
-            <h2 class="h2-oferta">Descuento del 10%</h2>
-            <p class="p-oferta">Llévate un 10% de descuento por comprar dos o más chubasqueros de diferentes colores o modelos</p>
-        </div>
-        </div>
-        <!-- SEGUNDA FILA -->
-        <div class="row-oferta">
-        <div class="col-oferta" >
-            <img src="IMGS/15descuento.jfif" class="img-oferta">
-            <h2 class="h2-oferta">Descuento del 15%</h2>
-            <p class="p-oferta">Llévate un 15% de descuento por comprar cinco o más chubasqueros de diferentes colores o modelos</p>
-        </div>
-        <div class="col-oferta">
-            <img src="IMGS/20descuento.jfif" class="img-oferta">
-            <h2 class="h2-oferta">Descuento del 20%</h2>
-            <p class="p-oferta">Llévate un 20% de descuento si recomiendas nuestra tienda a un amigo y hace una compra superior a 50€</p>
-        </div>
-        <div class="col-oferta">
-            <img src="IMGS/especial.jfif" class="img-oferta">
-            <h2 class="h2-oferta">Oferta especial</h2>
-            <p class="p-oferta">El primer día de cada mes, los chubasqueros a mitad de precio</p>
-        </div>
-        </div>
-        <!-- TERCERA FILA -->
-        <div class="row-oferta">
-        <div class="col-oferta">
-            <img src="IMGS/tarjetaregalo.jfif" class="img-oferta">
-            <h2 class="h2-oferta">Oferta tarjeta regalo</h2>
-            <p class="p-oferta">Compra una tarjeta regalo en la segunda semana del mes y llévate un regalo</p>
-        </div>
-        <div class="col-oferta">
-            <img src="IMGS/epocalluvia.jfif" class="img-oferta">
-            <h2 class="h2-oferta">Oferta época de lluvia</h2>
-            <p class="p-oferta">Compra un chubasquero para tu pez en época de lluvia y te costará la mitad que el resto del año</p>
-        </div>
-        <div class="col-oferta">
-        </div>
+        <div>
+            <br />
+            <br />
+            <asp:Label ID="labelInfo" runat="server" Text=""></asp:Label>
         </div>
     </div>
 </asp:Content>

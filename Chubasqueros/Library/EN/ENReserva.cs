@@ -12,7 +12,13 @@ namespace Library
         private string fecha;
         private int producto;
         private int usuario;
+        private double preciot;
 
+        public double ptotal
+        {
+            get { return preciot; }
+            set { preciot = value; }
+        }
         public int cantidadp
         {
             get { return cantidad;}
@@ -37,8 +43,36 @@ namespace Library
             set { usuario = value; }
         }
 
-        public ENReserva(int cantidad, string fecha, int producto, int usuario)
+        public ENReserva(int producto, int usuario)
         {
+            ENProducto product = new ENProducto();
+            product.setCodigo(producto);
+            product.readProducto();
+            this.ptotal = product.getPrecio();
+            this.cantidad = 1;
+            this.fecha = "00/00/0000";
+            this.producto = producto;
+            this.usuario = usuario;
+        }
+
+        public ENReserva(string fecha, int producto, int usuario)
+        {
+            ENProducto product = new ENProducto();
+            product.setCodigo(producto);
+            product.readProducto();
+            this.ptotal = product.getPrecio();
+            this.cantidad = 1;
+            this.fecha = fecha;
+            this.producto = producto;
+            this.usuario = usuario;
+        }
+
+        public ENReserva(int cantidad,string fecha, int producto, int usuario)
+        {
+            ENProducto product = new ENProducto();
+            product.setCodigo(producto);
+            product.readProducto();
+            this.ptotal = product.getPrecio() * cantidad;
             this.cantidad = cantidad;
             this.fecha = fecha;
             this.producto = producto;
@@ -71,6 +105,7 @@ namespace Library
                 aux.fecha = fecha;
                 aux.producto = producto;
                 aux.usuario = usuario;
+                aux.ptotal = ptotal;
                 actualizado = reserva.updateReserva(aux);
             }
 

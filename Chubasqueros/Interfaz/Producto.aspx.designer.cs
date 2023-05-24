@@ -12,7 +12,25 @@ namespace Interfaz
 
 
     public partial class Producto
-    {
+    { 
+
+        /// <summary>
+        /// Control labelInfo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelInfo;
+
+        /// <summary>
+        /// Control Mensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Mensaje;
 
         /// <summary>
         /// Control text_codigo.
@@ -87,6 +105,15 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.Button buttom_Leer;
 
         /// <summary>
+        /// Control buttom_Crear.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttom_Crear;
+
+        /// <summary>
         /// Control buttom_Categoria.
         /// </summary>
         /// <remarks>
@@ -96,6 +123,15 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.Button buttom_Categoria;
 
         /// <summary>
+        /// Control buttom_Actualizar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttom_Actualizar;
+
+        /// <summary>
         /// Control buttom_Comprar.
         /// </summary>
         /// <remarks>
@@ -103,6 +139,15 @@ namespace Interfaz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttom_Comprar;
+
+        /// <summary>
+        /// Control buttom_Borrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttom_Borrar;
 
         /// <summary>
         /// Control buttom_Carrito.
@@ -139,32 +184,5 @@ namespace Interfaz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttom_Reservar;
-
-        /// <summary>
-        /// Control buttom_Crear.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttom_Crear;
-
-        /// <summary>
-        /// Control buttom_Actualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttom_Actualizar;
-
-        /// <summary>
-        /// Control buttom_Borrar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttom_Borrar;
     }
 }

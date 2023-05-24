@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Library
 {
@@ -13,6 +14,7 @@ namespace Library
         public string apellido { get; set; }
         public string email { get; set; }
         public string contraseña { get; set; }
+        public bool esAdmin { get; set; }
 
         public ENUsuario()
         {
@@ -20,33 +22,23 @@ namespace Library
             this.nombre = "";
             this.apellido = "";
             this.email = "";
-            this.contraseña="";
+            this.contraseña = "";
+            this.esAdmin = false;
         }
 
-        public ENUsuario(int id, string nombre, string apellido, string email, string contraseña)
+        public ENUsuario(int id, string nombre, string email, string contraseña)
         {
             this.id = id;
             this.nombre = nombre;
-            this.apellido = apellido;
             this.email = email;
             this.contraseña = contraseña;
-        }
-
-        //Crear usuario
-        public bool createUsuario()
-        {
-            CADUsuario user = new CADUsuario();
-            bool create = false;
-            if (!user.readUsuario(this))
-                create = user.createUsuario(this);
-            return create;
         }
 
         //Lee un usuario de la base de datos
         public bool readUsuario()
         {
             CADUsuario user = new CADUsuario();
-            bool read = user.readUsuario(this);
+            bool read = user.ReadUsuario(this);
             return read;
         }
 
@@ -56,7 +48,7 @@ namespace Library
             ENUsuario aux = new ENUsuario();
             CADUsuario user = new CADUsuario();
             bool update = false;
-            if (user.readUsuario(aux))
+            if (user.ReadUsuario(aux))
             {
                 this.id = id;
                 this.nombre = nombre;
@@ -73,63 +65,90 @@ namespace Library
         {
             CADUsuario user = new CADUsuario();
             bool eliminado = false;
-            if (user.readUsuario(this))
+            if (user.ReadUsuario(this))
                 eliminado = user.deleteUsuario(this);
             return eliminado;
         }
 
         // Create
-        public static void CrearUsuario(int id, string nombre, string apellido, string email, string contraseña)
+        public bool CrearUsuario(int id, string nombre, string email, string contraseña)
         {
-            ENUsuario nuevoUsuario = new ENUsuario(id, nombre, apellido, email, contraseña);
-            CADUsuario.CrearUsuario(nuevoUsuario);
+            CADUsuario user = new CADUsuario();
+            bool created = false;
+
+            if (!user.ReadUsuario(this))
+            {
+                created = user.CrearUsuario(this);
+            }
+
+            return created;
         }
 
-        // Read
-        public static ENUsuario ObtenerUsuarioPorId(int id)
+        public bool ValidarCredenciales(string nombre, string contraseña)
         {
-            return CADUsuario.ObtenerUsuarioPorId(id);
+            return CADUsuario.ValidarCredenciales(nombre, contraseña);
         }
 
-        public static ENUsuario ObtenerUsuarioPorEmail(string email)
+        public string ObtenerEmailPorUsuario(string username)
+        {
+            return CADUsuario.ObtenerEmailPorUsuario(username);
+        }
+
+        public string ObtenerUsuarioPorEmail(string email)
         {
             return CADUsuario.ObtenerUsuarioPorEmail(email);
         }
 
-        public static List<ENUsuario> ObtenerTodosLosUsuarios()
+        public string ObtenerRutaImagenPerfil(string username)
         {
-            return CADUsuario.ObtenerTodosLosUsuarios();
+            return CADUsuario.ObtenerRutaImagenPerfil(username);
         }
 
-        // Update
-        public void ActualizarNombre(string nuevoNombre)
+        public bool VerificarNombreUsuarioExistente(string newUsername)
         {
-            this.nombre = nuevoNombre;
-            CADUsuario.ActualizarUsuario(this);
+            return CADUsuario.VerificarNombreUsuarioExistente(newUsername);
         }
 
-        public void ActualizarApellido(string nuevoApellido)
+        public bool VerificarEmailExistente(string newEmail)
         {
-            this.apellido = nuevoApellido;
-            CADUsuario.ActualizarUsuario(this);
+            return CADUsuario.VerificarEmailExistente(newEmail);
         }
 
-        public void ActualizarEmail(string nuevoEmail)
+        public void ActualizarNombreUsuario(string currentUsername, string newUsername)
         {
-            this.email = nuevoEmail;
-            CADUsuario.ActualizarUsuario(this);
+            CADUsuario.ActualizarNombreUsuario(currentUsername, newUsername);
+
+            // Actualizar el valor en la sesión
+            HttpContext.Current.Session["username"] = newUsername;
         }
 
-        public void ActualizarContraseña(string nuevaContraseña)
+        public void ActualizarEmail(string currentEmail, string newEmail)
         {
-            this.contraseña = nuevaContraseña;
-            CADUsuario.ActualizarUsuario(this);
+            CADUsuario.ActualizarEmail(currentEmail, newEmail);
+
+            // Actualizar el valor en la sesión
+            HttpContext.Current.Session["email"] = newEmail;
         }
 
-        // Delete
-        public void Eliminar()
+        public bool EsAdmin(string username)
         {
-            CADUsuario.EliminarUsuario(this.id);
+            CADUsuario usuario = new CADUsuario();
+            bool esAdmin = usuario.EsAdmin(username);
+            return esAdmin;
         }
+
+        public bool EsCorreoElectronico(string input)
+        {
+            try
+            {
+                var email = new System.Net.Mail.MailAddress(input);
+                return email.Address == input;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

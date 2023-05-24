@@ -12,6 +12,8 @@ namespace library
         private int estrellas;
         private int item;
         private int id_user;
+        private int media;
+        private int contador;
 
         public int aux_estrella
         {
@@ -31,11 +33,24 @@ namespace library
             set { id_user = value; }
         }
 
+        public int aux_media
+        {
+            get { return media; }
+            set { media = value; }
+        }
+        public int aux_contador
+        {
+            get { return contador; }
+            set { contador = value; }
+        }
+
         public ENPuntuacion()
         {
             aux_estrella = 0;
             aux_item = 0;
             aux_id_user = 0;
+            aux_media = 0;
+            aux_contador = 0;
         }
 
         public ENPuntuacion(int estrella, int item, int id_user)
@@ -43,6 +58,8 @@ namespace library
             aux_estrella = estrella;
             aux_item = item;
             aux_id_user = id_user;
+            aux_media = 0;
+            aux_contador = 0;
         }
 
         public ENPuntuacion(ENPuntuacion en)
@@ -50,6 +67,8 @@ namespace library
             aux_estrella = en.aux_estrella;
             aux_item = en.aux_item;
             aux_id_user = en.aux_id_user;
+            aux_media = en.media;
+            aux_contador = en.contador;
         }
         public bool createPuntuacion()
         {
@@ -57,12 +76,13 @@ namespace library
             ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             ENProducto aux_EN_Prod = new ENProducto();
+            aux_EN_Prod.setCodigo(aux_EN_Pun.aux_item);
             CADProducto aux_CAD_Prod = new CADProducto();
-            aux_EN_Prod.setCodigo(item);
+            //aux_EN_Prod.setCodigo(item);
             ENUsuario aux_EN_User = new ENUsuario();
             CADUsuario aux_CAD_User = new CADUsuario();
-            aux_EN_User.id = id_user;
-            if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.readUsuario(aux_EN_User))
+            aux_EN_User.id = aux_EN_Pun.aux_id_user;
+            if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.ReadUsuario(aux_EN_User))
             {
                 puntuar = aux_CAD_Pun.createPuntuacion(this);
             }
@@ -95,14 +115,26 @@ namespace library
 
         public bool mediaPuntuacion()
         {
-            bool media = false;
+            bool mediaP = false;
             ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             if (aux_CAD_Pun.findItem(aux_EN_Pun))
             {
-                media = aux_CAD_Pun.changePuntuacion(this);
+                mediaP = aux_CAD_Pun.mediaPuntuacion(this);
             }
-            return media;
+            return mediaP;
+        }
+
+        public bool totalEstrellas()
+        {
+            bool totalE = false;
+            ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            if (aux_CAD_Pun.findItem(aux_EN_Pun))
+            {
+                totalE = aux_CAD_Pun.totalEstrellas(this);
+            }
+            return totalE;
         }
 
         public bool findItem()
@@ -111,6 +143,14 @@ namespace library
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             find = aux_CAD_Pun.findItem(this);
             return find;
+        }
+
+        public bool findItemSinUser()
+        {
+            bool findU = false;
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            findU = aux_CAD_Pun.findItemSinUser(this);
+            return findU;
         }
     }
 }

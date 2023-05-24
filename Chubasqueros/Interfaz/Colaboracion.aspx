@@ -2,30 +2,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
 
-<center><h2><u>Ropa</u></h2></center>
-<br />
-<div class="contenedor">
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <img src="IMGS/adidas.jpeg" style="height: 288px; width: 335px" />
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <img src="IMGS/zara.jpeg" style="height: 287px; width: 371px"/>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <img src="IMGS/mayka.jpeg" style="height: 274px; width: 332px" />
-    <p>Chubasquero para peces & Adidas</p><p>Chubasquero para peces & Zara</p><p>Chubasquero para peces & Mayka</p>
-    
+<link rel="stylesheet" href="CSS/Colaboracion.css">
+<center><h2>Ropa</h2></center>
+<br /><br />
 
-    <center><h2><u>Accesorios</u></h2></center>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <img src="IMGS/Brent%20Black.jpeg" style="height: 262px; width: 323px; margin-left: 3px" />
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <img src="IMGS/Pull%20and%20Bear.jpeg" style="height: 273px; width: 291px; margin-left: 0px" />
-    <p>Chubasqueros para peces & Brent Black</p>
-    <p>Chubasqueros para peces & Oull and Bear</p>
-</div> 
+<div class="fila">
+    <div class="columna">
+        <img class="imagen" src="IMGS/adidas.jpeg"/>
+        <p class="parrafo1">Chubasquero para peces & Adidas</p>
+    </div>
+    <div class="columna">
+        <img class="imagen" src="IMGS/zara.jpeg"/>
+        <p class="parrafo1">Chubasquero para peces & Zara</p>
+    </div>  
+    <div class="columna">
+        <img class="imagen" src="IMGS/mayka.jpeg" />
+        <p class="parrafo1">Chubasquero para peces & Mayka</p>
+    </div>
+</div>
+
+<br /><br />
+<center><h2>Accesorios</h2></center>
+<br /><br />
+
+<div class="fila">
+    <div class="columna"> 
+        <img class="imagen" src="IMGS/sombrero.png"/>
+        <p class="parrafo1">Chubasqueros para peces & Brent Black</p>
+    </div>
+    <div class="columna">
+        <img class="imagen" src="IMGS/zyro-image.png"/>
+        <p class="parrafo1">Chubasqueros para peces & Pull and Bear</p>
+    </div>
+</div>
 </asp:Content>
