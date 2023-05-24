@@ -48,6 +48,7 @@ namespace Library
 
         public ENCarrito(int usu)
         {
+            this.producto = new int[0];
             this.usuario = usu;
         }
 
@@ -70,12 +71,16 @@ namespace Library
 
         public ENCarrito(int[] prod, int usu)
         {
-            this.producto = new int[producto.Length];
-            for(int i = 0; i < producto.Length; i++)
+            if(prod != null)
             {
-                this.producto[i] = producto[i];
+                this.producto = new int[prod.Length];
+                for (int i = 0; i < prod.Length; i++)
+                {
+                    this.producto[i] = prod[i];
+                }
+                this.usuario = usu;
             }
-            this.usuario = usuario;
+            
         }
 
         public ENCarrito(int cantidad, int producto, int usuario)

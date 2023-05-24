@@ -195,7 +195,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                String cout = "DELETE FROM [dbo].[carrito] WHERE producto = '" + c.producto[0] + "' AND usuario ='" + c.usuario + "';";
+                String cout = "DELETE FROM [dbo].[carrito] WHERE producto_id = '" + c.producto[0] + "' AND usuario_id ='" + c.usuario + "';";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 eprod = true;
