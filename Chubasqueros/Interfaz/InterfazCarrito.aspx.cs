@@ -37,8 +37,9 @@ namespace Interfaz
                 {
 					prod[i] = new ENProducto();
 					prod[i].setCodigo(carrito.producto[i]);
-					prod[i].readProducto();
-					prod[i].setStock(carrito.producto[i]);
+                    prod[i].setStock(carrito.producto[i]);
+                    prod[i].readProducto();
+					
                 }
                 //Contenedor del producto (uso de ListView)
 				ListView_Carrito.DataSource = prod;
@@ -58,39 +59,55 @@ namespace Interfaz
 
         protected void btn_compra(object sender, EventArgs e)
 		{
+            
             bool existe = false;
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
-            ENCarrito carrito = new ENCarrito(usuario.id);
             String cons = ConfigurationManager.ConnectionStrings["Database"].ToString();
             SqlConnection conectsql = null;
-            conectsql = new SqlConnection(cons);
-            conectsql.Open();
-            string cout = "INSERT INTO carrito (producto_id, preciotot, cantidad) VALUES (@producto_id, @preciotot, @cantidad)";
-            SqlCommand command = new SqlCommand(cout, conectsql);
-            using (command)
-            {
-                command.Parameters.AddWithValue("@producto_id", carrito.producto);
-                command.Parameters.AddWithValue("@preciotot", carrito.total);
-            }
 
-            SqlDataReader cant = command.ExecuteReader();
-            cant.Read();
-            //Este valor es para convertir el textbox en int
-            int valorEntero;
-            //Comprueba si la conversion se puede realizar
-            if(int.TryParse(textBox.Text, out valorEntero))
+            try
             {
-                carrito.cantidad = valorEntero;
+                conectsql = new SqlConnection(cons);
+                conectsql.Open();
+                string cout = "INSERT INTO [dbo].[carrito] (producto_id, preciotot, cantidad) VALUES (@producto_id, @preciotot, @cantidad)";
+                SqlCommand command = new SqlCommand(cout, conectsql);
+                SqlDataReader search = command.ExecuteReader();
+                search.Read();
+                //Este valor es para convertir el textbox en int
+                int valorEntero;
+                //Comprueba si la conversion se puede realizar
+                if (int.TryParse(textBox.Text, out valorEntero))
+                {
+                    existe = true;
+                    ENCarrito carrito = new ENCarrito(int.Parse(search["codigo"].ToString()), usuario.id);
+                    carrito.verCarrito();
+                    carrito.cantidad = valorEntero;
+                    carrito.actualizarCarrito();
+                }
+                else
+                {
+                    Message.Text = "La cantidad introducida no es correcta";
+                }
+
             }
-            else
+            catch (SqlException ex)
             {
-                Message.Text = "La cantidad introducida no es correcta";
+                existe = false;
+                Console.WriteLine("Product operation has failed.Error: {0}", ex.Message);
             }
-            
+            catch (Exception ex)
+            {
+                existe = false;
+                Console.WriteLine("Product operation has failed.Error: {0}", ex.Message);
+            }
             conectsql.Close();
+            if (!existe) Message.Text = "Nombre del producto no válido";
+            
             Response.Redirect("InterfazPedido.aspx");
+            
+           
         }
 
 		protected void btn_eliminar(object sender, EventArgs e)
@@ -98,8 +115,7 @@ namespace Interfaz
 			bool existe = false;
 			ENUsuario usuario = new ENUsuario();
 			usuario.nombre = (string)Session["username"];
-			usuario.readUsuario();
-			ENCarrito carrito = new ENCarrito(usuario.id);
+            usuario.readUsuario();
 			String cons = ConfigurationManager.ConnectionStrings["Database"].ToString();
             SqlConnection connection = null;
             try
@@ -107,10 +123,14 @@ namespace Interfaz
                 connection = new SqlConnection(cons);
                 connection.Open();
 
-                string query = "DELETE * FROM [dbo].[carrito] WHERE usuario = '" + usuario.id + "';";
-                SqlCommand consulta = new SqlCommand(query, connection);
+                string query = "DELETE * FROM [dbo].[carrito] WHERE usuario_id = '" + usuario.id + "';";
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataReader search = command.ExecuteReader();
+                ENCarrito carrito = new ENCarrito(int.Parse(search["codigo"].ToString()), usuario.id);
+                existe = true;
+                carrito.eliminarCarrito();
+                search.Close();
 
-                connection.Close();
             }
             catch (SqlException ex)
             {
@@ -132,8 +152,54 @@ namespace Interfaz
 
         protected void btn_producto(object sender, EventArgs e)
         {
+            //Es solo para volver a la pagina de productos (aunque aparece en la cabecera, pero podria servir de adorno)
             Response.Redirect("Producto.aspx");
         }
+
+        protected string ObtenerPrecioTotal()
+        {
+            float total = 0;
+            bool existe = false;
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            String cons = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            SqlConnection conectsql = null;
+            try
+            {
+                conectsql = new SqlConnection(cons);
+                conectsql.Open();
+                //string cout = "INSERT INTO carrito (producto_id, preciotot, cantidad) VALUES (@producto_id, @preciotot, @cantidad)";
+                string cout = "SELECT precio, cantidad from [dbo].[carrito] where usuario_id ='" + usuario.id + "';";
+                SqlCommand command = new SqlCommand(cout, conectsql);
+                SqlDataReader search = command.ExecuteReader();
+                search.Read();
+                ENCarrito carrito = new ENCarrito(usuario.id);
+                carrito.verCarrito();
+                if (carrito.producto != null)
+                {
+                    int cantidadcarro = carrito.producto.Length;
+                    ENProducto[] prod = new ENProducto[cantidadcarro];
+                    for (int i = 0; i < cantidadcarro; i++)
+                    {
+                        total += prod[i].getPrecio();
+                    }
+                    carrito.total = total;
+                }
+                search.Close();
+                
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Product operation has failed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Product operation has failed.Error: {0}", ex.Message);
+            }
+            conectsql.Close();
+            return total.ToString("C");
+        } 
 
         protected void ListView_Carrito_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -18,13 +18,13 @@ namespace Interfaz
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
-            
+            /*
             if (usuario.esAdmin) { Response.Redirect(""); }
             else
             {
-
+            */
                 String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
-                String consultaString = "SELECT * FROM [dbo].[pedido] WHERE usuario = '" + usuario.id + "';";
+                String consultaString = "SELECT * FROM [dbo].[carrito] WHERE usuario_id = '" + usuario.id + "';";
                 SqlConnection conexion = new SqlConnection(constring);
                 conexion.Open();
                 ENProducto[] prod = new ENProducto[1];
@@ -45,11 +45,11 @@ namespace Interfaz
                     while (consultabusqueda.Read())
                     {
                         prod[contador] = new ENProducto();
-                        prod[contador].setCodigo(int.Parse(consultabusqueda["producto"].ToString()));
+                        prod[contador].setCodigo(int.Parse(consultabusqueda["producto_id"].ToString()));
                         prod[contador].readProducto();
                         prod[contador].cantidad = int.Parse(consultabusqueda["cantidad"].ToString());
-                        prod[contador].ptotal = double.Parse(consultabusqueda["ptotal"].ToString());
-                        prod[contador].fecha = consultabusqueda["fecha"].ToString();
+                        prod[contador].ptotal = float.Parse(consultabusqueda["preciotot"].ToString());
+                        //prod[contador].fecha = consultabusqueda["fechaaprox"].ToString();
                         contador++;
                     }
                     consultabusqueda.Close();
@@ -71,9 +71,9 @@ namespace Interfaz
                 ListView_Pedido.DataSource = prod;
                 ListView_Pedido.DataBind();
 
-                ListView_PedUsuario.DataSource = usuario;
-                ListView_PedUsuario.DataBind();
-            }
+                //ListView_PedUsuario.DataSource = usuario;
+                //ListView_PedUsuario.DataBind();
+            //}
             
         }
 
@@ -115,7 +115,7 @@ namespace Interfaz
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "DELETE * FROM [dbo].[pedido] WHERE usuario = '" + usuario.id + "';";
+                string query = "DELETE * FROM [dbo].[pedido] WHERE usuario_id = '" + usuario.id + "';";
                 SqlCommand consulta = new SqlCommand(query, connection);
 
                 connection.Close();
@@ -136,6 +136,51 @@ namespace Interfaz
                 if (!existe) Message.Text = "No se ha podido cancelar el pedido";
                 else Response.Redirect("InterfazCarrito.aspx");
             }
+        }
+
+        protected string ObtenerPrecioTotal()
+        {
+            float total = 0;
+            bool existe = false;
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            String cons = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            SqlConnection conectsql = null;
+            try
+            {
+                conectsql = new SqlConnection(cons);
+                conectsql.Open();
+                //string cout = "INSERT INTO carrito (producto_id, preciotot, cantidad) VALUES (@producto_id, @preciotot, @cantidad)";
+                string cout = "SELECT precio, cantidad where usuario_id ='" + usuario.id;
+                SqlCommand command = new SqlCommand(cout, conectsql);
+                SqlDataReader search = command.ExecuteReader();
+                search.Read();
+                ENCarrito carrito = new ENCarrito(usuario.id);
+                carrito.verCarrito();
+                if (carrito.producto != null)
+                {
+                    int cantidadcarro = carrito.producto.Length;
+                    ENProducto[] prod = new ENProducto[cantidadcarro];
+                    for (int i = 0; i < cantidadcarro; i++)
+                    {
+                        total += prod[i].getPrecio();
+                    }
+                    carrito.total = total;
+                }
+                search.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Product operation has failed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Product operation has failed.Error: {0}", ex.Message);
+            }
+            conectsql.Close();
+            return total.ToString("C");
         }
     }
 }

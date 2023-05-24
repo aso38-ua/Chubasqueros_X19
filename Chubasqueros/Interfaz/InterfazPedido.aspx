@@ -104,7 +104,7 @@
                              <td>
                                  <b style="color:grey">Nombre del comprador: </b><span style="color:grey" class="usuario"><%# Eval("usuario") %></span><br />
                                  <b style="color:grey">Email:  </b><span style="color:grey" class="email"><%# Eval("email") %></span><br />
-                                 <b style="color:grey">Fecha de llegada aproximada  </b><span style="color:grey" class="fecha"><%# Eval("fecha") %></span><br />
+                                 <b style="color:grey">Fecha de llegada aproximada  </b><span style="color:grey" class="fecha"><%# Eval("fechaaprox") %></span><br />
                                  
                              </td>
                          </tr>
@@ -121,7 +121,7 @@
            
         </asp:ListView>
     </div>
-    <p style="color:orange">Precio total: </p><span style="color:orange" class="ptotal"><%# Eval("precio") %></span><br />
+    <p style="color:orange">Precio total: </p><span style="color:orange" class="ptotal"><%# ObtenerPrecioTotal() %></span><br />
      
      <asp:Button ID ="botoncompra" BackColor="LightBlue" Text ="Pagar" runat ="server" onClick="btn_pagar"/>
     <p>
