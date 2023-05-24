@@ -137,5 +137,18 @@ namespace Library
             return esAdmin;
         }
 
+        public bool EsCorreoElectronico(string input)
+        {
+            try
+            {
+                var email = new System.Net.Mail.MailAddress(input);
+                return email.Address == input;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

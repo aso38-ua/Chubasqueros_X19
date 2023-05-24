@@ -1,6 +1,7 @@
-﻿.etiqueta {
+﻿@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+.etiqueta {
     font: 300 3vh "Vibur";
-    color: #ffa31a;
+    color: #FF86FF;
     text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
     animation: blink 1s infinite;
 }
@@ -16,7 +17,7 @@
     /* Configuración de los colores */
     color: #fff;
     background-color: transparent;
-    border: 0.2rem solid #ffa31a;
+    border: 0.2rem solid #FF86FF;
     border-radius: 2rem;
     padding: 1.2rem 2rem;
     /* Animación de la luz neon */

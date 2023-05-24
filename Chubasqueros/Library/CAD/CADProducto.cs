@@ -64,7 +64,7 @@ namespace Library
                 connection.Open();
 
                 string query = "Select * From [dbo].[Producto] Where codigo = " + en.getCodigo();
-                string query = "Select * From [dbo].[producto] Where nombre='" +en.getNombre()+"' or codigo = " + en.getCodigo() + ";";
+                //string query = "Select * From [dbo].[producto] Where nombre='" +en.getNombre()+"' or codigo = " + en.getCodigo() + ";";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 SqlDataReader busqueda = consulta.ExecuteReader();
                 busqueda.Read();

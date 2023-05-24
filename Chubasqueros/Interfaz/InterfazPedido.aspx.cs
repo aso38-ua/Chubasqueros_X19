@@ -48,7 +48,7 @@ namespace Interfaz
                         prod[contador].setCodigo(int.Parse(consultabusqueda["producto"].ToString()));
                         prod[contador].readProducto();
                         prod[contador].cantidad = int.Parse(consultabusqueda["cantidad"].ToString());
-                        prod[contador].ptotal = double.Parse(consultabusqueda["ptotal"].ToString());
+                        prod[contador].ptotal = (float)double.Parse(consultabusqueda["ptotal"].ToString());
                         prod[contador].fecha = consultabusqueda["fecha"].ToString();
                         contador++;
                     }

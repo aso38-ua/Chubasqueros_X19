@@ -411,20 +411,24 @@ namespace Library
 
         public static bool VerificarEmailExistente(string newEmail)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (EsCorreoElectronico(newEmail))
             {
-                string query = "SELECT COUNT(*) FROM usuario WHERE email = @newEmail";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.AddWithValue("@newEmail", newEmail);
+                    string query = "SELECT COUNT(*) FROM usuario WHERE email = @newEmail";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@newEmail", newEmail);
 
-                    connection.Open();
-                    int count = (int)command.ExecuteScalar();
+                        connection.Open();
+                        int count = (int)command.ExecuteScalar();
 
-                    return count > 0;
+                        return count > 0;
+                    }
                 }
             }
+            return false;
         }
 
         public static void ActualizarEmail(string currentEmail, string newEmail)
