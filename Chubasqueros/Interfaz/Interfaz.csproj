@@ -109,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database.mdf" />
-    <Content Include="App_Data\Database_log.ldf">
+    <Content Include="App_Data\Database_log.ldf" />
       <DependentUpon>Database.mdf</DependentUpon>
     <Content Include="App_Data\Database1.mdf" />
     <Content Include="App_Data\Database1_log.ldf">
