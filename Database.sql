@@ -30,7 +30,7 @@ CREATE TABLE [dbo].[Categoría] (
 );
 
 CREATE TABLE carrito (
-    id INT ) NOT NULL,
+    id INT  NOT NULL,
     usuario_id INT NOT NULL,
     producto_id INT NOT NULL,
     cantidad INT NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE carrito (
 );
 
 CREATE TABLE pedido (
-    id INT IDENTITY(1, 1) NOT NULL,
+    id INT  NOT NULL,
     usuario_id INT NOT NULL,
     producto_id INT NOT NULL,
     fecha_pedido DATETIME NOT NULL,
