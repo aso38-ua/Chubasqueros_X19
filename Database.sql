@@ -30,21 +30,25 @@ CREATE TABLE [dbo].[Categoría] (
 );
 
 CREATE TABLE carrito (
-    id INT IDENTITY(1, 1) NOT NULL,
+    id INT ) NOT NULL,
     usuario_id INT NOT NULL,
     producto_id INT NOT NULL,
     cantidad INT NOT NULL,
+    preciotot FLOAT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (usuario_id) REFERENCES usuario(id),
-    FOREIGN KEY (producto_id) REFERENCES producto(id)
+    FOREIGN KEY (producto_id) REFERENCES producto(codigo)
 );
 
 CREATE TABLE pedido (
     id INT IDENTITY(1, 1) NOT NULL,
     usuario_id INT NOT NULL,
+    producto_id INT NOT NULL,
     fecha_pedido DATETIME NOT NULL,
+    cantidad INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id),
+    FOREIGN KEY (producto_id) REFERENCES producto(codigo)
 );
 
 CREATE TABLE Favoritos (
