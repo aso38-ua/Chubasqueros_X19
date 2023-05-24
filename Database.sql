@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[Producto] (
     [precio] DECIMAL(10, 2) NOT NULL,
     [stock] INT NOT NULL,
     [codigoCategoria] INT NOT NULL,
-    img VARCHAR(500) NOT NULL,
+    img VARCHAR(500),
     PRIMARY KEY (codigo)
 );
 
