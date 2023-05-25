@@ -87,7 +87,7 @@ namespace library
             bool create = false;
             ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
-            
+
             if (estrellas > 0 && estrellas < 5)
             {
                 create = aux_CAD_Com.createComment(this);
@@ -124,10 +124,11 @@ namespace library
             }
             return change;
         }
+
         public bool showComments()
         {
             bool show = false;
-            
+
             ENComentario aux_EN_Com = new ENComentario(this);
             CADComentario aux_CAD_Com = new CADComentario();
             ENProducto aux_EN_Prod = new ENProducto();
@@ -185,7 +186,7 @@ namespace library
             if (cad_c.FirstComment(en_c) && aux_id_user != en_c.aux_id_user)
             {
                 next = cad_c.NextComment(this);
-            }            
+            }
             return next;
         }
 

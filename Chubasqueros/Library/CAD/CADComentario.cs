@@ -24,13 +24,19 @@ namespace library
         {
             bool create = false;
             SqlConnection conexion = null;
-            string comando = "insert into [dbo].[Comentario] (id_user, item, estrellas, likes, dislikes, comentario) values (" + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_estrellas + ", " + en.aux_likes + ", " + en.aux_dislikes + ", '" + en.aux_comentario + "')";
+            string comando = "insert into [dbo].[Comentario] (id_user, item, estrellas, likes, dislikes, comentario) values (@id_user, @item, @estrellas, @likes, @dislikes, @comentario)";
             try
             {
                 conexion = new SqlConnection(conn);
                 conexion.Open();
 
                 SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.Parameters.AddWithValue("@id_user", en.aux_id_user);
+                consulta.Parameters.AddWithValue("@item", en.aux_item);
+                consulta.Parameters.AddWithValue("@estrellas", en.aux_estrellas);
+                consulta.Parameters.AddWithValue("@likes", en.aux_likes);
+                consulta.Parameters.AddWithValue("@dislikes", en.aux_dislikes);
+                consulta.Parameters.AddWithValue("@comentario", en.aux_comentario);
                 consulta.ExecuteNonQuery();
                 create = true;
             }
@@ -56,13 +62,16 @@ namespace library
         {
             bool eliminate = false;
             SqlConnection conexion = null;
-            string comando = "delete from [dbo].[Usuarios] where item = " + en.aux_item + "and id_user = " + en.aux_id_user;
+            string comando = "delete from [dbo].[Comentario] where (item = @item) and (id_user = @id_user) and (estrellas = @estrellas)";
             try
             {
                 eliminate = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.Parameters.AddWithValue("@item", en.aux_item);
+                consulta.Parameters.AddWithValue("@id_user", en.aux_id_user);
+                consulta.Parameters.AddWithValue("@estrellas", en.aux_estrellas);
                 consulta.ExecuteNonQuery();
 
             }
@@ -220,9 +229,8 @@ namespace library
 
                 SqlCommand consulta = new SqlCommand(comando, conexion);
                 SqlDataReader rd = consulta.ExecuteReader();
-                rd.Read();
 
-                while (rd.Read() == true && next == false)
+                do
                 {
                     if (aux == true)
                     {
@@ -232,7 +240,8 @@ namespace library
                     {
                         aux = true;
                     }
-                }
+                } while (rd.Read() == true && next == false);
+
                 if (next == true)
                 {
                     en.aux_comentario = rd["comentario"].ToString();
@@ -261,12 +270,13 @@ namespace library
 
 
 
+
         //Muestra comentarios
         public bool showComments(ENComentario en)
         {
             bool show = false;
             SqlConnection conexion = null;
-            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item + "and id_user = " + en.aux_id_user;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -310,7 +320,7 @@ namespace library
         {
             bool read = false;
             SqlConnection conexion = null;
-            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item + "and user_id = " + en.aux_id_user;
+            string comando = "select * from [dbo].[Comentario] where item = " + en.aux_item + "and id_user = " + en.aux_id_user;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -320,7 +330,7 @@ namespace library
                 SqlDataReader rd = consulta.ExecuteReader();
                 rd.Read();
 
-                if (int.Parse(rd["item"].ToString()) == en.aux_item)
+                if (int.Parse(rd["item"].ToString()) == en.aux_item && int.Parse(rd["id_user"].ToString()) == en.aux_id_user)
                 {
                     read = true;
                     en.aux_id_user = int.Parse(rd["id_user"].ToString());
@@ -328,7 +338,6 @@ namespace library
                     en.aux_item = int.Parse(rd["item"].ToString());
                     en.aux_likes = int.Parse(rd["likes"].ToString());
                     en.aux_dislikes = int.Parse(rd["dislikes"].ToString());
-                    en.aux_comentario = rd["comentario"].ToString();
                 }
 
                 rd.Close();
@@ -349,6 +358,7 @@ namespace library
             }
             return read;
         }
+
 
         //Suma 1 al like
         public bool likesItem(ENComentario en)

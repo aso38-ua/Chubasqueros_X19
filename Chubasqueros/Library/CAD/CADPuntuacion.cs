@@ -24,13 +24,18 @@ namespace library
         {
             bool puntuar = false;
             SqlConnection conexion = null;
-            string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item, media, contador) values (" + en.aux_estrella + ", " + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_media + ", " + en.aux_contador + ")";
+            string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item, media, contador) values (@estrellas, @id_user, @item, @media, @contador)";
             try
             {
                 conexion = new SqlConnection(conn);
                 conexion.Open();
 
                 SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.Parameters.AddWithValue("@id_user", en.aux_id_user);
+                consulta.Parameters.AddWithValue("@item", en.aux_item);
+                consulta.Parameters.AddWithValue("@estrellas", en.aux_estrella);
+                consulta.Parameters.AddWithValue("@media", en.aux_media);
+                consulta.Parameters.AddWithValue("@contador", en.aux_contador);
                 consulta.ExecuteNonQuery();
                 puntuar = true;
             }
@@ -56,15 +61,17 @@ namespace library
         {
             bool eliminate = false;
             SqlConnection conexion = null;
-            string comando = "delete from [dbo].[Puntuacion] where id_user = " + en.aux_id_user + "and estrellas = " + en.aux_estrella + "and item = " + en.aux_item;
+            string comando = "delete from [dbo].[Puntuacion] where (item = @item) and (id_user = @id_user) and (estrellas = @estrellas)";
             try
             {
                 eliminate = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.Parameters.AddWithValue("@item", en.aux_item);
+                consulta.Parameters.AddWithValue("@id_user", en.aux_id_user);
+                consulta.Parameters.AddWithValue("@estrellas", en.aux_estrella);
                 consulta.ExecuteNonQuery();
-
             }
             catch (SqlException sqlex)
             {
@@ -83,37 +90,6 @@ namespace library
             return eliminate;
         }
 
-        //Modifica una puntuación
-        public bool changePuntuacion(ENPuntuacion en)
-        {
-            bool change = false;
-            SqlConnection conexion = null;
-            string comando = "update [dbo].[Puntuacion] set estrellas = " + en.aux_estrella + " where id_user = " + en.aux_id_user + "and item = " + en.aux_item;
-            try
-            {
-                change = true;
-                conexion = new SqlConnection(conn);
-                conexion.Open();
-                SqlCommand consulta = new SqlCommand(comando, conexion);
-                consulta.ExecuteNonQuery();
-
-            }
-            catch (SqlException sqlex)
-            {
-                change = false;
-                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
-            }
-            catch (Exception ex)
-            {
-                change = false;
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-            }
-            finally
-            {
-                if (conexion != null) conexion.Close();
-            }
-            return change;
-        }
 
         //Calcula la media de las puntuaciones
         public bool mediaPuntuacion(ENPuntuacion en)

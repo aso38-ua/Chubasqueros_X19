@@ -101,18 +101,6 @@ namespace library
             return eliminate;
         }
 
-        public bool changePuntuacion()
-        {
-            bool change = false;
-            ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
-            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
-            if (aux_CAD_Pun.findItem(aux_EN_Pun))
-            {
-                change = aux_CAD_Pun.changePuntuacion(this);
-            }
-            return change;
-        }
-
         public bool mediaPuntuacion()
         {
             bool mediaP = false;
