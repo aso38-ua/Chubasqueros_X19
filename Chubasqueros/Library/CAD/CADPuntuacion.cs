@@ -23,21 +23,23 @@ namespace library
         public bool createPuntuacion(ENPuntuacion en)
         {
             bool puntuar = false;
-            SqlConnection conexion = null;
             string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item, media, contador) values (@estrellas, @id_user, @item, @media, @contador)";
             try
             {
-                conexion = new SqlConnection(conn);
-                conexion.Open();
-
-                SqlCommand consulta = new SqlCommand(comando, conexion);
-                consulta.Parameters.AddWithValue("@id_user", en.aux_id_user);
-                consulta.Parameters.AddWithValue("@item", en.aux_item);
-                consulta.Parameters.AddWithValue("@estrellas", en.aux_estrella);
-                consulta.Parameters.AddWithValue("@media", en.aux_media);
-                consulta.Parameters.AddWithValue("@contador", en.aux_contador);
-                consulta.ExecuteNonQuery();
-                puntuar = true;
+                using (SqlConnection conexion = new SqlConnection(conn))
+                {
+                    conexion.Open();
+                    using (SqlCommand consulta = new SqlCommand(comando, conexion))
+                    {
+                        consulta.Parameters.AddWithValue("@estrellas", en.aux_estrella);
+                        consulta.Parameters.AddWithValue("@id_user", en.aux_id_user);
+                        consulta.Parameters.AddWithValue("@item", en.aux_item);
+                        consulta.Parameters.AddWithValue("@media", en.aux_media);
+                        consulta.Parameters.AddWithValue("@contador", en.aux_contador);
+                        consulta.ExecuteNonQuery();
+                        puntuar = true;
+                    }
+                }
             }
             catch (SqlException sqlex)
             {
@@ -48,10 +50,6 @@ namespace library
             {
                 puntuar = false;
                 Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-            }
-            finally
-            {
-                if (conexion != null) conexion.Close();
             }
             return puntuar;
         }
@@ -206,6 +204,7 @@ namespace library
             return find;
         }
 
+        //Busca la puntuación a partir del item
         public bool findItemSinUser(ENPuntuacion en)
         {
             bool findU = false;

@@ -49,6 +49,8 @@ namespace library
             get { return comentario; }
             set { comentario = value; }
         }
+
+        //Constructor por defecto
         public ENComentario()
         {
             aux_id_user = 0;
@@ -59,7 +61,7 @@ namespace library
             aux_estrellas = en.aux_estrella;
             comentario = "";
         }
-
+        //Constructor parametrizado
         public ENComentario(int id_user, int item, int likes, int dislikes, int estrellas, string comentario)
         {
             aux_id_user = id_user;
@@ -70,7 +72,7 @@ namespace library
             aux_estrellas = en.aux_estrella;
             aux_comentario = comentario;
         }
-
+        //Constructor copia
         public ENComentario(ENComentario en_com)
         {
             aux_id_user = en_com.id_user;
@@ -81,7 +83,7 @@ namespace library
             aux_estrellas = en.aux_estrella;
             aux_comentario = en_com.comentario;
         }
-
+        //Crea un comentario
         public bool createComment()
         {
             bool create = false;
@@ -94,7 +96,7 @@ namespace library
             }
             return create;
         }
-
+        //Elimina un comentario
         public bool eliminateComment()
         {
             bool eliminate = false;
@@ -109,7 +111,7 @@ namespace library
             }
             return eliminate;
         }
-
+        //Modifica un comentario
         public bool changeComment()
         {
             bool change = false;
@@ -124,7 +126,7 @@ namespace library
             }
             return change;
         }
-
+        //Muestra comentarios del item
         public bool showComments()
         {
             bool show = false;
@@ -140,7 +142,7 @@ namespace library
             }
             return show;
         }
-
+        //Obtine los datos de un comentario según el item y el usuario
         public bool readComment()
         {
             bool read = false;
@@ -156,7 +158,7 @@ namespace library
             }
             return read;
         }
-
+        //muestra el primer comentario
         public bool FirstComment()
         {
             bool first = false;
@@ -165,7 +167,7 @@ namespace library
             first = cad_c.FirstComment(this);
             return first;
         }
-
+        //Accede al comentario anterior
         public bool PrevComment()
         {
             bool prev = false;
@@ -177,7 +179,7 @@ namespace library
             }
             return prev;
         }
-
+        //Accede al comentario siguiente
         public bool NextComment()
         {
             bool next = false;
@@ -189,7 +191,7 @@ namespace library
             }
             return next;
         }
-
+        //Suma likes
         public bool likesItem()
         {
             bool like = false;
@@ -204,7 +206,7 @@ namespace library
             }
             return like;
         }
-
+        //Suma dislikes
         public bool dislikesItem()
         {
             bool dislike = false;

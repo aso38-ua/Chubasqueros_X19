@@ -123,7 +123,7 @@ namespace library
             }
             return change;
         }
-
+        //Muestra el primer comentario 
         public bool FirstComment(ENComentario en)
         {
             bool first = true;
@@ -160,7 +160,7 @@ namespace library
             }
             return first;
         }
-
+        //Muestra el comentario anterior
         public bool PrevComment(ENComentario en)
         {
             bool prev = false;
@@ -216,7 +216,7 @@ namespace library
             }
             return prev;
         }
-
+        //Muestra el comentario siguiente
         public bool NextComment(ENComentario en)
         {
             bool next = false, aux = false;
@@ -271,7 +271,7 @@ namespace library
 
 
 
-        //Muestra comentarios
+        //Muestra comentarios del item
         public bool showComments(ENComentario en)
         {
             bool show = false;

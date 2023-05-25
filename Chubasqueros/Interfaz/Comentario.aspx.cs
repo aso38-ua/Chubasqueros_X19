@@ -34,7 +34,7 @@ namespace Interfaz
             Response.Redirect("Producto.aspx");
         }
 
-        //Busca el producto que desea comentar
+        //Busca el producto que desea puntuar o comentar
         protected void BuscarClick(object sender, EventArgs e)
         {
             if (TBBuscar.Text != "")
@@ -113,7 +113,7 @@ namespace Interfaz
                 Label9.Text = "Introduzca un producto por favor";
             }
         }
-
+        //Botones para puntuar un producto
         protected void Estrella1Click(object sender, EventArgs e)
         {
             Label3.Text = "1";
@@ -135,6 +135,7 @@ namespace Interfaz
         {
             Label3.Text = "5";
         }
+        //Crea un puntuación, si ya existe avisa
         protected void PuntuarClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -198,7 +199,7 @@ namespace Interfaz
                 }
             }
         }
-
+        //Muestra el primer comentario
         protected void PrimeroClick(object sender, EventArgs e)
         {
             if (TBBuscar.Text != "")
@@ -225,6 +226,7 @@ namespace Interfaz
                 Label9.Text = "Busque un Producto, por favor";
             }
         }
+        //Muestra el comentario siguiente
         protected void SiguienteClick(object sender, EventArgs e)
         {
             if (TBBuscar.Text != "")
@@ -258,7 +260,7 @@ namespace Interfaz
                 Label9.Text = "Busque un Producto, por favor";
             }
         }
-
+        //Muestra el comentario anterior
         protected void AnteriorClick(object sender, EventArgs e)
         {
             if (TBBuscar.Text != "")
@@ -295,7 +297,7 @@ namespace Interfaz
                 Label9.Text = "Busque un Producto, por favor";
             }
         }
-
+        //Botón para eliminar puntuación si no hay comentario
         protected void EliminarPClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -349,7 +351,7 @@ namespace Interfaz
                 }
             }
         }
-
+        //Like
         protected void LikeMostrar(object sender, EventArgs e)
         {
             //Comprueba que se haya registrado
@@ -375,7 +377,7 @@ namespace Interfaz
                 }
             }
         }
-
+        //Dislike
         protected void DisLikeMostrar(object sender, EventArgs e)
         {
             //Comprueba que se haya registrado
@@ -402,7 +404,7 @@ namespace Interfaz
                 }
             }
         }
-
+        //Crea comentario
         protected void ComentarClick(object sender, EventArgs e)
         {
             //Comprueba que se haya registrado
@@ -450,6 +452,7 @@ namespace Interfaz
                 }
             }
         }
+        //Elimina comentario
         protected void EliminarClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -493,6 +496,7 @@ namespace Interfaz
                 }
             }
         }
+        //like
         protected void LikeClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -541,6 +545,7 @@ namespace Interfaz
                 }
             }
         }
+        //Dislike
         protected void DislikeClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -588,7 +593,7 @@ namespace Interfaz
                 }
             }
         }
-
+        //Modifica un comentario
         protected void ModificarClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
