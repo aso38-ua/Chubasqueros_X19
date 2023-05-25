@@ -121,7 +121,7 @@
            
         </asp:ListView>
     </div>
-    <p style="color:orange">Precio total: </p><span style="color:orange" class="ptotal"><%# ObtenerPrecioTotal() %></span><br />
+    <p style="color:orange">Precio total: <span style="color:orange" class="ptotal"><%# ObtenerPrecioTotal() %></span></p><br />
      
      <asp:Button ID ="botoncompra" BackColor="LightBlue" Text ="Pagar" runat ="server" onClick="btn_pagar"/>
     <p>
