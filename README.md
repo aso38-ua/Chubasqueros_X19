@@ -53,4 +53,6 @@ Doble verificación en el login.<br>
 Cambio de idioma.<br>
 Mostrar una imagen/vídeo de carga en la web.<br>
 Buscador en la web.<br>
-Enlaces a redes sociales.
+Enlaces a redes sociales.<br>
+Aviso de epilepsia.<br>
+Filtro modo noche.
