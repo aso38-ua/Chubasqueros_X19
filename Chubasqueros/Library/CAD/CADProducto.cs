@@ -64,7 +64,7 @@ namespace Library
                 connection.Open();
 
                 string query = "Select * From [dbo].[Producto] Where codigo = " + en.getCodigo();
-                string query = "Select * From [dbo].[producto] Where nombre='" +en.getNombre()+"' or codigo = " + en.getCodigo() + ";";
+                //string query = "Select * From [dbo].[producto] Where nombre='" +en.getNombre()+"' or codigo = " + en.getCodigo() + ";";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 SqlDataReader busqueda = consulta.ExecuteReader();
                 busqueda.Read();
@@ -76,7 +76,7 @@ namespace Library
                     en.setStock(int.Parse(busqueda["stock"].ToString()));
                     en.setDescripcion(busqueda["descripcion"].ToString());
                     en.setPrecio(float.Parse(busqueda["precio"].ToString()));
-                    en.setCodigoCategoria(int.Parse(busqueda["codCategoria"].ToString()));
+                    en.setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
                 }
                 else creado = false;
 
