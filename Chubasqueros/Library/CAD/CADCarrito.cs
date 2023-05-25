@@ -28,13 +28,13 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                String cout = "SELECT * FROM[dbo].[carrito] WHERE usuario_id = '" + c.usuario + "'; ";
+                String cout = "SELECT * FROM [dbo].[carrito] WHERE usuario_id = '" + c.usuario + "'; ";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 SqlDataReader read = consult.ExecuteReader();
                 int contador = 0;
                 while (read.Read())
                 {
-                    if(contador == 0)
+                    if (contador == 0)
                     {
                         c.producto = new int[1];
                         c.producto[0] = int.Parse(read["producto_id"].ToString());
@@ -49,7 +49,7 @@ namespace Library
                 leido = true;
                 read.Close();
                 conectsql.Close();
-               
+
             }
             catch (SqlException e)
             {
@@ -61,7 +61,7 @@ namespace Library
                 leido = false;
                 Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
             }
-            return leido ;
+            return leido;
         }
         public bool crearCarrito(ENCarrito c)
         {
@@ -72,16 +72,16 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                String cout = "INSERT INTO[dbo].[carrito] (producto_id, usuario_id) VALUES('" + c.producto + "', " + c.usuario + "';";
+                String cout = "INSERT INTO [dbo].[carrito] (producto_id, usuario_id) VALUES ('" + c.producto[0] + "', " + c.usuario + "');";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 consult.ExecuteNonQuery();
-                if(c.producto.Length > 1)
+                if (c.producto.Length > 1)
                 {
-                    for(int i = 1; i < c.producto.Length; i++)
+                    for (int i = 1; i < c.producto.Length; i++)
                     {
-                       cout = "INSERT INTO[dbo].[carrito] (producto_id, usuario_id) VALUES('" + c.producto + "', " + c.usuario + "';";
-                       consult = new SqlCommand(cout, conectsql);
-                       consult.ExecuteNonQuery();
+                        cout = "INSERT INTO [dbo].[carrito] (producto_id, usuario_id) VALUES ('" + c.producto[i] + "', " + c.usuario + "');";
+                        consult = new SqlCommand(cout, conectsql);
+                        consult.ExecuteNonQuery();
                     }
                 }
                 create = true;
@@ -109,7 +109,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                String cout = "DELETE * FROM [dbo].[carrito] where usuario_id '" + c.usuario + ";";
+                String cout = "DELETE FROM [dbo].[carrito] WHERE usuario_id '" + c.usuario + ";";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 delete = true;
@@ -137,7 +137,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                String cout = "UPDATE * FROM [dbo].[carrito]";
+                String cout = "UPDATE [dbo].[carrito] SET cantidad = " + c.cantidad + " ,preciotot = '" + c.total.ToString() + "' WHERE usuario_id = " + c.usuario + " AND producto_id = " + c.producto + ";";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 update = true;
@@ -247,6 +247,9 @@ namespace Library
             return leido;
         }
 
+        //Lo siguiente era para calcular la cantidad y el precio total
+
+        /*
         //Calcula el precio total que hay en el carrito
         public bool PrecioTotal(ENCarrito c)
         {
@@ -313,6 +316,6 @@ namespace Library
             }
             return cant ;
         }
-
+        */
     }
 }

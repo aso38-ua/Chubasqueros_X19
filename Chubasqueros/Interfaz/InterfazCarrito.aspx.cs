@@ -11,41 +11,41 @@ using library;
 
 namespace Interfaz
 {
-	public partial class InterfazCarrito : System.Web.UI.Page
-	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
-            /*
+    public partial class InterfazCarrito : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //Comprueba si el usuario ha iniciado sesion
             if (!IsPostBack)
             {
-				if(Session["username"] == null)
+                if (Session["username"] == null)
                 {
-					Response.Redirect("Login.aspx");
+                    //Si no le manda a la pagina para logearse
+                    Response.Redirect("Login.aspx");
                 }
             }
-            */
-			ENUsuario usuario = new ENUsuario();
-			usuario.nombre = (string)Session["username"];
-			usuario.readUsuario();
-			ENCarrito carrito = new ENCarrito(usuario.id);
-			carrito.verCarrito();
-			if(carrito.producto != null)
+
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            ENCarrito carrito = new ENCarrito(usuario.id);
+            carrito.verCarrito();
+            if (carrito.producto != null)
             {
-				int cantidadcarro = carrito.producto.Length;
-				ENProducto[] prod = new ENProducto[cantidadcarro];
-				for(int i = 0; i < cantidadcarro; i++)
+                int cantidadcarro = carrito.producto.Length;
+                ENProducto[] prod = new ENProducto[cantidadcarro];
+                for (int i = 0; i < cantidadcarro; i++)
                 {
-					prod[i] = new ENProducto();
-					prod[i].setCodigo(carrito.producto[i]);
-                    prod[i].setStock(carrito.producto[i]);
+                    prod[i] = new ENProducto();
+                    prod[i].setCodigo(carrito.producto[i]);
                     prod[i].readProducto();
-					
+
                 }
                 //Contenedor del producto (uso de ListView)
-				ListView_Carrito.DataSource = prod;
-				ListView_Carrito.DataBind();
+                ListView_Carrito.DataSource = prod;
+                ListView_Carrito.DataBind();
             }
-		}
+        }
 
         private TextBox textBox;
         protected void ListView1_ItemDataBound(object sender, ListViewItemEventArgs e)
@@ -58,8 +58,8 @@ namespace Interfaz
         }
 
         protected void btn_compra(object sender, EventArgs e)
-		{
-            
+        {
+
             bool existe = false;
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
@@ -80,11 +80,19 @@ namespace Interfaz
                 //Comprueba si la conversion se puede realizar
                 if (int.TryParse(textBox.Text, out valorEntero))
                 {
-                    existe = true;
-                    ENCarrito carrito = new ENCarrito(int.Parse(search["codigo"].ToString()), usuario.id);
-                    carrito.verCarrito();
-                    carrito.cantidad = valorEntero;
-                    carrito.actualizarCarrito();
+                    if (valorEntero > 1)
+                    {
+                        existe = true;
+                        ENCarrito carrito = new ENCarrito(int.Parse(search["codigo"].ToString()), usuario.id);
+                        carrito.verCarrito();
+                        carrito.cantidad = valorEntero;
+                        carrito.actualizarCarrito();
+                    }
+                    else
+                    {
+                        Message.Text = "La cantidad tiene que ser mayor a 0";
+                    }
+
                 }
                 else
                 {
@@ -104,31 +112,33 @@ namespace Interfaz
             }
             conectsql.Close();
             if (!existe) Message.Text = "Nombre del producto no válido";
-            
+
             Response.Redirect("InterfazPedido.aspx");
-            
-           
+
+
         }
 
-		protected void btn_eliminar(object sender, EventArgs e)
-		{
-			bool existe = false;
-			ENUsuario usuario = new ENUsuario();
-			usuario.nombre = (string)Session["username"];
+        protected void btn_eliminar(object sender, EventArgs e)
+        {
+            bool existe = false;
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
-			String cons = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            ENCarrito carrito = new ENCarrito(usuario.id);
+            String cons = ConfigurationManager.ConnectionStrings["Database"].ToString();
             SqlConnection connection = null;
             try
             {
                 connection = new SqlConnection(cons);
                 connection.Open();
 
-                string query = "DELETE * FROM [dbo].[carrito] WHERE usuario_id = '" + usuario.id + "';";
+                string query = "DELETE FROM [dbo].[carrito] WHERE usuario_id = '" + usuario.id + "';";
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader search = command.ExecuteReader();
-                ENCarrito carrito = new ENCarrito(int.Parse(search["codigo"].ToString()), usuario.id);
+                search.Read();
                 existe = true;
-                carrito.eliminarCarrito();
+                carrito.EliminarProductoEnBD(int.Parse(search["codigo"].ToString()));
+
                 search.Close();
 
             }
@@ -186,7 +196,7 @@ namespace Interfaz
                     carrito.total = total;
                 }
                 search.Close();
-                
+
             }
             catch (SqlException ex)
             {
@@ -198,13 +208,13 @@ namespace Interfaz
             }
             conectsql.Close();
             return total.ToString("C");
-        } 
+        }
 
         protected void ListView_Carrito_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        
+
 
     }
 }
