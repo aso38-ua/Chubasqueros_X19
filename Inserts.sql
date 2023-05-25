@@ -301,6 +301,19 @@ INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (1
 INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (109, 1, 3, 47, 10);
 INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (110, 1, 7, 220, 1);
 
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (100, 1, 3, 14.1, 2, '2023-6-15');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (101, 1, 5, 2.2, 1, '2023-6-25');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (102, 1, 10, 60, 1, '2023-6-24');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (103, 1, 8, 53, 1, '2023-7-1');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (104, 1, 4, 14, 4, '2023-7-13');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (105, 1, 6, 45, 1, '2023-7-22');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (106, 1, 2, 11.2 , 2, '2023-7-30');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (107, 1, 9, 15.4, 1, '2023-8-10');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (108, 1, 10, 120, 2, '2023-8-18');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (109, 1, 3, 47, 10, '2023-8-27');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (110, 1, 7, 220, 1, '2023-9-4');
+
+
 insert into Puntuacion (item, estrellas, id_user, media, contador) values (2, 4, 1, 4, 3)
 insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (2, 1, 4, 1, 4, 'Muy buen producto, muy contento')
 insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 2, 5, 4)
