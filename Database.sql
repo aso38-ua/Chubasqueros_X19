@@ -70,17 +70,6 @@ CREATE TABLE Reservas (
     FOREIGN KEY (producto) REFERENCES producto(codigo)
 );
 
-CREATE TABLE [dbo].[Comentario] (
-    [id_user]    INT NOT NULL,
-    [item]       INT NOT NULL,
-    [estrellas]  INT NOT NULL,
-    [likes]      INT NULL,
-    [dislikes]   INT NULL,
-    [comentario] VARCHAR (200) NOT NULL,
-    PRIMARY KEY CLUSTERED ([id_user] ASC, [item] ASC, [estrellas] ASC),
-    FOREIGN KEY ([id_user], [item], [estrellas]) REFERENCES [dbo].[Puntuacion] ([id_user], [item], [estrellas])
-);
-
 CREATE TABLE [dbo].[Puntuacion] (
     [id_user]   INT NOT NULL,
     [item]      INT NOT NULL,
@@ -90,6 +79,17 @@ CREATE TABLE [dbo].[Puntuacion] (
     PRIMARY KEY CLUSTERED ([id_user] ASC, [item] ASC, [estrellas] ASC),
     FOREIGN KEY ([id_user]) REFERENCES [dbo].[usuario] ([id]),
     FOREIGN KEY ([item]) REFERENCES [dbo].[producto] ([codigo])
+);
+
+CREATE TABLE [dbo].[Comentario] (
+    [id_user]    INT NOT NULL,
+    [item]       INT NOT NULL,
+    [estrellas]  INT NOT NULL,
+    [likes]      INT NULL,
+    [dislikes]   INT NULL,
+    [comentario] VARCHAR (200) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id_user] ASC, [item] ASC, [estrellas] ASC),
+    FOREIGN KEY ([id_user], [item], [estrellas]) REFERENCES [dbo].[Puntuacion] ([id_user], [item], [estrellas])
 );
 
 CREATE TABLE Oferta (
