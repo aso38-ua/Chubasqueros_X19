@@ -195,6 +195,15 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.Button btnUpload;
 
         /// <summary>
+        /// Control divadminaccess.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divadminaccess;
+
+        /// <summary>
         /// Control divUsuariosConMasSeguidores.
         /// </summary>
         /// <remarks>

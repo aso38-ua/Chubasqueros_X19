@@ -218,7 +218,7 @@ namespace Library
             return productos;
         }
 
-        public DataTable readAllServices()
+        public DataTable readAllServices()//Hecho por Alberto Sáez
         {
             DataTable dataTable = new DataTable();
 
@@ -259,6 +259,14 @@ namespace Library
 
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(dataTable);
+            }
+
+            if (dataTable.Rows.Count == 0)
+            {
+                // No se encontraron resultados
+                // Puedes mostrar un mensaje o realizar alguna otra acción
+                // Por ejemplo, puedes agregar una fila con un mensaje en el DataTable
+                dataTable.Rows.Add("No se encontraron resultados", "", "", "", "", "");
             }
 
             return dataTable;

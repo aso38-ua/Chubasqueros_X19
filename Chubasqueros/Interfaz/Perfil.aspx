@@ -76,6 +76,12 @@
 
                     
         </div>
+    <br />
+    <div id="divadminaccess" runat="server"  style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top:5%; ">
+        <label class="neon-label">Opciones administrador</label><br />
+        <asp:Button runat="server" OnClick="btn_adminO" Text="Añadir oferta" CssClass="neon-btn"/>
+        <asp:Button runat="server" OnClick="btn_adminS" Text="Añadir servicio" CssClass="neon-btn"/>
+        </div>
 
     
     <div id="divUsuariosConMasSeguidores" runat="server"  style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top:5%; ">
