@@ -59,26 +59,15 @@ INSERT INTO Categoría (codCategoria, nombre) VALUES (2, 'Ropa');
 INSERT INTO Categoría (codCategoria, nombre) VALUES (3, 'Electrodomésticos');
 INSERT INTO Categoría (codCategoria, nombre) VALUES (4, 'Tecnología y videoconsolas');
 
+
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (1, 'Pienso', 'Pienso para peces', 2, 5.30, 1, '/IMGS/pienso.jpg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (2, 'Bufanda', 'Bufanda para peces', 6, 15.00, 2, '/IMGS/carpa_bufanda.jpeg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (3, 'Gafas de sol', 'Gafas de sol para peces agresivos', 3, 15.95, 2, '/IMGS/piranha.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (4, 'Sombrero', 'Sombrero de copa elegante', 2, 39.99, 2, '/IMGS/pez_elegante.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (5, 'Chubasquero', 'Chubasquero para los más peques', 2, 12.95, 2, '/IMGS/arroz.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (6, 'Chaqueta', 'Chaqueta lujosa perfecta para comuniones', 1, 45, 2, '/IMGS/chaqueta.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (7, 'Pantalon', 'Pantalon Gucci', 1, 220, 2, '/IMGS/pantalon.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (8, 'Camisa', 'Camisa facherita', 1, 53, 2, '/IMGS/camisa.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (9, 'Gorra', 'Gorra grande perfecta para cabezones', 1, 15.4, 2, '/IMGS/gorra.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (10, 'Zapatos', 'Zapatos glamurosos', 1, 60, 2, '/IMGS/zapatos.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (11, 'Lavadora', 'Lavadora industrial', 2, 500, 3, '/IMGS/lavadora.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (12, 'Microondas', 'Microondas con potencia de 1200 W', 1, 700, 3, '/IMGS/microondas.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (13, 'Secadora', 'Secadora rápida y eficiente', 1, 450, 3, '/IMGS/secadora.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (14, 'Horno', 'Horno eléctrico, perfecto para pizzas', 1, 600, 3, '/IMGS/horno.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (15, 'Frigorífico', 'Frigorífico Bosch al estilo americano', 1, 800, 3, '/IMGS/frigorifico.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (16, 'PlayStation', 'PlayStation 5 de nueva generación', 1, 500, 4, '/IMGS/playstation.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (17, 'Móvil', 'Teléfono móvil Xiaomi', 3, 250, 4, '/IMGS/movil.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (18, 'Xbox', 'Xbox Series S', 1, 300, 4, '/IMGS/xbox.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (19, 'Ordenador', 'Ordenador de sobremesa perfecto para tu despacho', 1, 2000, 4, '/IMGS/ordenador.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (20, 'Aspiradora', 'Aspiradora inteligente Xiaomi', 2, 300, 4, '/IMGS/aspiradora.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (4, 'Sombrero', 'Sombrero de copa elegante', 2, 39.99, 2, '/IMGS/atun.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (5, 'Chubasquero', 'Chubasquero para los más peques', 2, 12.95, 2, '/IMGS/pez_infantil.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (6, 'Chaqueta', 'Chaqueta de cuero estilo motorista', 1, 45.95, 2, '/IMGS/cuero1.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (7, 'Tatuaje', 'Tatuajes para tu pez más macarra', 6, 69.99, 2, '/IMGS/koi.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (8, 'Chaqueta', 'Chaqueta fresquita perfecta para nuestros grandes mamíferos', 6, 125.99, 2, '/IMGS/ballena.jpg');
 
 
 INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (21, 'Bañamos a tu pez', 'Servicio de baño relajante y terapéutico para peces', 15.99, 500, 3, '/IMGS/banyo.jfif');
