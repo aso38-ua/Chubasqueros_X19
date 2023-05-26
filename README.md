@@ -58,4 +58,4 @@ Aviso de epilepsia.<br>
 Filtro modo noche.
 
 ## Tareas hechas cad uno (Valoración individual)
-![Tareas](Tareas.png)
+![Tareas](Tareas.PNG)
