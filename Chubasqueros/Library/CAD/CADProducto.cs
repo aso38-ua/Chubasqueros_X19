@@ -30,7 +30,7 @@ namespace Library
 
                 connection = new SqlConnection(constring);
                 connection.Open();
-
+                //se crea
                 string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (" + en.getCodigo() + ", '" + en.getNombre() + "', '" + en.getDescripcion() + "', " + en.getStock() + ", " + en.getPrecio() + ", " + en.getCodigoCategoria() + ")";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();

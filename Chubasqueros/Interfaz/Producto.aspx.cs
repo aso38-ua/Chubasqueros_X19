@@ -276,7 +276,7 @@ namespace Interfaz
         }
 
         protected void onPuntuar(object sender, EventArgs e)
-        {
+        { //en otro lado?
 
 
         }
