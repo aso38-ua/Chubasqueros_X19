@@ -70,7 +70,7 @@ INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategori
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (7, 'Tatuaje', 'Tatuajes para tu pez más macarra', 6, 69.99, 2, '/IMGS/koi.jpg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (8, 'Camiseta', 'Camiseta fresquita perfecta para nuestros grandes mamíferos', 6, 125.99, 2, '/IMGS/ballena.jpeg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (9, 'Chaqueta', 'Chaqueta elegante negra', 6, 225.99, 2, '/IMGS/pez_elegante.jpeg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (10, 'Sudadera', 'Sudadera negra con capucha (apertura para aleta)', 6, 29.99, 2, '/IMGS/tiburon1.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (10, 'Sudadera', 'Sudadera negra con capucha (apertura para aleta)', 6, 29.99, 2, '/IMGS/tiburon_2.jpg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (11, 'Gafas', 'Monóculo para peces pequeños', 6, 9.99, 2, '/IMGS/payaso.jpeg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (12, 'Chaqueta', 'Chaqueta de cuero ligera para entretiempo', 4, 29.99, 2, '/IMGS/cuero2.jpeg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (13, 'Gafas', 'Gafas de vista para tu pez', 4, 59.95, 2, '/IMGS/pike.jpg');
