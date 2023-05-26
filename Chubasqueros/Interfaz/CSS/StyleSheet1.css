@@ -10,8 +10,13 @@
     --text: #fff;
 }
 
-header{
-    width:100%;
+.producto-imagen-img{
+    width:20%;
+    height:auto;
+}
+
+header {
+    width: 100%;
 }
 
     header nav {

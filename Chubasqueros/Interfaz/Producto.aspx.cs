@@ -19,7 +19,7 @@ namespace Interfaz
             //SI NO ESTÁ LOGUEADO
             if (!IsPostBack)
             {
-                LoadAllProductos();
+                LoadAllProductos();//Hecho por Alberto Sáez
             }
 
             if (Session["username"] == null)
@@ -61,7 +61,9 @@ namespace Interfaz
             outputMsg.Text = "";
         }
 
-        private void LoadAllProductos()
+
+        
+        private void LoadAllProductos()//Hecho por Alberto Sáez
         {
             if (!string.IsNullOrEmpty(txtSearch.Text))
             {
@@ -88,10 +90,10 @@ namespace Interfaz
                     <img src='{img}' alt='Imagen del producto' class='producto-imagen-img' />
                 </div>
                 <div class='producto-contenido'>
-                    <p class='h2-producto'>{nombre}</p>
-                    <p class='p-producto'>Descripción: {descripcion}</p>
-                    <p class='p-producto'>Precio: {precio}</p>
-                    <p class='p-producto'>Stock: {stock}</p>
+                    
+                    <p class='p-producto'>{descripcion}</p>
+                    <p class='p-producto'>Precio: {precio}€</p>
+                    <p class='p-producto'>Stock: {stock}Uds</p>
                 </div>
             </div>
         ";
@@ -101,7 +103,7 @@ namespace Interfaz
             }
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)//Hecho por Alberto Sáez
         {
             string searchTerm = txtSearch.Text;
             DataTable searchResult = ENProducto.BuscarProductosPorNombre(searchTerm);
@@ -121,13 +123,13 @@ namespace Interfaz
                 string innerHTML = $@"
             <div class='producto-container'>
                 <div class='producto-imagen'>
-                    <img src='{img}' alt='Imagen del producto' class='producto-imagen-img' />
+                    <img src='{img}' alt='Imagen del producto' class='producto-imagen-img' class='producto-imagen-img'/>
                 </div>
                 <div class='producto-contenido'>
-                    <p class='h2-producto'>{nombre}</p>
+                    
                     <p class='p-producto'>Descripción: {descripcion}</p>
-                    <p class='p-producto'>Precio: {precio}</p>
-                    <p class='p-producto'>Stock: {stock}</p>
+                    <p class='p-producto'>Precio: {precio}€</p>
+                    <p class='p-producto'>Stock: {stock}Uds</p>
                 </div>
             </div>
         ";

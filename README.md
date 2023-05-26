@@ -56,3 +56,6 @@ Buscador en la web.<br>
 Enlaces a redes sociales.<br>
 Aviso de epilepsia.<br>
 Filtro modo noche.
+
+## Tareas hechas cad uno (Valoración individual)
+![Tareas](Tareas.PNG)

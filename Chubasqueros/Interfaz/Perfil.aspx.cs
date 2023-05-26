@@ -64,16 +64,28 @@ namespace Interfaz
                     {
                         // Mostrar el contenido solo si el usuario es administrador
                         divUsuariosConMasSeguidores.Visible = true;
+                        divadminaccess.Visible = true;
                     }
                     else
                     {
                         // Ocultar el contenido si el usuario no es administrador
+                        divadminaccess.Visible = false;
                         divUsuariosConMasSeguidores.Visible = false;
                     }
 
                 }
                 
             }
+        }
+
+        protected void btn_adminO(object sender, EventArgs e)
+        {
+            Response.Redirect("adminOferta.aspx");
+        }
+
+        protected void btn_adminS(object sender, EventArgs e)
+        {
+            Response.Redirect("adminServicio.aspx");
         }
 
         protected void btnMostrarUsuarios_Click(object sender, EventArgs e)

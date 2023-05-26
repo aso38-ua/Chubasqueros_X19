@@ -14,7 +14,7 @@
                     Marcas
                 </a>
     <div>
-        <label for="txtSearch">Buscar por nombre:</label>
+        <label for="txtSearch" class="neon-label">Buscar por nombre:</label>
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
         <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" />
     </div>
