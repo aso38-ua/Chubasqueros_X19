@@ -186,6 +186,23 @@ INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 3,
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 4, 3, 10.5, '02/03/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 5, 2, 4.4, '03/04/2023');
 */
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 2, 3, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 2) * 3, 2), '21/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 3, 1, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 3) * 1, 2), '22/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 4, 2, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 4) * 2, 2), '23/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 5, 1, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 5) * 1, 2), '24/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 6, 1, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 6) * 1, 2), '25/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 7, 1, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 7) * 1, 2), '26/02/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 8, 2, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 8) * 2, 2), '27/01/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (8, 9, 3, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 9) * 3, 2), '28/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (9, 10, 1, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 10) * 1, 2), '29/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (10, 1, 1, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 1) * 1, 2), '30/01/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 2, 2, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 2) * 2, 2), '31/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 3, 1, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 3) * 1, 2), '01/02/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 4, 3, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 4) * 3, 2), '02/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 5, 2, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 5) * 2, 2), '03/04/2023');
+
+
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 9, 2, 30.8, '05/01/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 10, 1, 60, '06/03/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 1, 3, 60.9, '07/04/2023');
