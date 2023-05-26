@@ -92,14 +92,6 @@ INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategori
 INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (29, 'Clases de cocina para tu pez', 'Servicio de clases de cocina para peces chefs acuáticos', 28.75, 7, 3, '/IMGS/cocina.jfif');
 
 
-
-INSERT INTO Favoritos (usuario, producto) VALUES (15,1);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,2);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,3);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,6);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,5);
-INSERT INTO Favoritos (usuario, producto) VALUES (15,4);
-
 INSERT INTO Favoritos (usuario, producto) VALUES (1,1);
 INSERT INTO Favoritos (usuario, producto) VALUES (1,2);
 INSERT INTO Favoritos (usuario, producto) VALUES (1,3);
@@ -181,13 +173,6 @@ INSERT INTO Favoritos (usuario, producto) VALUES (14,23);
 INSERT INTO Favoritos (usuario, producto) VALUES (14,36);
 INSERT INTO Favoritos (usuario, producto) VALUES (14,37);
 
-
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,1,2,40.6,'20/05/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,2,5,23.5,'20/05/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,3,1,3.5,'20/05/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,10,3,180,'20/05/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,9,10,154,'20/05/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,8,4,880,'20/05/2023');
 
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 2, 3, 16.8, '21/05/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 3, 1, 4.7, '22/04/2023');
