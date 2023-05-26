@@ -67,11 +67,10 @@
            
         </asp:ListView>
     </div>
-     <p style="color:orange">Precio total: </p><span style="color:orange" class="ptotal"><%# Eval("ptotal") %></span><br />
      <asp:Button ID ="botoncompra"  BackColor="LightBlue"  Text="Comprar" runat ="server" onCLick="btn_compra"/>
      <p>
      <asp:Button ID ="botoneliminar" BackColor="LightCoral" Text ="Eliminar del carrito" runat ="server" style="margin-bottom: 0px" onClick="btn_eliminar" Height="49px" Width="304px"/></p>
     <p>
-        <asp:Button ID ="BotonProducto"  BackColor="Orange"  Text="Volver" runat ="server" onCLick="btn_producto"/>
+        <asp:Button ID ="BotonProducto"  BackColor="Orange"  Text="Productos" runat ="server" onCLick="btn_producto"/>
     </p>
 </asp:Content>

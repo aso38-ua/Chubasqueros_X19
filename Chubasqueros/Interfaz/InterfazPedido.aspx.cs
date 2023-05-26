@@ -18,11 +18,23 @@ namespace Interfaz
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
-            
+
             if (usuario.esAdmin) { Response.Redirect(""); }
             else
             {
+            
+            String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            String consultaString = "SELECT * FROM [dbo].[carrito] WHERE usuario_id = '" + usuario.id + "';";
+            SqlConnection conexion = new SqlConnection(constring);
+            conexion.Open();
+            ENProducto[] prod = new ENProducto[1];
+            try
+            {
 
+                SqlCommand consulta = new SqlCommand(consultaString, conexion);
+                SqlDataReader consultabusqueda = consulta.ExecuteReader();
+                int contador = 0;
+                while (consultabusqueda.Read())
                 String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
                 String consultaString = "SELECT * FROM [dbo].[pedido] WHERE usuario = '" + usuario.id + "';";
                 SqlConnection conexion = new SqlConnection(constring);
@@ -60,41 +72,67 @@ namespace Interfaz
                     Console.WriteLine("Order operation has failed. Error: {0} ", ex.Message);
                 }
                 catch (Exception ex)
-                {
-                    Console.WriteLine("Order operation has failed. Error: {0} ", ex.Message);
-                }
-                finally
-                {
-                    conexion.Close();
-                }
-                //Contenedor del producto (uso de ListView)
-                ListView_Pedido.DataSource = prod;
-                ListView_Pedido.DataBind();
 
-                ListView_PedUsuario.DataSource = usuario;
-                ListView_PedUsuario.DataBind();
+                {
+                    contador++;
+                }
+                prod = new ENProducto[contador];
+                contador = 0;
+                consultabusqueda.Close();
+                consultabusqueda = consulta.ExecuteReader();
+                while (consultabusqueda.Read())
+                {
+                    prod[contador] = new ENProducto();
+                    prod[contador].setCodigo(int.Parse(consultabusqueda["producto_id"].ToString()));
+                    prod[contador].readProducto();
+                    prod[contador].cantidad = int.Parse(consultabusqueda["cantidad"].ToString());
+                    prod[contador].ptotal = (float)double.Parse(consultabusqueda["preciotot"].ToString());
+                    prod[contador].fecha = consultabusqueda["fechaaprox"].ToString();
+                    contador++;
+                }
+                consultabusqueda.Close();
+                if (contador == 0) prod = null;
             }
-            
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Order operation has failed. Error: {0} ", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Order operation has failed. Error: {0} ", ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            //Contenedor del producto (uso de ListView)
+            ListView_Pedido.DataSource = prod;
+            ListView_Pedido.DataBind();
+            /*
+            ListView_PedUsuario.DataSource = usuario;
+            ListView_PedUsuario.DataBind();
+            */
+            }
+
         }
 
         protected void btn_pagar(object sender, EventArgs e)
         {
-            
+
             ENUsuario usuario = new ENUsuario();
             ENProducto producto = new ENProducto();
             ENPedido pedido = new ENPedido(producto.getCodigo(), usuario.id);
             String cons = ConfigurationManager.ConnectionStrings["Database"].ToString();
             SqlConnection conectsql = null;
             conectsql = new SqlConnection(cons);
-            string cout = "INSERT INTO pedido (producto_id, preciotot, cantidad) VALUES (@producto_id, @preciotot, @cantidad)";
-            
+            conectsql.Open();
+            string cout = "INSERT INTO pedido (producto_id, preciotot, cantidad) VALUES (@producto_id, @preciotot, @cantidad) WHERE usuario_id = " + usuario.id + ";";
+
             using (SqlCommand command = new SqlCommand(cout, conectsql))
             {
                 command.Parameters.AddWithValue("@producto_id", pedido.producto);
                 command.Parameters.AddWithValue("@preciotot", pedido.total);
                 command.Parameters.AddWithValue("@cantidad", pedido.cantidad);
-
-                conectsql.Open();
                 command.ExecuteNonQuery();
             }
             //Llevaria a otra interfaz de pagar
@@ -115,7 +153,8 @@ namespace Interfaz
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "DELETE * FROM [dbo].[pedido] WHERE usuario = '" + usuario.id + "';";
+                string query = "DELETE * FROM [dbo].[pedido] WHERE usuario_id = '" + usuario.id + "';";
+                existe = true;
                 SqlCommand consulta = new SqlCommand(query, connection);
 
                 connection.Close();
@@ -136,6 +175,49 @@ namespace Interfaz
                 if (!existe) Message.Text = "No se ha podido cancelar el pedido";
                 else Response.Redirect("InterfazCarrito.aspx");
             }
+        }
+        protected string ObtenerPrecioTotal()
+        {
+            float total = 0;
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            String cons = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            SqlConnection conectsql = null;
+            try
+            {
+                conectsql = new SqlConnection(cons);
+                conectsql.Open();
+                //string cout = "INSERT INTO carrito (producto_id, preciotot, cantidad) VALUES (@producto_id, @preciotot, @cantidad)";
+                string cout = "SELECT preciotot, cantidad from [dbo].[pedido] where usuario_id ='" + usuario.id + "';";
+                SqlCommand command = new SqlCommand(cout, conectsql);
+                SqlDataReader search = command.ExecuteReader();
+                search.Read();
+                ENCarrito carrito = new ENCarrito(usuario.id);
+                carrito.verCarrito();
+                if (carrito.producto != null)
+                {
+                    int cantidadcarro = carrito.producto.Length;
+                    ENProducto[] prod = new ENProducto[cantidadcarro];
+                    for (int i = 0; i < cantidadcarro; i++)
+                    {
+                        total += prod[i].getPrecio();
+                    }
+                    carrito.total = total;
+                }
+                search.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Product operation has failed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Product operation has failed.Error: {0}", ex.Message);
+            }
+            conectsql.Close();
+            return total.ToString("C");
         }
     }
 }
