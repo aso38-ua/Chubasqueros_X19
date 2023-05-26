@@ -297,8 +297,6 @@ INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedi
 INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (110, 1, 7, 220, 1, '2023-9-4');
 
 
-insert into Puntuacion (item, estrellas, id_user, media, contador) values (2, 4, 1, 4, 3)insert into Puntuacion (item, estrellas, id_user, media, contador) values (2, 4, 1, 4, 3)
-insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (2, 1, 4, 1, 4, 'Muy buen producto, muy contento')
 insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 2, 5, 4)
 insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (4, 2, 5, 0, 5, 'Es lo que necesitaba mi pequeñín')
 insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 1, 5, 5)
