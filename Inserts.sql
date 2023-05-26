@@ -74,8 +74,8 @@ INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stoc
 INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (11, N'Gafas', N'Monóculo para peces pequeños', CAST(9.99 AS Decimal(10, 2)), 6, 2, N'/IMGS/payaso.jpg')
 INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (12, N'Chaqueta', N'Chaqueta de cuero ligera para entretiempo', CAST(29.99 AS Decimal(10, 2)), 4, 2, N'/IMGS/cuero2.jpg')
 INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (13, N'Gafas', N'Gafas de vista para tu pez', CAST(59.95 AS Decimal(10, 2)), 4, 2, N'/IMGS/pike.jpg')
-INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (14, N'Camiseta', N'Camiseta básica para tu pez de río', CAST(9.95 AS Decimal(10, 2)), 4, 8, N'/IMGS/salmon.jpg')
-INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (15, N'Camisa', N'Camisa para fiestas bajo del agua', CAST(19.95 AS Decimal(10, 2)), 4, 5, N'/IMGS/delfin.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (14, N'Camiseta', N'Camiseta básica para tu pez de río', CAST(9.95 AS Decimal(10, 2)), 4, 2, N'/IMGS/salmon.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (15, N'Camisa', N'Camisa para fiestas bajo del agua', CAST(19.95 AS Decimal(10, 2)), 4, 2, N'/IMGS/delfin.jpg')
 
 
 
