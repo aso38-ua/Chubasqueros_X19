@@ -4,18 +4,10 @@
     padding: 8px 20px;
 }
 
-.neon-btn {
-    margin-top: 10px;
-}
-
 #BtnRegresar {
     background-color: #33cc33;
     border-color: Green;
     border-style: Groove;
-}
-
-h2 {
-    text-align: center;
 }
 
 #TBBuscar {
@@ -144,5 +136,5 @@ h3 {
 }
 
 body {
-    background-color: rgb(208, 171, 255);
+
 }

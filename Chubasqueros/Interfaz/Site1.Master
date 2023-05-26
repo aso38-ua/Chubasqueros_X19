@@ -85,7 +85,6 @@
                 <li id="liregistro" runat="server"><a class="coolButton" href="Login.aspx">Login</a></li>
 
                 <li id="lireg" runat="server"><a class="coolButton" href="Reservas.aspx">Reservas</a></li>
-                <li id="li1" runat="server"><a class="coolButton" href="InterfazCarrito.aspx">Carrito</a></li>
                 <li id="liperfil" runat="server"><a class="coolButton" href="Perfil.aspx">Mi perfil</a>
                     <ul id="miPerfil">
                         

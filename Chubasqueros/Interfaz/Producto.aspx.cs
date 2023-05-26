@@ -237,6 +237,7 @@ namespace Interfaz
                     }
                 }
                 else outputMsg.Text = "Producto no encontrado en la B.D.";
+                Response.Redirect("InterfazCarrito.aspx");
             }
 
 
