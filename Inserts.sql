@@ -97,79 +97,79 @@ INSERT INTO Favoritos (usuario, producto) VALUES (1,4);
 INSERT INTO Favoritos (usuario, producto) VALUES (1,5);
 INSERT INTO Favoritos (usuario, producto) VALUES (1,6);
 
-INSERT INTO Favoritos (usuario, producto) VALUES (2,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,21);
 INSERT INTO Favoritos (usuario, producto) VALUES (2,22);
-INSERT INTO Favoritos (usuario, producto) VALUES (2,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (2,37);
-INSERT INTO Favoritos (usuario, producto) VALUES (2,24);
-INSERT INTO Favoritos (usuario, producto) VALUES (2,26);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,14);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,10);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,8);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,6);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (3,22);
 INSERT INTO Favoritos (usuario, producto) VALUES (3,23);
-INSERT INTO Favoritos (usuario, producto) VALUES (3,37);
-INSERT INTO Favoritos (usuario, producto) VALUES (3,24);
-INSERT INTO Favoritos (usuario, producto) VALUES (3,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (3,26);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,6);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,5);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,1);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,2);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (4,25);
 INSERT INTO Favoritos (usuario, producto) VALUES (4,22);
-INSERT INTO Favoritos (usuario, producto) VALUES (4,37);
-INSERT INTO Favoritos (usuario, producto) VALUES (4,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (4,7);
+INSERT INTO Favoritos (usuario, producto) VALUES (4,11);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (5,22);
 INSERT INTO Favoritos (usuario, producto) VALUES (5,23);
-INSERT INTO Favoritos (usuario, producto) VALUES (5,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (5,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (5,27);
+INSERT INTO Favoritos (usuario, producto) VALUES (5,25);
 
-INSERT INTO Favoritos (usuario, producto) VALUES (6,33);
-INSERT INTO Favoritos (usuario, producto) VALUES (6,35);
-INSERT INTO Favoritos (usuario, producto) VALUES (6,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (6,26);
+INSERT INTO Favoritos (usuario, producto) VALUES (6,14);
+INSERT INTO Favoritos (usuario, producto) VALUES (6,12);
+INSERT INTO Favoritos (usuario, producto) VALUES (6,10);
+INSERT INTO Favoritos (usuario, producto) VALUES (6,8);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (7,25);
-INSERT INTO Favoritos (usuario, producto) VALUES (7,35);
-INSERT INTO Favoritos (usuario, producto) VALUES (7,24);
-INSERT INTO Favoritos (usuario, producto) VALUES (7,26);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,21);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,6);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,2);
 
-INSERT INTO Favoritos (usuario, producto) VALUES (7,33);
-INSERT INTO Favoritos (usuario, producto) VALUES (7,22);
-INSERT INTO Favoritos (usuario, producto) VALUES (7,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (7,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,12);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,11);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,6);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,9);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (8,22);
 INSERT INTO Favoritos (usuario, producto) VALUES (8,23);
-INSERT INTO Favoritos (usuario, producto) VALUES (8,37);
-INSERT INTO Favoritos (usuario, producto) VALUES (8,24);
+INSERT INTO Favoritos (usuario, producto) VALUES (8,4);
+INSERT INTO Favoritos (usuario, producto) VALUES (8,9);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (9,25);
 INSERT INTO Favoritos (usuario, producto) VALUES (9,22);
-INSERT INTO Favoritos (usuario, producto) VALUES (9,37);
-INSERT INTO Favoritos (usuario, producto) VALUES (9,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (9,12);
+INSERT INTO Favoritos (usuario, producto) VALUES (9,3);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (10,22);
 INSERT INTO Favoritos (usuario, producto) VALUES (10,23);
-INSERT INTO Favoritos (usuario, producto) VALUES (10,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (10,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (10,1);
+INSERT INTO Favoritos (usuario, producto) VALUES (10,2);
 
-INSERT INTO Favoritos (usuario, producto) VALUES (11,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (11,11);
 INSERT INTO Favoritos (usuario, producto) VALUES (11,22);
-INSERT INTO Favoritos (usuario, producto) VALUES (11,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (11,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (11,8);
+INSERT INTO Favoritos (usuario, producto) VALUES (11,7);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (12,22);
 INSERT INTO Favoritos (usuario, producto) VALUES (12,23);
-INSERT INTO Favoritos (usuario, producto) VALUES (12,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (12,4);
 INSERT INTO Favoritos (usuario, producto) VALUES (12,24);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (13,25);
 INSERT INTO Favoritos (usuario, producto) VALUES (13,22);
-INSERT INTO Favoritos (usuario, producto) VALUES (13,37);
-INSERT INTO Favoritos (usuario, producto) VALUES (13,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (13,23);
+INSERT INTO Favoritos (usuario, producto) VALUES (13,12);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (14,22);
 INSERT INTO Favoritos (usuario, producto) VALUES (14,23);
-INSERT INTO Favoritos (usuario, producto) VALUES (14,36);
-INSERT INTO Favoritos (usuario, producto) VALUES (14,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (14,3);
+INSERT INTO Favoritos (usuario, producto) VALUES (14,4);
 
 
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 2, 3, 16.8, '21/05/2023');
