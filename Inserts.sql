@@ -73,6 +73,9 @@ INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategori
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (10, 'Sudadera', 'Sudadera negra con capucha (apertura para aleta)', 6, 29.99, 2, '/IMGS/tiburon_".jpg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (11, 'Gafas', 'Monóculo para peces pequeños', 6, 9.99, 2, '/IMGS/payaso_".jpeg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (12, 'Chaqueta', 'Chaqueta de cuero ligera para entretiempo', 4, 29.99, 2, '/IMGS/cuero2_".jpeg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (13, 'Gafas', 'Gafas de vista para tu pez', 4, 59.95, 2, '/IMGS/pike.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (14, 'Camiseta', 'Camiseta básica para tu pez de río', 4, 9.95, 8, '/IMGS/salmon.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (15, 'Camisa', 'Camisa para fiestas bajo del agua', 4, 19.95, 5, '/IMGS/delfin.jpg');
 
 
 INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (21, 'Bañamos a tu pez', 'Servicio de baño relajante y terapéutico para peces', 15.99, 500, 5, '/IMGS/banyo.jfif');
