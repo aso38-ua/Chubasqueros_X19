@@ -58,6 +58,7 @@ INSERT INTO Categoría (codCategoria, nombre) VALUES (1, 'Comida');
 INSERT INTO Categoría (codCategoria, nombre) VALUES (2, 'Ropa');
 INSERT INTO Categoría (codCategoria, nombre) VALUES (3, 'Electrodomésticos');
 INSERT INTO Categoría (codCategoria, nombre) VALUES (4, 'Tecnología y videoconsolas');
+INSERT INTO Categoría (codCategoria, nombre) VALUES (5, 'Servicios');
 
 
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (1, 'Pienso', 'Pienso para peces', 2, 5.30, 1, '/IMGS/pienso.jpg');
@@ -74,15 +75,15 @@ INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategori
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (12, 'Chaqueta', 'Chaqueta de cuero ligera para entretiempo', 4, 29.99, 2, '/IMGS/cuero2_".jpeg');
 
 
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (21, 'Bañamos a tu pez', 'Servicio de baño relajante y terapéutico para peces', 15.99, 500, 3, '/IMGS/banyo.jfif');
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (22, 'Paseamos a tu pez', 'Servicio exclusivo de paseo al aire libre para peces', 12.50, 300, 3, '/IMGS/paseo.jfif');
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (23, 'Cuidamos a tu pez', 'Servicio de guardería para peces mientras estás de viaje', 20.00, 800, 3, '/IMGS/guarderia.jfif');
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (24, 'Diseñamos chubasqueros', 'Servicio de diseño personalizado de chubasqueros para peces', 30.99, 50, 3, '/IMGS/costurero.jfif');
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (25, 'Fotografiamos a tu pez', 'Servicio de fotografía para peces con chubasqueros', 25.50, 100, 3, '/IMGS/fotografia.jfif');
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (26, 'Entrenamos a tu pez', 'Servicio de entrenamiento y trucos para peces', 18.99, 30, 3, '/IMGS/entrenamiento.jfif');
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (27, 'Masaje relajante para tu pez', 'Servicio de masaje acuático relajante para peces', 10.99, 70, 3, '/IMGS/masaje.jfif');
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (28, 'Clases de buceo para tu pez', 'Servicio de clases de buceo exclusivas para peces', 22.50, 90, 3, '/IMGS/buceo.jfif');
-INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (29, 'Clases de cocina para tu pez', 'Servicio de clases de cocina para peces chefs acuáticos', 28.75, 7, 3, '/IMGS/cocina.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (21, 'Bañamos a tu pez', 'Servicio de baño relajante y terapéutico para peces', 15.99, 500, 5, '/IMGS/banyo.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (22, 'Paseamos a tu pez', 'Servicio exclusivo de paseo al aire libre para peces', 12.50, 300, 5, '/IMGS/paseo.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (23, 'Cuidamos a tu pez', 'Servicio de guardería para peces mientras estás de viaje', 20.00, 800, 5, '/IMGS/guarderia.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (24, 'Diseñamos chubasqueros', 'Servicio de diseño personalizado de chubasqueros para peces', 30.99, 50, 5, '/IMGS/costurero.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (25, 'Fotografiamos a tu pez', 'Servicio de fotografía para peces con chubasqueros', 25.50, 100, 5, '/IMGS/fotografia.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (26, 'Entrenamos a tu pez', 'Servicio de entrenamiento y trucos para peces', 18.99, 30, 5, '/IMGS/entrenamiento.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (27, 'Masaje relajante para tu pez', 'Servicio de masaje acuático relajante para peces', 10.99, 70, 5, '/IMGS/masaje.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (28, 'Clases de buceo para tu pez', 'Servicio de clases de buceo exclusivas para peces', 22.50, 90, 5, '/IMGS/buceo.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (29, 'Clases de cocina para tu pez', 'Servicio de clases de cocina para peces chefs acuáticos', 28.75, 7, 5, '/IMGS/cocina.jfif');
 
 
 INSERT INTO Favoritos (usuario, producto) VALUES (1,1);
