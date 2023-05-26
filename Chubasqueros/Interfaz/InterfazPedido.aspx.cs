@@ -35,6 +35,44 @@ namespace Interfaz
                 SqlDataReader consultabusqueda = consulta.ExecuteReader();
                 int contador = 0;
                 while (consultabusqueda.Read())
+                String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+                String consultaString = "SELECT * FROM [dbo].[pedido] WHERE usuario = '" + usuario.id + "';";
+                SqlConnection conexion = new SqlConnection(constring);
+                conexion.Open();
+                ENProducto[] prod = new ENProducto[1];
+                try
+                {
+
+                    SqlCommand consulta = new SqlCommand(consultaString, conexion);
+                    SqlDataReader consultabusqueda = consulta.ExecuteReader();
+                    int contador = 0;
+                    while (consultabusqueda.Read())
+                    {
+                        contador++;
+                    }
+                    prod = new ENProducto[contador];
+                    contador = 0;
+                    consultabusqueda.Close();
+                    consultabusqueda = consulta.ExecuteReader();
+                    while (consultabusqueda.Read())
+                    {
+                        prod[contador] = new ENProducto();
+                        prod[contador].setCodigo(int.Parse(consultabusqueda["producto"].ToString()));
+                        prod[contador].readProducto();
+                        prod[contador].cantidad = int.Parse(consultabusqueda["cantidad"].ToString());
+                        prod[contador].ptotal = (float)double.Parse(consultabusqueda["ptotal"].ToString());
+                        prod[contador].fecha = consultabusqueda["fecha"].ToString();
+                        contador++;
+                    }
+                    consultabusqueda.Close();
+                    if (contador == 0) prod = null;
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine("Order operation has failed. Error: {0} ", ex.Message);
+                }
+                catch (Exception ex)
+
                 {
                     contador++;
                 }

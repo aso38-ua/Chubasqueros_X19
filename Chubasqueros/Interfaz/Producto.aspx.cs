@@ -26,7 +26,7 @@ namespace Interfaz
             {
                 buttom_Favoritos.Visible = false;
                 buttom_Reservar.Visible = false;
-                //buttom_Comprar.Visible = false;
+                buttom_Comprar.Visible = false;
                 buttom_Carrito.Visible = false;
                 buttom_Puntuar.Visible = false;
 
@@ -35,14 +35,14 @@ namespace Interfaz
             {
                 buttom_Favoritos.Visible = true;
                 buttom_Reservar.Visible = true;
-                //buttom_Comprar.Visible = true;
+                buttom_Comprar.Visible = true;
                 buttom_Carrito.Visible = true;
                 buttom_Puntuar.Visible = true;
 
             }
 
             //OPCIONES ADMIN
-            /**ENUsuario usuario = new ENUsuario();
+            ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
             if (!usuario.esAdmin)
@@ -56,17 +56,60 @@ namespace Interfaz
                 buttom_Crear.Visible = true;
                 buttom_Actualizar.Visible = true;
                 buttom_Borrar.Visible = true;
-            }*/
+            }
 
             outputMsg.Text = "";
         }
 
         private void LoadAllProductos()
         {
+            if (!string.IsNullOrEmpty(txtSearch.Text))
+            {
+                // Si se ha realizado una búsqueda, ocultar el contenido anterior
+                labelInfo.Visible = false;
+                return;
+            }
+
             DataTable dataTable = ENProducto.readAllServices();
 
             labelInfo.Text = "";
             foreach (DataRow row in dataTable.Rows)
+            {
+                string codigo = row["codigo"].ToString();
+                string nombre = row["nombre"].ToString();
+                string descripcion = row["descripcion"].ToString();
+                string precio = row["precio"].ToString();
+                string stock = row["stock"].ToString();
+                string img = row["img"].ToString();
+
+                string innerHTML = $@"
+            <div class='producto-container'>
+                <div class='producto-imagen'>
+                    <img src='{img}' alt='Imagen del producto' class='producto-imagen-img' />
+                </div>
+                <div class='producto-contenido'>
+                    <p class='h2-producto'>{nombre}</p>
+                    <p class='p-producto'>Descripción: {descripcion}</p>
+                    <p class='p-producto'>Precio: {precio}</p>
+                    <p class='p-producto'>Stock: {stock}</p>
+                </div>
+            </div>
+        ";
+
+                LiteralControl literalControl = new LiteralControl(innerHTML);
+                labelInfo.Controls.Add(literalControl);
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text;
+            DataTable searchResult = ENProducto.BuscarProductosPorNombre(searchTerm);
+
+            // Limpiar los resultados anteriores
+            labelInfo.Controls.Clear();
+
+            foreach (DataRow row in searchResult.Rows)
             {
                 string codigo = row["codigo"].ToString();
                 string nombre = row["nombre"].ToString();
@@ -122,7 +165,7 @@ namespace Interfaz
         {
             if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
             {
-                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), int.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
+                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), float.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
 
                 if (producto.createProducto())
                     outputMsg.Text = "Producto " + producto.getCodigo() + " insertado en la B.D.";
@@ -136,7 +179,7 @@ namespace Interfaz
         {
             if (text_nombre.Text != "" && text_codigo.Text != "" && text_descripcion.Text != "" && text_stock.Text != "" && text_precio.Text != "" && text_codigoCategoria.Text != "")
             {
-                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), int.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
+                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), float.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
 
                 if (producto.updateProducto())
                 {
@@ -153,7 +196,7 @@ namespace Interfaz
         {
             if (text_nombre.Text != "" && text_codigo.Text != "")
             {
-                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), int.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
+                ENProducto producto = new ENProducto(int.Parse(text_codigo.Text), text_nombre.Text, text_descripcion.Text, int.Parse(text_stock.Text), float.Parse(text_precio.Text), int.Parse(text_codigoCategoria.Text));
 
                 if (producto.deleteProducto())
                     outputMsg.Text = "Producto " + producto.getCodigo() + " borrado";
@@ -217,51 +260,54 @@ namespace Interfaz
 
         protected void onFavoritos(object sender, EventArgs e)
         {
-            ENUsuario usuario = new ENUsuario();
-            usuario.nombre = (string)Session["username"];
-            usuario.readUsuario();
-            ENFavoritos favoritos = new ENFavoritos(int.Parse(text_codigo.Text),usuario.id);
-            if (!favoritos.readFavoritosWithP())
-            {
-                favoritos.insertProductinBD(int.Parse(text_codigo.Text));
-                Mensaje.Text = "Producto agregado a lista de favoritos.";
-            }
-            else
-            {
-                Mensaje.Text = "El producto ya estaba en su lista de favoritos.";
-            }
+            try {
+                ENUsuario usuario = new ENUsuario();
+                usuario.nombre = (string)Session["username"];
+                usuario.readUsuario();
+                ENFavoritos favoritos = new ENFavoritos(int.Parse(text_codigo.Text),usuario.id);
+                if (!favoritos.readFavoritosWithP())
+                {
+                    favoritos.insertProductinBD(int.Parse(text_codigo.Text));
+                    Mensaje.Text = "Producto agregado a lista de favoritos.";
+                }
+                else
+                {
+                    Mensaje.Text = "El producto ya estaba en su lista de favoritos.";
+                }
+            } catch (Exception exc) { Mensaje.Text = "Tiene que introducir un valor numérico (id) para añadir el producto"; }
         }
 
         protected void onPuntuar(object sender, EventArgs e)
-        {
+        { //en otro lado?
 
 
         }
 
         protected void onReservar(object sender, EventArgs e)
         {
-            DateTime thisDay = DateTime.Today;
-            ENUsuario usuario = new ENUsuario();
-            usuario.nombre = (string)Session["username"];
-            usuario.readUsuario();
-            ENReserva reserva = new ENReserva(int.Parse(text_codigo.Text),usuario.id);
-            if (!reserva.readReserva())
-            {
-                reserva.fechap = thisDay.ToString("d");
-                reserva.createReserva();
-                Mensaje.Text = "Reserva creada";
-            }
-            else
-            {
-                ENProducto producto = new ENProducto();
-                producto.setCodigo(reserva.productop);
-                producto.readProducto();
-                reserva.cantidadp = reserva.cantidadp + 1;
-                reserva.ptotal = producto.getPrecio() * reserva.cantidadp;
-                reserva.updateReserva();
-                Mensaje.Text = "Reserva actualizada, añadida una cantidad más a la antigua reserva";
-            }
-
+            try {
+                DateTime thisDay = DateTime.Today;
+                ENUsuario usuario = new ENUsuario();
+                usuario.nombre = (string)Session["username"];
+                usuario.readUsuario();
+                ENReserva reserva = new ENReserva(int.Parse(text_codigo.Text),usuario.id);
+                if (!reserva.readReserva())
+                {
+                    reserva.fechap = thisDay.ToString("d");
+                    reserva.createReserva();
+                    Mensaje.Text = "Reserva creada";
+                }
+                else
+                {
+                    ENProducto producto = new ENProducto();
+                    producto.setCodigo(reserva.productop);
+                    producto.readProducto();
+                    reserva.cantidadp = reserva.cantidadp + 1;
+                    reserva.ptotal = producto.getPrecio() * reserva.cantidadp;
+                    reserva.updateReserva();
+                    Mensaje.Text = "Reserva actualizada, añadida una cantidad más a la antigua reserva";
+                }
+            } catch (Exception exc) { Mensaje.Text = "Tiene que introducir un valor numérico (id) para añadir el producto"; }
         }
 
         protected void onCategoria(object sender, EventArgs e)

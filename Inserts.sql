@@ -1,0 +1,342 @@
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (1, 'Bañamos a tu pez', '¿Te gustaría que tus peces lucieran un aspecto limpio y brillante? ¿Te apetece mimarlos con un tratamiento de belleza? Se trata de un baño relajante y terapéutico para los peces, les ayuda a eliminar el estrés, mejorar la circulación y prevenir enfermedades. Además, el servicio de baño de peces es apto para todo tipo de peces de agua dulce o salada, y se realiza con la máxima higiene y seguridad.', 'IMGS/banyo.jfif');
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (2, 'Paseamos a tu pez', '¿Te gustaría que tus peces disfrutaran de un paseo al aire libre? Este servicio es exclusivo y personalizado para aquellos que quieran dar a sus peces un cambio de aires y una aventura acuática. No lo dudes más y confía en nosotros para pasear a tus peces mientras tú te relajas o trabajas. El servicio de paseo de peces es una forma de enriquecer la vida de tus mascotas y hacerlas más felices.', 'IMGS/paseo.jfif');
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (3, 'Cuidamos a tu pez', '¿Te vas de viaje y no sabes qué hacer con tus peces? ¿Te preocupa que se queden solos y sin comida? No lo dudes más y confía en nosotros para cuidar de tus peces mientras tú te vas de viaje. El servicio de guardería para peces es una forma de asegurarte de que tus mascotas estarán bien atendidas y felices.', 'IMGS/guarderia.jfif');
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (4, 'Diseñamos chubasqueros', '¿Te gustaría que tus peces vistieran con estilo y comodidad? ¿Te imaginas ver a tus peces lucir unos chubasqueros originales y divertidos? Se trata de un servicio exclusivo y personalizado para los amantes de los acuarios, que quieren dar a sus peces un toque de color y personalidad. Además, es una experiencia única y divertida para tus peces, que podrán estrenar unos chubasqueros hechos a su medida y gusto, que los protegerán del frío y la lluvia, y que los harán destacar entre los demás.', 'IMGS/costurero.jfif');
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (5, 'Fotografiamos a tu pez', '¿Te gustaría que tus peces tuvieran un recuerdo inolvidable de su chubasquero? ¿Te apetece mostrar a tus amigos y familiares lo guapos que están tus peces con sus prendas? Ofrecemos este servicio para que puedas tener un recuerdo inolvidable de tus mascotas acuáticas, además de ser una experiencia única y divertida, donde podrán lucir sus chubasqueros en diferentes ambientes y situaciones, y que los harán sentirse como estrellas.', 'IMGS/fotografia.jfif');
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (6, 'Entrenamos a tu pez', '¿Te gustaría que tus peces aprendieran a hacer trucos y habilidades? El entrenamiento para peces es una actividad que consiste en enseñar a los peces a realizar trucos y habilidades, como saltar aros, seguir órdenes o bailar al ritmo de la música. El entrenamiento para peces tiene varios beneficios, como mejorar la inteligencia, la memoria y el aprendizaje de los peces, estimular su curiosidad y creatividad, fortalecer su vínculo con sus dueños y divertirlos.', 'IMGS/entrenamiento.jfif');
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (7, 'Masaje relajante para tu pez', '¿Quieres consentir a tus peces con un relajante masaje acuático? Este servicio exclusivo ofrece un masaje suave y delicado para tus peces, utilizando técnicas de estimulación y relajación muscular. El masaje ayuda a mejorar la circulación sanguínea, aliviar el estrés y promover el bienestar general de tus peces. ¡Dales un momento de pura relajación!', 'IMGS/masaje.jpg');
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (8, 'Clases de buceo para peces', '¿Quieres que tus peces descubran el fascinante mundo submarino? Ofrecemos clases de buceo exclusivas para peces. Con la ayuda de instructores profesionales, tus peces aprenderán las técnicas de buceo adecuadas y podrán explorar nuevas profundidades en un entorno seguro. Sumérgete en una aventura acuática con nuestros expertos buceadores.', 'IMGS/buceo.jpg');
+INSERT INTO Servicio (idServicio, titulo, descripcion, img) VALUES (9, 'Clases de cocina para peces', '¿Quieres que tus peces se conviertan en verdaderos chefs? Nuestro servicio de clases de cocina para peces les brinda la oportunidad de aprender a preparar deliciosos platos. Con la guía de nuestros expertos culinarios, tus peces aprenderán técnicas de cocción, combinación de sabores y presentación de alimentos. Descubrirán nuevas recetas y se divertirán explorando el arte culinario.', 'IMGS/cocina.jpg');
+
+
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (1, 0, 'Por la compra de un chubasquero, llévate otro chubasquero gratis', 'IMGS/bienvenida.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (2, 5, 'Llévate un 5% de descuento por compartir una foto de tu pez con su chubasquero en las redes sociales y etiquetarnos', 'IMGS/5descuento.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (3, 10, 'Llévate un 10% de descuento por comprar dos o más chubasqueros de diferentes colores o modelos', 'IMGS/10descuento.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (4, 15, 'Llévate un 15% de descuento por comprar cinco o más chubasqueros de diferentes colores o modelos', 'IMGS/15descuento.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (5, 20, 'Llévate un 20% de descuento si recomiendas nuestra tienda a un amigo y hace una compra superior a 50€', 'IMGS/20descuento.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (6, 0, 'El primer día de cada mes, los chubasqueros a mitad de precio', 'IMGS/especial.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (7, 0, 'Compra una tarjeta regalo en la segunda semana del mes y llévate un regalo', 'IMGS/tarjetaregalo.jfif');
+INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (8, 0, 'Compra un chubasquero para tu pez en época de lluvia y te costará la mitad que el resto del año', 'IMGS/epocalluvia.jfif');
+
+
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'asd', N'1234', N'asd@gmail.com', NULL, N'~/ProfileImages/axolotl.jpg', 1, 0, 8)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'disco190', N'1234', N'gordofredoeustakio@gmail.com', NULL, N'~/ProfileImages/_2663df62-89c1-4c7a-a49f-a004cffa3e9b.jpg', 0, 0, 15)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Juan', N'123456', N'juan@example.com', N'Pérez', NULL, 0, 0, 1)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'María', N'abcdef', N'maria@example.com', N'Gómez', NULL, 1, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Ana', N'password123', N'ana@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Pedro', N'securepass', N'pedro@example.com', N'González', NULL, 1, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Luisa', N'secure123', N'luisa@example.com', N'Gómez', NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Carlos', N'password789', N'carlos@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Laura', N'pass456', N'laura@example.com', N'Fernández', NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Manuel', N'secure789', N'manuel@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Marta', N'password987', N'marta@example.com', N'López', NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Andrés', N'pass789', N'andres@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Carolina', N'secure987', N'carolina@example.com', N'Ramírez', NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Diego', N'password654', N'diego@example.com', NULL, NULL, 0, 0, 0)
+
+
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('asd', 'disco190');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'asd');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Juan');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'María');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Ana');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Pedro');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Luisa');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Carlos');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Laura');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Manuel');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Marta');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Andrés');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Carolina');
+INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('disco190', 'Diego');
+
+
+
+
+
+INSERT INTO Categoría (codCategoria, nombre) VALUES (1, 'Comida');
+INSERT INTO Categoría (codCategoria, nombre) VALUES (2, 'Ropa');
+INSERT INTO Categoría (codCategoria, nombre) VALUES (3, 'Electrodomésticos');
+INSERT INTO Categoría (codCategoria, nombre) VALUES (4, 'Tecnología y videoconsolas');
+
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (1, 'Pienso', 'Pienso para peces', 2, 20.3, 1, '/IMGS/pienso.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (2, 'Manzana', 'Manzana de los Alpes', 6, 5.6, 1, '/IMGS/manzana.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (3, 'Coco', 'Coco tropical sabroso', 3, 4.7, 1, '/IMGS/coco.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (4, 'Plátano', 'Plátano de Canarias', 2, 3.5, 1, '/IMGS/platano.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (5, 'Arroz', 'Arroz exportado desde Madrid, sobre unos 500 gramos', 2, 2.2, 1, '/IMGS/arroz.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (6, 'Chaqueta', 'Chaqueta lujosa perfecta para comuniones', 1, 45, 2, '/IMGS/chaqueta.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (7, 'Pantalon', 'Pantalon Gucci', 1, 220, 2, '/IMGS/pantalon.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (8, 'Camisa', 'Camisa facherita', 1, 53, 2, '/IMGS/camisa.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (9, 'Gorra', 'Gorra grande perfecta para cabezones', 1, 15.4, 2, '/IMGS/gorra.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (10, 'Zapatos', 'Zapatos glamurosos', 1, 60, 2, '/IMGS/zapatos.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (11, 'Lavadora', 'Lavadora industrial', 2, 500, 3, '/IMGS/lavadora.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (12, 'Microondas', 'Microondas con potencia de 1200 W', 1, 700, 3, '/IMGS/microondas.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (13, 'Secadora', 'Secadora rápida y eficiente', 1, 450, 3, '/IMGS/secadora.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (14, 'Horno', 'Horno eléctrico, perfecto para pizzas', 1, 600, 3, '/IMGS/horno.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (15, 'Frigorífico', 'Frigorífico Bosch al estilo americano', 1, 800, 3, '/IMGS/frigorifico.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (16, 'PlayStation', 'PlayStation 5 de nueva generación', 1, 500, 4, '/IMGS/playstation.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (17, 'Móvil', 'Teléfono móvil Xiaomi', 3, 250, 4, '/IMGS/movil.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (18, 'Xbox', 'Xbox Series S', 1, 300, 4, '/IMGS/xbox.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (19, 'Ordenador', 'Ordenador de sobremesa perfecto para tu despacho', 1, 2000, 4, '/IMGS/ordenador.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (20, 'Aspiradora', 'Aspiradora inteligente Xiaomi', 2, 300, 4, '/IMGS/aspiradora.jpg');
+
+
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (21, 'Bañamos a tu pez', 'Servicio de baño relajante y terapéutico para peces', 15.99, 500, 3, '/IMGS/banyo.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (22, 'Paseamos a tu pez', 'Servicio exclusivo de paseo al aire libre para peces', 12.50, 300, 3, '/IMGS/paseo.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (23, 'Cuidamos a tu pez', 'Servicio de guardería para peces mientras estás de viaje', 20.00, 800, 3, '/IMGS/guarderia.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (24, 'Diseñamos chubasqueros', 'Servicio de diseño personalizado de chubasqueros para peces', 30.99, 50, 3, '/IMGS/costurero.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (25, 'Fotografiamos a tu pez', 'Servicio de fotografía para peces con chubasqueros', 25.50, 100, 3, '/IMGS/fotografia.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (26, 'Entrenamos a tu pez', 'Servicio de entrenamiento y trucos para peces', 18.99, 30, 3, '/IMGS/entrenamiento.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (27, 'Masaje relajante para tu pez', 'Servicio de masaje acuático relajante para peces', 10.99, 70, 3, '/IMGS/masaje.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (28, 'Clases de buceo para tu pez', 'Servicio de clases de buceo exclusivas para peces', 22.50, 90, 3, '/IMGS/buceo.jfif');
+INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (29, 'Clases de cocina para tu pez', 'Servicio de clases de cocina para peces chefs acuáticos', 28.75, 7, 3, '/IMGS/cocina.jfif');
+
+
+
+INSERT INTO Favoritos (usuario, producto) VALUES (15,1);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,2);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,3);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,6);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,5);
+INSERT INTO Favoritos (usuario, producto) VALUES (15,4);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (1,1);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,2);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,3);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,4);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,5);
+INSERT INTO Favoritos (usuario, producto) VALUES (1,6);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (2,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,36);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,24);
+INSERT INTO Favoritos (usuario, producto) VALUES (2,26);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (3,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,23);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,24);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,36);
+INSERT INTO Favoritos (usuario, producto) VALUES (3,26);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (4,25);
+INSERT INTO Favoritos (usuario, producto) VALUES (4,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (4,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (4,33);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (5,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (5,23);
+INSERT INTO Favoritos (usuario, producto) VALUES (5,36);
+INSERT INTO Favoritos (usuario, producto) VALUES (5,37);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (6,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (6,35);
+INSERT INTO Favoritos (usuario, producto) VALUES (6,36);
+INSERT INTO Favoritos (usuario, producto) VALUES (6,26);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (7,25);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,35);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,24);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,26);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (7,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,36);
+INSERT INTO Favoritos (usuario, producto) VALUES (7,37);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (8,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (8,23);
+INSERT INTO Favoritos (usuario, producto) VALUES (8,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (8,24);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (9,25);
+INSERT INTO Favoritos (usuario, producto) VALUES (9,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (9,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (9,33);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (10,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (10,23);
+INSERT INTO Favoritos (usuario, producto) VALUES (10,36);
+INSERT INTO Favoritos (usuario, producto) VALUES (10,37);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (11,33);
+INSERT INTO Favoritos (usuario, producto) VALUES (11,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (11,36);
+INSERT INTO Favoritos (usuario, producto) VALUES (11,37);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (12,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (12,23);
+INSERT INTO Favoritos (usuario, producto) VALUES (12,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (12,24);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (13,25);
+INSERT INTO Favoritos (usuario, producto) VALUES (13,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (13,37);
+INSERT INTO Favoritos (usuario, producto) VALUES (13,33);
+
+INSERT INTO Favoritos (usuario, producto) VALUES (14,22);
+INSERT INTO Favoritos (usuario, producto) VALUES (14,23);
+INSERT INTO Favoritos (usuario, producto) VALUES (14,36);
+INSERT INTO Favoritos (usuario, producto) VALUES (14,37);
+
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,1,2,40.6,'20/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,2,5,23.5,'20/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,3,1,3.5,'20/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,10,3,180,'20/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,9,10,154,'20/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal,fecha) VALUES (15,8,4,880,'20/05/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 2, 3, 16.8, '21/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 3, 1, 4.7, '22/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 4, 2, 7.0, '23/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 5, 1, 2.2, '24/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 6, 1, 45, '25/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 7, 1, 220, '26/02/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 8, 2, 106, '27/01/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (8, 9, 3, 46.2, '28/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (9, 10, 1, 60, '29/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (10, 1, 1, 20.3, '30/01/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 2, 2, 11.2, '31/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 3, 1, 4.7, '01/02/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 4, 3, 10.5, '02/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 5, 2, 4.4, '03/04/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 9, 2, 30.8, '05/01/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 10, 1, 60, '06/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 1, 3, 60.9, '07/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 2, 1, 5.6, '08/01/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 3, 2, 9.4, '09/02/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 4, 1, 3.5, '10/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 5, 1, 2.2, '11/01/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (8, 6, 2, 90, '12/06/2022');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (9, 7, 1, 220, '13/06/2022');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (10, 8, 1, 53, '14/06/2022');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 9, 3, 46.2, '15/06/2022');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 10, 2, 120, '16/06/2022');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 1, 1, 20.3, '17/06/2022');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 2, 2, 11.2, '18/06/2022');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (15, 6, 1, 45, '15/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 7, 2, 440, '14/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 8, 1, 53, '13/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 9, 3, 46.2, '12/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 10, 2, 120, '11/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 1, 1, 20.3, '10/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 2, 2, 11.2, '09/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 3, 1, 4.7, '08/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (8, 4, 3, 10.5, '07/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (9, 5, 2, 4.4, '06/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (10, 6, 1, 45, '05/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 7, 2, 440, '04/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 8, 1, 53, '03/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 9, 3, 46.2, '02/05/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 10, 2, 120, '01/05/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 4, 2, 7.0, '22/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 5, 1, 2.2, '21/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 6, 1, 45, '20/04/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 7, 1, 220, '19/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 9, 3, 46.2, '17/04/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 10, 1, 60, '16/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 2, 1, 5.6, '14/04/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 3, 2, 9.4, '13/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 4, 1, 3.5, '12/04/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 6, 1, 45, '10/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 7, 1, 220, '09/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 8, 1, 53, '08/04/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 9, 2, 30.8, '07/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 10, 1, 60, '06/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 1, 1, 20.3, '05/04/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 2, 2, 11.2, '04/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 1, 1, 20.3, '03/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 4, 3, 10.5, '02/04/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (8, 5, 2, 4.4, '01/04/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (8, 1, 2, 40.6, '31/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (8, 7, 2, 440, '30/03/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (9, 3, 1, 4.7, '29/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (9, 9, 3, 46.2, '28/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (9, 1, 1, 20.3, '27/03/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (10, 10, 2, 120, '26/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (10, 2, 2, 11.2, '25/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (10, 3, 1, 4.7, '24/03/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 4, 2, 7.0, '23/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 5, 1, 2.2, '22/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 6, 1, 45, '21/03/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 7, 1, 220, '20/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 1, 2, 40.6, '19/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 9, 3, 46.2, '18/03/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 10, 1, 60, '17/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 6, 2, 90, '16/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 2, 1, 5.6, '15/03/2023');
+
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 3, 2, 9.4, '14/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 4, 1, 3.5, '13/03/2023');
+INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 9, 2, 30.8, '12/03/2023');
+
+
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (100, 1, 3, 14.1, 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (101, 1, 5, 2.2, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (102, 1, 10, 60, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (103, 1, 8, 53, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (104, 1, 4, 14, 4);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (105, 1, 6, 45, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (106, 1, 2, 11.2 , 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (107, 1, 9, 15.4, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (108, 1, 10, 120, 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (109, 1, 3, 47, 10);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (110, 1, 7, 220, 1);
+
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (100, 1, 3, 14.1, 2, '2023-6-15');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (101, 1, 5, 2.2, 1, '2023-6-25');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (102, 1, 10, 60, 1, '2023-6-24');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (103, 1, 8, 53, 1, '2023-7-1');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (104, 1, 4, 14, 4, '2023-7-13');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (105, 1, 6, 45, 1, '2023-7-22');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (106, 1, 2, 11.2 , 2, '2023-7-30');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (107, 1, 9, 15.4, 1, '2023-8-10');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (108, 1, 10, 120, 2, '2023-8-18');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (109, 1, 3, 47, 10, '2023-8-27');
+INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (110, 1, 7, 220, 1, '2023-9-4');
+
+
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (2, 4, 1, 4, 3)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (2, 1, 4, 1, 4, 'Muy buen producto, muy contento')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 2, 5, 4)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (4, 2, 5, 0, 5, 'Es lo que necesitaba mi pequeñín')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 1, 5, 5)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (4, 1, 3, 1, 5, 'Todo perfecto')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 3, 5, 6)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (4, 3, 2, 0, 5, 'Muy buen producto, volvería a comprar sin duda')
+
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (7, 3, 5, 3, 3)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (7, 5, 2, 4, 3, 'Podría ser mejor')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (8, 3, 10, 4, 4)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (8, 10, 1, 0, 3, 'Ok')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (9, 5, 12, 5, 5)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (9, 12, 5, 0, 5, 'Todo perfecto')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (12, 5, 13, 5, 6)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (12, 13, 2, 0, 5, 'Muy buen producto, volvería a comprar sin duda')
+
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (15, 4, 12, 4, 3)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (15, 12, 4, 1, 4, 'Me alegra haber encontrado esta tienda')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (14, 5, 15, 5, 4)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (14, 15, 1, 0, 5, 'Es lo que necesitaba')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (14, 5, 16, 5, 5)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (14, 16, 7, 1, 5, 'Todo bien')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (24, 5, 13, 5, 6)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (24, 13, 3, 0, 5, 'Muy buen producto')

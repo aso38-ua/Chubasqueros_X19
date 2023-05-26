@@ -30,7 +30,7 @@ namespace Library
 
                 connection = new SqlConnection(constring);
                 connection.Open();
-
+                //se crea
                 string query = "Insert INTO [dbo].[Producto] (codigo, nombre, descripcion, stock, precio, codigoCategoria) VALUES (" + en.getCodigo() + ", '" + en.getNombre() + "', '" + en.getDescripcion() + "', " + en.getStock() + ", " + en.getPrecio() + ", " + en.getCodigoCategoria() + ")";
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
@@ -76,7 +76,7 @@ namespace Library
                     en.setStock(int.Parse(busqueda["stock"].ToString()));
                     en.setDescripcion(busqueda["descripcion"].ToString());
                     en.setPrecio(float.Parse(busqueda["precio"].ToString()));
-                    en.setCodigoCategoria(int.Parse(busqueda["codCategoria"].ToString()));
+                    en.setCodigoCategoria(int.Parse(busqueda["codigoCategoria"].ToString()));
                 }
                 else creado = false;
 
@@ -241,6 +241,24 @@ namespace Library
             finally
             {
                 conn.Close();
+            }
+
+            return dataTable;
+        }
+        //Creado por Alberto Sáez Orts
+        public DataTable BuscarProductosPorNombre(string nombre)
+        {
+            DataTable dataTable = new DataTable();
+
+            
+            using (SqlConnection connection = new SqlConnection(constring))
+            {
+                string query = "SELECT * FROM Producto WHERE nombre LIKE @nombre";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@nombre", "%" + nombre + "%");
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataTable);
             }
 
             return dataTable;

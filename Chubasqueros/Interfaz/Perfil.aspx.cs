@@ -130,6 +130,7 @@ namespace Interfaz
 
             // Verificar si el nuevo nombre de usuario ya existe en la base de datos
             bool usernameExists = usuario.VerificarEmailExistente(newEmail);
+            bool badmail = usuario.EsCorreoElectronico(newEmail);
 
             if (usernameExists)
             {
@@ -139,6 +140,10 @@ namespace Interfaz
             else if (newEmail == "")
             {
                 changEmail.Text = "No se admiten emails vacíos.";
+            }
+            else if (!badmail)
+            {
+                changEmail.Text = "No cumple el formato.";
             }
             else
             {
