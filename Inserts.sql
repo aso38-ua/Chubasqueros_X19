@@ -59,11 +59,11 @@ INSERT INTO Categoría (codCategoria, nombre) VALUES (2, 'Ropa');
 INSERT INTO Categoría (codCategoria, nombre) VALUES (3, 'Electrodomésticos');
 INSERT INTO Categoría (codCategoria, nombre) VALUES (4, 'Tecnología y videoconsolas');
 
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (1, 'Pienso', 'Pienso para peces', 2, 20.3, 1, '/IMGS/pienso.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (2, 'Manzana', 'Manzana de los Alpes', 6, 5.6, 1, '/IMGS/manzana.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (3, 'Coco', 'Coco tropical sabroso', 3, 4.7, 1, '/IMGS/coco.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (4, 'Plátano', 'Plátano de Canarias', 2, 3.5, 1, '/IMGS/platano.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (5, 'Arroz', 'Arroz exportado desde Madrid, sobre unos 500 gramos', 2, 2.2, 1, '/IMGS/arroz.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (1, 'Pienso', 'Pienso para peces', 2, 5.30, 1, '/IMGS/pienso.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (2, 'Bufanda', 'Bufanda para peces', 6, 15.00, 2, '/IMGS/carpa_bufanda.jpeg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (3, 'Gafas de sol', 'Gafas de sol para peces agresivos', 3, 15.95, 2, '/IMGS/piranha.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (4, 'Sombrero', 'Sombrero de copa elegante', 2, 39.99, 2, '/IMGS/pez_elegante.jpg');
+INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (5, 'Chubasquero', 'Chubasquero para los más peques', 2, 12.95, 2, '/IMGS/arroz.jpg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (6, 'Chaqueta', 'Chaqueta lujosa perfecta para comuniones', 1, 45, 2, '/IMGS/chaqueta.jpg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (7, 'Pantalon', 'Pantalon Gucci', 1, 220, 2, '/IMGS/pantalon.jpg');
 INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (8, 'Camisa', 'Camisa facherita', 1, 53, 2, '/IMGS/camisa.jpg');
