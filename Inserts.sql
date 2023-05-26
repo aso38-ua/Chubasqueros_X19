@@ -171,7 +171,7 @@ INSERT INTO Favoritos (usuario, producto) VALUES (14,23);
 INSERT INTO Favoritos (usuario, producto) VALUES (14,3);
 INSERT INTO Favoritos (usuario, producto) VALUES (14,4);
 
-
+/*
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 2, 3, 16.8, '21/05/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 3, 1, 4.7, '22/04/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 4, 2, 7.0, '23/04/2023');
@@ -186,7 +186,7 @@ INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 2,
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 3, 1, 4.7, '01/02/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 4, 3, 10.5, '02/03/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 5, 2, 4.4, '03/04/2023');
-
+*/
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 9, 2, 30.8, '05/01/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 10, 1, 60, '06/03/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 1, 3, 60.9, '07/04/2023');
