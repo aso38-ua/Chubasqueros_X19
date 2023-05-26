@@ -46,6 +46,7 @@ CREATE TABLE pedido (
     producto_id INT NOT NULL,
     fecha_pedido DATETIME NOT NULL,
     cantidad INT NOT NULL,
+    preciotot FLOAT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (usuario_id) REFERENCES usuario(id),
     FOREIGN KEY (producto_id) REFERENCES producto(codigo)
