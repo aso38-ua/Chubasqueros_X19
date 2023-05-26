@@ -13,6 +13,11 @@
                     <span></span>
                     Marcas
                 </a>
+    <div>
+        <label for="txtSearch">Buscar por nombre:</label>
+        <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+        <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="btnSearch_Click" />
+    </div>
 
     <div class="container-producto">
         <div>
@@ -23,6 +28,8 @@
             </div>
         </div>
     </div>
+
+    
 
     <div>
         <h2> Productos </h2>

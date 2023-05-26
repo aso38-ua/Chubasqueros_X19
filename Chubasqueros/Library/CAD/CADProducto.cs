@@ -245,6 +245,24 @@ namespace Library
 
             return dataTable;
         }
+        //Creado por Alberto Sáez Orts
+        public DataTable BuscarProductosPorNombre(string nombre)
+        {
+            DataTable dataTable = new DataTable();
+
+            
+            using (SqlConnection connection = new SqlConnection(constring))
+            {
+                string query = "SELECT * FROM Producto WHERE nombre LIKE @nombre";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@nombre", "%" + nombre + "%");
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataTable);
+            }
+
+            return dataTable;
+        }
 
     }
 
