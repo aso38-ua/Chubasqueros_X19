@@ -108,11 +108,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database.mdf" />
-    <Content Include="App_Data\Database_log.ldf">
-      <DependentUpon>Database.mdf</DependentUpon>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="Aviso.aspx" />
     <Content Include="Colaboracion.aspx" />
+    <Content Include="CSS\Comentario.css" />
     <Content Include="CSS\EstiloCarrito.css" />
     <Content Include="adminOferta.aspx" />
     <Content Include="adminServicio.aspx" />
@@ -221,6 +223,13 @@
     </Compile>
     <Compile Include="adminServicio.aspx.designer.cs">
       <DependentUpon>adminServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aviso.aspx.cs">
+      <DependentUpon>Aviso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aviso.aspx.designer.cs">
+      <DependentUpon>Aviso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Categoria.aspx.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>

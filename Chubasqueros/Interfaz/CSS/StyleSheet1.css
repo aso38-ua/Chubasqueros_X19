@@ -107,6 +107,7 @@ footer {
 input {
     color: var(--fg);
     font: 1em/1.5 sans-serif;
+
 }
 
     input:checked + .switch__sr {
@@ -258,7 +259,3 @@ body {
         content: "";
         background-color: var(--primary);
     }
-
-.contactoR{
-
-}

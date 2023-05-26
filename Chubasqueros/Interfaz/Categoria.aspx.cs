@@ -30,7 +30,6 @@ namespace Interfaz
                 buttom_Actualizar.Visible = true;
                 buttom_Borrar.Visible = true;
             }
-            
         }
 
         protected void onLeer(object sender, EventArgs e)

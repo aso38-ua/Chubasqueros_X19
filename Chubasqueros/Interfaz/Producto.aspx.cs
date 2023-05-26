@@ -63,10 +63,53 @@ namespace Interfaz
 
         private void LoadAllProductos()
         {
+            if (!string.IsNullOrEmpty(txtSearch.Text))
+            {
+                // Si se ha realizado una búsqueda, ocultar el contenido anterior
+                labelInfo.Visible = false;
+                return;
+            }
+
             DataTable dataTable = ENProducto.readAllServices();
 
             labelInfo.Text = "";
             foreach (DataRow row in dataTable.Rows)
+            {
+                string codigo = row["codigo"].ToString();
+                string nombre = row["nombre"].ToString();
+                string descripcion = row["descripcion"].ToString();
+                string precio = row["precio"].ToString();
+                string stock = row["stock"].ToString();
+                string img = row["img"].ToString();
+
+                string innerHTML = $@"
+            <div class='producto-container'>
+                <div class='producto-imagen'>
+                    <img src='{img}' alt='Imagen del producto' class='producto-imagen-img' />
+                </div>
+                <div class='producto-contenido'>
+                    <p class='h2-producto'>{nombre}</p>
+                    <p class='p-producto'>Descripción: {descripcion}</p>
+                    <p class='p-producto'>Precio: {precio}</p>
+                    <p class='p-producto'>Stock: {stock}</p>
+                </div>
+            </div>
+        ";
+
+                LiteralControl literalControl = new LiteralControl(innerHTML);
+                labelInfo.Controls.Add(literalControl);
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text;
+            DataTable searchResult = ENProducto.BuscarProductosPorNombre(searchTerm);
+
+            // Limpiar los resultados anteriores
+            labelInfo.Controls.Clear();
+
+            foreach (DataRow row in searchResult.Rows)
             {
                 string codigo = row["codigo"].ToString();
                 string nombre = row["nombre"].ToString();

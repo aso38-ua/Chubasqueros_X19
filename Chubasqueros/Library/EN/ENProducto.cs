@@ -52,6 +52,12 @@ namespace Library
             this.precio = precio;
         }
 
+        public static DataTable BuscarProductosPorNombre(string nombre)
+        {
+            CADProducto producto = new CADProducto();
+            return producto.BuscarProductosPorNombre(nombre);
+        }
+
         public int getCodigo()
         {
             return this.codigo;
