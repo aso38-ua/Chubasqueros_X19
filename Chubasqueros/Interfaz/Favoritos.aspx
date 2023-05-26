@@ -9,7 +9,7 @@
         <h2>Lista de Favoritos</h2>
     </div>
     <div id="ElimFav">
-        <p>Nombre del producto a borrar: &nbsp;<asp:TextBox ID="text_nombre" runat="server" Height="25px" style="color:black; margin-top: 10px; margin-left: 15px;" Width="400px"></asp:TextBox></asp:TextBox><asp:Button style="background-color:white; border-color:black; color:red; margin-top: 10px; margin-left: 15px;" Width="150px" id="button1" runat="server" text="Eliminar" onClick="eliminardeFavoritos"/></p>
+        <p>Nombre del producto a borrar: &nbsp;<asp:TextBox ID="text_nombre" runat="server" Height="25px" style="color:black; margin-top: 10px; margin-left: 15px;" Width="400px"></asp:TextBox><asp:Button style="background-color:white; border-color:black; color:black; font-weight: bold; margin-top: 10px; margin-left: 15px;" Width="150px" id="button1" runat="server" text="Eliminar" CssClass="neon-btn" onClick="eliminardeFavoritos"/></p>
         <asp:Label ID="Mensaje" runat="server"></asp:Label><br/>
     </div>
     <div id="list" style="width:90%">

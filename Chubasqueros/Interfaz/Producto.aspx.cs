@@ -262,19 +262,21 @@ namespace Interfaz
 
         protected void onFavoritos(object sender, EventArgs e)
         {
-            ENUsuario usuario = new ENUsuario();
-            usuario.nombre = (string)Session["username"];
-            usuario.readUsuario();
-            ENFavoritos favoritos = new ENFavoritos(int.Parse(text_codigo.Text),usuario.id);
-            if (!favoritos.readFavoritosWithP())
-            {
-                favoritos.insertProductinBD(int.Parse(text_codigo.Text));
-                Mensaje.Text = "Producto agregado a lista de favoritos.";
-            }
-            else
-            {
-                Mensaje.Text = "El producto ya estaba en su lista de favoritos.";
-            }
+            try {
+                ENUsuario usuario = new ENUsuario();
+                usuario.nombre = (string)Session["username"];
+                usuario.readUsuario();
+                ENFavoritos favoritos = new ENFavoritos(int.Parse(text_codigo.Text),usuario.id);
+                if (!favoritos.readFavoritosWithP())
+                {
+                    favoritos.insertProductinBD(int.Parse(text_codigo.Text));
+                    Mensaje.Text = "Producto agregado a lista de favoritos.";
+                }
+                else
+                {
+                    Mensaje.Text = "El producto ya estaba en su lista de favoritos.";
+                }
+            } catch (Exception exc) { Mensaje.Text = "Tiene que introducir un valor numérico (id) para añadir el producto"; }
         }
 
         protected void onPuntuar(object sender, EventArgs e)
@@ -285,28 +287,29 @@ namespace Interfaz
 
         protected void onReservar(object sender, EventArgs e)
         {
-            DateTime thisDay = DateTime.Today;
-            ENUsuario usuario = new ENUsuario();
-            usuario.nombre = (string)Session["username"];
-            usuario.readUsuario();
-            ENReserva reserva = new ENReserva(int.Parse(text_codigo.Text),usuario.id);
-            if (!reserva.readReserva())
-            {
-                reserva.fechap = thisDay.ToString("d");
-                reserva.createReserva();
-                Mensaje.Text = "Reserva creada";
-            }
-            else
-            {
-                ENProducto producto = new ENProducto();
-                producto.setCodigo(reserva.productop);
-                producto.readProducto();
-                reserva.cantidadp = reserva.cantidadp + 1;
-                reserva.ptotal = producto.getPrecio() * reserva.cantidadp;
-                reserva.updateReserva();
-                Mensaje.Text = "Reserva actualizada, añadida una cantidad más a la antigua reserva";
-            }
-
+            try {
+                DateTime thisDay = DateTime.Today;
+                ENUsuario usuario = new ENUsuario();
+                usuario.nombre = (string)Session["username"];
+                usuario.readUsuario();
+                ENReserva reserva = new ENReserva(int.Parse(text_codigo.Text),usuario.id);
+                if (!reserva.readReserva())
+                {
+                    reserva.fechap = thisDay.ToString("d");
+                    reserva.createReserva();
+                    Mensaje.Text = "Reserva creada";
+                }
+                else
+                {
+                    ENProducto producto = new ENProducto();
+                    producto.setCodigo(reserva.productop);
+                    producto.readProducto();
+                    reserva.cantidadp = reserva.cantidadp + 1;
+                    reserva.ptotal = producto.getPrecio() * reserva.cantidadp;
+                    reserva.updateReserva();
+                    Mensaje.Text = "Reserva actualizada, añadida una cantidad más a la antigua reserva";
+                }
+            } catch (Exception exc) { Mensaje.Text = "Tiene que introducir un valor numérico (id) para añadir el producto"; }
         }
 
         protected void onCategoria(object sender, EventArgs e)

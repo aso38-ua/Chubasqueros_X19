@@ -26,7 +26,7 @@ namespace Library
             get { return productop; }
             set { productop = value; }
         }
- 
+
         public int cantidad
         {
             get { return cantidadp; }
@@ -48,6 +48,7 @@ namespace Library
 
         public ENCarrito(int usu)
         {
+            this.producto = new int[0];
             this.usuario = usu;
         }
 
@@ -70,12 +71,16 @@ namespace Library
 
         public ENCarrito(int[] prod, int usu)
         {
-            this.producto = new int[producto.Length];
-            for(int i = 0; i < producto.Length; i++)
+            if (prod != null)
             {
-                this.producto[i] = producto[i];
+                this.producto = new int[prod.Length];
+                for (int i = 0; i < prod.Length; i++)
+                {
+                    this.producto[i] = prod[i];
+                }
+                this.usuario = usu;
             }
-            this.usuario = usuario;
+
         }
 
         public ENCarrito(int cantidad, int producto, int usuario)
@@ -138,14 +143,14 @@ namespace Library
 
             return eliminar;
         }
-        
+
         public bool actualizarCarrito()
         {
             ENCarrito carro = new ENCarrito(producto, usuario);
             CADCarrito carrito = new CADCarrito();
             bool actualizar = false;
 
-            
+
             if (carrito.verCarrito(carro))
             {
                 carro.cantidad = this.cantidad;
@@ -156,11 +161,12 @@ namespace Library
             }
             return actualizar;
         }
-
+        //Añadir producto al carrito
         public void AñadirProducto(int producto)
         {
             int[] aux = new int[this.producto.Length + 1];
-            for(int i = 0; i < this.producto.Length; i++){
+            for (int i = 0; i < this.producto.Length; i++)
+            {
                 aux[i] = this.producto[i];
             }
             aux[this.producto.Length] = producto;
@@ -168,7 +174,7 @@ namespace Library
 
         }
 
-        //Añadir producto al carrito
+
         public bool AñadirProductoBD(int producto)
         {
             CADCarrito carrito = new CADCarrito();
@@ -177,7 +183,7 @@ namespace Library
             insertar = carrito.AñadirProducto(carro);
             this.AñadirProducto(producto);
             return insertar;
-        }   
+        }
 
         //Eliminar producto del carrito
         public bool EliminarProducto(int producto)
@@ -186,19 +192,32 @@ namespace Library
             int[] aux = new int[this.producto.Length - 1];
             if (this.producto.Contains(producto))
             {
-                for(int i = 0; i < this.producto.Length; i++)
+                for (int i = 0; i < this.producto.Length; i++)
                 {
-                    if(this.producto[i] != producto)
+                    if (this.producto[i] != producto)
                     {
                         aux[i] = this.producto[i];
                     }
                 }
             }
             this.producto = aux;
-            
+
             return borrar;
         }
 
+        public bool EliminarProductoEnBD(int producto)
+        {
+            CADCarrito carrito = new CADCarrito();
+            ENCarrito aux = new ENCarrito(producto, this.usuario);
+            bool borrado = false;
+            if (aux.readCarritoinProduct())
+            {
+                //Uno es del CAD y otro del EN
+                borrado = carrito.EliminarProducto(aux);
+                this.EliminarProducto(producto);
+            }
+            return borrado;
+        }
 
         //Calcula el precio total que hay en el carrito
         public bool PrecioTotal()
