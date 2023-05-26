@@ -130,6 +130,7 @@
     <Content Include="IMGS\coco.jpg" />
     <Content Include="IMGS\cuero1.jpg" />
     <Content Include="IMGS\cuero2.jpg" />
+    <Content Include="IMGS\delfin.jpg" />
     <Content Include="IMGS\frigorifico.jpg" />
     <Content Include="IMGS\gorra.jpg" />
     <Content Include="IMGS\horno.jpg" />
@@ -144,8 +145,10 @@
     <Content Include="IMGS\pantalon.jpg" />
     <Content Include="IMGS\payaso.jpg" />
     <Content Include="IMGS\pienso.jpg" />
+    <Content Include="IMGS\pike.jpg" />
     <Content Include="IMGS\platano.jpg" />
     <Content Include="IMGS\playstation.jpg" />
+    <Content Include="IMGS\salmon.jpg" />
     <Content Include="IMGS\secadora.jpg" />
     <Content Include="IMGS\twitter-logo-9.png" />
     <Content Include="IMGS\sombrero.png" />
