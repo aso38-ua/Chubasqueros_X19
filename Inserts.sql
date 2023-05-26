@@ -61,21 +61,22 @@ INSERT INTO Categoría (codCategoria, nombre) VALUES (4, 'Tecnología y videocon
 INSERT INTO Categoría (codCategoria, nombre) VALUES (5, 'Servicios');
 
 
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (1, 'Pienso', 'Pienso para peces', 2, 5.30, 1, '/IMGS/pienso.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (2, 'Bufanda', 'Bufanda para peces', 6, 15.00, 2, '/IMGS/carpa_bufanda.jpeg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (3, 'Gafas de sol', 'Gafas de sol para peces agresivos', 3, 15.95, 2, '/IMGS/piranha.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (4, 'Sombrero', 'Sombrero de copa elegante', 2, 39.99, 2, '/IMGS/atun.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (5, 'Chubasquero', 'Chubasquero para los más peques', 2, 12.95, 2, '/IMGS/pez_infantil.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (6, 'Chaqueta', 'Chaqueta de cuero estilo motorista', 1, 45.95, 2, '/IMGS/cuero1.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (7, 'Tatuaje', 'Tatuajes para tu pez más macarra', 6, 69.99, 2, '/IMGS/koi.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (8, 'Camiseta', 'Camiseta fresquita perfecta para nuestros grandes mamíferos', 6, 125.99, 2, '/IMGS/ballena.jpeg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (9, 'Chaqueta', 'Chaqueta elegante negra', 6, 225.99, 2, '/IMGS/pez_elegante.jpeg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (10, 'Sudadera', 'Sudadera negra con capucha (apertura para aleta)', 6, 29.99, 2, '/IMGS/tiburon_2.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (11, 'Gafas', 'Monóculo para peces pequeños', 6, 9.99, 2, '/IMGS/payaso.jpeg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (12, 'Chaqueta', 'Chaqueta de cuero ligera para entretiempo', 4, 29.99, 2, '/IMGS/cuero2.jpeg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (13, 'Gafas', 'Gafas de vista para tu pez', 4, 59.95, 2, '/IMGS/pike.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (14, 'Camiseta', 'Camiseta básica para tu pez de río', 4, 9.95, 8, '/IMGS/salmon.jpg');
-INSERT INTO Producto (codigo, nombre, descripcion, stock, precio, codigoCategoria, img) VALUES (15, 'Camisa', 'Camisa para fiestas bajo del agua', 4, 19.95, 5, '/IMGS/delfin.jpg');
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (1, N'Pienso', N'Pienso para peces', CAST(5.30 AS Decimal(10, 2)), 2, 1, N'/IMGS/pienso.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (2, N'Bufanda', N'Bufanda para peces', CAST(15.00 AS Decimal(10, 2)), 6, 2, N'/IMGS/carpa_bufanda.jpeg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (3, N'Gafas de sol', N'Gafas de sol para peces agresivos', CAST(15.95 AS Decimal(10, 2)), 3, 2, N'/IMGS/piranha.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (4, N'Sombrero', N'Sombrero de copa elegante', CAST(39.99 AS Decimal(10, 2)), 2, 2, N'/IMGS/atun.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (5, N'Chubasquero', N'Chubasquero para los más peques', CAST(12.95 AS Decimal(10, 2)), 2, 2, N'/IMGS/pez_infantil.jpeg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (6, N'Chaqueta', N'Chaqueta de cuero estilo motorista', CAST(45.95 AS Decimal(10, 2)), 1, 2, N'/IMGS/cuero1.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (7, N'Tatuaje', N'Tatuajes para tu pez más macarra', CAST(69.99 AS Decimal(10, 2)), 6, 2, N'/IMGS/koi.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (8, N'Chaqueta', N'Chaqueta fresquita perfecta para nuestros grandes mamíferos', CAST(125.99 AS Decimal(10, 2)), 6, 2, N'/IMGS/ballena.jpeg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (9, N'Chaqueta', N'Chaqueta elegante negra', CAST(225.99 AS Decimal(10, 2)), 6, 2, N'/IMGS/pez_elegante.jpeg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (10, N'Sudadera', N'Sudadera negra con capucha (apertura para aleta)', CAST(29.99 AS Decimal(10, 2)), 6, 2, N'/IMGS/tiburon_2.jpeg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (11, N'Gafas', N'Monóculo para peces pequeños', CAST(9.99 AS Decimal(10, 2)), 6, 2, N'/IMGS/payaso.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (12, N'Chaqueta', N'Chaqueta de cuero ligera para entretiempo', CAST(29.99 AS Decimal(10, 2)), 4, 2, N'/IMGS/cuero2.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (13, N'Gafas', N'Gafas de vista para tu pez', CAST(59.95 AS Decimal(10, 2)), 4, 2, N'/IMGS/pike.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (14, N'Camiseta', N'Camiseta básica para tu pez de río', CAST(9.95 AS Decimal(10, 2)), 4, 8, N'/IMGS/salmon.jpg')
+INSERT INTO [dbo].[Producto] ([codigo], [nombre], [descripcion], [precio], [stock], [codigoCategoria], [img]) VALUES (15, N'Camisa', N'Camisa para fiestas bajo del agua', CAST(19.95 AS Decimal(10, 2)), 4, 5, N'/IMGS/delfin.jpg')
+
 
 
 INSERT INTO Producto (codigo, nombre, descripcion, precio, stock, codigoCategoria, img) VALUES (21, 'Bañamos a tu pez', 'Servicio de baño relajante y terapéutico para peces', 15.99, 500, 5, '/IMGS/banyo.jfif');
