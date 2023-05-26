@@ -297,7 +297,7 @@ INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedi
 INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (110, 1, 7, 220, 1, '2023-9-4');
 
 
-insert into Puntuacion (item, estrellas, id_user, media, contador) values (2, 4, 1, 4, 3)
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (2, 4, 1, 4, 3)insert into Puntuacion (item, estrellas, id_user, media, contador) values (2, 4, 1, 4, 3)
 insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (2, 1, 4, 1, 4, 'Muy buen producto, muy contento')
 insert into Puntuacion (item, estrellas, id_user, media, contador) values (4, 5, 2, 5, 4)
 insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (4, 2, 5, 0, 5, 'Es lo que necesitaba mi pequeñín')
@@ -317,9 +317,9 @@ insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) v
 
 insert into Puntuacion (item, estrellas, id_user, media, contador) values (15, 4, 12, 4, 3)
 insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (15, 12, 4, 1, 4, 'Me alegra haber encontrado esta tienda')
-insert into Puntuacion (item, estrellas, id_user, media, contador) values (14, 5, 15, 5, 4)
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (14, 5, 14, 5, 4)
 insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (14, 14, 1, 0, 5, 'Es lo que necesitaba')
-insert into Puntuacion (item, estrellas, id_user, media, contador) values (14, 5, 16, 5, 5)
-insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (14, 12, 7, 1, 5, 'Todo bien')
+insert into Puntuacion (item, estrellas, id_user, media, contador) values (14, 5, 8, 5, 5)
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (14, 8, 7, 1, 5, 'Todo bien')
 insert into Puntuacion (item, estrellas, id_user, media, contador) values (24, 5, 13, 5, 6)
-insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (24, 11, 3, 0, 5, 'Muy buen producto')
+insert into Comentario (item, id_user, likes, dislikes, estrellas, comentario) values (24, 13, 3, 0, 5, 'Muy buen producto')
