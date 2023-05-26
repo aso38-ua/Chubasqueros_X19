@@ -53,7 +53,7 @@ CREATE TABLE pedido (
 
 CREATE TABLE Favoritos (
     usuario INT NOT NULL,
-    producto INT NOT NULL,
+    producto INT NULL,
     PRIMARY KEY (producto,usuario),
     FOREIGN KEY (usuario) REFERENCES usuario(id),
     FOREIGN KEY (producto) REFERENCES producto(codigo)
