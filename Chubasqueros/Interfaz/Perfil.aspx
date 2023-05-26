@@ -31,13 +31,17 @@
                         <asp:TextBox ID="txtNewEmail" runat="server" Style="width: 180px; height: 18px; font-size:15px"></asp:TextBox>
                         <asp:Label runat="server" Text="" ID="changEmail" Style="font-size:15px;"></asp:Label>
                     </div>
-                    <div class="info-row">
-                        <asp:Label runat="server" Text="País:" CssClass="neon-label"></asp:Label>
-                        <asp:Label ID="lblCountry" runat="server" Text=""></asp:Label>
-                    </div>
+                    
                     <div class="info-row">
                         <asp:Label runat="server" Text="Teléfono:" CssClass="neon-label"></asp:Label>
-                        <asp:Label ID="lblBirthdate" runat="server" Text=""></asp:Label>
+                        <asp:TextBox style="width:190px; height:30px; font-size:20px;" ID="txtTelefono" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="regexValidatorTelefono" runat="server"
+                            ControlToValidate="txtTelefono"
+                            ValidationExpression="^\d{10}$"
+                            ErrorMessage="El número de teléfono debe tener 10 dígitos numéricos."
+                            Display="Dynamic"
+                            CssClass="error-message">
+                        </asp:RegularExpressionValidator>
                     </div>
                 </div>
             </div>
