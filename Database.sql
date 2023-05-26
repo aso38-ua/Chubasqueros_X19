@@ -92,20 +92,22 @@ CREATE TABLE [dbo].[Comentario] (
     FOREIGN KEY ([id_user], [item], [estrellas]) REFERENCES [dbo].[Puntuacion] ([id_user], [item], [estrellas])
 );
 
-CREATE TABLE Oferta (
-    codigoOferta INT NOT NULL,
-    porcentajeDescuento INT NOT NULL,
-    descripcion VARCHAR(500) NOT NULL,
-    img VARCHAR(500) NOT NULL,
-    PRIMARY KEY (codigoOferta)
+CREATE TABLE [dbo].[Oferta] (
+    [idOferta]            INT           NOT NULL,
+    [porcentajeDescuento] INT           NOT NULL,
+    [descripcion]         VARCHAR (500) NOT NULL,
+    [img]                 VARCHAR (500) NOT NULL,
+    PRIMARY KEY CLUSTERED ([idOferta] ASC)
 );
 
-CREATE TABLE Servicio (
-    idServicio INT NOT NULL,
-    titulo VARCHAR(100) NOT NULL,
-    descripcion VARCHAR(500) NOT NULL,
-    img VARCHAR(500) NOT NULL,
-    PRIMARY KEY (idServicio)
+
+
+CREATE TABLE [dbo].[Servicio] (
+    [idServicio]  INT           NOT NULL,
+    [titulo]      VARCHAR (100) NOT NULL,
+    [descripcion] VARCHAR (500) NOT NULL,
+    [img]         VARCHAR (500) NOT NULL,
+    PRIMARY KEY CLUSTERED ([idServicio] DESC)
 );
 
 CREATE TABLE curriculum (
