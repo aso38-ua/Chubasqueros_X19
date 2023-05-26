@@ -30,67 +30,90 @@ namespace Interfaz
 
         //Regresa a la pestaña de producto
         protected void RegresarClick(object sender, EventArgs e)
-        {            
+        {
             Response.Redirect("Producto.aspx");
         }
 
-        //Busca el producto que desea comentar
+        //Busca el producto que desea puntuar o comentar
         protected void BuscarClick(object sender, EventArgs e)
         {
-           if(TBBuscar.Text != "")
+            if (TBBuscar.Text != "")
             {
                 ENProducto en_prod = new ENProducto();
-                en_prod.setNombre(TBBuscar.Text);
-                if(en_prod.readProducto() == true)
+                en_prod.setCodigo(int.Parse(TBBuscar.Text));
+                //Compruebo si existe el producto
+                if (en_prod.readProducto() == true)
                 {
-                    TBBuscar.Text = en_prod.getNombre();
+                    //Muestro los datos
+                    Label13.Text = "Nombre: ";
+                    Label14.Text = en_prod.getNombre();
+                    Label15.Text = "Precio: ";
+                    Label16.Text = Convert.ToString(en_prod.getPrecio());
+                    Label17.Text = "ID: ";
+                    Label18.Text = Convert.ToString(en_prod.getCodigo());
+                    //Creo un usuario con el usuario logeado
                     ENUsuario en_u = new ENUsuario();
                     en_u.nombre = (string)Session["username"];
-                    //Si tiene la sesión iniciada se le muestran sus datos 
+                    ENPuntuacion en_p = new ENPuntuacion();
+                    en_p.aux_item = en_prod.getCodigo();
+                    //Muestro los datos actuales
+
+                    ENComentario en_c = new ENComentario();
+                    en_c.aux_item = en_p.aux_item;
+                    //Se muestra el primer comentario
+                    if (en_c.FirstComment() == true)
+                    {
+                        Comentarios.Text = en_c.aux_comentario;
+                        Label10.Text = Convert.ToString(en_c.aux_likes);
+                        Label11.Text = Convert.ToString(en_c.aux_dislikes);
+                    }
+                    else
+                    {
+                        Comentarios.Text = "No hay ningún comentarios";
+                        Label10.Text = Convert.ToString(en_c.aux_likes);
+                        Label11.Text = Convert.ToString(en_c.aux_dislikes);
+                    }
+                    //Muestra el comentario del cliente en ese producto en caso de haber y estar logeado
                     if (en_u.readUsuario())
                     {
-                        ENPuntuacion en_p = new ENPuntuacion();
-                        en_p.aux_item = en_prod.getCodigo();
-                        if(en_p.findItem() == true)
+                        en_p.aux_id_user = en_u.id;
+                        en_c.aux_id_user = en_u.id;
+                        //Muestro su puntuación en caso de haber
+                        if (en_p.findItem() == true)
                         {
                             Label3.Text = Convert.ToString(en_p.aux_estrella);
                             Label6.Text = Convert.ToString(en_p.aux_media);
-                            ENComentario en_c = new ENComentario();
-                            en_c.aux_id_user = en_u.id;
-                            en_c.readComment();
-                            TBComentario.Text = en_c.aux_comentario;                            
-                            en_c.aux_item = en_prod.getCodigo();
-                            //Si no hay comentario por parte del usuario no puede modificar o eliminar
-                            if (en_c.aux_comentario == "")
-                            {
-                                Label4.Text = "0";
-                                Label5.Text = "0";
-                                BtnEliminar.Visible = false;
-                                BtnModificar.Visible = false;
-                            }
-                            else
-                            {
-                                //Sino se muestran los likes y dislikes
-                            }
-                            {
-                                Label4.Text = Convert.ToString(en_c.aux_likes);
-                                Label5.Text = Convert.ToString(en_c.aux_dislikes);
-                            }
-                        }                        
-                    }                    
+                        }
+                        else
+                        {
+                            Label3.Text = Convert.ToString(en_p.aux_estrella);
+                            Label6.Text = Convert.ToString(en_p.aux_media);
+                        }
+                        //Muestro su comentario en caso de haber
+                        if (en_c.readComment())
+                        {
+                            TBComentario.Text = en_c.aux_comentario;
+                            Label4.Text = Convert.ToString(en_c.aux_likes);
+                            Label5.Text = Convert.ToString(en_c.aux_dislikes);
+                        }
+                        else
+                        {
+                            Label4.Text = "0";
+                            Label5.Text = "0";
+                        }
+                    }
                 }
                 else
                 {
-                    TBBuscar.Text = "El producto no existe. Por favor introzca un producto válido";
+                    Label9.Text = "El producto no existe. Por favor introzca un producto válido";
                 }
             }
             else
             {
-                TBBuscar.Text = "Introduzca un producto";
+                Label9.Text = "Introduzca un producto por favor";
             }
-
         }
-
+        //Botones para puntuar un producto
         protected void Estrella1Click(object sender, EventArgs e)
         {
             Label3.Text = "1";
@@ -112,6 +135,7 @@ namespace Interfaz
         {
             Label3.Text = "5";
         }
+        //Crea un puntuación, si ya existe avisa
         protected void PuntuarClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -121,10 +145,10 @@ namespace Interfaz
             else
             {
                 //Se asegura de que haya buscado un producto válido antes de puntuar
-                if(Label6.Text != "" && TBBuscar.Text != "")
+                if (Label6.Text != "" && TBBuscar.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -134,36 +158,40 @@ namespace Interfaz
                         en_p.aux_estrella = int.Parse(Label3.Text);
                         en_p.aux_id_user = en_u.id;
                         en_p.aux_item = en_prod.getCodigo();
-                        if (en_p.createPuntuacion() == true)
+                        en_p.aux_contador = en_p.aux_contador + 1;
+                        en_p.aux_media = en_p.aux_estrella / en_p.aux_contador;
+                        //Si existe se modifica, sino se crea
+                        if (en_p.findItem())
                         {
-                            en_p.aux_contador = en_p.aux_contador + 1;
-                            ENPuntuacion en_p_aux = new ENPuntuacion();
-                            en_p_aux.totalEstrellas();
-                            en_p_aux.aux_contador = en_p.aux_contador;
-                            en_p_aux.totalEstrellas();
-                            en_p_aux.mediaPuntuacion();
-                            en_p.aux_media = en_p_aux.aux_media;
-                            Label3.Text = Convert.ToString(en_p.aux_estrella);
-                            Label6.Text = Convert.ToString(en_p.aux_media);
-                            Label7.Text = "Ha puntuado correctamente con " + en_p.aux_estrella;
-                            if (en_p.aux_estrella == 1)
-                            {
-                                Label7.Text += "estrella";
-                            }
-                            else
-                            {
-                                Label7.Text += "estrellas";
-                            }
+                            Label7.Text = "Ha habido un error, Usted ya ha puntuado";
                         }
                         else
                         {
-                            Label7.Text = "Ha habido un error, compruebe que haya seleccionado una opción";
+                            if (en_p.createPuntuacion())
+                            {
+                                Label3.Text = Convert.ToString(en_p.aux_estrella);
+                                Label6.Text = Convert.ToString(en_p.aux_media);
+                                Label7.Text = "Ha puntuado correctamente con " + en_p.aux_estrella;
+                                if (en_p.aux_estrella == 1)
+                                {
+                                    Label7.Text += " estrella";
+                                }
+                                else
+                                {
+                                    Label7.Text += " estrellas";
+                                }
+                            }
+                            else
+                            {
+                                Label7.Text = "Ha habido un error, compruebe que haya seleccionado una opción";
+                            }
                         }
+
                     }
                     else
                     {
                         Label7.Text = "Busque un producto válido antes de puntuar con el botón buscar";
-                    }                   
+                    }
                 }
                 else
                 {
@@ -171,17 +199,22 @@ namespace Interfaz
                 }
             }
         }
-
+        //Muestra el primer comentario
         protected void PrimeroClick(object sender, EventArgs e)
         {
             if (TBBuscar.Text != "")
             {
+                ENProducto en_prod = new ENProducto();
+                en_prod.setCodigo(int.Parse(TBBuscar.Text));
+                en_prod.readProducto();
                 ENComentario en = new ENComentario();
+                en.aux_item = en_prod.getCodigo();
                 if (en.FirstComment() == true)
                 {
                     Comentarios.Text = en.aux_comentario;
                     Label10.Text = Convert.ToString(en.aux_likes);
                     Label11.Text = Convert.ToString(en.aux_dislikes);
+                    Label12.Text = "";
                 }
                 else
                 {
@@ -193,57 +226,28 @@ namespace Interfaz
                 Label9.Text = "Busque un Producto, por favor";
             }
         }
+        //Muestra el comentario siguiente
         protected void SiguienteClick(object sender, EventArgs e)
         {
             if (TBBuscar.Text != "")
             {
+                ENProducto en_prod = new ENProducto();
+                en_prod.setCodigo(int.Parse(TBBuscar.Text));
+                en_prod.readProducto();
+                ENComentario en = new ENComentario();
+                en.aux_item = en_prod.getCodigo();
                 if (Comentarios.Text == "")
                 {
                     Label12.Text = "No hay comentarios, pruebe a leer el primer comentario";
                 }
                 else
                 {
-                    ENComentario en = new ENComentario();
-                    en.aux_comentario = Comentarios.Text;
-                    en.aux_likes = int.Parse(Label10.Text);
-                    en.aux_dislikes = int.Parse(Label11.Text);
-                    if (en.PrevComment() == true)
-                    {
-                        Comentarios.Text = en.aux_comentario;
-                        Label10.Text = Convert.ToString(en.aux_likes);
-                        Label11.Text = Convert.ToString(en.aux_dislikes);
-                    }
-                    else
-                    {
-                        Label12.Text = "No es posible acceder a esta posición(Anterior)";
-                    }
-                }
-            }
-            else
-            {
-                Label9.Text = "Busque un Producto, por favor";
-            }
-        }
-
-        protected void AnteriorClick(object sender, EventArgs e)
-        {
-            if (TBBuscar.Text != "")
-            {
-                if (Comentarios.Text == "")
-                {
-                    Label12.Text = "No hay comentarios, pruebe a leer el primer comentario";
-                }
-                else
-                {
-                    ENComentario en = new ENComentario();
-                    en.aux_comentario = Comentarios.Text;
-                    en.aux_likes = int.Parse(Label10.Text);
-                    en.aux_dislikes = int.Parse(Label11.Text);
                     if (en.NextComment() == true)
                     {
                         Comentarios.Text = en.aux_comentario;
                         Label10.Text = Convert.ToString(en.aux_likes);
                         Label11.Text = Convert.ToString(en.aux_dislikes);
+                        Label12.Text = "";
                     }
                     else
                     {
@@ -256,8 +260,45 @@ namespace Interfaz
                 Label9.Text = "Busque un Producto, por favor";
             }
         }
-
-            protected void EliminarPClick(object sender, EventArgs e)
+        //Muestra el comentario anterior
+        protected void AnteriorClick(object sender, EventArgs e)
+        {
+            if (TBBuscar.Text != "")
+            {
+                ENProducto en_prod = new ENProducto();
+                en_prod.setCodigo(int.Parse(TBBuscar.Text));
+                en_prod.readProducto();
+                ENComentario en = new ENComentario();
+                en.aux_item = en_prod.getCodigo();
+                if (Comentarios.Text == "")
+                {
+                    Label12.Text = "No hay comentarios, pruebe a leer el primer comentario";
+                }
+                else
+                {
+                    en.aux_comentario = Comentarios.Text;
+                    en.aux_likes = int.Parse(Label10.Text);
+                    en.aux_dislikes = int.Parse(Label11.Text);
+                    if (en.PrevComment() == true)
+                    {
+                        Comentarios.Text = en.aux_comentario;
+                        Label10.Text = Convert.ToString(en.aux_likes);
+                        Label11.Text = Convert.ToString(en.aux_dislikes);
+                        Label12.Text = "";
+                    }
+                    else
+                    {
+                        Label12.Text = "No es posible acceder a esta posición(Anterior)";
+                    }
+                }
+            }
+            else
+            {
+                Label9.Text = "Busque un Producto, por favor";
+            }
+        }
+        //Botón para eliminar puntuación si no hay comentario
+        protected void EliminarPClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
             {
@@ -269,7 +310,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -279,6 +320,17 @@ namespace Interfaz
                         en_p.aux_estrella = int.Parse(Label3.Text);
                         en_p.aux_id_user = en_u.id;
                         en_p.aux_item = en_prod.getCodigo();
+                        ENComentario en_c = new ENComentario();
+                        en_c.aux_id_user = en_u.id;
+                        en_c.aux_item = en_prod.getCodigo();
+                        //Primero se elimina el comentario, ya que no puede comentar sin puntuar
+                        if (en_c.readComment())
+                        {
+                            if (en_c.eliminateComment())
+                            {
+                                Label2.Text = "Se ha eliminado el comentario correctamente";
+                            }
+                        }
                         if (en_p.eliminatePuntuacion() == true)
                         {
                             Label7.Text = "La puntuación se ha eliminado correctamente";
@@ -292,14 +344,67 @@ namespace Interfaz
                     {
                         Label7.Text = "Busque un producto válido antes de eliminar puntuación con el botón buscar";
                     }
-                }                
+                }
                 else
                 {
                     Label7.Text = "Busque un producto antes de eliminar puntuación";
                 }
             }
         }
-
+        //Like
+        protected void LikeMostrar(object sender, EventArgs e)
+        {
+            //Comprueba que se haya registrado
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                ENComentario en_c = new ENComentario();
+                en_c.aux_comentario = Comentarios.Text;
+                en_c.aux_item = int.Parse(TBBuscar.Text);
+                if (en_c.aux_comentario != "")
+                {
+                    int likes = int.Parse(Label10.Text);
+                    likes++;
+                    Label10.Text = Convert.ToString(likes);
+                    en_c.aux_likes = likes;
+                    if (!en_c.likesItem())
+                    {
+                        Label10.Text = "Error like";
+                    }
+                }
+            }
+        }
+        //Dislike
+        protected void DisLikeMostrar(object sender, EventArgs e)
+        {
+            //Comprueba que se haya registrado
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                ENComentario en_c = new ENComentario();
+                en_c.aux_comentario = Comentarios.Text;
+                en_c.aux_item = int.Parse(TBBuscar.Text);
+                if (en_c.aux_comentario != "")
+                {
+                    int dislikes = int.Parse(Label11.Text);
+                    dislikes++;
+                    Label11.Text = Convert.ToString(dislikes);
+                    en_c.aux_dislikes = dislikes;
+                    en_c.dislikesItem();
+                    if (!en_c.dislikesItem())
+                    {
+                        Label10.Text = "Error dislike";
+                    }
+                }
+            }
+        }
+        //Crea comentario
         protected void ComentarClick(object sender, EventArgs e)
         {
             //Comprueba que se haya registrado
@@ -313,17 +418,19 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
                         en_u.nombre = (string)Session["username"];
-                        en_u.readUsuario();                       
+                        en_u.readUsuario();
                         ENComentario en_c = new ENComentario();
                         en_c.aux_estrellas = int.Parse(Label3.Text);
                         en_c.aux_item = en_prod.getCodigo();
                         en_c.aux_id_user = en_u.id;
                         en_c.aux_comentario = TBComentario.Text;
+                        en_c.aux_likes = 0;
+                        en_c.aux_dislikes = 0;
                         if (en_c.createComment() == true)
                         {
                             TBComentario.Text = en_c.aux_comentario;
@@ -331,13 +438,13 @@ namespace Interfaz
                         }
                         else
                         {
-                            Label1.Text = "Ha habido un error, compruebe que no haya superado el máximo de carácteres (200)";
+                            Label1.Text = "Ha habido un error, compruebe que haya puntuado y que no haya superado el máximo de carácteres (200)";
                         }
                     }
                     else
                     {
                         Label9.Text = "Busque un producto válido antes de comentar con el botón buscar";
-                    }                    
+                    }
                 }
                 else
                 {
@@ -345,6 +452,7 @@ namespace Interfaz
                 }
             }
         }
+        //Elimina comentario
         protected void EliminarClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -357,7 +465,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "" && TBComentario.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -388,6 +496,7 @@ namespace Interfaz
                 }
             }
         }
+        //like
         protected void LikeClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -400,7 +509,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "" && TBComentario.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -411,9 +520,14 @@ namespace Interfaz
                         en_c.aux_item = en_prod.getCodigo();
                         en_c.aux_id_user = en_u.id;
                         en_c.aux_comentario = TBComentario.Text;
-                        if (en_c.likesItem() == false)
+                        int likes = int.Parse(Label4.Text);
+                        likes++;
+                        Label4.Text = Convert.ToString(likes);
+                        en_c.aux_dislikes = likes;
+                        en_c.likesItem();
+                        if (!en_c.likesItem())
                         {
-                            Label4.Text = "Ha habido un error";
+                            Label4.Text = "Error like";
                         }
                         else
                         {
@@ -431,6 +545,7 @@ namespace Interfaz
                 }
             }
         }
+        //Dislike
         protected void DislikeClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -443,7 +558,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "" && TBComentario.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -454,6 +569,10 @@ namespace Interfaz
                         en_c.aux_item = en_prod.getCodigo();
                         en_c.aux_id_user = en_u.id;
                         en_c.aux_comentario = TBComentario.Text;
+                        int dislikes = int.Parse(Label5.Text);
+                        dislikes++;
+                        Label5.Text = Convert.ToString(dislikes);
+                        en_c.aux_dislikes = dislikes;
                         if (en_c.dislikesItem() == false)
                         {
                             Label5.Text = "Ha habido un error";
@@ -474,7 +593,7 @@ namespace Interfaz
                 }
             }
         }
-
+        //Modifica un comentario
         protected void ModificarClick(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -487,7 +606,7 @@ namespace Interfaz
                 if (Label6.Text != "" && TBBuscar.Text != "" && Label3.Text != "" && TBComentario.Text != "")
                 {
                     ENProducto en_prod = new ENProducto();
-                    en_prod.setNombre(TBComentario.Text);
+                    en_prod.setCodigo(int.Parse(TBBuscar.Text));
                     if (en_prod.readProducto())
                     {
                         ENUsuario en_u = new ENUsuario();
@@ -497,7 +616,7 @@ namespace Interfaz
                         en_c.aux_estrellas = int.Parse(Label3.Text);
                         en_c.aux_item = en_prod.getCodigo();
                         en_c.aux_id_user = en_u.id;
-                        en_c.aux_comentario = TBComentario.Text;
+                        en_c.aux_comentario = TBModificar.Text;
                         if (en_c.changeComment() == true)
                         {
                             TBModificar.Text = en_c.aux_comentario;

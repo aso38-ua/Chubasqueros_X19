@@ -111,8 +111,10 @@
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
-    </Content>
+	  </Content>
+    <Content Include="Aviso.aspx" />
     <Content Include="Colaboracion.aspx" />
+    <Content Include="CSS\Comentario.css" />
     <Content Include="CSS\EstiloCarrito.css" />
     <Content Include="adminOferta.aspx" />
     <Content Include="adminServicio.aspx" />
@@ -120,10 +122,42 @@
     <Content Include="Categoria.aspx" />
     <Content Include="CSS\Colaboracion.css" />
     <Content Include="Donaciones.aspx" />
+    <Content Include="IMGS\arroz.jpg" />
+    <Content Include="IMGS\aspiradora.jpg" />
+    <Content Include="IMGS\ballena.jpeg" />
+    <Content Include="IMGS\camisa.jpg" />
+    <Content Include="IMGS\chaqueta.jpg" />
+    <Content Include="IMGS\coco.jpg" />
+    <Content Include="IMGS\cuero1.jpg" />
+    <Content Include="IMGS\cuero2.jpg" />
+    <Content Include="IMGS\delfin.jpg" />
+    <Content Include="IMGS\frigorifico.jpg" />
+    <Content Include="IMGS\gorra.jpg" />
+    <Content Include="IMGS\horno.jpg" />
+    <Content Include="CSS\Donaciones.css" />
     <Content Include="IMGS\Instagram-Icon.png" />
+    <Content Include="IMGS\koi.jpg" />
+    <Content Include="IMGS\lavadora.jpg" />
+    <Content Include="IMGS\manzana.jpg" />
+    <Content Include="IMGS\microondas.jpg" />
+    <Content Include="IMGS\movil.jpg" />
+    <Content Include="IMGS\ordenador.jpg" />
+    <Content Include="IMGS\pantalon.jpg" />
+    <Content Include="IMGS\payaso.jpg" />
+    <Content Include="IMGS\pez_infantil.jpeg" />
+    <Content Include="IMGS\pienso.jpg" />
+    <Content Include="IMGS\pike.jpg" />
+    <Content Include="IMGS\platano.jpg" />
+    <Content Include="IMGS\playstation.jpg" />
+    <Content Include="IMGS\salmon.jpg" />
+    <Content Include="IMGS\secadora.jpg" />
     <Content Include="IMGS\twitter-logo-9.png" />
     <Content Include="IMGS\sombrero.png" />
+    <Content Include="IMGS\xbox.jpg" />
+    <Content Include="IMGS\zapatos.jpg" />
+    <Content Include="IMGS\zara.jpeg" />
     <Content Include="IMGS\zyro-image.png" />
+    <Content Include="MostrarColaboraciones.aspx" />
     <Content Include="CerrarSesion.aspx" />
     <Content Include="CV.aspx" />
     <Content Include="IMGS\change.jpg" />
@@ -199,6 +233,13 @@
     <Compile Include="adminServicio.aspx.designer.cs">
       <DependentUpon>adminServicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Aviso.aspx.cs">
+      <DependentUpon>Aviso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aviso.aspx.designer.cs">
+      <DependentUpon>Aviso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Categoria.aspx.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -234,6 +275,13 @@
     </Compile>
     <Compile Include="Formulario web1.aspx.designer.cs">
       <DependentUpon>Formulario web1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarColaboraciones.aspx.cs">
+      <DependentUpon>MostrarColaboraciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MostrarColaboraciones.aspx.designer.cs">
+      <DependentUpon>MostrarColaboraciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Producto.aspx.cs">
       <DependentUpon>Producto.aspx</DependentUpon>

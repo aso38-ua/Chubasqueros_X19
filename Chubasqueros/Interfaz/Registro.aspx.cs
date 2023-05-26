@@ -26,6 +26,8 @@ namespace Interfaz
                 string contraseña = txtPassword.Text;
                 string email = txtEmail.Text;
 
+                string codigoConfirmacion = Guid.NewGuid().ToString();
+
                 // Crear una instancia de ENUsuario y asignar los valores
                 ENUsuario en = new ENUsuario();
                 en.nombre = nombre;
@@ -44,7 +46,9 @@ namespace Interfaz
                     Session["username"] = nombre;
                     Session["email"] = email;
                     // El usuario se creó correctamente
-                    // Realizar alguna acción, como redireccionar a otra página o mostrar un mensaje de éxito
+
+
+                    
                     Response.Redirect("Perfil.aspx");
                 }
                 else

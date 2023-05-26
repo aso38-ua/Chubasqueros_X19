@@ -17,7 +17,7 @@ namespace Library
         private String constring; //Conexion con la BB.DD 
         public CADPedido()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         //Para ver los pedidos realizados y consultar de nuevo la fecha de llegada del pedido
@@ -30,18 +30,18 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "SELECT * FROM [dbo].[pedido] WHERE usuario = '" + p.usuario + "' AND producto = '" + p.producto + "';";
+                String cout = "SELECT * FROM [dbo].[pedido] WHERE usuario_id = '" + p.usuario + "' AND producto_id = '" + p.producto + "';";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 SqlDataReader search = consult.ExecuteReader();
                 search.Read();
 
-                if(int.Parse(search["usuario"].ToString()) == p.usuario)
+                if(int.Parse(search["usuario_id"].ToString()) == p.usuario)
                 {
                     leido = true;
                     p.cantidad = int.Parse(search["cantidad"].ToString());
                     //p.fechaaprox = search["fecha"].ToString();
-                    p.producto = int.Parse(search["producto"].ToString());
-                    p.usuario = int.Parse(search["usuario"].ToString());
+                    p.producto = int.Parse(search["producto_id"].ToString());
+                    p.usuario = int.Parse(search["usuario_id"].ToString());
                 }
 
               
@@ -70,7 +70,7 @@ namespace Library
                 conectsql.Open();
 
                 //el ID es un numero aleatorio
-                String cout = "INSERT INTO [dbo].[pedido] (cantidad, fecha, producto, usuario) VALUES ('" + p.cantidad + "', '" + p.fechaaprox + "', '" + p.producto + "', '" + p.usuario + "')";
+                String cout = "INSERT INTO [dbo].[pedido] (cantidad, fecha, producto_id, usuario_id) VALUES ('" + p.cantidad + "', '" + p.fechaaprox + "', '" + p.producto + "', '" + p.usuario + "')";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 consult.ExecuteNonQuery();
                 create = true;
@@ -98,7 +98,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "DELETE FROM [dbo].[pedido] where usuario ='" + p.usuario + " AND producto ='" + p.producto + "';";
+                String cout = "DELETE FROM [dbo].[pedido] where usuario_id ='" + p.usuario + " AND producto_id ='" + p.producto + "';";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 delete = true;
@@ -126,7 +126,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "UPDATE [dbo].[pedido] SET cantidad = '" + p.cantidad + "', producto = " + p.producto + " WHERE usuario = '" + p.usuario + " AND producto = '" + p.producto + "';"; 
+                String cout = "UPDATE [dbo].[pedido] SET cantidad_id = '" + p.cantidad + "', producto_id = " + p.producto + " WHERE usuario_id = '" + p.usuario + " AND producto_id = '" + p.producto + "';"; 
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 update = true;

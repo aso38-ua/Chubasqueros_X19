@@ -11,7 +11,7 @@ namespace Library
         private int cantidadp; //cantidad de productos pedidos 
         private double totalp; //precio total
         private int idPedidop; //id del Pedido
-        private string fechaaproxp; //fecha aproximada de llegada
+        private DateTime fechaaproxp; //fecha aproximada de llegada
         private int usuariop;
         private int productop;
 
@@ -45,14 +45,14 @@ namespace Library
             set { usuariop = value; }
         }
 
-        public string fechaaprox
+        public DateTime fechaaprox
         {
             get { return fechaaproxp; }
             set { fechaaproxp = value; }
         }
 
 
-        public ENPedido(string fecha, int producto, int usuario)
+        public ENPedido(DateTime fecha, int producto, int usuario)
         {
             ENProducto product = new ENProducto();
             product.setCodigo(producto);
@@ -71,12 +71,12 @@ namespace Library
             product.readProducto();
             this.total = product.getPrecio();
             this.cantidad = 1;
-            this.fechaaprox = "";
+            this.fechaaprox = DateTime.Now;
             this.producto = producto;
             this.usuario = usuario;
         }
 
-        public ENPedido(int cantidad, string fecha, int producto, int usuario)
+        public ENPedido(int cantidad, DateTime fecha, int producto, int usuario)
         {
             ENProducto product = new ENProducto();
             product.setCodigo(producto);
@@ -131,21 +131,13 @@ namespace Library
             return eliminar;
         }
 
-        public int cuentaCantidad()
-        {
-            return 0;
-        }
-
         //Calcula el precio total que hay en el carrito
-        public float PrecioTotal()
+        public float PrecioTotal(ENCarrito c)
         {
+            ENProducto producto = new ENProducto();
+
             return 0;
         }
-
-        //Boton de comprar exclusivo para carrito
-        public bool Comprar()
-        {
-            return true;
-        }
+        
     }
 }

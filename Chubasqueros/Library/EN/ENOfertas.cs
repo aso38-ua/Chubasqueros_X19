@@ -14,6 +14,7 @@ namespace library
         private string descripcion;
         private string img;
 
+        // Propiedades para acceder a los campos privados
         public int IdOferta
         {
             get
@@ -66,6 +67,7 @@ namespace library
             }
         }
 
+        // Constructor sin parámetros
         public ENOfertas()
         {
             this.idOferta = -1;
@@ -74,6 +76,7 @@ namespace library
             this.img = "";
         }
 
+        // Constructor con parámetros
         public ENOfertas(int idOferta, int porcentajeDescuento, string descripcion, string img)
         {
             this.idOferta = idOferta;
@@ -82,6 +85,7 @@ namespace library
             this.img = img;
         }
 
+        // Constructor de copia
         public ENOfertas(ENOfertas oferta)
         {
             this.idOferta = oferta.idOferta;
@@ -90,6 +94,8 @@ namespace library
             this.img = oferta.img;
         }
 
+        // MÉTODOS CRUD 
+        // Crea una oferta en la BD
         public bool createOferta()
         {
             CADOfertas oferta = new CADOfertas();
@@ -100,6 +106,7 @@ namespace library
             return false;
         }
 
+        // Lee una oferta de la BD
         public bool readOferta()
         {
             CADOfertas oferta = new CADOfertas();
@@ -110,6 +117,7 @@ namespace library
             return false;
         }
 
+        // Actualiza una oferta en la BD
         public bool updateOferta()
         {
             ENOfertas ofertaaux = new ENOfertas(this);
@@ -128,6 +136,7 @@ namespace library
             return false;
         }
 
+        // Elimina una oferta de la BD
         public bool deleteOferta()
         {
             CADOfertas oferta = new CADOfertas();
@@ -138,6 +147,7 @@ namespace library
             return false;
         }
 
+        // Lee todas las ofertas de la BD y las devuelve en un DataTable
         public static DataTable readAllOffers()
         {
             DataTable basedatos = new DataTable();
