@@ -266,18 +266,17 @@ INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 2,
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 3, 1, 15.95, '14/03/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 4, 2, 79.98, '13/03/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 9, 3, 677.97, '12/03/2023');
-
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (100, 1, 3, 14.1, 2);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (101, 1, 5, 2.2, 1);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (102, 1, 10, 60, 1);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (103, 1, 8, 53, 1);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (104, 1, 4, 14, 4);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (105, 1, 6, 45, 1);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (106, 1, 2, 11.2 , 2);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (107, 1, 9, 15.4, 1);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (108, 1, 10, 120, 2);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (109, 1, 3, 47, 10);
-INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (110, 1, 7, 220, 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (100, 1, 3, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 3) * 2, 2), 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (101, 1, 5, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 5) * 1, 2), 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (102, 1, 10, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 10) * 1, 2), 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (103, 1, 8, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 8) * 1, 2), 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (104, 1, 4, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 4) * 4, 2), 4);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (105, 1, 6, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 6) * 1, 2), 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (106, 1, 2, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 2) * 2, 2), 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (107, 1, 9, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 9) * 1, 2), 1);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (108, 1, 10, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 10) * 2, 2), 2);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (109, 1, 3, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 3) * 10, 2), 10);
+INSERT INTO carrito (id, usuario_id, producto_id, preciotot, cantidad) VALUES (110, 1, 7, ROUND((SELECT precio FROM Producto WHERE Producto.codigo = 7) * 1, 2), 1);
 
 INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (100, 1, 3, 14.1, 2, '2023-6-15');
 INSERT INTO pedido (id, usuario_id, producto_id, preciotot, cantidad, fecha_pedido) VALUES (101, 1, 5, 2.2, 1, '2023-6-25');
