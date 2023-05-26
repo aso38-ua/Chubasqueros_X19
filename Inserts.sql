@@ -19,20 +19,20 @@ INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (7, 
 INSERT INTO Oferta (idOferta, porcentajeDescuento, descripcion, img) VALUES (8, 0, 'Compra un chubasquero para tu pez en época de lluvia y te costará la mitad que el resto del año', 'IMGS/epocalluvia.jfif');
 
 
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (1, N'asd', N'1234', N'asd@gmail.com', NULL, N'~/ProfileImages/axolotl.jpg', 1, 0, 8)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (2, N'disco190', N'1234', N'gordofredoeustakio@gmail.com', NULL, N'~/ProfileImages/_2663df62-89c1-4c7a-a49f-a004cffa3e9b.jpg', 0, 0, 15)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (3, N'Juan', N'123456', N'juan@example.com', N'Pérez', NULL, 0, 0, 1)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (4, N'María', N'abcdef', N'maria@example.com', N'Gómez', NULL, 1, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (5, N'Ana', N'password123', N'ana@example.com', NULL, NULL, 0, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (6, N'Pedro', N'securepass', N'pedro@example.com', N'González', NULL, 1, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (10, N'Luisa', N'secure123', N'luisa@example.com', N'Gómez', NULL, 0, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (11, N'Carlos', N'password789', N'carlos@example.com', NULL, NULL, 0, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (12, N'Laura', N'pass456', N'laura@example.com', N'Fernández', NULL, 0, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (13, N'Manuel', N'secure789', N'manuel@example.com', NULL, NULL, 0, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (14, N'Marta', N'password987', N'marta@example.com', N'López', NULL, 0, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (15, N'Andrés', N'pass789', N'andres@example.com', NULL, NULL, 0, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (16, N'Carolina', N'secure987', N'carolina@example.com', N'Ramírez', NULL, 0, 0, 0)
-INSERT INTO [dbo].[usuario] ([id], [nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (17, N'Diego', N'password654', N'diego@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'asd', N'1234', N'asd@gmail.com', NULL, N'~/ProfileImages/axolotl.jpg', 1, 0, 8)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'disco190', N'1234', N'gordofredoeustakio@gmail.com', NULL, N'~/ProfileImages/_2663df62-89c1-4c7a-a49f-a004cffa3e9b.jpg', 0, 0, 15)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Juan', N'123456', N'juan@example.com', N'Pérez', NULL, 0, 0, 1)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'María', N'abcdef', N'maria@example.com', N'Gómez', NULL, 1, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Ana', N'password123', N'ana@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Pedro', N'securepass', N'pedro@example.com', N'González', NULL, 1, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Luisa', N'secure123', N'luisa@example.com', N'Gómez', NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Carlos', N'password789', N'carlos@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Laura', N'pass456', N'laura@example.com', N'Fernández', NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Manuel', N'secure789', N'manuel@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Marta', N'password987', N'marta@example.com', N'López', NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Andrés', N'pass789', N'andres@example.com', NULL, NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Carolina', N'secure987', N'carolina@example.com', N'Ramírez', NULL, 0, 0, 0)
+INSERT INTO [dbo].[usuario] ([nombre], [contraseña], [email], [apellidos], [ImagenPerfil], [esAdmin], [seguidores], [seguidos]) VALUES (N'Diego', N'password654', N'diego@example.com', NULL, NULL, 0, 0, 0)
 
 
 INSERT INTO seguidores (username_seguidor, username_seguido) VALUES ('asd', 'disco190');
