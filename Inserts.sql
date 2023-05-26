@@ -133,7 +133,6 @@ INSERT INTO Favoritos (usuario, producto) VALUES (7,2);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (7,12);
 INSERT INTO Favoritos (usuario, producto) VALUES (7,11);
-INSERT INTO Favoritos (usuario, producto) VALUES (7,6);
 INSERT INTO Favoritos (usuario, producto) VALUES (7,9);
 
 INSERT INTO Favoritos (usuario, producto) VALUES (8,22);
@@ -200,11 +199,7 @@ INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (10, 8,
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (11, 9, 3, 46.2, '15/06/2022');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (12, 10, 2, 120, '16/06/2022');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (13, 1, 1, 20.3, '17/06/2022');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (14, 2, 2, 11.2, '18/06/2022');
 
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (15, 6, 1, 45, '15/05/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (1, 7, 2, 440, '14/05/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (2, 8, 1, 53, '13/05/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 9, 3, 46.2, '12/05/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 10, 2, 120, '11/05/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 1, 1, 20.3, '10/05/2023');
@@ -231,13 +226,8 @@ INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (3, 2, 
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 3, 2, 9.4, '13/04/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (4, 4, 1, 3.5, '12/04/2023');
 
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 6, 1, 45, '10/04/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 7, 1, 220, '09/04/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (5, 8, 1, 53, '08/04/2023');
-
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 9, 2, 30.8, '07/04/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 10, 1, 60, '06/04/2023');
-INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (6, 1, 1, 20.3, '05/04/2023');
 
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 2, 2, 11.2, '04/04/2023');
 INSERT INTO Reservas (usuario, producto, cantidad, ptotal, fecha) VALUES (7, 1, 1, 20.3, '03/04/2023');
