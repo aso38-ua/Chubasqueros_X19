@@ -63,7 +63,7 @@ namespace Library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                string query = "DELETE FROM [dbo].[Categoría] WHERE codCategoria = '" + en.getCodCategoria() + "'";
+                string query = "DELETE FROM [dbo].[Categoría] WHERE codCategoria = " + en.getCodCategoria();
                 SqlCommand consulta = new SqlCommand(query, connection);
                 consulta.ExecuteNonQuery();
                 eliminado = true;

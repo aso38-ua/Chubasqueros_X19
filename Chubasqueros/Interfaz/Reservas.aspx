@@ -10,9 +10,9 @@
     </div>
     <div id="ElimReserva">
         <p>Nombre del producto: &nbsp;<asp:TextBox ID="text_nombre" runat="server" Height="25px" style="color:black; margin-top: 10px; margin-left: 15px;" Width="400px"></asp:TextBox>
-            <asp:Button style="background-color:white; border-color:black; color:red; margin-top: 10px; margin-left: 15px;" Width="150px" id="button" runat="server" text="Eliminar" onClick="cancelarReserva"/></p>
+            <asp:Button style="background-color:white; border-color:black; color:black; font-weight: bold; margin-top: 10px; margin-left: 15px;" Width="150px" id="button" runat="server" text="Eliminar" CssClass="neon-btn" onClick="cancelarReserva"/></p>
         <p>Número de cantidad: &nbsp;<asp:TextBox ID="text_cantidad" runat="server" Height="25px" style="color:black; margin-top: 10px; margin-left: 15px;" Width="400px">
-                                     </asp:TextBox><asp:Button style="background-color:white; border-color:black; color:red; margin-top: 10px; margin-left: 15px;" Width="250px" id="button2" runat="server" text="Editar reserva" onClick="editarReserva"/></p>
+                                     </asp:TextBox><asp:Button style="background-color:white; border-color:black; color:black; font-weight: bold; margin-top: 10px; margin-left: 15px;" Width="250px" id="button2" runat="server" text="Editar reserva" CssClass="neon-btn" onClick="editarReserva"/></p>
         <asp:Label ID="Mensaje" runat="server"></asp:Label><br/>
     </div>
     <div id="list" style="width:90%">

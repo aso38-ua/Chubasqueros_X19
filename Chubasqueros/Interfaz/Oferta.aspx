@@ -5,31 +5,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        .servicio-container {
+        /* Contenedor */
+        .oferta-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
 
-        .servicio-imagen-img {
+        /* Imagen */
+        .oferta-imagen-img {
             margin-bottom: 20px; 
             width: 500px;
             height: auto;
         }
 
-        .p-servicio {
+        /* Descripción */
+        .p-oferta {
             font-size: 25px;
             margin: 0;
             margin-bottom: 130px;
         }
 
+        /* Título de la página */
         h2 {
-            color: #ffa31a;
+            color: #FF86FF;
             text-align: center;
             font-size: 50px;
-            text-shadow: 0 0 10px #ffa31a, 0 0 20px #ffa31a, 0 0 30px #ffa31a, 0 0 40px #ffa31a;
+            text-shadow: 0 0 10px #B25FB0, 0 0 20px #FF86FF, 0 0 30px #B25FB0, 0 0 40px #FF86FF;
             animation: neon 1.5s ease-in-out infinite alternate;
+            font-weight: bold;
         }
 
     </style>
@@ -38,7 +43,8 @@
 
     <h2>Descuentos y ofertas</h2>
 
-    <div class="container-servicio">
+    <!-- Muestra dinámicamente lo que devuelve loadAllOffers en formato de HTML -->
+    <div class="container-oferta">
         <div>
             <br />
             <br />

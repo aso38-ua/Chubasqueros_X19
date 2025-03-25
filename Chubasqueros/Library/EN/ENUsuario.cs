@@ -22,7 +22,7 @@ namespace Library
             this.nombre = "";
             this.apellido = "";
             this.email = "";
-            this.contraseña="";
+            this.contraseña = "";
             this.esAdmin = false;
         }
 
@@ -135,6 +135,19 @@ namespace Library
             CADUsuario usuario = new CADUsuario();
             bool esAdmin = usuario.EsAdmin(username);
             return esAdmin;
+        }
+
+        public bool EsCorreoElectronico(string input)
+        {
+            try
+            {
+                var email = new System.Net.Mail.MailAddress(input);
+                return email.Address == input;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }

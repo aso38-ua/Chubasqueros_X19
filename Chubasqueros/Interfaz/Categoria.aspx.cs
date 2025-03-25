@@ -13,6 +13,23 @@ namespace Interfaz
         protected void Page_Load(object sender, EventArgs e)
         {
             outputMsg.Text = "";
+            
+            //OPCIONES ADMIN
+            ENUsuario usuario = new ENUsuario();
+            usuario.nombre = (string)Session["username"];
+            usuario.readUsuario();
+            if (!usuario.esAdmin)
+            {
+                buttom_Crear.Visible = false;
+                buttom_Actualizar.Visible = false;
+                buttom_Borrar.Visible = false;
+            }
+            else
+            {
+                buttom_Crear.Visible = true;
+                buttom_Actualizar.Visible = true;
+                buttom_Borrar.Visible = true;
+            }
         }
 
         protected void onLeer(object sender, EventArgs e)

@@ -50,12 +50,12 @@
     <Compile Include="CAD\CADCategoria.cs" />
     <Compile Include="CAD\CADColaboracion.cs" />
     <Compile Include="CAD\CADComentario.cs" />
+    <Compile Include="CAD\CADDonacion.cs" />
     <Compile Include="CAD\CADCurriculum.cs" />
     <Compile Include="CAD\CADFavoritos.cs" />
     <Compile Include="CAD\CADOfertas.cs" />
     <Compile Include="CAD\CADSeguidores.cs" />
     <Compile Include="CAD\CADServicio.cs" />
-    <Compile Include="CAD\CADOferta.cs" />
     <Compile Include="CAD\CADPedido.cs" />
     <Compile Include="CAD\CADPerfil.cs" />
     <Compile Include="CAD\CADProducto.cs" />
@@ -66,12 +66,12 @@
     <Compile Include="EN\ENCategoria.cs" />
     <Compile Include="EN\ENColaboracion.cs" />
     <Compile Include="EN\ENComentario.cs" />
+    <Compile Include="EN\ENDonacion.cs" />
     <Compile Include="EN\ENCurriculum.cs" />
     <Compile Include="EN\ENFavoritos.cs" />
     <Compile Include="EN\ENOfertas.cs" />
     <Compile Include="EN\ENSeguidores.cs" />
     <Compile Include="EN\ENServicio.cs" />
-    <Compile Include="EN\ENOferta.cs" />
     <Compile Include="EN\ENPedido.cs" />
     <Compile Include="EN\ENPerfil.cs" />
     <Compile Include="EN\ENProducto.cs" />

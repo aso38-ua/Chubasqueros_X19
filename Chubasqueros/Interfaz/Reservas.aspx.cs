@@ -121,50 +121,53 @@ namespace Interfaz
         }
         protected void editarReserva(object sender, EventArgs ei)
         {
-            if (int.Parse(text_cantidad.Text) < 1) Mensaje.Text = "Cantidad inválida, tiene que ser mayor que 0";
-            else
+            try
             {
-                bool existe = false;
-                ENUsuario usuario = new ENUsuario();
-                usuario.nombre = (string)Session["username"];
-                usuario.readUsuario();
-                String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
-                SqlConnection connection = null;
-                try
+                if (int.Parse(text_cantidad.Text) < 1) Mensaje.Text = "Cantidad inválida, tiene que ser mayor que 0";
+                else
                 {
-                    connection = new SqlConnection(constring);
-                    connection.Open();
-
-                    string query = "Select * From [dbo].[producto] Where nombre = '" + text_nombre.Text + "';";
-                    SqlCommand consulta = new SqlCommand(query, connection);
-                    SqlDataReader busqueda = consulta.ExecuteReader();
-                    busqueda.Read();
-                    if (busqueda["nombre"].ToString() == text_nombre.Text)
+                    bool existe = false;
+                    ENUsuario usuario = new ENUsuario();
+                    usuario.nombre = (string)Session["username"];
+                    usuario.readUsuario();
+                    String constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+                    SqlConnection connection = null;
+                    try
                     {
-                        ENReserva reserva = new ENReserva(int.Parse(busqueda["codigo"].ToString()), usuario.id);
-                        existe = true;
-                        reserva.readReserva();
-                        reserva.cantidadp = int.Parse(text_cantidad.Text);
-                        reserva.ptotal = double.Parse(busqueda["precio"].ToString()) * double.Parse(text_cantidad.Text);
-                        reserva.updateReserva();
+                        connection = new SqlConnection(constring);
+                        connection.Open();
+
+                        string query = "Select * From [dbo].[producto] Where nombre = '" + text_nombre.Text + "';";
+                        SqlCommand consulta = new SqlCommand(query, connection);
+                        SqlDataReader busqueda = consulta.ExecuteReader();
+                        busqueda.Read();
+                        if (busqueda["nombre"].ToString() == text_nombre.Text)
+                        {
+                            ENReserva reserva = new ENReserva(int.Parse(busqueda["codigo"].ToString()), usuario.id);
+                            existe = true;
+                            reserva.readReserva();
+                            reserva.cantidadp = int.Parse(text_cantidad.Text);
+                            reserva.ptotal = double.Parse(busqueda["precio"].ToString()) * double.Parse(text_cantidad.Text);
+                            reserva.updateReserva();
+                        }
+                        busqueda.Close();
                     }
-                    busqueda.Close();
+                    catch (SqlException e)
+                    {
+                        Console.WriteLine("Product operation has failed.Error: {0}", e.Message);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Product operation has failed.Error: {0}", e.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                        if (!existe) Mensaje.Text = "Nombre del producto no válido";
+                        else Response.Redirect("Reservas.aspx");
+                    }
                 }
-                catch (SqlException e)
-                {
-                    Console.WriteLine("Product operation has failed.Error: {0}", e.Message);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Product operation has failed.Error: {0}", e.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                    if (!existe) Mensaje.Text = "Nombre del producto no válido";
-                    else Response.Redirect("Reservas.aspx");
-                }
+            } catch (Exception e) { Mensaje.Text = "Tiene que introducir un valor numérico para editar la cantidad"; }
             }
-        }
     }
 }

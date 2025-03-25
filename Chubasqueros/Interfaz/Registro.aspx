@@ -47,5 +47,10 @@
         <asp:Button ID="btnRegister" runat="server" Text="Registrarse" OnClick="btnRegister_Click" CssClass="neon-btn" /><br /><br />
         <asp:Button ID="Button1" runat="server" Text="¿Ya estás registrado?" PostBackUrl="~/Login.aspx" CssClass="neon-btn" />
         </div>
+
+        <!--<div>
+            <label for="txtConfirmationCode">Código de Confirmación:</label>
+            <input type="text" id="txtConfirmationCode" name="ConfirmationCode" />
+        </div>-->
     </div>
 </asp:Content>

@@ -12,38 +12,44 @@ namespace Interfaz
 {
     public partial class adminOferta : System.Web.UI.Page
     {
+        // Evento al carga la página 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
+           // Comprueba si la página es una carga inicial o un postback
+            if (!IsPostBack)
             {
+                // Verifica si no se ha iniciado sesión 
                 if (Session["username"] == null)
-                {
                     Response.Redirect("Login.aspx");
-                }
             }
 
             ENUsuario usuario = new ENUsuario();
             usuario.nombre = (string)Session["username"];
             usuario.readUsuario();
 
-            if (!usuario.esAdmin) { 
-                Response.Redirect("Oferta.aspx"); }*/
+            // Si el usuario no es admin, redirige a Ofertas
+            if (!usuario.esAdmin) 
+                Response.Redirect("Oferta.aspx"); 
         }
 
+        // Botón agregar oferta
         protected void btnAddOffer_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
                 try
                 {
+                    // Entra si no están vacíos los campos de oferta, porcentaje, descripción y ruta de la imagen
                     if (txtIdOferta.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
                     {
+                        // Instancia de oferta
                         ENOfertas oferta = new ENOfertas();
                         oferta.IdOferta = int.Parse(txtIdOferta.Text);
                         oferta.PorcentajeDescuento = int.Parse(txtTitle.Text);
                         oferta.Descripcion = txtDescription.Text;
                         oferta.Img = txtImage.Text;
-
+                        
+                        // Se crea la oferta en la BD
                         if (oferta.createOferta())
                         {
                             mensaje.Text = "Oferta \"" + oferta.IdOferta + "\" creado";
@@ -65,20 +71,24 @@ namespace Interfaz
             }
         }
 
+        // Botón actualizar oferta
         protected void btnEditOffer_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
                 try
                 {
+                    // Entra si no están vacíos los campos de oferta, porcentaje, descripción y ruta de la imagen
                     if (txtIdOferta.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
                     {
+                        // Instancia de oferta
                         ENOfertas oferta = new ENOfertas();
                         oferta.IdOferta = int.Parse(txtIdOferta.Text);
                         oferta.PorcentajeDescuento = int.Parse(txtTitle.Text);
                         oferta.Descripcion = txtDescription.Text;
                         oferta.Img = txtImage.Text;
 
+                        // Se actualiza la oferta en la BD
                         if (oferta.updateOferta())
                         {
                             mensaje.Text = "Oferta \"" + oferta.IdOferta + "\" actualizada";
@@ -100,20 +110,24 @@ namespace Interfaz
             }
         }
 
+        // Botón eliminar oferta
         protected void btnDeleteOffer_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
                 try
                 {
+                    // Entra si no están vacíos los campos de oferta, porcentaje, descripción y ruta de la imagen
                     if (txtIdOferta.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtImage.Text != "")
                     {
+                        // Instancia de oferta
                         ENOfertas oferta = new ENOfertas();
                         oferta.IdOferta = int.Parse(txtIdOferta.Text);
                         oferta.PorcentajeDescuento = int.Parse(txtTitle.Text);
                         oferta.Descripcion = txtDescription.Text;
                         oferta.Img = txtImage.Text;
 
+                        // Se elimina la oferta en la BD
                         if (oferta.deleteOferta())
                         {
                             mensaje.Text = "Oferta \"" + oferta.IdOferta + "\" eliminado";

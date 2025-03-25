@@ -16,25 +16,32 @@ namespace library
 
         public CADPuntuacion()
         {
-            conn = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            conn = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         //Crea una puntuación
         public bool createPuntuacion(ENPuntuacion en)
         {
             bool puntuar = false;
-            SqlConnection conexion = null;
-            string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item, media, contador) values (" + en.aux_estrella + ", " + en.aux_id_user + ", " + en.aux_item + ", " + en.aux_media + ", " + en.aux_contador + ")";
+            string comando = "insert into [dbo].[Puntuacion] (estrellas, id_user, item, media, contador) values (@estrellas, @id_user, @item, @media, @contador)";
             try
             {
-                conexion = new SqlConnection(conn);
-                conexion.Open();
-
-                SqlCommand consulta = new SqlCommand(comando, conexion);
-                consulta.ExecuteNonQuery();
-                puntuar = true;
+                using (SqlConnection conexion = new SqlConnection(conn))
+                {
+                    conexion.Open();
+                    using (SqlCommand consulta = new SqlCommand(comando, conexion))
+                    {
+                        consulta.Parameters.AddWithValue("@estrellas", en.aux_estrella);
+                        consulta.Parameters.AddWithValue("@id_user", en.aux_id_user);
+                        consulta.Parameters.AddWithValue("@item", en.aux_item);
+                        consulta.Parameters.AddWithValue("@media", en.aux_media);
+                        consulta.Parameters.AddWithValue("@contador", en.aux_contador);
+                        consulta.ExecuteNonQuery();
+                        puntuar = true;
+                    }
+                }
             }
-            catch(SqlException sqlex)
+            catch (SqlException sqlex)
             {
                 puntuar = false;
                 Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
@@ -44,10 +51,6 @@ namespace library
                 puntuar = false;
                 Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
             }
-            finally
-            {
-                if (conexion != null) conexion.Close();
-            }
             return puntuar;
         }
 
@@ -56,15 +59,17 @@ namespace library
         {
             bool eliminate = false;
             SqlConnection conexion = null;
-            string comando = "delete from [dbo].[Puntuacion] where id_user = " + en.aux_id_user + "and estrellas = " + en.aux_estrella + "and item = " + en.aux_item;
+            string comando = "delete from [dbo].[Puntuacion] where (item = @item) and (id_user = @id_user) and (estrellas = @estrellas)";
             try
             {
                 eliminate = true;
                 conexion = new SqlConnection(conn);
                 conexion.Open();
                 SqlCommand consulta = new SqlCommand(comando, conexion);
+                consulta.Parameters.AddWithValue("@item", en.aux_item);
+                consulta.Parameters.AddWithValue("@id_user", en.aux_id_user);
+                consulta.Parameters.AddWithValue("@estrellas", en.aux_estrella);
                 consulta.ExecuteNonQuery();
-
             }
             catch (SqlException sqlex)
             {
@@ -83,37 +88,6 @@ namespace library
             return eliminate;
         }
 
-        //Modifica una puntuación
-        public bool changePuntuacion(ENPuntuacion en)
-        {
-            bool change = false;
-            SqlConnection conexion = null;
-            string comando = "update [dbo].[Puntuacion] set estrellas = " + en.aux_estrella + " where id_user = " + en.aux_id_user + "and item = " + en.aux_item;
-            try
-            {
-                change = true;
-                conexion = new SqlConnection(conn);
-                conexion.Open();
-                SqlCommand consulta = new SqlCommand(comando, conexion);
-                consulta.ExecuteNonQuery();
-
-            }
-            catch (SqlException sqlex)
-            {
-                change = false;
-                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
-            }
-            catch (Exception ex)
-            {
-                change = false;
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-            }
-            finally
-            {
-                if (conexion != null) conexion.Close();
-            }
-            return change;
-        }
 
         //Calcula la media de las puntuaciones
         public bool mediaPuntuacion(ENPuntuacion en)
@@ -151,8 +125,9 @@ namespace library
         public bool totalEstrellas(ENPuntuacion en)
         {
             bool totalE = false;
+            int aux = 0;
             SqlConnection conexion = null;
-            string comando = "select SUM(estrellas) from [dbo].[Puntuacion] where item = " + en.aux_item;
+            string comando = "select SUM(estrellas) AS aux from [dbo].[Puntuacion] where item = " + en.aux_item;
             try
             {
                 conexion = new SqlConnection(conn);
@@ -165,7 +140,7 @@ namespace library
                 if (int.Parse(rd["item"].ToString()) == en.aux_item)
                 {
                     totalE = true;
-                    // en.aux_estrella = rd;
+                    en.aux_estrella = aux;
                 }
             }
             catch (SqlException sqlex)
@@ -227,6 +202,50 @@ namespace library
                 if (conexion != null) conexion.Close();
             }
             return find;
+        }
+
+        //Busca la puntuación a partir del item
+        public bool findItemSinUser(ENPuntuacion en)
+        {
+            bool findU = false;
+            SqlConnection conexion = null;
+            string comando = "select * from [dbo].[Puntuacion] where item = " + en.aux_item;
+            try
+            {
+                conexion = new SqlConnection(conn);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader rd = consulta.ExecuteReader();
+                rd.Read();
+
+                if (int.Parse(rd["item"].ToString()) == en.aux_item)
+                {
+                    findU = true;
+                    en.aux_id_user = int.Parse(rd["id_user"].ToString());
+                    en.aux_estrella = int.Parse(rd["estrellas"].ToString());
+                    en.aux_item = int.Parse(rd["item"].ToString());
+                    en.aux_media = int.Parse(rd["media"].ToString());
+                    en.aux_contador = int.Parse(rd["contador"].ToString());
+                }
+
+                rd.Close();
+            }
+            catch (SqlException sqlex)
+            {
+                findU = false;
+                Console.WriteLine("User operation has failed.Error: {0}", sqlex.Message);
+            }
+            catch (Exception ex)
+            {
+                findU = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (conexion != null) conexion.Close();
+            }
+            return findU;
         }
     }
 }

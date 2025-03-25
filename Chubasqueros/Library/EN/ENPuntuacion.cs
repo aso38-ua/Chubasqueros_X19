@@ -44,6 +44,7 @@ namespace library
             set { contador = value; }
         }
 
+        //Constructor por defecto
         public ENPuntuacion()
         {
             aux_estrella = 0;
@@ -53,6 +54,7 @@ namespace library
             aux_contador = 0;
         }
 
+        //COnstructor auxiliar
         public ENPuntuacion(int estrella, int item, int id_user)
         {
             aux_estrella = estrella;
@@ -62,6 +64,7 @@ namespace library
             aux_contador = 0;
         }
 
+        //COnstructor copia
         public ENPuntuacion(ENPuntuacion en)
         {
             aux_estrella = en.aux_estrella;
@@ -70,24 +73,20 @@ namespace library
             aux_media = en.media;
             aux_contador = en.contador;
         }
+
+        //Crea una puntuación
         public bool createPuntuacion()
         {
             bool puntuar = false;
             ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
-            ENProducto aux_EN_Prod = new ENProducto();
-            CADProducto aux_CAD_Prod = new CADProducto();
-            aux_EN_Prod.setCodigo(item);
-            ENUsuario aux_EN_User = new ENUsuario();
-            CADUsuario aux_CAD_User = new CADUsuario();
-            aux_EN_User.id = id_user;
-            if (aux_CAD_Prod.readProducto(aux_EN_Prod) && aux_CAD_User.ReadUsuario(aux_EN_User))
-            {
-                puntuar = aux_CAD_Pun.createPuntuacion(this);
-            }
+
+            puntuar = aux_CAD_Pun.createPuntuacion(this);
+
             return puntuar;
         }
 
+        //Elimina una puntuación
         public bool eliminatePuntuacion()
         {
             bool eliminate = false;
@@ -100,18 +99,7 @@ namespace library
             return eliminate;
         }
 
-        public bool changePuntuacion()
-        {
-            bool change = false;
-            ENPuntuacion aux_EN_Pun = new ENPuntuacion(this);
-            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
-            if (aux_CAD_Pun.findItem(aux_EN_Pun))
-            {
-                change = aux_CAD_Pun.changePuntuacion(this);
-            }
-            return change;
-        }
-
+        //Calcula la media de la puntuación
         public bool mediaPuntuacion()
         {
             bool mediaP = false;
@@ -124,6 +112,7 @@ namespace library
             return mediaP;
         }
 
+        //Calcula el número total de estrellas del producto
         public bool totalEstrellas()
         {
             bool totalE = false;
@@ -136,12 +125,22 @@ namespace library
             return totalE;
         }
 
+        //Encuentra la puntuación según item y user
         public bool findItem()
         {
             bool find = false;
             CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
             find = aux_CAD_Pun.findItem(this);
             return find;
+        }
+
+        //Encuentra la puntuación según item
+        public bool findItemSinUser()
+        {
+            bool findU = false;
+            CADPuntuacion aux_CAD_Pun = new CADPuntuacion();
+            findU = aux_CAD_Pun.findItemSinUser(this);
+            return findU;
         }
     }
 }

@@ -64,16 +64,28 @@ namespace Interfaz
                     {
                         // Mostrar el contenido solo si el usuario es administrador
                         divUsuariosConMasSeguidores.Visible = true;
+                        divadminaccess.Visible = true;
                     }
                     else
                     {
                         // Ocultar el contenido si el usuario no es administrador
+                        divadminaccess.Visible = false;
                         divUsuariosConMasSeguidores.Visible = false;
                     }
 
                 }
                 
             }
+        }
+
+        protected void btn_adminO(object sender, EventArgs e)
+        {
+            Response.Redirect("adminOferta.aspx");
+        }
+
+        protected void btn_adminS(object sender, EventArgs e)
+        {
+            Response.Redirect("adminServicio.aspx");
         }
 
         protected void btnMostrarUsuarios_Click(object sender, EventArgs e)
@@ -130,6 +142,7 @@ namespace Interfaz
 
             // Verificar si el nuevo nombre de usuario ya existe en la base de datos
             bool usernameExists = usuario.VerificarEmailExistente(newEmail);
+            bool badmail = usuario.EsCorreoElectronico(newEmail);
 
             if (usernameExists)
             {
@@ -139,6 +152,10 @@ namespace Interfaz
             else if (newEmail == "")
             {
                 changEmail.Text = "No se admiten emails vacíos.";
+            }
+            else if (!badmail)
+            {
+                changEmail.Text = "No cumple el formato.";
             }
             else
             {

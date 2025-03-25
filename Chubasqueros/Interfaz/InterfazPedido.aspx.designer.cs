@@ -24,31 +24,22 @@ namespace Interfaz
         protected global::System.Web.UI.WebControls.Label Message;
 
         /// <summary>
-        /// Control CajaProducto.
+        /// Control ListView_Pedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CajaProducto;
+        protected global::System.Web.UI.WebControls.ListView ListView_Pedido;
 
         /// <summary>
-        /// Control miImagen.
+        /// Control ListView_PedUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image miImagen;
-
-        /// <summary>
-        /// Control CajaUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CajaUsuario;
+        protected global::System.Web.UI.WebControls.ListView ListView_PedUsuario;
 
         /// <summary>
         /// Control botoncompra.

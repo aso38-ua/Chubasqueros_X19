@@ -61,5 +61,21 @@ Es muy sencillo. Solo tienes que hacer clic en el botón "Enviar Currículum" a 
         <span></span>
         ¡Pincha aquí!
     </a>
+
+    <div class="texto-container">
+        <h2>¿Quieres apoyarnos?</h2>
+        <p>Si quieres contribuir a la causa y seguir ayudando a que esto crezca cada vez más, puedes aportar tu granito de arena en nuestra página de donaciones dando click aquí debajo, no hace falta
+            ni estar registrado, por peces cada vez más y mejor vestidos gracias a chubasqueros para peces
+        </p>
+        
+    </div>
+
+    <a href="Donaciones.aspx" style="margin-left:43%">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Quiero apoyar
+    </a>
     
 </asp:Content>

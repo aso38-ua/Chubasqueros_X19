@@ -6,6 +6,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
     <h2>Nuestros servicios</h2>
+
+    <!-- Muestra dinámicamente lo que devuelve loadAllServices en formato de HTML -->
     <div class="container-servicio">
         <div>
             <br />

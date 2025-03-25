@@ -18,8 +18,8 @@ namespace Library
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
-        
-        
+
+
         // Create
         public bool CrearUsuario(ENUsuario en)
         {
@@ -65,12 +65,17 @@ namespace Library
                     resultado = false;
                     Console.WriteLine("User operation has failed. Error: {0}", e.Message);
                 }
+                finally
+                {
+                    if (constring != null) connection.Close();
+                }
             }
 
             return resultado;
         }
 
-        public bool ReadUsuario(ENUsuario en) {
+        public bool ReadUsuario(ENUsuario en)
+        {
             bool resultado = false;
             string query = "SELECT * FROM usuario WHERE nombre = @Nombre";
 
@@ -106,12 +111,16 @@ namespace Library
                     resultado = false;
                     Console.WriteLine("User operation has failed. Error: {0}", e.Message);
                 }
+                finally
+                {
+                    if (constring != null) connection.Close();
+                }
             }
 
             return resultado;
         }
 
-        public bool updateUsuario(ENUsuario en) 
+        public bool updateUsuario(ENUsuario en)
         {
             bool result = false;
 
@@ -136,17 +145,26 @@ namespace Library
                         result = true;
                     }
                 }
+                catch (SqlException e)
+                {
+                    result = false;
+                    Console.WriteLine("User operation has failed. Error: {0}", e.Message);
+                }
                 catch (Exception ex)
                 {
                     // Manejar la excepción en caso de algún error
                     Console.WriteLine("Error al actualizar el usuario: " + ex.Message);
+                }
+                finally
+                {
+                    if (constring != null) connection.Close();
                 }
             }
 
             return result;
         }
 
-        public bool deleteUsuario(ENUsuario en) 
+        public bool deleteUsuario(ENUsuario en)
         {
             bool result = false;
 
@@ -393,20 +411,24 @@ namespace Library
 
         public static bool VerificarEmailExistente(string newEmail)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (EsCorreoElectronico(newEmail))
             {
-                string query = "SELECT COUNT(*) FROM usuario WHERE email = @newEmail";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.AddWithValue("@newEmail", newEmail);
+                    string query = "SELECT COUNT(*) FROM usuario WHERE email = @newEmail";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@newEmail", newEmail);
 
-                    connection.Open();
-                    int count = (int)command.ExecuteScalar();
+                        connection.Open();
+                        int count = (int)command.ExecuteScalar();
 
-                    return count > 0;
+                        return count > 0;
+                    }
                 }
             }
+            return false;
         }
 
         public static void ActualizarEmail(string currentEmail, string newEmail)
@@ -428,7 +450,7 @@ namespace Library
                     }
                 }
             }
-            
+
         }
 
         public static bool EsCorreoElectronico(string input)

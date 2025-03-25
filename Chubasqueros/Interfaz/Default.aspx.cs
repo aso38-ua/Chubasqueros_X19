@@ -11,7 +11,10 @@ namespace Interfaz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Cookies["AvisoCookie"] == null || Request.Cookies["AvisoCookie"].Value != "Aceptado")
+            {
+                Response.Redirect("Aviso.aspx");
+            }
         }
 
     }

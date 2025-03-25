@@ -1,0 +1,137 @@
+﻿.btn {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 8px 20px;
+}
+
+#BtnRegresar {
+    background-color: #33cc33;
+    border-color: Green;
+    border-style: Groove;
+}
+
+#TBBuscar {
+    border-radius: 10px;
+}
+
+#BtnBuscar {
+    margin-bottom: 50px;
+}
+
+#Estrella1 {
+    background-color: #ff0000;
+    border-color: #FFCC00;
+    margin-bottom: 5px;
+}
+
+#Estrella2 {
+    background-color: #ff6600;
+    border-color: #FFCC00;
+    margin-bottom: 5px;
+}
+
+#Estrella3 {
+    background-color: #ff9933;
+    border-color: #FFCC00;
+    margin-bottom: 5px;
+}
+
+#Estrella4 {
+    background-color: #ffcc00;
+    border-color: #FFCC00;
+    margin-bottom: 5px;
+}
+
+#Estrella5 {
+    background-color: Yellow;
+    border-color: #FFCC00;
+    border-style: NotSet;
+    margin-bottom: 10px;
+}
+
+#BtnPuntuar {
+    background-color: #0099ff;
+    border-style: Groove;
+    border-color: #9966ff;
+    margin-top: 10px;
+}
+
+BtnModificar {
+    background-color: #0099ff;
+    border-style: Groove;
+    border-color: #9966ff;
+    margin-top: 10px;
+}
+
+#eliminarP {
+    background-color: #ff3300;
+    border-color: Red;
+    border-style: Groove;
+    height: 36px;
+    width: 279px;
+}
+
+h3 {
+    text-align: center;
+}
+
+#Comentarios {
+    border-radius: 15px;
+}
+
+#Button1 {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 8px 20px;
+    margin-bottom: 10px;
+}
+
+#Button2 {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 8px 20px;
+    margin-bottom: 10px;
+}
+
+#BtnLeerPrimero,
+#BtnLeerAnterior,
+#BtnLeerSiguiente {
+    margin-top: 10px;
+}
+
+#TBComentario {
+    border-radius: 15px;
+}
+
+#BtnComentar {
+    margin-top: 15px;
+    background-color: #0099FF;
+    border-color: Blue;
+    border-style: Groove;
+}
+
+#BtnEliminar {
+    background-color: #ff3300;
+    border-color: Red;
+    border-style: Groove;
+}
+
+#Like {
+    background-color: #00ff00;
+}
+
+#Dislike {
+    background-color: #ff0000;
+}
+
+#TBModificar {
+    height: 150px;
+    width: 550px;
+}
+
+#BtnModificar {
+    background-color: #ff9933;
+    border-color: Red;
+    border-style: Groove;
+}
+

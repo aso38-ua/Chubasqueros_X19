@@ -17,7 +17,7 @@ namespace Library
         private String constring; //Conexion con la BB.DD 
         public CADCarrito()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
         public bool verCarrito(ENCarrito c)
         {
@@ -28,28 +28,28 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "SELECT * FROM[dbo].[carrito] WHERE usuario = '" + c.usuario + "'; ";
+                String cout = "SELECT * FROM [dbo].[carrito] WHERE usuario_id = '" + c.usuario + "'; ";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 SqlDataReader read = consult.ExecuteReader();
                 int contador = 0;
                 while (read.Read())
                 {
-                    if(contador == 0)
+                    if (contador == 0)
                     {
                         c.producto = new int[1];
-                        c.producto[0] = int.Parse(read["producto"].ToString());
-                        c.usuario = int.Parse(read["usuario"].ToString());
+                        c.producto[0] = int.Parse(read["producto_id"].ToString());
+                        c.usuario = int.Parse(read["usuario_id"].ToString());
                     }
                     else
                     {
-                        c.AñadirProducto(int.Parse(read["producto"].ToString()));
+                        c.AñadirProducto(int.Parse(read["producto_id"].ToString()));
                     }
                     contador++;
                 }
                 leido = true;
                 read.Close();
                 conectsql.Close();
-               
+
             }
             catch (SqlException e)
             {
@@ -61,7 +61,7 @@ namespace Library
                 leido = false;
                 Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
             }
-            return leido ;
+            return leido;
         }
         public bool crearCarrito(ENCarrito c)
         {
@@ -72,16 +72,16 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "INSERT INTO[dbo].[carrito] (producto, usuario) VALUES('" + c.producto + "', " + c.usuario + "';";
+                String cout = "INSERT INTO [dbo].[carrito] (producto_id, usuario_id) VALUES ('" + c.producto[0] + "', " + c.usuario + "');";
                 SqlCommand consult = new SqlCommand(cout, conectsql);
                 consult.ExecuteNonQuery();
-                if(c.producto.Length > 1)
+                if (c.producto.Length > 1)
                 {
-                    for(int i = 1; i < c.producto.Length; i++)
+                    for (int i = 1; i < c.producto.Length; i++)
                     {
-                       cout = "INSERT INTO[dbo].[carrito] (producto, usuario) VALUES('" + c.producto + "', " + c.usuario + "';";
-                       consult = new SqlCommand(cout, conectsql);
-                       consult.ExecuteNonQuery();
+                        cout = "INSERT INTO [dbo].[carrito] (producto_id, usuario_id) VALUES ('" + c.producto[i] + "', " + c.usuario + "');";
+                        consult = new SqlCommand(cout, conectsql);
+                        consult.ExecuteNonQuery();
                     }
                 }
                 create = true;
@@ -109,7 +109,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "DELETE * FROM [dbo].[carrito] where usuario '" + c.usuario + ";";
+                String cout = "DELETE FROM [dbo].[carrito] WHERE usuario_id '" + c.usuario + ";";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 delete = true;
@@ -137,7 +137,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "UPDATE * FROM [dbo].[carrito]";
+                String cout = "UPDATE [dbo].[carrito] SET cantidad = " + c.cantidad + " ,preciotot = '" + c.total.ToString() + "' WHERE usuario_id = " + c.usuario + " AND producto_id = " + c.producto + ";";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 update = true;
@@ -156,13 +156,7 @@ namespace Library
             return update;
         }
 
-        //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
-        public int cuentaCantidad()
-        {
-            return 0;
-        }
-
-        //Añadir producto desde favoritos al carrito
+        //Añadir producto desde el producto al carrito
         public bool AñadirProducto(ENCarrito c)
         {
             bool aprod = false;
@@ -172,7 +166,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "INSERT INTO [dbo].[carrito] (producto, usuario) VALUES ('" + c.producto[0] + "', " + c.usuario + "';";
+                String cout = "INSERT INTO [dbo].[carrito] (producto_id, usuario_id) VALUES ('" + c.producto[0] + "', " + c.usuario + "');";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 aprod = true;
@@ -201,7 +195,7 @@ namespace Library
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
 
-                string cout = "DELETE FROM [dbo].[carrito] WHERE producto = '" + c.producto[0] + "' AND usuario ='" + c.usuario + "';";
+                String cout = "DELETE FROM [dbo].[carrito] WHERE producto_id = '" + c.producto[0] + "' AND usuario_id ='" + c.usuario + "';";
                 SqlCommand consulta = new SqlCommand(cout, conectsql);
                 consulta.ExecuteNonQuery();
                 eprod = true;
@@ -221,39 +215,107 @@ namespace Library
 
         }
 
-        //Cuenta todos los productos que ha pedido el usuario (Diferentes productos)
-        public int ProductosTotales()
+        public bool readCarritoinProduct(ENCarrito c)
         {
-            return 0;
+            bool leido = false;
+            try
+            {
+                String consultaString = "SELECT * FROM [dbo].[carrito] WHERE usuario_id = " + c.usuario + " AND producto_id = " + c.producto[0] + ";";
+                SqlConnection conexion = new SqlConnection(constring);
+                conexion.Open();
+
+                SqlCommand consulta = new SqlCommand(consultaString, conexion);
+                SqlDataReader consultabusqueda = consulta.ExecuteReader();
+                consultabusqueda.Read();
+                if (int.Parse(consultabusqueda["usuario_id"].ToString()) == c.usuario)
+                {
+                    leido = true;
+                }
+                consultabusqueda.Close();
+                conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                leido = false;
+                Console.WriteLine("Cart operation has failed. Error: {0} ", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                leido = false;
+                Console.WriteLine("Cart operation has failed. Error: {0} ", ex.Message);
+            }
+            return leido;
         }
 
-        //Calcula el precio total que hay en el carrito
-        public float PrecioTotal(ENCarrito c)
-        {
-            ENProducto producto = new ENProducto();
+        //Lo siguiente era para calcular la cantidad y el precio total
 
+        /*
+        //Calcula el precio total que hay en el carrito
+        public bool PrecioTotal(ENCarrito c)
+        {
+
+            bool totalprecio = false;
+            try
+            {
+                
+                SqlConnection conectsql = null;
+                conectsql = new SqlConnection(constring);
+                conectsql.Open();
+                
+                String cout = "SELECT precio FROM [dbo].[producto]";
+                SqlCommand consulta = new SqlCommand(cout, conectsql);
+                consulta.ExecuteNonQuery();
+
+
+
+
+                
+                conectsql.Close();
+            }
+            catch (SqlException e)
+            {
+                totalprecio = false;
+                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                totalprecio = false;
+                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+            }
+            return totalprecio;
+        }
+
+        //Cuenta la cantidad que ha escogido el usuario sobre 1 producto
+        public bool cuentaCantidad(ENCarrito c)
+        {
+            bool cant = false ;
             try
             {
                 SqlConnection conectsql = null;
                 conectsql = new SqlConnection(constring);
                 conectsql.Open();
-                
-                string cout = "SELECT total FROM [dbo].[carrito]";
-                SqlCommand consulta = new SqlCommand(cout, conectsql);
-                consulta.ExecuteNonQuery();
-               
+
+                String cout = "INSERT INTO carrito (cantidad) VALUES (@cantidad)";
+                using (SqlCommand command = new SqlCommand(cout, conectsql))
+                {
+                    command.Parameters.AddWithValue("@cantidad", c.cantidad);
+                    command.ExecuteNonQuery();
+                }
+                cant = true;
                 conectsql.Close();
             }
             catch (SqlException e)
             {
-                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+                cant = false ;
+                Console.WriteLine("User operation has failed.Error : {0}", e.Message);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Cart operation has failed.Error: {0}", e.Message);
+                cant = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
-            return 0;
+            return cant ;
         }
-
+        */
     }
 }
